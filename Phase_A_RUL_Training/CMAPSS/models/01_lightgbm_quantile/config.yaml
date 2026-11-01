@@ -1,0 +1,7 @@
+track: CMAPSS
+model: 01_lightgbm_quantile
+base_model: 01_lightgbm
+quantiles: [0.1, 0.9]
+interval: 80
+selection: validation quantile loss with configured early stopping
+features: reuse 01_lightgbm engineered window features

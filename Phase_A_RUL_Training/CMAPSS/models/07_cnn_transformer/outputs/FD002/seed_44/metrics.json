@@ -1,0 +1,42 @@
+{
+  "best_epoch": 3,
+  "config_hash": "1da6a2dd3a4630c8c1d88a2457149c2d6298833358ed428d0aaf867dbeb7fa54",
+  "dataset": "FD002",
+  "device": "cuda",
+  "dropped_constant_sensors": [],
+  "epochs_completed": 23,
+  "metrics": {
+    "test_clipped": {
+      "mae": 10.758496348001781,
+      "mse": 212.0481614047492,
+      "n": 259,
+      "nasa_score": 1004.3069853215547,
+      "nasa_score_mean": 3.8776331479596706,
+      "r2": 0.8849927639405863,
+      "rmse": 14.56187355407089
+    },
+    "test_raw": {
+      "mae": 18.134614069029173,
+      "mse": 758.3942450568478,
+      "n": 259,
+      "nasa_score": 9290.021849484741,
+      "nasa_score_mean": 35.868810229670814,
+      "r2": 0.7377757160774223,
+      "rmse": 27.53895867778678
+    },
+    "val": {
+      "mae": 12.135095581350203,
+      "mse": 256.22897592033934,
+      "n": 10676,
+      "nasa_score": 55392.60312432282,
+      "nasa_score_mean": 5.188516590888237,
+      "r2": 0.8525677028323528,
+      "rmse": 16.00715389819
+    }
+  },
+  "model": "07_cnn_transformer",
+  "n_params": 103809,
+  "padded_test_engines": 6,
+  "seed": 44,
+  "train_seconds": 110.21441369998502
+}

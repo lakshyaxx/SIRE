@@ -1,0 +1,41 @@
+{
+  "best_iteration": 172,
+  "config_hash": "8879f750eaacaae4e95451327328453ae0b5288c9be937da700ccac0c1b684cb",
+  "dataset": "FD004",
+  "device": "cpu",
+  "dropped_constant_sensors": [],
+  "metrics": {
+    "test_clipped": {
+      "mae": 9.484031668813474,
+      "mse": 193.00780756187373,
+      "n": 248,
+      "nasa_score": 1016.7919723070113,
+      "nasa_score_mean": 4.099967630270207,
+      "r2": 0.8955234531131754,
+      "rmse": 13.89272498690857
+    },
+    "test_raw": {
+      "mae": 18.15380196897487,
+      "mse": 684.7122516081403,
+      "n": 248,
+      "nasa_score": 4487.221862132919,
+      "nasa_score_mean": 18.093636540858547,
+      "r2": 0.7696777074321662,
+      "rmse": 26.167006928728785
+    },
+    "val": {
+      "mae": 8.58731039094496,
+      "mse": 238.2287240746277,
+      "n": 12518,
+      "nasa_score": 334539.9639960056,
+      "nasa_score_mean": 26.724713532194087,
+      "r2": 0.8549430650745956,
+      "rmse": 15.434659830220674
+    }
+  },
+  "model": "01_lightgbm_w50",
+  "n_params": 5332,
+  "padded_test_engines": 20,
+  "seed": 43,
+  "train_seconds": 6.381383600004483
+}

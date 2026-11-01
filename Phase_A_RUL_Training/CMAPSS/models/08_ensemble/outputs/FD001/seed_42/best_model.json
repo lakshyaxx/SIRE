@@ -1,0 +1,45 @@
+{
+  "dataset": "FD001",
+  "excluded_models": [],
+  "members": [
+    "01_lightgbm",
+    "02_lstm",
+    "03_bilstm_attention",
+    "04_cnn1d",
+    "05_transformer",
+    "06_autoencoder",
+    "07_cnn_transformer"
+  ],
+  "seed": 42,
+  "selected_method": "weighted_average",
+  "selected_parameters": {
+    "weights": [
+      0.09496596049531413,
+      0.48307084306016324,
+      0.019593214423980265,
+      0.0,
+      0.40236998202054236,
+      0.0,
+      0.0
+    ]
+  },
+  "stacking_coefficients": {
+    "01_lightgbm": 0.1681804960087836,
+    "02_lstm": 0.37678964903033996,
+    "03_bilstm_attention": 0.15962198458389884,
+    "04_cnn1d": 0.0,
+    "05_transformer": 0.30698042494653743,
+    "06_autoencoder": 0.0,
+    "07_cnn_transformer": 0.015186555356930058
+  },
+  "stacking_intercept": -1.632061148580263,
+  "weighted_average_weights": {
+    "01_lightgbm": 0.09496596049531413,
+    "02_lstm": 0.48307084306016324,
+    "03_bilstm_attention": 0.019593214423980265,
+    "04_cnn1d": 0.0,
+    "05_transformer": 0.40236998202054236,
+    "06_autoencoder": 0.0,
+    "07_cnn_transformer": 0.0
+  }
+}

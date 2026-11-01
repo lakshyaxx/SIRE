@@ -1,0 +1,43 @@
+{
+  "attention_test_units": 20,
+  "best_epoch": 4,
+  "config_hash": "b9f5e0f4491fccaa6838621e9abd982f36b91fb74ea336f0c8bed014c0877e3c",
+  "dataset": "FD004",
+  "device": "cuda",
+  "dropped_constant_sensors": [],
+  "epochs_completed": 24,
+  "metrics": {
+    "test_clipped": {
+      "mae": 10.774566010121376,
+      "mse": 215.74662879204527,
+      "n": 248,
+      "nasa_score": 1017.9261145836603,
+      "nasa_score_mean": 4.104540784611533,
+      "r2": 0.883214761809879,
+      "rmse": 14.688316063866724
+    },
+    "test_raw": {
+      "mae": 19.405844078909965,
+      "mse": 755.4740631964801,
+      "n": 248,
+      "nasa_score": 6084.90366347105,
+      "nasa_score_mean": 24.53590186883488,
+      "r2": 0.7458749747762201,
+      "rmse": 27.485888437459685
+    },
+    "val": {
+      "mae": 9.685858123971023,
+      "mse": 236.2400168354918,
+      "n": 12518,
+      "nasa_score": 237079.7684212221,
+      "nasa_score_mean": 18.93910915651239,
+      "r2": 0.8561539844450181,
+      "rmse": 15.37010139314285
+    }
+  },
+  "model": "03_bilstm_attention",
+  "n_params": 170241,
+  "padded_test_engines": 11,
+  "seed": 44,
+  "train_seconds": 92.02268160000676
+}

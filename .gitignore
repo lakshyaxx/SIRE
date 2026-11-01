@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# Datasets (large; the README files in these folders are kept)
+Phase_A_RUL_Training/*/data/*.txt
+Phase_A_RUL_Training/*/data/*.h5
+Phase_A_RUL_Training/*/data/*.hdf5
+Phase_A_RUL_Training/*/data/*.pdf
+Phase_A_RUL_Training/*/data/*.zip
+
+# Model weights and large artifacts
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.gguf
+
+# Phase C: source documents and the rebuildable index
+Phase_C_Knowledge_RAG/corpus/**/*.pdf
+Phase_C_Knowledge_RAG/corpus/**/*.docx
+Phase_C_Knowledge_RAG/corpus/**/*.html
+Phase_C_Knowledge_RAG/index/*
+!Phase_C_Knowledge_RAG/index/.gitkeep
+
+# Phase D: run traces
+Phase_D_Hypothesis_Engine/traces/*
+!Phase_D_Hypothesis_Engine/traces/.gitkeep
+
+# Phase E: personal photos
+Phase_E_Vision/datasets/raw_photos/*
+!Phase_E_Vision/datasets/raw_photos/.gitkeep
+
+# Phase G: local state
+Phase_G_Final_Integration/persistence/*.db
+*.sqlite3
+.DS_Store

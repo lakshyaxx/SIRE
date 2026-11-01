@@ -1,0 +1,10 @@
+{
+  "calibration_seed_policy": "pooled fixed seeds 42, 43, 44",
+  "calibration_split": "val_last raw RUL",
+  "dataset": "FD001",
+  "n_validation_points": 360,
+  "pooled_val_last_coverage": 0.8027777777777778,
+  "spread_scale": 3.137260237952802,
+  "target_coverage": 0.8,
+  "z_value": 1.28
+}

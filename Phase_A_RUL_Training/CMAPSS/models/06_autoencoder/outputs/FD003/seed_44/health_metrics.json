@@ -1,0 +1,21 @@
+{
+  "quality": {
+    "mean_unit_monotonicity": 0.08633217367943233,
+    "mean_unit_trendability": 0.5560986353854248,
+    "spearman_hi_rul": -0.1656788885831922,
+    "units": 100
+  },
+  "test_onset": {
+    "median_lead_time_cycles": 130.0,
+    "onset_consecutive_steps": 5,
+    "onset_share": 0.56,
+    "onset_threshold_hi": 1.1151309813249772,
+    "units_with_onset": 56
+  },
+  "validation_quality": {
+    "mean_unit_monotonicity": 0.22029328256270636,
+    "mean_unit_trendability": 0.6418138816495219,
+    "spearman_hi_rul": -0.6414899561586099,
+    "units": 20
+  }
+}

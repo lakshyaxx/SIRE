@@ -1,0 +1,42 @@
+{
+  "best_epoch": 4,
+  "config_hash": "bff34e893e6c8a8d20a657265db8d3839147ebe594accd316b159ff89c316d75",
+  "dataset": "FD002",
+  "device": "cuda",
+  "dropped_constant_sensors": [],
+  "epochs_completed": 24,
+  "metrics": {
+    "test_clipped": {
+      "mae": 10.065514120816264,
+      "mse": 189.4495473154729,
+      "n": 259,
+      "nasa_score": 898.7085988546394,
+      "nasa_score_mean": 3.469917370095133,
+      "r2": 0.8972494330291718,
+      "rmse": 13.7640672519235
+    },
+    "test_raw": {
+      "mae": 17.559722615024757,
+      "mse": 704.4707851343638,
+      "n": 259,
+      "nasa_score": 8307.487646467069,
+      "nasa_score_mean": 32.075241878251234,
+      "r2": 0.7564204259456272,
+      "rmse": 26.54186853132921
+    },
+    "val": {
+      "mae": 9.390121904025591,
+      "mse": 167.28336091182652,
+      "n": 10676,
+      "nasa_score": 37363.74822770315,
+      "nasa_score_mean": 3.499789080901382,
+      "r2": 0.9037463655756763,
+      "rmse": 12.933806899433225
+    }
+  },
+  "model": "02_lstm",
+  "n_params": 215105,
+  "padded_test_engines": 24,
+  "seed": 42,
+  "train_seconds": 74.33410430001095
+}

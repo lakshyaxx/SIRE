@@ -1,0 +1,15 @@
+track: CMAPSS
+model: 08_ensemble
+seed: 42
+rul_cap: 125
+official_selection_metric: validation_rmse
+weighted_average:
+  optimizer: SLSQP
+  weight_min: 0.0
+  weight_max: 1.0
+  sum_to_one: true
+stacking:
+  estimator: Ridge
+  positive: true
+  alpha: 1.0
+device: auto

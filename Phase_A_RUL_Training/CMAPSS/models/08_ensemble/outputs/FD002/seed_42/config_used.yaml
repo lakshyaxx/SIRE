@@ -1,0 +1,57 @@
+track: CMAPSS
+model: 08_ensemble
+seed: 42
+rul_cap: 125
+official_selection_metric: validation_rmse
+weighted_average:
+  optimizer: SLSQP
+  weight_min: 0.0
+  weight_max: 1.0
+  sum_to_one: true
+stacking:
+  estimator: Ridge
+  positive: true
+  alpha: 1.0
+device: auto
+dataset: FD002
+members:
+- 01_lightgbm
+- 02_lstm
+- 03_bilstm_attention
+- 04_cnn1d
+- 05_transformer
+- 06_autoencoder
+- 07_cnn_transformer
+excluded_models: []
+selected_method: stacking
+selected_parameters:
+  coefficients:
+  - 0.13519345774900152
+  - 0.5823674266110644
+  - 0.0714842069425581
+  - 0.0
+  - 0.2448625170544095
+  - 0.004464239509541842
+  - 0.0
+  intercept: -2.713425381631552
+weighted_average_weights:
+  01_lightgbm: 0.10119555216598289
+  02_lstm: 0.6272731663915415
+  03_bilstm_attention: 0.02966032268162569
+  04_cnn1d: 2.822860859343998e-14
+  05_transformer: 0.2418709587608182
+  06_autoencoder: 0.0
+  07_cnn_transformer: 3.553388085552052e-15
+stacking_coefficients:
+  01_lightgbm: 0.13519345774900152
+  02_lstm: 0.5823674266110644
+  03_bilstm_attention: 0.0714842069425581
+  04_cnn1d: 0.0
+  05_transformer: 0.2448625170544095
+  06_autoencoder: 0.004464239509541842
+  07_cnn_transformer: 0.0
+stacking_intercept: -2.713425381631552
+validation_rmse:
+  weighted_average: 12.592461464535436
+  stacking: 12.53826094158193
+alignment_verified: true
