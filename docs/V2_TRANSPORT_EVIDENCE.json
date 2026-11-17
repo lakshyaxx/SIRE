@@ -1,0 +1,219 @@
+{
+  "timestamp_utc": "2026-11-16T19:55:08.579050+00:00",
+  "base": "http://127.0.0.1:8000",
+  "health": {
+    "status": "ok",
+    "contract_version": "2.0",
+    "ml_ready": true,
+    "ollama_ready": true,
+    "text_ready": true,
+    "vision_ready": true,
+    "models": [
+      "qwen3:4b-instruct",
+      "qwen3-vl:2b-instruct",
+      "qwen3-vl:2b",
+      "qwen3:4b"
+    ],
+    "mode": "local",
+    "hosted_providers": "disabled"
+  },
+  "spa_routes": {
+    "/": 200,
+    "/chat": 200,
+    "/predictions": 200,
+    "/models": 200,
+    "/knowledge": 200,
+    "/settings": 200,
+    "/investigations": 200
+  },
+  "conversation_id": "c8eb88d0ab0a45d4bbb49667e82fcc1a",
+  "prediction": {
+    "dataset": "FD003",
+    "model_id": "fd003-01_lightgbm-s42",
+    "purpose": "rul",
+    "asset_id": "FD003-ENGINE-001",
+    "attachment_id": null,
+    "data_origin": "nasa_cmapss_simulation",
+    "last_cycle": 233,
+    "legacy_output": {
+      "rul": 43.38973340387454,
+      "rul_unit": "cycles",
+      "n_steps_used": 40,
+      "model": "01_lightgbm",
+      "dataset": "FD003",
+      "seed": 42,
+      "version": "6080ca36068bc8741bab1628c1aad52e1aed34d1fbda31da1b129e85584bd23b",
+      "warnings": [
+        "Used the latest 40 of 233 available cycles."
+      ],
+      "top_contributors": [
+        {
+          "channel": "s11",
+          "mean_abs_contribution": 15.173009104834229,
+          "mean_contribution": -15.173009104834229
+        },
+        {
+          "channel": "s9",
+          "mean_abs_contribution": 12.101093744100831,
+          "mean_contribution": -12.101093744100831
+        },
+        {
+          "channel": "s14",
+          "mean_abs_contribution": 10.097202423753302,
+          "mean_contribution": -10.097202423753302
+        },
+        {
+          "channel": "s12",
+          "mean_abs_contribution": 5.48391231801377,
+          "mean_contribution": -5.48391231801377
+        },
+        {
+          "channel": "s13",
+          "mean_abs_contribution": 4.108592059939515,
+          "mean_contribution": -4.108592059939515
+        }
+      ]
+    },
+    "rul_cycles": 43.38973340387454,
+    "interval": null,
+    "interval_method": null,
+    "anomaly": null,
+    "provenance": {
+      "source": "ml/artifacts/cmapss/model_registry.json",
+      "artifact_dir": "artifacts/01_lightgbm/outputs_tuned/FD003/seed_42",
+      "version": "6080ca36068bc8741bab1628c1aad52e1aed34d1fbda31da1b129e85584bd23b",
+      "seed": 42,
+      "runtime": "cpu",
+      "bundle_sha256": "3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37"
+    },
+    "warnings": [
+      "Used the latest 40 of 233 available cycles."
+    ],
+    "target_policy": "Original saved inference; RUL training targets capped where configured; output is not recapped",
+    "limitations": [
+      "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+      "A prediction is model inference, not proof of a failed component or a maintenance limit."
+    ],
+    "id": "129684a4de494417b5506ade416db339"
+  },
+  "first_token_seconds": 17.686999999999898,
+  "cancel": {
+    "cancellation_requested": true
+  },
+  "elapsed_seconds": 17.78100000000086,
+  "events": [
+    {
+      "type": "started",
+      "request_id": "e689d0b7330c42389977b17e25880663",
+      "user_message_id": "a6f428bb27c44c67ab29f5e6206d1af0"
+    },
+    {
+      "type": "evidence",
+      "evidence": [
+        {
+          "id": "prediction:129684a4de494417b5506ade416db339",
+          "modality": "sensor_model",
+          "kind": "model_inference",
+          "source_id": "129684a4de494417b5506ade416db339",
+          "observation": "{\"id\": \"129684a4de494417b5506ade416db339\", \"dataset\": \"FD003\", \"model_id\": \"fd003-01_lightgbm-s42\", \"data_origin\": \"nasa_cmapss_simulation\", \"last_cycle\": 233, \"rul_cycles\": 43.38973340387454, \"interval\": null, \"interval_method\": null, \"provenance\": {\"source\": \"ml/artifacts/cmapss/model_registry.json\", \"artifact_dir\": \"artifacts/01_lightgbm/outputs_tuned/FD003/seed_42\", \"version\": \"6080ca36068bc8741bab1628c1aad52e1aed34d1fbda31da1b129e85584bd23b\", \"seed\": 42, \"runtime\": \"cpu\", \"bundle_sha256\": \"3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37\"}, \"limitations\": [\"NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.\", \"A prediction is model inference, not proof of a failed component or a maintenance limit.\"]}",
+          "locator": null,
+          "reliability": "medium",
+          "asset_identity": "FD003-ENGINE-001",
+          "predicate": null,
+          "value": null,
+          "limitations": [
+            "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+            "A prediction is model inference, not proof of a failed component or a maintenance limit."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "delta",
+      "text": "The"
+    },
+    {
+      "type": "done",
+      "status": "cancelled",
+      "metadata": {
+        "provider": "ollama",
+        "model": "qwen3:4b-instruct",
+        "tools": [],
+        "evidence": [
+          {
+            "id": "prediction:129684a4de494417b5506ade416db339",
+            "modality": "sensor_model",
+            "kind": "model_inference",
+            "source_id": "129684a4de494417b5506ade416db339",
+            "observation": "{\"id\": \"129684a4de494417b5506ade416db339\", \"dataset\": \"FD003\", \"model_id\": \"fd003-01_lightgbm-s42\", \"data_origin\": \"nasa_cmapss_simulation\", \"last_cycle\": 233, \"rul_cycles\": 43.38973340387454, \"interval\": null, \"interval_method\": null, \"provenance\": {\"source\": \"ml/artifacts/cmapss/model_registry.json\", \"artifact_dir\": \"artifacts/01_lightgbm/outputs_tuned/FD003/seed_42\", \"version\": \"6080ca36068bc8741bab1628c1aad52e1aed34d1fbda31da1b129e85584bd23b\", \"seed\": 42, \"runtime\": \"cpu\", \"bundle_sha256\": \"3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37\"}, \"limitations\": [\"NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.\", \"A prediction is model inference, not proof of a failed component or a maintenance limit.\"]}",
+            "locator": null,
+            "reliability": "medium",
+            "asset_identity": "FD003-ENGINE-001",
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+              "A prediction is model inference, not proof of a failed component or a maintenance limit."
+            ]
+          }
+        ],
+        "attachments": [],
+        "elapsed_seconds": 17.75
+      }
+    }
+  ],
+  "history": {
+    "id": "c8eb88d0ab0a45d4bbb49667e82fcc1a",
+    "title": "[verification] explicit prediction + cancel",
+    "created_at": "2026-11-16T19:55:09.812838+00:00",
+    "updated_at": "2026-11-16T19:55:32.846629+00:00",
+    "messages": [
+      {
+        "id": "a6f428bb27c44c67ab29f5e6206d1af0",
+        "conversation_id": "c8eb88d0ab0a45d4bbb49667e82fcc1a",
+        "role": "user",
+        "content": "Briefly interpret this explicitly attached NASA model result and its limitations.",
+        "status": "complete",
+        "metadata": {
+          "attachments": [],
+          "prediction_id": "129684a4de494417b5506ade416db339"
+        },
+        "created_at": "2026-11-16T19:55:15.095991+00:00"
+      },
+      {
+        "id": "c9d3c360fb814947803c1753926217e7",
+        "conversation_id": "c8eb88d0ab0a45d4bbb49667e82fcc1a",
+        "role": "assistant",
+        "content": "The",
+        "status": "cancelled",
+        "metadata": {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "tools": [],
+          "evidence": [
+            {
+              "id": "prediction:129684a4de494417b5506ade416db339",
+              "modality": "sensor_model",
+              "kind": "model_inference",
+              "source_id": "129684a4de494417b5506ade416db339",
+              "observation": "{\"id\": \"129684a4de494417b5506ade416db339\", \"dataset\": \"FD003\", \"model_id\": \"fd003-01_lightgbm-s42\", \"data_origin\": \"nasa_cmapss_simulation\", \"last_cycle\": 233, \"rul_cycles\": 43.38973340387454, \"interval\": null, \"interval_method\": null, \"provenance\": {\"source\": \"ml/artifacts/cmapss/model_registry.json\", \"artifact_dir\": \"artifacts/01_lightgbm/outputs_tuned/FD003/seed_42\", \"version\": \"6080ca36068bc8741bab1628c1aad52e1aed34d1fbda31da1b129e85584bd23b\", \"seed\": 42, \"runtime\": \"cpu\", \"bundle_sha256\": \"3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37\"}, \"limitations\": [\"NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.\", \"A prediction is model inference, not proof of a failed component or a maintenance limit.\"]}",
+              "locator": null,
+              "reliability": "medium",
+              "asset_identity": "FD003-ENGINE-001",
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+                "A prediction is model inference, not proof of a failed component or a maintenance limit."
+              ]
+            }
+          ],
+          "attachments": [],
+          "elapsed_seconds": 17.75
+        },
+        "created_at": "2026-11-16T19:55:32.846629+00:00"
+      }
+    ],
+    "attachments": []
+  }
+}

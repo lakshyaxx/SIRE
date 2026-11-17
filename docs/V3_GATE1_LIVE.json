@@ -1,0 +1,220 @@
+{
+  "specialist": {
+    "result": {
+      "characters": 25,
+      "lines": 1,
+      "words": 5,
+      "evidence_ids": []
+    },
+    "run_id": "0e0b4ef7-2467-44d4-9c1c-ff6a17f98b92",
+    "trace": {
+      "id": "0e0b4ef7-2467-44d4-9c1c-ff6a17f98b92",
+      "plan": {
+        "id": "4d4c238a-5097-4542-98cd-2fd525b0df40",
+        "intent": "text.profile",
+        "goals": [
+          "Execute an explicitly requested local specialist"
+        ],
+        "tools": [
+          {
+            "tool_id": "text.profile",
+            "arguments": {
+              "sha256": "2a2f7e070bf1fd6b145c36954e16ebea1383fb0f9360c1015db0af703d252dae"
+            },
+            "depends_on": []
+          }
+        ],
+        "evidence_ids": [],
+        "allowed_external_providers": [],
+        "deadline_seconds": 180.0,
+        "max_tool_calls": 12,
+        "fallback": "Return explicit partial/error status; never fabricate tool findings."
+      },
+      "started_at": "2026-11-16T21:28:21.557433+00:00",
+      "steps": [
+        {
+          "tool_id": "text.profile",
+          "started_at": "2026-11-16T21:28:21.563432+00:00",
+          "input_evidence_ids": [],
+          "output_evidence_ids": [],
+          "status": "ok",
+          "warnings": [],
+          "network": "local_only",
+          "arguments_sha256": "2a2f7e070bf1fd6b145c36954e16ebea1383fb0f9360c1015db0af703d252dae",
+          "ended_at": "2026-11-16T21:28:21.570430+00:00",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "status": "complete",
+      "network": "local_only",
+      "ended_at": "2026-11-16T21:28:21.578431+00:00",
+      "elapsed_seconds": 0.01599999999962165
+    }
+  },
+  "events": [
+    {
+      "type": "started",
+      "request_id": "740e83bdd1c344cdb0d2647c55e44a48",
+      "user_message_id": "4c17ac2a818d4758a2fbe1a4e55e493a"
+    },
+    {
+      "type": "evidence",
+      "evidence": []
+    },
+    {
+      "type": "delta",
+      "text": "Remaining"
+    },
+    {
+      "type": "delta",
+      "text": " Useful"
+    },
+    {
+      "type": "delta",
+      "text": " Life"
+    },
+    {
+      "type": "delta",
+      "text": " ("
+    },
+    {
+      "type": "delta",
+      "text": "R"
+    },
+    {
+      "type": "delta",
+      "text": "UL"
+    },
+    {
+      "type": "delta",
+      "text": ")"
+    },
+    {
+      "type": "delta",
+      "text": " is"
+    },
+    {
+      "type": "delta",
+      "text": " the"
+    },
+    {
+      "type": "delta",
+      "text": " estimated"
+    },
+    {
+      "type": "delta",
+      "text": " time"
+    },
+    {
+      "type": "delta",
+      "text": " or"
+    },
+    {
+      "type": "delta",
+      "text": " operational"
+    },
+    {
+      "type": "delta",
+      "text": " cycles"
+    },
+    {
+      "type": "delta",
+      "text": " remaining"
+    },
+    {
+      "type": "delta",
+      "text": " until"
+    },
+    {
+      "type": "delta",
+      "text": " a"
+    },
+    {
+      "type": "delta",
+      "text": " component"
+    },
+    {
+      "type": "delta",
+      "text": " fails"
+    },
+    {
+      "type": "delta",
+      "text": " or"
+    },
+    {
+      "type": "delta",
+      "text": " requires"
+    },
+    {
+      "type": "delta",
+      "text": " maintenance"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "done",
+      "status": "complete",
+      "metadata": {
+        "provider": "ollama",
+        "model": "qwen3:4b-instruct",
+        "tools": [],
+        "evidence": [],
+        "attachments": [],
+        "orchestration": {
+          "run_id": "c47bcc9f-4307-486d-b8ad-ed934b36453e",
+          "intent": "general_chat"
+        },
+        "elapsed_seconds": 11.406000000002678
+      }
+    }
+  ],
+  "elapsed_seconds": 11.4220000000023,
+  "trace": {
+    "id": "c47bcc9f-4307-486d-b8ad-ed934b36453e",
+    "plan": {
+      "id": "4af6c414-1efd-46c7-8dab-bd40b9f7c463",
+      "intent": "general_chat",
+      "goals": [
+        "Answer using supplied evidence and actual local tools"
+      ],
+      "tools": [
+        {
+          "tool_id": "llm.chat",
+          "arguments": {
+            "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+          },
+          "depends_on": []
+        }
+      ],
+      "evidence_ids": [],
+      "allowed_external_providers": [],
+      "deadline_seconds": 300.0,
+      "max_tool_calls": 12,
+      "fallback": "Return explicit partial/error status; never fabricate tool findings."
+    },
+    "started_at": "2026-11-16T21:28:21.616959+00:00",
+    "steps": [
+      {
+        "tool_id": "llm.chat",
+        "started_at": "2026-11-16T21:28:21.657959+00:00",
+        "input_evidence_ids": [],
+        "output_evidence_ids": [],
+        "status": "ok",
+        "warnings": [],
+        "network": "local_only",
+        "model_provenance": {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct"
+        },
+        "ended_at": "2026-11-16T21:28:33.006660+00:00",
+        "elapsed_seconds": 11.342999999997119
+      }
+    ],
+    "status": "complete",
+    "network": "local_only",
+    "ended_at": "2026-11-16T21:28:33.013815+00:00",
+    "elapsed_seconds": 11.406000000002678
+  }
+}

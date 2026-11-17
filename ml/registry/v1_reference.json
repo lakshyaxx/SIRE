@@ -1,0 +1,2514 @@
+{
+  "fd001-01_lightgbm-s42": {
+    "elapsed_seconds": 5.186999999999898,
+    "output": {
+      "dataset": "FD001",
+      "model": "01_lightgbm",
+      "n_steps_used": 31,
+      "rul": 115.3478990753549,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "top_contributors": [
+        {
+          "channel": "s4",
+          "mean_abs_contribution": 8.01133567102933,
+          "mean_contribution": 8.01133567102933
+        },
+        {
+          "channel": "s12",
+          "mean_abs_contribution": 4.923191480448874,
+          "mean_contribution": 4.923191480448874
+        },
+        {
+          "channel": "s9",
+          "mean_abs_contribution": 3.2231015305331367,
+          "mean_contribution": 3.2231015305331367
+        },
+        {
+          "channel": "s7",
+          "mean_abs_contribution": 2.9662628541531535,
+          "mean_contribution": 2.9662628541531535
+        },
+        {
+          "channel": "s2",
+          "mean_abs_contribution": 2.956613995577235,
+          "mean_contribution": 2.956613995577235
+        }
+      ],
+      "version": "709db1f819ba0df538580470cffc97c2dfb95d9cdc26fa2c12fbe681a9c18133",
+      "warnings": [
+        "History has 31 cycles; left-padded by repeating the first observation."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD001-ENGINE-001",
+    "status": "ready"
+  },
+  "fd001-01_lightgbm_quantile-s42": {
+    "elapsed_seconds": 5.061999999999898,
+    "output": {
+      "dataset": "FD001",
+      "interval_80": [
+        108.82746368527151,
+        126.92006339076465
+      ],
+      "interval_90": [
+        105.20063068017754,
+        130.54689639585862
+      ],
+      "model": "01_lightgbm_quantile",
+      "n_steps_used": 31,
+      "rul": 115.3478990753549,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "top_contributors": [
+        {
+          "channel": "s4",
+          "mean_abs_contribution": 8.01133567102933,
+          "mean_contribution": 8.01133567102933
+        },
+        {
+          "channel": "s12",
+          "mean_abs_contribution": 4.923191480448874,
+          "mean_contribution": 4.923191480448874
+        },
+        {
+          "channel": "s9",
+          "mean_abs_contribution": 3.2231015305331367,
+          "mean_contribution": 3.2231015305331367
+        },
+        {
+          "channel": "s7",
+          "mean_abs_contribution": 2.9662628541531535,
+          "mean_contribution": 2.9662628541531535
+        },
+        {
+          "channel": "s2",
+          "mean_abs_contribution": 2.956613995577235,
+          "mean_contribution": 2.956613995577235
+        }
+      ],
+      "uncertainty_method": "val_last_split_conformal_quantile_regression",
+      "version": "26b8ed02ef028d4e0aa4c5e02a381e28d84ddd503bcc7886a60e58f9f50b55c9",
+      "warnings": [
+        "History has 31 cycles; left-padded by repeating the first observation."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD001-ENGINE-001",
+    "status": "ready"
+  },
+  "fd001-02_lstm-s42": {
+    "elapsed_seconds": 12.671999999998661,
+    "output": {
+      "dataset": "FD001",
+      "model": "02_lstm",
+      "n_steps_used": 31,
+      "rul": 119.96006220579147,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "version": "f6b57735d260e518465e1522a0bd404f6a35fc81334e651d9f49e8fc31f44d07",
+      "warnings": [
+        "History has 31 cycles; left-padded by repeating the first observation."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD001-ENGINE-001",
+    "status": "ready"
+  },
+  "fd001-03_bilstm_attention-s43": {
+    "elapsed_seconds": 9.921999999998661,
+    "output": {
+      "attention": [
+        0.5220780968666077,
+        0.13999508321285248,
+        0.04911244660615921,
+        0.021287331357598305,
+        0.013099994510412216,
+        0.010421918705105782,
+        0.008918327279388905,
+        0.007920438423752785,
+        0.0069078016094863415,
+        0.006476234178990126,
+        0.006174452602863312,
+        0.0059546418488025665,
+        0.005997637752443552,
+        0.006301536690443754,
+        0.006835291162133217,
+        0.00669010728597641,
+        0.0069054896011948586,
+        0.006499294191598892,
+        0.006501364521682262,
+        0.006589679047465324,
+        0.006730757188051939,
+        0.006524084601551294,
+        0.007130770944058895,
+        0.007424317300319672,
+        0.008172226138412952,
+        0.009085590951144695,
+        0.011350308544933796,
+        0.014444418251514435,
+        0.024823149666190147,
+        0.05364713445305824
+      ],
+      "dataset": "FD001",
+      "model": "03_bilstm_attention",
+      "n_steps_used": 30,
+      "rul": 115.71413278579712,
+      "rul_unit": "cycles",
+      "seed": 43,
+      "version": "4b3fe05162897fa86a60cdb5be83f3bb5edc5a5c1a97c08ddcce8cb7fe33b28b",
+      "warnings": [
+        "Used the latest 30 of 31 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD001-ENGINE-001",
+    "status": "ready"
+  },
+  "fd001-04_cnn1d-s43": {
+    "elapsed_seconds": 10.061999999999898,
+    "output": {
+      "dataset": "FD001",
+      "model": "04_cnn1d",
+      "n_steps_used": 30,
+      "rul": 125.03288686275482,
+      "rul_unit": "cycles",
+      "seed": 43,
+      "version": "99428afc8b51e776cb19ea18e7febd1ba3ff78a0372cae83fd64b2dae45a2927",
+      "warnings": [
+        "Used the latest 30 of 31 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD001-ENGINE-001",
+    "status": "ready"
+  },
+  "fd001-05_transformer-s42": {
+    "elapsed_seconds": 9.671999999998661,
+    "output": {
+      "dataset": "FD001",
+      "model": "05_transformer",
+      "n_steps_used": 30,
+      "rul": 113.17242681980133,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "version": "20d73883935e0e5927d6f1dcc49f8e2dfa29d850f06b4108d3fab469bf695642",
+      "warnings": [
+        "Used the latest 30 of 31 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD001-ENGINE-001",
+    "status": "ready"
+  },
+  "fd001-06_autoencoder-s42": {
+    "elapsed_seconds": 10.296999999998661,
+    "output": {
+      "anomaly_score": 0.08765469668545596,
+      "dataset": "FD001",
+      "hi": 0.08765469668545596,
+      "is_anomalous": false,
+      "onset_step": null,
+      "seed": 42,
+      "threshold": 1.5485099984230435,
+      "top_channels": [
+        "s9",
+        "s15",
+        "s7"
+      ],
+      "version": "215f9c59257a991f71a4ce4b5456e7e77662133d31b93507c7b4222bf511212a"
+    },
+    "runtime": "cpu",
+    "sample": "FD001-ENGINE-001",
+    "status": "ready"
+  },
+  "fd001-07_cnn_transformer-s42": {
+    "elapsed_seconds": 10.186999999999898,
+    "output": {
+      "dataset": "FD001",
+      "model": "07_cnn_transformer",
+      "n_steps_used": 30,
+      "rul": 117.07394570112228,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "version": "4e20f50ce3eac711063c24c6c23d7898ad12faa92cdd842d38b98aab6e3e9293",
+      "warnings": [
+        "Used the latest 30 of 31 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD001-ENGINE-001",
+    "status": "ready"
+  },
+  "fd001-08_ensemble-s42": {
+    "elapsed_seconds": 11.20299999999952,
+    "output": {
+      "dataset": "FD001",
+      "interval_80": [
+        88.0018956787938,
+        140.09208086430039
+      ],
+      "interval_90": [
+        78.97094667150789,
+        149.1230298715863
+      ],
+      "member_prediction_max": 121.52069061994553,
+      "member_prediction_min": 63.0,
+      "member_prediction_std": 19.184125659713114,
+      "members": {
+        "01_lightgbm_tuned": {
+          "dataset": "FD001",
+          "model": "01_lightgbm",
+          "n_steps_used": 31,
+          "rul": 115.3478990753549,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "top_contributors": [
+            {
+              "channel": "s4",
+              "mean_abs_contribution": 8.01133567102933,
+              "mean_contribution": 8.01133567102933
+            },
+            {
+              "channel": "s12",
+              "mean_abs_contribution": 4.923191480448874,
+              "mean_contribution": 4.923191480448874
+            },
+            {
+              "channel": "s9",
+              "mean_abs_contribution": 3.2231015305331367,
+              "mean_contribution": 3.2231015305331367
+            },
+            {
+              "channel": "s7",
+              "mean_abs_contribution": 2.9662628541531535,
+              "mean_contribution": 2.9662628541531535
+            },
+            {
+              "channel": "s2",
+              "mean_abs_contribution": 2.956613995577235,
+              "mean_contribution": 2.956613995577235
+            }
+          ],
+          "version": "709db1f819ba0df538580470cffc97c2dfb95d9cdc26fa2c12fbe681a9c18133",
+          "warnings": [
+            "History has 31 cycles; left-padded by repeating the first observation."
+          ]
+        },
+        "02_lstm": {
+          "dataset": "FD001",
+          "model": "02_lstm",
+          "n_steps_used": 31,
+          "rul": 119.96006220579147,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "f6b57735d260e518465e1522a0bd404f6a35fc81334e651d9f49e8fc31f44d07",
+          "warnings": [
+            "History has 31 cycles; left-padded by repeating the first observation."
+          ]
+        },
+        "03_bilstm_attention": {
+          "attention": [
+            0.7059764862060547,
+            0.17396119236946106,
+            0.04310344532132149,
+            0.013620379380881786,
+            0.006580226123332977,
+            0.0039435504004359245,
+            0.0027614696882665157,
+            0.002123467857018113,
+            0.0017444147961214185,
+            0.0015674741007387638,
+            0.0014404240064322948,
+            0.0013867608504369855,
+            0.001363105489872396,
+            0.001354734762571752,
+            0.0013947478728368878,
+            0.0013711615465581417,
+            0.0013601045357063413,
+            0.0012861082796007395,
+            0.0013088408159092069,
+            0.0012986689107492566,
+            0.0012912676902487874,
+            0.0012654183665290475,
+            0.0013496964238584042,
+            0.0013455298030748963,
+            0.0013811028329655528,
+            0.0015405684243887663,
+            0.0018966166535392404,
+            0.0026312058325856924,
+            0.004877293948084116,
+            0.013474567793309689
+          ],
+          "dataset": "FD001",
+          "model": "03_bilstm_attention",
+          "n_steps_used": 30,
+          "rul": 121.52069061994553,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "92c4a4433574721ed3bb6a3a09fa9513477858f082718fa8df1d862001e22dae",
+          "warnings": [
+            "Used the latest 30 of 31 available cycles."
+          ]
+        },
+        "04_cnn1d": {
+          "dataset": "FD001",
+          "model": "04_cnn1d",
+          "n_steps_used": 30,
+          "rul": 116.91892147064209,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "0cc293cc8c6a96af3f50072589e4b78b3dd408aab744a6ceb5eb4a37d0e29109",
+          "warnings": [
+            "Used the latest 30 of 31 available cycles."
+          ]
+        },
+        "05_transformer": {
+          "dataset": "FD001",
+          "model": "05_transformer",
+          "n_steps_used": 30,
+          "rul": 113.17242681980133,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "20d73883935e0e5927d6f1dcc49f8e2dfa29d850f06b4108d3fab469bf695642",
+          "warnings": [
+            "Used the latest 30 of 31 available cycles."
+          ]
+        },
+        "07_cnn_transformer": {
+          "dataset": "FD001",
+          "model": "07_cnn_transformer",
+          "n_steps_used": 30,
+          "rul": 117.07394570112228,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "4e20f50ce3eac711063c24c6c23d7898ad12faa92cdd842d38b98aab6e3e9293",
+          "warnings": [
+            "Used the latest 30 of 31 available cycles."
+          ]
+        },
+        "09_ts_degradation": {
+          "dataset": "FD001",
+          "health_index": 0.027033661678816483,
+          "interval_80": [
+            55.0,
+            76.0
+          ],
+          "model": "09_ts_degradation",
+          "n_steps_used": 31,
+          "rul": 63.0,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "threshold": 0.9599131935369047,
+          "uncertainty_method": "bootstrap_fit_residuals",
+          "version": "89cf5277843d45b81f8fb309fc43257160443938cfd40e93c72c1a60537335aa",
+          "warnings": []
+        }
+      },
+      "model": "08_ensemble",
+      "n_steps_used": 30,
+      "rul": 114.0469882715471,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "uncertainty_method": "cross_fitted_split_conformal_member_spread",
+      "version": "071b75a7dfb534b7d324f815abc89ec21f9dfe8afc797e1fd10892df6b7358b0",
+      "warnings": [
+        "History has 31 cycles; left-padded by repeating the first observation.",
+        "Used the latest 30 of 31 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD001-ENGINE-001",
+    "status": "ready"
+  },
+  "fd001-08_ensemble_member_spread-s42": {
+    "elapsed_seconds": 12.186999999999898,
+    "output": {
+      "dataset": "FD001",
+      "interval_80": [
+        88.0018956787938,
+        140.09208086430039
+      ],
+      "interval_90": [
+        78.97094667150789,
+        149.1230298715863
+      ],
+      "member_prediction_max": 121.52069061994553,
+      "member_prediction_min": 63.0,
+      "member_prediction_std": 19.184125659713114,
+      "members": {
+        "01_lightgbm_tuned": {
+          "dataset": "FD001",
+          "model": "01_lightgbm",
+          "n_steps_used": 31,
+          "rul": 115.3478990753549,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "top_contributors": [
+            {
+              "channel": "s4",
+              "mean_abs_contribution": 8.01133567102933,
+              "mean_contribution": 8.01133567102933
+            },
+            {
+              "channel": "s12",
+              "mean_abs_contribution": 4.923191480448874,
+              "mean_contribution": 4.923191480448874
+            },
+            {
+              "channel": "s9",
+              "mean_abs_contribution": 3.2231015305331367,
+              "mean_contribution": 3.2231015305331367
+            },
+            {
+              "channel": "s7",
+              "mean_abs_contribution": 2.9662628541531535,
+              "mean_contribution": 2.9662628541531535
+            },
+            {
+              "channel": "s2",
+              "mean_abs_contribution": 2.956613995577235,
+              "mean_contribution": 2.956613995577235
+            }
+          ],
+          "version": "709db1f819ba0df538580470cffc97c2dfb95d9cdc26fa2c12fbe681a9c18133",
+          "warnings": [
+            "History has 31 cycles; left-padded by repeating the first observation."
+          ]
+        },
+        "02_lstm": {
+          "dataset": "FD001",
+          "model": "02_lstm",
+          "n_steps_used": 31,
+          "rul": 119.96006220579147,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "f6b57735d260e518465e1522a0bd404f6a35fc81334e651d9f49e8fc31f44d07",
+          "warnings": [
+            "History has 31 cycles; left-padded by repeating the first observation."
+          ]
+        },
+        "03_bilstm_attention": {
+          "attention": [
+            0.7059764862060547,
+            0.17396119236946106,
+            0.04310344532132149,
+            0.013620379380881786,
+            0.006580226123332977,
+            0.0039435504004359245,
+            0.0027614696882665157,
+            0.002123467857018113,
+            0.0017444147961214185,
+            0.0015674741007387638,
+            0.0014404240064322948,
+            0.0013867608504369855,
+            0.001363105489872396,
+            0.001354734762571752,
+            0.0013947478728368878,
+            0.0013711615465581417,
+            0.0013601045357063413,
+            0.0012861082796007395,
+            0.0013088408159092069,
+            0.0012986689107492566,
+            0.0012912676902487874,
+            0.0012654183665290475,
+            0.0013496964238584042,
+            0.0013455298030748963,
+            0.0013811028329655528,
+            0.0015405684243887663,
+            0.0018966166535392404,
+            0.0026312058325856924,
+            0.004877293948084116,
+            0.013474567793309689
+          ],
+          "dataset": "FD001",
+          "model": "03_bilstm_attention",
+          "n_steps_used": 30,
+          "rul": 121.52069061994553,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "92c4a4433574721ed3bb6a3a09fa9513477858f082718fa8df1d862001e22dae",
+          "warnings": [
+            "Used the latest 30 of 31 available cycles."
+          ]
+        },
+        "04_cnn1d": {
+          "dataset": "FD001",
+          "model": "04_cnn1d",
+          "n_steps_used": 30,
+          "rul": 116.91892147064209,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "0cc293cc8c6a96af3f50072589e4b78b3dd408aab744a6ceb5eb4a37d0e29109",
+          "warnings": [
+            "Used the latest 30 of 31 available cycles."
+          ]
+        },
+        "05_transformer": {
+          "dataset": "FD001",
+          "model": "05_transformer",
+          "n_steps_used": 30,
+          "rul": 113.17242681980133,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "20d73883935e0e5927d6f1dcc49f8e2dfa29d850f06b4108d3fab469bf695642",
+          "warnings": [
+            "Used the latest 30 of 31 available cycles."
+          ]
+        },
+        "07_cnn_transformer": {
+          "dataset": "FD001",
+          "model": "07_cnn_transformer",
+          "n_steps_used": 30,
+          "rul": 117.07394570112228,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "4e20f50ce3eac711063c24c6c23d7898ad12faa92cdd842d38b98aab6e3e9293",
+          "warnings": [
+            "Used the latest 30 of 31 available cycles."
+          ]
+        },
+        "09_ts_degradation": {
+          "dataset": "FD001",
+          "health_index": 0.027033661678816483,
+          "interval_80": [
+            55.0,
+            76.0
+          ],
+          "model": "09_ts_degradation",
+          "n_steps_used": 31,
+          "rul": 63.0,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "threshold": 0.9599131935369047,
+          "uncertainty_method": "bootstrap_fit_residuals",
+          "version": "89cf5277843d45b81f8fb309fc43257160443938cfd40e93c72c1a60537335aa",
+          "warnings": []
+        }
+      },
+      "model": "08_ensemble",
+      "n_steps_used": 30,
+      "rul": 114.0469882715471,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "uncertainty_method": "cross_fitted_split_conformal_member_spread",
+      "version": "071b75a7dfb534b7d324f815abc89ec21f9dfe8afc797e1fd10892df6b7358b0",
+      "warnings": [
+        "History has 31 cycles; left-padded by repeating the first observation.",
+        "Used the latest 30 of 31 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD001-ENGINE-001",
+    "status": "ready"
+  },
+  "fd001-09_ts_degradation-s42": {
+    "elapsed_seconds": 4.390999999999622,
+    "output": {
+      "dataset": "FD001",
+      "health_index": 0.027033661678816483,
+      "interval_80": [
+        55.0,
+        76.0
+      ],
+      "model": "09_ts_degradation",
+      "n_steps_used": 31,
+      "rul": 63.0,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "threshold": 0.9599131935369047,
+      "uncertainty_method": "bootstrap_fit_residuals",
+      "version": "89cf5277843d45b81f8fb309fc43257160443938cfd40e93c72c1a60537335aa",
+      "warnings": []
+    },
+    "runtime": "cpu",
+    "sample": "FD001-ENGINE-001",
+    "status": "ready"
+  },
+  "fd002-01_lightgbm-s43": {
+    "elapsed_seconds": 7.5,
+    "output": {
+      "dataset": "FD002",
+      "model": "01_lightgbm",
+      "n_steps_used": 50,
+      "rul": 19.068519193635865,
+      "rul_unit": "cycles",
+      "seed": 43,
+      "top_contributors": [
+        {
+          "channel": "s11",
+          "mean_abs_contribution": 23.077471672962826,
+          "mean_contribution": -23.077471672962826
+        },
+        {
+          "channel": "s4",
+          "mean_abs_contribution": 16.64041019683425,
+          "mean_contribution": -16.64041019683425
+        },
+        {
+          "channel": "s14",
+          "mean_abs_contribution": 6.417394064139784,
+          "mean_contribution": -6.417394064139784
+        },
+        {
+          "channel": "s9",
+          "mean_abs_contribution": 5.99971296418009,
+          "mean_contribution": -5.99971296418009
+        },
+        {
+          "channel": "s15",
+          "mean_abs_contribution": 4.003255408540468,
+          "mean_contribution": -4.003255408540468
+        }
+      ],
+      "version": "1267b0e95813062c094c7928f06e4ded897ec039459ab0314b72e204f21ec79a",
+      "warnings": [
+        "Used the latest 50 of 258 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD002-ENGINE-001",
+    "status": "ready"
+  },
+  "fd002-01_lightgbm_quantile-s43": {
+    "elapsed_seconds": 5.53099999999904,
+    "output": {
+      "dataset": "FD002",
+      "interval_80": [
+        16.632200845928608,
+        125.24655910713982
+      ],
+      "interval_90": [
+        12.6491947142311,
+        129.22956523883732
+      ],
+      "model": "01_lightgbm_quantile",
+      "n_steps_used": 50,
+      "rul": 19.068519193635865,
+      "rul_unit": "cycles",
+      "seed": 43,
+      "top_contributors": [
+        {
+          "channel": "s11",
+          "mean_abs_contribution": 23.077471672962826,
+          "mean_contribution": -23.077471672962826
+        },
+        {
+          "channel": "s4",
+          "mean_abs_contribution": 16.64041019683425,
+          "mean_contribution": -16.64041019683425
+        },
+        {
+          "channel": "s14",
+          "mean_abs_contribution": 6.417394064139784,
+          "mean_contribution": -6.417394064139784
+        },
+        {
+          "channel": "s9",
+          "mean_abs_contribution": 5.99971296418009,
+          "mean_contribution": -5.99971296418009
+        },
+        {
+          "channel": "s15",
+          "mean_abs_contribution": 4.003255408540468,
+          "mean_contribution": -4.003255408540468
+        }
+      ],
+      "uncertainty_method": "val_last_split_conformal_quantile_regression",
+      "version": "f37e34f0eea04289e2884000ae3316ae86ed3c14b1818bb8978daad524b6ade4",
+      "warnings": [
+        "Used the latest 50 of 258 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD002-ENGINE-001",
+    "status": "ready"
+  },
+  "fd002-02_lstm-s44": {
+    "elapsed_seconds": 12.82799999999952,
+    "output": {
+      "dataset": "FD002",
+      "model": "02_lstm",
+      "n_steps_used": 50,
+      "rul": 12.565897777676582,
+      "rul_unit": "cycles",
+      "seed": 44,
+      "version": "ac7b6efc9a3c5288dc85d51b4a737ce30fa46fdc9deefcab25749efb8a6f4b33",
+      "warnings": [
+        "Used the latest 50 of 258 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD002-ENGINE-001",
+    "status": "ready"
+  },
+  "fd002-03_bilstm_attention-s42": {
+    "elapsed_seconds": 10.82799999999952,
+    "output": {
+      "attention": [
+        0.0011374371824786067,
+        0.003781750565394759,
+        0.007721380330622196,
+        0.01254263985902071,
+        0.020006604492664337,
+        0.02508414164185524,
+        0.02789202332496643,
+        0.03150742128491402,
+        0.039358336478471756,
+        0.03780497610569,
+        0.04091315716505051,
+        0.04001612961292267,
+        0.035532884299755096,
+        0.03801717236638069,
+        0.035803068429231644,
+        0.033340539783239365,
+        0.03637337312102318,
+        0.03536439314484596,
+        0.03605680540204048,
+        0.03615300729870796,
+        0.03661463037133217,
+        0.046537384390830994,
+        0.04612923040986061,
+        0.04782630875706673,
+        0.04805183410644531,
+        0.05120181664824486,
+        0.048086121678352356,
+        0.04554852470755577,
+        0.035293638706207275,
+        0.020303260535001755
+      ],
+      "dataset": "FD002",
+      "model": "03_bilstm_attention",
+      "n_steps_used": 30,
+      "rul": 12.959296815097332,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "version": "07f1ff805769fedae9343416a7a4eeaa0453981b2a19cfdfd06019b7beae5c17",
+      "warnings": [
+        "Used the latest 30 of 258 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD002-ENGINE-001",
+    "status": "ready"
+  },
+  "fd002-04_cnn1d-s43": {
+    "elapsed_seconds": 11.343999999999141,
+    "output": {
+      "dataset": "FD002",
+      "model": "04_cnn1d",
+      "n_steps_used": 30,
+      "rul": 22.310402244329453,
+      "rul_unit": "cycles",
+      "seed": 43,
+      "version": "02c49933484a5858a5b11155630aa2b0f541d57560c6d456176a28d763caa943",
+      "warnings": [
+        "Used the latest 30 of 258 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD002-ENGINE-001",
+    "status": "ready"
+  },
+  "fd002-05_transformer-s42": {
+    "elapsed_seconds": 10.25,
+    "output": {
+      "dataset": "FD002",
+      "model": "05_transformer",
+      "n_steps_used": 30,
+      "rul": 14.08394705504179,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "version": "78a45ecd75364b7b4638b25944a37268acd2d7cff30bceea8ea0e2dfc71946c7",
+      "warnings": [
+        "Used the latest 30 of 258 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD002-ENGINE-001",
+    "status": "ready"
+  },
+  "fd002-06_autoencoder-s42": {
+    "elapsed_seconds": 10.436999999999898,
+    "output": {
+      "anomaly_score": 12.696115527291633,
+      "dataset": "FD002",
+      "hi": 12.696115527291633,
+      "is_anomalous": true,
+      "onset_step": 218,
+      "seed": 42,
+      "threshold": 1.0792317584678293,
+      "top_channels": [
+        "s9",
+        "s14",
+        "s11"
+      ],
+      "version": "69dc9e58b2ebf5efe6ba696adeffc3b51ee4d4aad0caca4e676569ac808c037d"
+    },
+    "runtime": "cpu",
+    "sample": "FD002-ENGINE-001",
+    "status": "ready"
+  },
+  "fd002-07_cnn_transformer-s44": {
+    "elapsed_seconds": 10.375,
+    "output": {
+      "dataset": "FD002",
+      "model": "07_cnn_transformer",
+      "n_steps_used": 30,
+      "rul": 16.732273623347282,
+      "rul_unit": "cycles",
+      "seed": 44,
+      "version": "1ac778ca4e40943dd1f54d79eba1fd543d903f7c59a019ca608a3167ca508345",
+      "warnings": [
+        "Used the latest 30 of 258 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD002-ENGINE-001",
+    "status": "ready"
+  },
+  "fd002-08_ensemble-s44": {
+    "elapsed_seconds": 12.40599999999904,
+    "output": {
+      "dataset": "FD002",
+      "interval_80": [
+        5.343085043168889,
+        17.841373981663665
+      ],
+      "interval_90": [
+        3.233931876866862,
+        19.95052714796569
+      ],
+      "member_prediction_max": 20.95431089401245,
+      "member_prediction_min": 10.870489291846752,
+      "member_prediction_std": 3.7323596014633007,
+      "members": {
+        "01_lightgbm_tuned": {
+          "dataset": "FD002",
+          "model": "01_lightgbm",
+          "n_steps_used": 50,
+          "rul": 18.62893727482336,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "top_contributors": [
+            {
+              "channel": "s11",
+              "mean_abs_contribution": 23.362568678930117,
+              "mean_contribution": -23.362568678930117
+            },
+            {
+              "channel": "s4",
+              "mean_abs_contribution": 16.875908954767738,
+              "mean_contribution": -16.875908954767738
+            },
+            {
+              "channel": "s14",
+              "mean_abs_contribution": 6.474103378755389,
+              "mean_contribution": -6.474103378755389
+            },
+            {
+              "channel": "s9",
+              "mean_abs_contribution": 5.87559374605369,
+              "mean_contribution": -5.87559374605369
+            },
+            {
+              "channel": "s15",
+              "mean_abs_contribution": 3.775351838555588,
+              "mean_contribution": -3.775351838555588
+            }
+          ],
+          "version": "06a26eecf1f2a9e76c47930f5488c428280687477223660a27d440d931ccee12",
+          "warnings": [
+            "Used the latest 50 of 258 available cycles."
+          ]
+        },
+        "02_lstm": {
+          "dataset": "FD002",
+          "model": "02_lstm",
+          "n_steps_used": 50,
+          "rul": 12.565897777676582,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "version": "ac7b6efc9a3c5288dc85d51b4a737ce30fa46fdc9deefcab25749efb8a6f4b33",
+          "warnings": [
+            "Used the latest 50 of 258 available cycles."
+          ]
+        },
+        "03_bilstm_attention": {
+          "attention": [
+            0.0005859064985997975,
+            0.002072779694572091,
+            0.004801406059414148,
+            0.010275638662278652,
+            0.015721987932920456,
+            0.020246004685759544,
+            0.01947360672056675,
+            0.026683930307626724,
+            0.03545702248811722,
+            0.0349825955927372,
+            0.037096358835697174,
+            0.034887440502643585,
+            0.03470241650938988,
+            0.03151463344693184,
+            0.03794319927692413,
+            0.0424068421125412,
+            0.04413989931344986,
+            0.049613527953624725,
+            0.04490252211689949,
+            0.049046508967876434,
+            0.048089511692523956,
+            0.0494423545897007,
+            0.05332621932029724,
+            0.05357742682099342,
+            0.04841914400458336,
+            0.04743203520774841,
+            0.0451422780752182,
+            0.034568902105093,
+            0.027358800172805786,
+            0.016089100390672684
+          ],
+          "dataset": "FD002",
+          "model": "03_bilstm_attention",
+          "n_steps_used": 30,
+          "rul": 12.266295030713081,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "version": "16b8a1e938710bfe31f5bf30544f3f787138a44de7a16a8d6d46838816d0fd1f",
+          "warnings": [
+            "Used the latest 30 of 258 available cycles."
+          ]
+        },
+        "04_cnn1d": {
+          "dataset": "FD002",
+          "model": "04_cnn1d",
+          "n_steps_used": 30,
+          "rul": 20.95431089401245,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "version": "f8c1cb5884e3a6914955800d52eaf788aad745f814b789cce700a8d1784bd95f",
+          "warnings": [
+            "Used the latest 30 of 258 available cycles."
+          ]
+        },
+        "05_transformer": {
+          "dataset": "FD002",
+          "model": "05_transformer",
+          "n_steps_used": 30,
+          "rul": 10.870489291846752,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "version": "52627c6738be191e1207e8205de41c06e6716af6dd859907dfaa18762c95a4ee",
+          "warnings": [
+            "Used the latest 30 of 258 available cycles."
+          ]
+        },
+        "07_cnn_transformer": {
+          "dataset": "FD002",
+          "model": "07_cnn_transformer",
+          "n_steps_used": 30,
+          "rul": 16.732273623347282,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "version": "1ac778ca4e40943dd1f54d79eba1fd543d903f7c59a019ca608a3167ca508345",
+          "warnings": [
+            "Used the latest 30 of 258 available cycles."
+          ]
+        },
+        "09_ts_degradation": {
+          "dataset": "FD002",
+          "health_index": 0.8672311688579777,
+          "interval_80": [
+            8.0,
+            14.0
+          ],
+          "model": "09_ts_degradation",
+          "n_steps_used": 258,
+          "rul": 11.0,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "threshold": 0.9621386547688924,
+          "uncertainty_method": "bootstrap_fit_residuals",
+          "version": "06015f03c294ca8dcfb3bb0a7e73f1aef01bafd6aecb940e49d884d8b2627415",
+          "warnings": []
+        }
+      },
+      "model": "08_ensemble",
+      "n_steps_used": 30,
+      "rul": 11.592229512416276,
+      "rul_unit": "cycles",
+      "seed": 44,
+      "uncertainty_method": "cross_fitted_split_conformal_member_spread",
+      "version": "345197d727608fad3e7cd2c49f4fe7dc9d0c73a86696557deac75bbfab80590b",
+      "warnings": [
+        "Used the latest 50 of 258 available cycles.",
+        "Used the latest 30 of 258 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD002-ENGINE-001",
+    "status": "ready"
+  },
+  "fd002-08_ensemble_member_spread-s44": {
+    "elapsed_seconds": 12.25,
+    "output": {
+      "dataset": "FD002",
+      "interval_80": [
+        5.343085043168889,
+        17.841373981663665
+      ],
+      "interval_90": [
+        3.233931876866862,
+        19.95052714796569
+      ],
+      "member_prediction_max": 20.95431089401245,
+      "member_prediction_min": 10.870489291846752,
+      "member_prediction_std": 3.7323596014633007,
+      "members": {
+        "01_lightgbm_tuned": {
+          "dataset": "FD002",
+          "model": "01_lightgbm",
+          "n_steps_used": 50,
+          "rul": 18.62893727482336,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "top_contributors": [
+            {
+              "channel": "s11",
+              "mean_abs_contribution": 23.362568678930117,
+              "mean_contribution": -23.362568678930117
+            },
+            {
+              "channel": "s4",
+              "mean_abs_contribution": 16.875908954767738,
+              "mean_contribution": -16.875908954767738
+            },
+            {
+              "channel": "s14",
+              "mean_abs_contribution": 6.474103378755389,
+              "mean_contribution": -6.474103378755389
+            },
+            {
+              "channel": "s9",
+              "mean_abs_contribution": 5.87559374605369,
+              "mean_contribution": -5.87559374605369
+            },
+            {
+              "channel": "s15",
+              "mean_abs_contribution": 3.775351838555588,
+              "mean_contribution": -3.775351838555588
+            }
+          ],
+          "version": "06a26eecf1f2a9e76c47930f5488c428280687477223660a27d440d931ccee12",
+          "warnings": [
+            "Used the latest 50 of 258 available cycles."
+          ]
+        },
+        "02_lstm": {
+          "dataset": "FD002",
+          "model": "02_lstm",
+          "n_steps_used": 50,
+          "rul": 12.565897777676582,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "version": "ac7b6efc9a3c5288dc85d51b4a737ce30fa46fdc9deefcab25749efb8a6f4b33",
+          "warnings": [
+            "Used the latest 50 of 258 available cycles."
+          ]
+        },
+        "03_bilstm_attention": {
+          "attention": [
+            0.0005859064985997975,
+            0.002072779694572091,
+            0.004801406059414148,
+            0.010275638662278652,
+            0.015721987932920456,
+            0.020246004685759544,
+            0.01947360672056675,
+            0.026683930307626724,
+            0.03545702248811722,
+            0.0349825955927372,
+            0.037096358835697174,
+            0.034887440502643585,
+            0.03470241650938988,
+            0.03151463344693184,
+            0.03794319927692413,
+            0.0424068421125412,
+            0.04413989931344986,
+            0.049613527953624725,
+            0.04490252211689949,
+            0.049046508967876434,
+            0.048089511692523956,
+            0.0494423545897007,
+            0.05332621932029724,
+            0.05357742682099342,
+            0.04841914400458336,
+            0.04743203520774841,
+            0.0451422780752182,
+            0.034568902105093,
+            0.027358800172805786,
+            0.016089100390672684
+          ],
+          "dataset": "FD002",
+          "model": "03_bilstm_attention",
+          "n_steps_used": 30,
+          "rul": 12.266295030713081,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "version": "16b8a1e938710bfe31f5bf30544f3f787138a44de7a16a8d6d46838816d0fd1f",
+          "warnings": [
+            "Used the latest 30 of 258 available cycles."
+          ]
+        },
+        "04_cnn1d": {
+          "dataset": "FD002",
+          "model": "04_cnn1d",
+          "n_steps_used": 30,
+          "rul": 20.95431089401245,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "version": "f8c1cb5884e3a6914955800d52eaf788aad745f814b789cce700a8d1784bd95f",
+          "warnings": [
+            "Used the latest 30 of 258 available cycles."
+          ]
+        },
+        "05_transformer": {
+          "dataset": "FD002",
+          "model": "05_transformer",
+          "n_steps_used": 30,
+          "rul": 10.870489291846752,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "version": "52627c6738be191e1207e8205de41c06e6716af6dd859907dfaa18762c95a4ee",
+          "warnings": [
+            "Used the latest 30 of 258 available cycles."
+          ]
+        },
+        "07_cnn_transformer": {
+          "dataset": "FD002",
+          "model": "07_cnn_transformer",
+          "n_steps_used": 30,
+          "rul": 16.732273623347282,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "version": "1ac778ca4e40943dd1f54d79eba1fd543d903f7c59a019ca608a3167ca508345",
+          "warnings": [
+            "Used the latest 30 of 258 available cycles."
+          ]
+        },
+        "09_ts_degradation": {
+          "dataset": "FD002",
+          "health_index": 0.8672311688579777,
+          "interval_80": [
+            8.0,
+            14.0
+          ],
+          "model": "09_ts_degradation",
+          "n_steps_used": 258,
+          "rul": 11.0,
+          "rul_unit": "cycles",
+          "seed": 44,
+          "threshold": 0.9621386547688924,
+          "uncertainty_method": "bootstrap_fit_residuals",
+          "version": "06015f03c294ca8dcfb3bb0a7e73f1aef01bafd6aecb940e49d884d8b2627415",
+          "warnings": []
+        }
+      },
+      "model": "08_ensemble",
+      "n_steps_used": 30,
+      "rul": 11.592229512416276,
+      "rul_unit": "cycles",
+      "seed": 44,
+      "uncertainty_method": "cross_fitted_split_conformal_member_spread",
+      "version": "345197d727608fad3e7cd2c49f4fe7dc9d0c73a86696557deac75bbfab80590b",
+      "warnings": [
+        "Used the latest 50 of 258 available cycles.",
+        "Used the latest 30 of 258 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD002-ENGINE-001",
+    "status": "ready"
+  },
+  "fd002-09_ts_degradation-s42": {
+    "elapsed_seconds": 4.79700000000048,
+    "output": {
+      "dataset": "FD002",
+      "health_index": 0.8672311688579777,
+      "interval_80": [
+        8.0,
+        14.0
+      ],
+      "model": "09_ts_degradation",
+      "n_steps_used": 258,
+      "rul": 11.0,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "threshold": 0.9621386547688924,
+      "uncertainty_method": "bootstrap_fit_residuals",
+      "version": "7b258b74b39270a72274c90c0ea75234426b4e9d634369dd4ccc9ed79036cd78",
+      "warnings": []
+    },
+    "runtime": "cpu",
+    "sample": "FD002-ENGINE-001",
+    "status": "ready"
+  },
+  "fd003-01_lightgbm-s42": {
+    "elapsed_seconds": 4.936999999999898,
+    "output": {
+      "dataset": "FD003",
+      "model": "01_lightgbm",
+      "n_steps_used": 40,
+      "rul": 43.38973340387454,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "top_contributors": [
+        {
+          "channel": "s11",
+          "mean_abs_contribution": 15.173009104834229,
+          "mean_contribution": -15.173009104834229
+        },
+        {
+          "channel": "s9",
+          "mean_abs_contribution": 12.101093744100831,
+          "mean_contribution": -12.101093744100831
+        },
+        {
+          "channel": "s14",
+          "mean_abs_contribution": 10.097202423753302,
+          "mean_contribution": -10.097202423753302
+        },
+        {
+          "channel": "s12",
+          "mean_abs_contribution": 5.48391231801377,
+          "mean_contribution": -5.48391231801377
+        },
+        {
+          "channel": "s13",
+          "mean_abs_contribution": 4.108592059939515,
+          "mean_contribution": -4.108592059939515
+        }
+      ],
+      "version": "6080ca36068bc8741bab1628c1aad52e1aed34d1fbda31da1b129e85584bd23b",
+      "warnings": [
+        "Used the latest 40 of 233 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD003-ENGINE-001",
+    "status": "ready"
+  },
+  "fd003-01_lightgbm_quantile-s42": {
+    "elapsed_seconds": 5.233999999998559,
+    "output": {
+      "dataset": "FD003",
+      "interval_80": [
+        41.06770558462962,
+        126.60669777325278
+      ],
+      "interval_90": [
+        37.83054615184735,
+        129.84385720603504
+      ],
+      "model": "01_lightgbm_quantile",
+      "n_steps_used": 40,
+      "rul": 43.38973340387454,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "top_contributors": [
+        {
+          "channel": "s11",
+          "mean_abs_contribution": 15.173009104834229,
+          "mean_contribution": -15.173009104834229
+        },
+        {
+          "channel": "s9",
+          "mean_abs_contribution": 12.101093744100831,
+          "mean_contribution": -12.101093744100831
+        },
+        {
+          "channel": "s14",
+          "mean_abs_contribution": 10.097202423753302,
+          "mean_contribution": -10.097202423753302
+        },
+        {
+          "channel": "s12",
+          "mean_abs_contribution": 5.48391231801377,
+          "mean_contribution": -5.48391231801377
+        },
+        {
+          "channel": "s13",
+          "mean_abs_contribution": 4.108592059939515,
+          "mean_contribution": -4.108592059939515
+        }
+      ],
+      "uncertainty_method": "val_last_split_conformal_quantile_regression",
+      "version": "e0e518fb0fad189563e732cbde5d5af61a6b93244420e084209b7f2a3afdc40f",
+      "warnings": [
+        "Used the latest 40 of 233 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD003-ENGINE-001",
+    "status": "ready"
+  },
+  "fd003-02_lstm-s42": {
+    "elapsed_seconds": 9.734000000000378,
+    "output": {
+      "dataset": "FD003",
+      "model": "02_lstm",
+      "n_steps_used": 50,
+      "rul": 51.77265778183937,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "version": "0fe97e9698178066723cb970ae19c107dac717ca7383de6acd1d286226f57a2c",
+      "warnings": [
+        "Used the latest 50 of 233 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD003-ENGINE-001",
+    "status": "ready"
+  },
+  "fd003-03_bilstm_attention-s43": {
+    "elapsed_seconds": 9.75,
+    "output": {
+      "attention": [
+        0.0016151878517121077,
+        0.00478020403534174,
+        0.008538613095879555,
+        0.011320414021611214,
+        0.012684526853263378,
+        0.012153077870607376,
+        0.010421735234558582,
+        0.007942643016576767,
+        0.0060385530814528465,
+        0.004266202915459871,
+        0.0039895521476864815,
+        0.0037881298922002316,
+        0.004388418979942799,
+        0.004538413602858782,
+        0.0052777249366045,
+        0.0071969348937273026,
+        0.009729979559779167,
+        0.015235490165650845,
+        0.017842166125774384,
+        0.024480607360601425,
+        0.02729295752942562,
+        0.03702794760465622,
+        0.046148255467414856,
+        0.06153532490134239,
+        0.08342673629522324,
+        0.09187055379152298,
+        0.1183285117149353,
+        0.13805194199085236,
+        0.13758142292499542,
+        0.08250772953033447
+      ],
+      "dataset": "FD003",
+      "model": "03_bilstm_attention",
+      "n_steps_used": 30,
+      "rul": 48.6452691257,
+      "rul_unit": "cycles",
+      "seed": 43,
+      "version": "2a401fc57c9287c0606976d8347e560ff3186691c10419ff9d5c4d30bc3f9f8f",
+      "warnings": [
+        "Used the latest 30 of 233 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD003-ENGINE-001",
+    "status": "ready"
+  },
+  "fd003-04_cnn1d-s44": {
+    "elapsed_seconds": 10.109000000000378,
+    "output": {
+      "dataset": "FD003",
+      "model": "04_cnn1d",
+      "n_steps_used": 30,
+      "rul": 57.75275081396103,
+      "rul_unit": "cycles",
+      "seed": 44,
+      "version": "10332b35e9b4aa50fea7a188ab6bbb919dfe4d9359f855da1f88fca0e49b5dd0",
+      "warnings": [
+        "Used the latest 30 of 233 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD003-ENGINE-001",
+    "status": "ready"
+  },
+  "fd003-05_transformer-s42": {
+    "elapsed_seconds": 10.281999999999243,
+    "output": {
+      "dataset": "FD003",
+      "model": "05_transformer",
+      "n_steps_used": 30,
+      "rul": 49.686167389154434,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "version": "74b0796c4e9bba95a9ce46fc6a96058a42402c869e6189ccd8e29e007cd94909",
+      "warnings": [
+        "Used the latest 30 of 233 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD003-ENGINE-001",
+    "status": "ready"
+  },
+  "fd003-06_autoencoder-s42": {
+    "elapsed_seconds": 10.0,
+    "output": {
+      "anomaly_score": 1669.713570842378,
+      "dataset": "FD003",
+      "hi": 1669.713570842378,
+      "is_anomalous": true,
+      "onset_step": 193,
+      "seed": 42,
+      "threshold": 1.9183876567471747,
+      "top_channels": [
+        "s10",
+        "s6",
+        "s12"
+      ],
+      "version": "3d448c90edbd778b4a60d1a0faa59eb95b2c9fec7df40548a274041a56f1cec9"
+    },
+    "runtime": "cpu",
+    "sample": "FD003-ENGINE-001",
+    "status": "ready"
+  },
+  "fd003-07_cnn_transformer-s44": {
+    "elapsed_seconds": 9.42200000000048,
+    "output": {
+      "dataset": "FD003",
+      "model": "07_cnn_transformer",
+      "n_steps_used": 30,
+      "rul": 44.737882912158966,
+      "rul_unit": "cycles",
+      "seed": 44,
+      "version": "6f70d91cf5dd9d40ed82b18b15a17b0dad6bfed5a1b31ed79114060cbc41d19e",
+      "warnings": [
+        "Used the latest 30 of 233 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD003-ENGINE-001",
+    "status": "ready"
+  },
+  "fd003-08_ensemble-s42": {
+    "elapsed_seconds": 11.45299999999952,
+    "output": {
+      "dataset": "FD003",
+      "interval_80": [
+        41.272627884600446,
+        61.649749922540614
+      ],
+      "interval_90": [
+        37.10515347575772,
+        65.81722433138334
+      ],
+      "member_prediction_max": 61.0,
+      "member_prediction_min": 42.143382132053375,
+      "member_prediction_std": 6.065589173302197,
+      "members": {
+        "01_lightgbm_tuned": {
+          "dataset": "FD003",
+          "model": "01_lightgbm",
+          "n_steps_used": 40,
+          "rul": 43.38973340387454,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "top_contributors": [
+            {
+              "channel": "s11",
+              "mean_abs_contribution": 15.173009104834229,
+              "mean_contribution": -15.173009104834229
+            },
+            {
+              "channel": "s9",
+              "mean_abs_contribution": 12.101093744100831,
+              "mean_contribution": -12.101093744100831
+            },
+            {
+              "channel": "s14",
+              "mean_abs_contribution": 10.097202423753302,
+              "mean_contribution": -10.097202423753302
+            },
+            {
+              "channel": "s12",
+              "mean_abs_contribution": 5.48391231801377,
+              "mean_contribution": -5.48391231801377
+            },
+            {
+              "channel": "s13",
+              "mean_abs_contribution": 4.108592059939515,
+              "mean_contribution": -4.108592059939515
+            }
+          ],
+          "version": "6080ca36068bc8741bab1628c1aad52e1aed34d1fbda31da1b129e85584bd23b",
+          "warnings": [
+            "Used the latest 40 of 233 available cycles."
+          ]
+        },
+        "02_lstm": {
+          "dataset": "FD003",
+          "model": "02_lstm",
+          "n_steps_used": 50,
+          "rul": 51.77265778183937,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "0fe97e9698178066723cb970ae19c107dac717ca7383de6acd1d286226f57a2c",
+          "warnings": [
+            "Used the latest 50 of 233 available cycles."
+          ]
+        },
+        "03_bilstm_attention": {
+          "attention": [
+            0.0005908436141908169,
+            0.003998084459453821,
+            0.011306497268378735,
+            0.019262148067355156,
+            0.024108819663524628,
+            0.022997822612524033,
+            0.018343981355428696,
+            0.014492045156657696,
+            0.011198734864592552,
+            0.008828094229102135,
+            0.008027025498449802,
+            0.007789398543536663,
+            0.00800369493663311,
+            0.006599866319447756,
+            0.00541825732216239,
+            0.005055199842900038,
+            0.004396387375891209,
+            0.005142064765095711,
+            0.00563257047906518,
+            0.008354924619197845,
+            0.011157989501953125,
+            0.018955418840050697,
+            0.032321345061063766,
+            0.05070425570011139,
+            0.07649537920951843,
+            0.09973321110010147,
+            0.13251547515392303,
+            0.14874255657196045,
+            0.14034290611743927,
+            0.0894850641489029
+          ],
+          "dataset": "FD003",
+          "model": "03_bilstm_attention",
+          "n_steps_used": 30,
+          "rul": 42.143382132053375,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "9f2a79bacbfec4af286b138c96a19af963db37bf99526d1ad81277564d23ec7d",
+          "warnings": [
+            "Used the latest 30 of 233 available cycles."
+          ]
+        },
+        "04_cnn1d": {
+          "dataset": "FD003",
+          "model": "04_cnn1d",
+          "n_steps_used": 30,
+          "rul": 48.91085624694824,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "899c7a6e1352ca37f087e65afe819fca7ad61e4e6c2749709a181e4a766fba81",
+          "warnings": [
+            "Used the latest 30 of 233 available cycles."
+          ]
+        },
+        "05_transformer": {
+          "dataset": "FD003",
+          "model": "05_transformer",
+          "n_steps_used": 30,
+          "rul": 49.686167389154434,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "74b0796c4e9bba95a9ce46fc6a96058a42402c869e6189ccd8e29e007cd94909",
+          "warnings": [
+            "Used the latest 30 of 233 available cycles."
+          ]
+        },
+        "07_cnn_transformer": {
+          "dataset": "FD003",
+          "model": "07_cnn_transformer",
+          "n_steps_used": 30,
+          "rul": 43.73887553811073,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "1cfae8f6802b6a2d9f74bc8a514ced6e5ad927058ae6890254365e38161d48dd",
+          "warnings": [
+            "Used the latest 30 of 233 available cycles."
+          ]
+        },
+        "09_ts_degradation": {
+          "dataset": "FD003",
+          "health_index": 0.5192447660933961,
+          "interval_80": [
+            36.0,
+            125.0
+          ],
+          "model": "09_ts_degradation",
+          "n_steps_used": 233,
+          "rul": 61.0,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "threshold": 1.1117861175261328,
+          "uncertainty_method": "bootstrap_fit_residuals",
+          "version": "dadff2106d6f3bb7ea3f9a6a9c984893b81ea486d738d1dc5357a494e985d555",
+          "warnings": []
+        }
+      },
+      "model": "08_ensemble",
+      "n_steps_used": 30,
+      "rul": 51.46118890357053,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "uncertainty_method": "cross_fitted_split_conformal_member_spread",
+      "version": "c6b38471231b402575ff47c129e305ab4b6dc418eece51aee912d1162c5718f8",
+      "warnings": [
+        "Used the latest 40 of 233 available cycles.",
+        "Used the latest 50 of 233 available cycles.",
+        "Used the latest 30 of 233 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD003-ENGINE-001",
+    "status": "ready"
+  },
+  "fd003-08_ensemble_member_spread-s42": {
+    "elapsed_seconds": 11.875,
+    "output": {
+      "dataset": "FD003",
+      "interval_80": [
+        41.272627884600446,
+        61.649749922540614
+      ],
+      "interval_90": [
+        37.10515347575772,
+        65.81722433138334
+      ],
+      "member_prediction_max": 61.0,
+      "member_prediction_min": 42.143382132053375,
+      "member_prediction_std": 6.065589173302197,
+      "members": {
+        "01_lightgbm_tuned": {
+          "dataset": "FD003",
+          "model": "01_lightgbm",
+          "n_steps_used": 40,
+          "rul": 43.38973340387454,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "top_contributors": [
+            {
+              "channel": "s11",
+              "mean_abs_contribution": 15.173009104834229,
+              "mean_contribution": -15.173009104834229
+            },
+            {
+              "channel": "s9",
+              "mean_abs_contribution": 12.101093744100831,
+              "mean_contribution": -12.101093744100831
+            },
+            {
+              "channel": "s14",
+              "mean_abs_contribution": 10.097202423753302,
+              "mean_contribution": -10.097202423753302
+            },
+            {
+              "channel": "s12",
+              "mean_abs_contribution": 5.48391231801377,
+              "mean_contribution": -5.48391231801377
+            },
+            {
+              "channel": "s13",
+              "mean_abs_contribution": 4.108592059939515,
+              "mean_contribution": -4.108592059939515
+            }
+          ],
+          "version": "6080ca36068bc8741bab1628c1aad52e1aed34d1fbda31da1b129e85584bd23b",
+          "warnings": [
+            "Used the latest 40 of 233 available cycles."
+          ]
+        },
+        "02_lstm": {
+          "dataset": "FD003",
+          "model": "02_lstm",
+          "n_steps_used": 50,
+          "rul": 51.77265778183937,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "0fe97e9698178066723cb970ae19c107dac717ca7383de6acd1d286226f57a2c",
+          "warnings": [
+            "Used the latest 50 of 233 available cycles."
+          ]
+        },
+        "03_bilstm_attention": {
+          "attention": [
+            0.0005908436141908169,
+            0.003998084459453821,
+            0.011306497268378735,
+            0.019262148067355156,
+            0.024108819663524628,
+            0.022997822612524033,
+            0.018343981355428696,
+            0.014492045156657696,
+            0.011198734864592552,
+            0.008828094229102135,
+            0.008027025498449802,
+            0.007789398543536663,
+            0.00800369493663311,
+            0.006599866319447756,
+            0.00541825732216239,
+            0.005055199842900038,
+            0.004396387375891209,
+            0.005142064765095711,
+            0.00563257047906518,
+            0.008354924619197845,
+            0.011157989501953125,
+            0.018955418840050697,
+            0.032321345061063766,
+            0.05070425570011139,
+            0.07649537920951843,
+            0.09973321110010147,
+            0.13251547515392303,
+            0.14874255657196045,
+            0.14034290611743927,
+            0.0894850641489029
+          ],
+          "dataset": "FD003",
+          "model": "03_bilstm_attention",
+          "n_steps_used": 30,
+          "rul": 42.143382132053375,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "9f2a79bacbfec4af286b138c96a19af963db37bf99526d1ad81277564d23ec7d",
+          "warnings": [
+            "Used the latest 30 of 233 available cycles."
+          ]
+        },
+        "04_cnn1d": {
+          "dataset": "FD003",
+          "model": "04_cnn1d",
+          "n_steps_used": 30,
+          "rul": 48.91085624694824,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "899c7a6e1352ca37f087e65afe819fca7ad61e4e6c2749709a181e4a766fba81",
+          "warnings": [
+            "Used the latest 30 of 233 available cycles."
+          ]
+        },
+        "05_transformer": {
+          "dataset": "FD003",
+          "model": "05_transformer",
+          "n_steps_used": 30,
+          "rul": 49.686167389154434,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "74b0796c4e9bba95a9ce46fc6a96058a42402c869e6189ccd8e29e007cd94909",
+          "warnings": [
+            "Used the latest 30 of 233 available cycles."
+          ]
+        },
+        "07_cnn_transformer": {
+          "dataset": "FD003",
+          "model": "07_cnn_transformer",
+          "n_steps_used": 30,
+          "rul": 43.73887553811073,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "1cfae8f6802b6a2d9f74bc8a514ced6e5ad927058ae6890254365e38161d48dd",
+          "warnings": [
+            "Used the latest 30 of 233 available cycles."
+          ]
+        },
+        "09_ts_degradation": {
+          "dataset": "FD003",
+          "health_index": 0.5192447660933961,
+          "interval_80": [
+            36.0,
+            125.0
+          ],
+          "model": "09_ts_degradation",
+          "n_steps_used": 233,
+          "rul": 61.0,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "threshold": 1.1117861175261328,
+          "uncertainty_method": "bootstrap_fit_residuals",
+          "version": "dadff2106d6f3bb7ea3f9a6a9c984893b81ea486d738d1dc5357a494e985d555",
+          "warnings": []
+        }
+      },
+      "model": "08_ensemble",
+      "n_steps_used": 30,
+      "rul": 51.46118890357053,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "uncertainty_method": "cross_fitted_split_conformal_member_spread",
+      "version": "c6b38471231b402575ff47c129e305ab4b6dc418eece51aee912d1162c5718f8",
+      "warnings": [
+        "Used the latest 40 of 233 available cycles.",
+        "Used the latest 50 of 233 available cycles.",
+        "Used the latest 30 of 233 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD003-ENGINE-001",
+    "status": "ready"
+  },
+  "fd003-09_ts_degradation-s42": {
+    "elapsed_seconds": 4.671999999998661,
+    "output": {
+      "dataset": "FD003",
+      "health_index": 0.5192447660933961,
+      "interval_80": [
+        36.0,
+        125.0
+      ],
+      "model": "09_ts_degradation",
+      "n_steps_used": 233,
+      "rul": 61.0,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "threshold": 1.1117861175261328,
+      "uncertainty_method": "bootstrap_fit_residuals",
+      "version": "dadff2106d6f3bb7ea3f9a6a9c984893b81ea486d738d1dc5357a494e985d555",
+      "warnings": []
+    },
+    "runtime": "cpu",
+    "sample": "FD003-ENGINE-001",
+    "status": "ready"
+  },
+  "fd004-01_lightgbm-s42": {
+    "elapsed_seconds": 5.389999999999418,
+    "output": {
+      "dataset": "FD004",
+      "model": "01_lightgbm",
+      "n_steps_used": 40,
+      "rul": 32.158785034361294,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "top_contributors": [
+        {
+          "channel": "s14",
+          "mean_abs_contribution": 22.132096947536983,
+          "mean_contribution": -22.132096947536983
+        },
+        {
+          "channel": "s9",
+          "mean_abs_contribution": 13.415743857763953,
+          "mean_contribution": -13.415743857763953
+        },
+        {
+          "channel": "s13",
+          "mean_abs_contribution": 7.061949609280146,
+          "mean_contribution": -7.061949609280146
+        },
+        {
+          "channel": "s11",
+          "mean_abs_contribution": 6.4897822557101446,
+          "mean_contribution": -6.4897822557101446
+        },
+        {
+          "channel": "s8",
+          "mean_abs_contribution": 4.003721458850409,
+          "mean_contribution": -4.003721458850409
+        }
+      ],
+      "version": "09812b709683fdeeb64ab42ea8814bef006b57b1c270d811c0ab75a12c6fcca6",
+      "warnings": [
+        "Used the latest 40 of 230 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD004-ENGINE-001",
+    "status": "ready"
+  },
+  "fd004-01_lightgbm_quantile-s42": {
+    "elapsed_seconds": 5.2960000000002765,
+    "output": {
+      "dataset": "FD004",
+      "interval_80": [
+        24.51897169111275,
+        125.27546376178437
+      ],
+      "interval_90": [
+        20.950168533860808,
+        128.8442669190363
+      ],
+      "model": "01_lightgbm_quantile",
+      "n_steps_used": 40,
+      "rul": 32.158785034361294,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "top_contributors": [
+        {
+          "channel": "s14",
+          "mean_abs_contribution": 22.132096947536983,
+          "mean_contribution": -22.132096947536983
+        },
+        {
+          "channel": "s9",
+          "mean_abs_contribution": 13.415743857763953,
+          "mean_contribution": -13.415743857763953
+        },
+        {
+          "channel": "s13",
+          "mean_abs_contribution": 7.061949609280146,
+          "mean_contribution": -7.061949609280146
+        },
+        {
+          "channel": "s11",
+          "mean_abs_contribution": 6.4897822557101446,
+          "mean_contribution": -6.4897822557101446
+        },
+        {
+          "channel": "s8",
+          "mean_abs_contribution": 4.003721458850409,
+          "mean_contribution": -4.003721458850409
+        }
+      ],
+      "uncertainty_method": "val_last_split_conformal_quantile_regression",
+      "version": "05dedd35aeadbe0da2d37476b1ef030ac76dba2ee8cf1205a5aca3b3ee7a617e",
+      "warnings": [
+        "Used the latest 40 of 230 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD004-ENGINE-001",
+    "status": "ready"
+  },
+  "fd004-02_lstm-s44": {
+    "elapsed_seconds": 9.656999999999243,
+    "output": {
+      "dataset": "FD004",
+      "model": "02_lstm",
+      "n_steps_used": 50,
+      "rul": 25.02278797328472,
+      "rul_unit": "cycles",
+      "seed": 44,
+      "version": "b08808e9c90de99cb051e250d326f247de3b213059f1adf29af9494b29564183",
+      "warnings": [
+        "Used the latest 50 of 230 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD004-ENGINE-001",
+    "status": "ready"
+  },
+  "fd004-03_bilstm_attention-s42": {
+    "elapsed_seconds": 9.906999999999243,
+    "output": {
+      "attention": [
+        0.0013380221789702773,
+        0.0012112221447750926,
+        0.001283971592783928,
+        0.0011045775609090924,
+        0.0011454001069068909,
+        0.0010800855234265327,
+        0.0011965413577854633,
+        0.001490532187744975,
+        0.001552651054225862,
+        0.0015626579988747835,
+        0.0019219913519918919,
+        0.0030031774658709764,
+        0.0033398326486349106,
+        0.004948123823851347,
+        0.008934049867093563,
+        0.00998943392187357,
+        0.013630838133394718,
+        0.020018309354782104,
+        0.024348821491003036,
+        0.03504682332277298,
+        0.05504612997174263,
+        0.06587536633014679,
+        0.083685003221035,
+        0.09920007735490799,
+        0.11431489884853363,
+        0.15767063200473785,
+        0.11547020822763443,
+        0.09686433523893356,
+        0.05204227939248085,
+        0.02168400213122368
+      ],
+      "dataset": "FD004",
+      "model": "03_bilstm_attention",
+      "n_steps_used": 30,
+      "rul": 24.990087375044823,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "version": "c9fceb94a99536ae0935c6c110c1862a564034d9227d10f00063d1aaa49d2d99",
+      "warnings": [
+        "Used the latest 30 of 230 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD004-ENGINE-001",
+    "status": "ready"
+  },
+  "fd004-04_cnn1d-s42": {
+    "elapsed_seconds": 9.735000000000582,
+    "output": {
+      "dataset": "FD004",
+      "model": "04_cnn1d",
+      "n_steps_used": 30,
+      "rul": 27.578845620155334,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "version": "fd272b5e322300258afa88d5048732cd12fb75849486a09565a3bde3773e0d22",
+      "warnings": [
+        "Used the latest 30 of 230 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD004-ENGINE-001",
+    "status": "ready"
+  },
+  "fd004-05_transformer-s43": {
+    "elapsed_seconds": 10.09400000000096,
+    "output": {
+      "dataset": "FD004",
+      "model": "05_transformer",
+      "n_steps_used": 30,
+      "rul": 26.82824805378914,
+      "rul_unit": "cycles",
+      "seed": 43,
+      "version": "728324146d563a2eb8c7e6fe1bc15ca56d8ec2f58b1db36978c0ef5650e4b015",
+      "warnings": [
+        "Used the latest 30 of 230 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD004-ENGINE-001",
+    "status": "ready"
+  },
+  "fd004-06_autoencoder-s42": {
+    "elapsed_seconds": 10.390000000001237,
+    "output": {
+      "anomaly_score": 3.751963166998023,
+      "dataset": "FD004",
+      "hi": 3.751963166998023,
+      "is_anomalous": true,
+      "onset_step": 214,
+      "seed": 42,
+      "threshold": 1.3274343864268545,
+      "top_channels": [
+        "s6",
+        "s14",
+        "s9"
+      ],
+      "version": "d656871f48a3b9bd9065bcfd31f19f3609aeb7a2b1238daac417c8a588271c81"
+    },
+    "runtime": "cpu",
+    "sample": "FD004-ENGINE-001",
+    "status": "ready"
+  },
+  "fd004-07_cnn_transformer-s43": {
+    "elapsed_seconds": 12.54700000000048,
+    "output": {
+      "dataset": "FD004",
+      "model": "07_cnn_transformer",
+      "n_steps_used": 30,
+      "rul": 36.88100725412369,
+      "rul_unit": "cycles",
+      "seed": 43,
+      "version": "5c2daa79f38ecbc023730b6d718756f5fc64f7f8ff14b6f83a03016a77983192",
+      "warnings": [
+        "Used the latest 30 of 230 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD004-ENGINE-001",
+    "status": "ready"
+  },
+  "fd004-08_ensemble-s42": {
+    "elapsed_seconds": 12.514999999999418,
+    "output": {
+      "dataset": "FD004",
+      "interval_80": [
+        19.01438404053125,
+        31.089549891617406
+      ],
+      "interval_90": [
+        16.925470465206402,
+        33.178463466942254
+      ],
+      "member_prediction_max": 32.158785034361294,
+      "member_prediction_min": 21.0,
+      "member_prediction_std": 3.2692749699954313,
+      "members": {
+        "01_lightgbm_tuned": {
+          "dataset": "FD004",
+          "model": "01_lightgbm",
+          "n_steps_used": 40,
+          "rul": 32.158785034361294,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "top_contributors": [
+            {
+              "channel": "s14",
+              "mean_abs_contribution": 22.132096947536983,
+              "mean_contribution": -22.132096947536983
+            },
+            {
+              "channel": "s9",
+              "mean_abs_contribution": 13.415743857763953,
+              "mean_contribution": -13.415743857763953
+            },
+            {
+              "channel": "s13",
+              "mean_abs_contribution": 7.061949609280146,
+              "mean_contribution": -7.061949609280146
+            },
+            {
+              "channel": "s11",
+              "mean_abs_contribution": 6.4897822557101446,
+              "mean_contribution": -6.4897822557101446
+            },
+            {
+              "channel": "s8",
+              "mean_abs_contribution": 4.003721458850409,
+              "mean_contribution": -4.003721458850409
+            }
+          ],
+          "version": "09812b709683fdeeb64ab42ea8814bef006b57b1c270d811c0ab75a12c6fcca6",
+          "warnings": [
+            "Used the latest 40 of 230 available cycles."
+          ]
+        },
+        "02_lstm": {
+          "dataset": "FD004",
+          "model": "02_lstm",
+          "n_steps_used": 50,
+          "rul": 26.668459177017212,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "bd1ed86f9caf1b33356fac36ed27e1060d8e7d532f9172048d7940d47faca64a",
+          "warnings": [
+            "Used the latest 50 of 230 available cycles."
+          ]
+        },
+        "03_bilstm_attention": {
+          "attention": [
+            0.0013380221789702773,
+            0.0012112221447750926,
+            0.001283971592783928,
+            0.0011045775609090924,
+            0.0011454001069068909,
+            0.0010800855234265327,
+            0.0011965413577854633,
+            0.001490532187744975,
+            0.001552651054225862,
+            0.0015626579988747835,
+            0.0019219913519918919,
+            0.0030031774658709764,
+            0.0033398326486349106,
+            0.004948123823851347,
+            0.008934049867093563,
+            0.00998943392187357,
+            0.013630838133394718,
+            0.020018309354782104,
+            0.024348821491003036,
+            0.03504682332277298,
+            0.05504612997174263,
+            0.06587536633014679,
+            0.083685003221035,
+            0.09920007735490799,
+            0.11431489884853363,
+            0.15767063200473785,
+            0.11547020822763443,
+            0.09686433523893356,
+            0.05204227939248085,
+            0.02168400213122368
+          ],
+          "dataset": "FD004",
+          "model": "03_bilstm_attention",
+          "n_steps_used": 30,
+          "rul": 24.990087375044823,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "c9fceb94a99536ae0935c6c110c1862a564034d9227d10f00063d1aaa49d2d99",
+          "warnings": [
+            "Used the latest 30 of 230 available cycles."
+          ]
+        },
+        "04_cnn1d": {
+          "dataset": "FD004",
+          "model": "04_cnn1d",
+          "n_steps_used": 30,
+          "rul": 27.578845620155334,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "fd272b5e322300258afa88d5048732cd12fb75849486a09565a3bde3773e0d22",
+          "warnings": [
+            "Used the latest 30 of 230 available cycles."
+          ]
+        },
+        "05_transformer": {
+          "dataset": "FD004",
+          "model": "05_transformer",
+          "n_steps_used": 30,
+          "rul": 23.68038333952427,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "7433be5063e433d98c114d2fb47060589bb9eeda145d3ba0f02a6447e5bb0631",
+          "warnings": [
+            "Used the latest 30 of 230 available cycles."
+          ]
+        },
+        "07_cnn_transformer": {
+          "dataset": "FD004",
+          "model": "07_cnn_transformer",
+          "n_steps_used": 30,
+          "rul": 24.288848042488098,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "a364b1d864165f0c430e4e6c98e786bdf320f54290bd608876404acf79fb168c",
+          "warnings": [
+            "Used the latest 30 of 230 available cycles."
+          ]
+        },
+        "09_ts_degradation": {
+          "dataset": "FD004",
+          "health_index": 0.6918166570491573,
+          "interval_80": [
+            19.0,
+            24.0
+          ],
+          "model": "09_ts_degradation",
+          "n_steps_used": 230,
+          "rul": 21.0,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "threshold": 0.9826690285540808,
+          "uncertainty_method": "bootstrap_fit_residuals",
+          "version": "248bebf3c46acd45dd271e6eab98342b8215dc8b421aff6e53d15308d592e749",
+          "warnings": []
+        }
+      },
+      "model": "08_ensemble",
+      "n_steps_used": 30,
+      "rul": 25.05196696607433,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "uncertainty_method": "cross_fitted_split_conformal_member_spread",
+      "version": "dd509b18ca35a45aebaa1d46a14bcf496c993ccbfc54d66f20a2411c08e63df8",
+      "warnings": [
+        "Used the latest 40 of 230 available cycles.",
+        "Used the latest 50 of 230 available cycles.",
+        "Used the latest 30 of 230 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD004-ENGINE-001",
+    "status": "ready"
+  },
+  "fd004-08_ensemble_member_spread-s42": {
+    "elapsed_seconds": 11.515999999999622,
+    "output": {
+      "dataset": "FD004",
+      "interval_80": [
+        19.01438404053125,
+        31.089549891617406
+      ],
+      "interval_90": [
+        16.925470465206402,
+        33.178463466942254
+      ],
+      "member_prediction_max": 32.158785034361294,
+      "member_prediction_min": 21.0,
+      "member_prediction_std": 3.2692749699954313,
+      "members": {
+        "01_lightgbm_tuned": {
+          "dataset": "FD004",
+          "model": "01_lightgbm",
+          "n_steps_used": 40,
+          "rul": 32.158785034361294,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "top_contributors": [
+            {
+              "channel": "s14",
+              "mean_abs_contribution": 22.132096947536983,
+              "mean_contribution": -22.132096947536983
+            },
+            {
+              "channel": "s9",
+              "mean_abs_contribution": 13.415743857763953,
+              "mean_contribution": -13.415743857763953
+            },
+            {
+              "channel": "s13",
+              "mean_abs_contribution": 7.061949609280146,
+              "mean_contribution": -7.061949609280146
+            },
+            {
+              "channel": "s11",
+              "mean_abs_contribution": 6.4897822557101446,
+              "mean_contribution": -6.4897822557101446
+            },
+            {
+              "channel": "s8",
+              "mean_abs_contribution": 4.003721458850409,
+              "mean_contribution": -4.003721458850409
+            }
+          ],
+          "version": "09812b709683fdeeb64ab42ea8814bef006b57b1c270d811c0ab75a12c6fcca6",
+          "warnings": [
+            "Used the latest 40 of 230 available cycles."
+          ]
+        },
+        "02_lstm": {
+          "dataset": "FD004",
+          "model": "02_lstm",
+          "n_steps_used": 50,
+          "rul": 26.668459177017212,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "bd1ed86f9caf1b33356fac36ed27e1060d8e7d532f9172048d7940d47faca64a",
+          "warnings": [
+            "Used the latest 50 of 230 available cycles."
+          ]
+        },
+        "03_bilstm_attention": {
+          "attention": [
+            0.0013380221789702773,
+            0.0012112221447750926,
+            0.001283971592783928,
+            0.0011045775609090924,
+            0.0011454001069068909,
+            0.0010800855234265327,
+            0.0011965413577854633,
+            0.001490532187744975,
+            0.001552651054225862,
+            0.0015626579988747835,
+            0.0019219913519918919,
+            0.0030031774658709764,
+            0.0033398326486349106,
+            0.004948123823851347,
+            0.008934049867093563,
+            0.00998943392187357,
+            0.013630838133394718,
+            0.020018309354782104,
+            0.024348821491003036,
+            0.03504682332277298,
+            0.05504612997174263,
+            0.06587536633014679,
+            0.083685003221035,
+            0.09920007735490799,
+            0.11431489884853363,
+            0.15767063200473785,
+            0.11547020822763443,
+            0.09686433523893356,
+            0.05204227939248085,
+            0.02168400213122368
+          ],
+          "dataset": "FD004",
+          "model": "03_bilstm_attention",
+          "n_steps_used": 30,
+          "rul": 24.990087375044823,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "c9fceb94a99536ae0935c6c110c1862a564034d9227d10f00063d1aaa49d2d99",
+          "warnings": [
+            "Used the latest 30 of 230 available cycles."
+          ]
+        },
+        "04_cnn1d": {
+          "dataset": "FD004",
+          "model": "04_cnn1d",
+          "n_steps_used": 30,
+          "rul": 27.578845620155334,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "fd272b5e322300258afa88d5048732cd12fb75849486a09565a3bde3773e0d22",
+          "warnings": [
+            "Used the latest 30 of 230 available cycles."
+          ]
+        },
+        "05_transformer": {
+          "dataset": "FD004",
+          "model": "05_transformer",
+          "n_steps_used": 30,
+          "rul": 23.68038333952427,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "7433be5063e433d98c114d2fb47060589bb9eeda145d3ba0f02a6447e5bb0631",
+          "warnings": [
+            "Used the latest 30 of 230 available cycles."
+          ]
+        },
+        "07_cnn_transformer": {
+          "dataset": "FD004",
+          "model": "07_cnn_transformer",
+          "n_steps_used": 30,
+          "rul": 24.288848042488098,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "version": "a364b1d864165f0c430e4e6c98e786bdf320f54290bd608876404acf79fb168c",
+          "warnings": [
+            "Used the latest 30 of 230 available cycles."
+          ]
+        },
+        "09_ts_degradation": {
+          "dataset": "FD004",
+          "health_index": 0.6918166570491573,
+          "interval_80": [
+            19.0,
+            24.0
+          ],
+          "model": "09_ts_degradation",
+          "n_steps_used": 230,
+          "rul": 21.0,
+          "rul_unit": "cycles",
+          "seed": 42,
+          "threshold": 0.9826690285540808,
+          "uncertainty_method": "bootstrap_fit_residuals",
+          "version": "248bebf3c46acd45dd271e6eab98342b8215dc8b421aff6e53d15308d592e749",
+          "warnings": []
+        }
+      },
+      "model": "08_ensemble",
+      "n_steps_used": 30,
+      "rul": 25.05196696607433,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "uncertainty_method": "cross_fitted_split_conformal_member_spread",
+      "version": "dd509b18ca35a45aebaa1d46a14bcf496c993ccbfc54d66f20a2411c08e63df8",
+      "warnings": [
+        "Used the latest 40 of 230 available cycles.",
+        "Used the latest 50 of 230 available cycles.",
+        "Used the latest 30 of 230 available cycles."
+      ]
+    },
+    "runtime": "cpu",
+    "sample": "FD004-ENGINE-001",
+    "status": "ready"
+  },
+  "fd004-09_ts_degradation-s42": {
+    "elapsed_seconds": 4.688000000000102,
+    "output": {
+      "dataset": "FD004",
+      "health_index": 0.6918166570491573,
+      "interval_80": [
+        19.0,
+        24.0
+      ],
+      "model": "09_ts_degradation",
+      "n_steps_used": 230,
+      "rul": 21.0,
+      "rul_unit": "cycles",
+      "seed": 42,
+      "threshold": 0.9826690285540808,
+      "uncertainty_method": "bootstrap_fit_residuals",
+      "version": "248bebf3c46acd45dd271e6eab98342b8215dc8b421aff6e53d15308d592e749",
+      "warnings": []
+    },
+    "runtime": "cpu",
+    "sample": "FD004-ENGINE-001",
+    "status": "ready"
+  }
+}

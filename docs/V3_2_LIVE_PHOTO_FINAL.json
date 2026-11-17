@@ -1,0 +1,2979 @@
+{
+  "timestamp_utc": "2026-11-17T09:26:05.452006+00:00",
+  "checks": {
+    "demo_B_visual_investigation": {
+      "status": "PASS",
+      "result": {
+        "investigation": {
+          "events": [
+            {
+              "type": "started",
+              "request_id": "32159abe4555444ca315a0ea16977879",
+              "user_message_id": "13d5f809c4074b11984cc8011c9ef901"
+            },
+            {
+              "type": "plan",
+              "run_id": "1c85dd48-8153-4780-841b-cd5db60fbe4a",
+              "plan": {
+                "id": "f1a1dd8f-f64b-4e60-abff-2e28f24054f0",
+                "intent": "incident_investigation",
+                "goals": [
+                  "Answer using supplied evidence and actual local tools"
+                ],
+                "tools": [
+                  {
+                    "tool_id": "vision.inspect",
+                    "arguments": {
+                      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                    },
+                    "depends_on": []
+                  },
+                  {
+                    "tool_id": "knowledge.retrieve",
+                    "arguments": {
+                      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                    },
+                    "depends_on": []
+                  },
+                  {
+                    "tool_id": "hypotheses.investigate",
+                    "arguments": {
+                      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                    },
+                    "depends_on": []
+                  }
+                ],
+                "evidence_ids": [],
+                "allowed_external_providers": [],
+                "deadline_seconds": 300.0,
+                "max_tool_calls": 12,
+                "fallback": "Return explicit partial/error status; never fabricate tool findings."
+              }
+            },
+            {
+              "type": "tool",
+              "tool": "vision.inspect",
+              "status": "running",
+              "source_id": "9f2bcf14e8624c039f3e9f5e3050be24"
+            },
+            {
+              "type": "tool",
+              "tool": "vision.inspect",
+              "status": "cached",
+              "provider": "ollama",
+              "model": "qwen3-vl:2b-instruct",
+              "model_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+              "elapsed_seconds": 0.48399999999674037,
+              "source_ids": [
+                "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72"
+              ]
+            },
+            {
+              "type": "tool",
+              "tool": "search_documents",
+              "status": "complete",
+              "elapsed_seconds": 0.031000000002677552,
+              "source_ids": [
+                "652625bf337de7da7e79b51c"
+              ]
+            },
+            {
+              "type": "evidence",
+              "evidence": [
+                {
+                  "id": "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                  "modality": "image",
+                  "kind": "model_inference",
+                  "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                  "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                  "observation": "The bearing has a split design with a central ring and multiple rollers.",
+                  "locator": "licensed-bearing-demo.jpg",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a static photograph and cannot establish the root cause of the noise.",
+                    "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                    "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                  ]
+                },
+                {
+                  "id": "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                  "modality": "image",
+                  "kind": "model_inference",
+                  "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                  "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                  "observation": "The rollers are arranged in a row and appear to be in good condition.",
+                  "locator": "licensed-bearing-demo.jpg",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a static photograph and cannot establish the root cause of the noise.",
+                    "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                    "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                  ]
+                },
+                {
+                  "id": "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                  "modality": "image",
+                  "kind": "model_inference",
+                  "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                  "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                  "observation": "The outer ring is smooth and has a slight sheen, indicating it is likely made of steel or a similar material.",
+                  "locator": "licensed-bearing-demo.jpg",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a static photograph and cannot establish the root cause of the noise.",
+                    "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                    "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                  ]
+                },
+                {
+                  "id": "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                  "modality": "image",
+                  "kind": "model_inference",
+                  "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                  "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                  "observation": "The bearing is not showing any visible signs of wear, damage, or deformation.",
+                  "locator": "licensed-bearing-demo.jpg",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a static photograph and cannot establish the root cause of the noise.",
+                    "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                    "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                  ]
+                },
+                {
+                  "id": "652625bf337de7da7e79b51c",
+                  "modality": "document",
+                  "kind": "document_guidance",
+                  "source_id": "555b3d1f041547d5961b50e36b4dce60",
+                  "origin_id": null,
+                  "observation": "Project demonstration note: this is a licensed component photograph. No verified maintenance, lubrication or alignment measurements or independently verified asset identity have been supplied. A photo alone cannot establish internal damage or RUL.",
+                  "locator": "demonstration-limitations.txt / lines 1-1, chars 1-247",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": []
+                }
+              ]
+            },
+            {
+              "type": "tool",
+              "tool": "hypothesis_engine",
+              "status": "running"
+            },
+            {
+              "type": "report",
+              "report": {
+                "case": {
+                  "question": "Investigate the attached licensed demonstration photograph. Hypothetically the operator reports intermittent bearing noise under load; that is a simulated user claim, not a measured incident. Compare plausible mechanisms and missing discriminating measurements. Cite only actual supplied evidence.",
+                  "conversation_id": "16eaf00e6b7b4d0fb4548252e1ced357",
+                  "evidence": [
+                    {
+                      "id": "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                      "modality": "image",
+                      "kind": "model_inference",
+                      "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                      "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                      "observation": "The bearing has a split design with a central ring and multiple rollers.",
+                      "locator": "licensed-bearing-demo.jpg",
+                      "reliability": "medium",
+                      "asset_identity": null,
+                      "predicate": null,
+                      "value": null,
+                      "limitations": [
+                        "The image is a static photograph and cannot establish the root cause of the noise.",
+                        "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                        "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                      ]
+                    },
+                    {
+                      "id": "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                      "modality": "image",
+                      "kind": "model_inference",
+                      "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                      "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                      "observation": "The rollers are arranged in a row and appear to be in good condition.",
+                      "locator": "licensed-bearing-demo.jpg",
+                      "reliability": "medium",
+                      "asset_identity": null,
+                      "predicate": null,
+                      "value": null,
+                      "limitations": [
+                        "The image is a static photograph and cannot establish the root cause of the noise.",
+                        "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                        "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                      ]
+                    },
+                    {
+                      "id": "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                      "modality": "image",
+                      "kind": "model_inference",
+                      "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                      "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                      "observation": "The outer ring is smooth and has a slight sheen, indicating it is likely made of steel or a similar material.",
+                      "locator": "licensed-bearing-demo.jpg",
+                      "reliability": "medium",
+                      "asset_identity": null,
+                      "predicate": null,
+                      "value": null,
+                      "limitations": [
+                        "The image is a static photograph and cannot establish the root cause of the noise.",
+                        "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                        "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                      ]
+                    },
+                    {
+                      "id": "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                      "modality": "image",
+                      "kind": "model_inference",
+                      "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                      "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                      "observation": "The bearing is not showing any visible signs of wear, damage, or deformation.",
+                      "locator": "licensed-bearing-demo.jpg",
+                      "reliability": "medium",
+                      "asset_identity": null,
+                      "predicate": null,
+                      "value": null,
+                      "limitations": [
+                        "The image is a static photograph and cannot establish the root cause of the noise.",
+                        "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                        "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                      ]
+                    },
+                    {
+                      "id": "652625bf337de7da7e79b51c",
+                      "modality": "document",
+                      "kind": "document_guidance",
+                      "source_id": "555b3d1f041547d5961b50e36b4dce60",
+                      "origin_id": null,
+                      "observation": "Project demonstration note: this is a licensed component photograph. No verified maintenance, lubrication or alignment measurements or independently verified asset identity have been supplied. A photo alone cannot establish internal damage or RUL.",
+                      "locator": "demonstration-limitations.txt / lines 1-1, chars 1-247",
+                      "reliability": "medium",
+                      "asset_identity": null,
+                      "predicate": null,
+                      "value": null,
+                      "limitations": []
+                    },
+                    {
+                      "id": "user:13d5f809c4074b11984cc8011c9ef901",
+                      "modality": "text",
+                      "kind": "user_claim",
+                      "source_id": "13d5f809c4074b11984cc8011c9ef901",
+                      "origin_id": null,
+                      "observation": "Investigate the attached licensed demonstration photograph. Hypothetically the operator reports intermittent bearing noise under load; that is a simulated user claim, not a measured incident. Compare plausible mechanisms and missing discriminating measurements. Cite only actual supplied evidence.",
+                      "locator": null,
+                      "reliability": "low",
+                      "asset_identity": null,
+                      "predicate": null,
+                      "value": null,
+                      "limitations": []
+                    }
+                  ],
+                  "linked_asset": false,
+                  "parent_case_id": null
+                },
+                "hypotheses": [
+                  {
+                    "id": "HYP:19d15c76f3ef6918",
+                    "mechanism": "Dynamic misalignment of rollers due to internal clearance variation under load, causing intermittent contact and noise.",
+                    "assumptions": [
+                      "Intermittent noise under load may arise from internal clearance variation in split bearings.",
+                      "The rollers are symmetrically arranged and operate under dynamic load distribution."
+                    ],
+                    "expected_signs": [
+                      {
+                        "predicate": "The bearing exhibits micro-variation in roller alignment under load",
+                        "expected_value": true
+                      },
+                      {
+                        "predicate": "The outer ring shows subtle surface irregularities not visible in static image",
+                        "expected_value": true
+                      }
+                    ],
+                    "supporting_evidence_ids": [
+                      "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                      "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4"
+                    ],
+                    "contradicting_evidence_ids": [],
+                    "missing_tests": [
+                      "Lubrication level and consistency measurement (e.g., oil film thickness or contamination)",
+                      "Operational vibration spectrum under load (frequency domain analysis)"
+                    ],
+                    "status": "tentative",
+                    "evidence_support": "low",
+                    "ranking_score": 0.05,
+                    "falsified_by": [],
+                    "excluded_as_unlinked": [],
+                    "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+                  },
+                  {
+                    "id": "HYP:4a0e2dcc8e73a0ae",
+                    "mechanism": "Internal material fatigue or micro-wear in the bearing components produces intermittent noise under load.",
+                    "assumptions": [
+                      "Such wear could produce intermittent noise via micro-contacts under load.",
+                      "The bearing may have internal wear not visible in static image due to material fatigue or micro-cracking."
+                    ],
+                    "expected_signs": [
+                      {
+                        "predicate": "Internal micro-cracks or wear patterns are detectable via non-destructive testing",
+                        "expected_value": true
+                      },
+                      {
+                        "predicate": "The outer ring shows non-uniform surface texture under magnification",
+                        "expected_value": true
+                      }
+                    ],
+                    "supporting_evidence_ids": [
+                      "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72"
+                    ],
+                    "contradicting_evidence_ids": [],
+                    "missing_tests": [
+                      "Non-destructive testing (e.g., ultrasonic or X-ray imaging)",
+                      "Surface texture analysis at micro-scale"
+                    ],
+                    "status": "tentative",
+                    "evidence_support": "low",
+                    "ranking_score": 0.05,
+                    "falsified_by": [],
+                    "excluded_as_unlinked": [],
+                    "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+                  },
+                  {
+                    "id": "HYP:7d191a94dadbc01b",
+                    "mechanism": "Particulate or moisture contamination in the split joint region causes intermittent friction and noise under load.",
+                    "assumptions": [
+                      "Contamination (e.g., particulate or moisture) may be trapped in the split joint region.",
+                      "Such contamination can cause intermittent friction and noise under load."
+                    ],
+                    "expected_signs": [
+                      {
+                        "predicate": "Lubricant is visibly degraded or absent in the joint area",
+                        "expected_value": true
+                      },
+                      {
+                        "predicate": "The split joint region shows visible particulate or discoloration",
+                        "expected_value": true
+                      }
+                    ],
+                    "supporting_evidence_ids": [
+                      "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                      "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c"
+                    ],
+                    "contradicting_evidence_ids": [],
+                    "missing_tests": [
+                      "Chemical analysis of lubricant or debris",
+                      "Microscopic inspection of the split joint region"
+                    ],
+                    "status": "tentative",
+                    "evidence_support": "low",
+                    "ranking_score": 0.05,
+                    "falsified_by": [],
+                    "excluded_as_unlinked": [],
+                    "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+                  }
+                ],
+                "tools": [
+                  {
+                    "tool": "propose_hypotheses",
+                    "status": "complete",
+                    "provider": "ollama",
+                    "model": "qwen3:4b-instruct",
+                    "elapsed_seconds": 84.76599999999598,
+                    "source_ids": [
+                      "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                      "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                      "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                      "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                      "652625bf337de7da7e79b51c",
+                      "user:13d5f809c4074b11984cc8011c9ef901"
+                    ]
+                  },
+                  {
+                    "tool": "search_documents",
+                    "status": "complete",
+                    "provider": null,
+                    "model": null,
+                    "elapsed_seconds": 0.01600000000325963,
+                    "source_ids": []
+                  },
+                  {
+                    "tool": "search_documents",
+                    "status": "complete",
+                    "provider": null,
+                    "model": null,
+                    "elapsed_seconds": 0.0,
+                    "source_ids": [
+                      "652625bf337de7da7e79b51c"
+                    ]
+                  }
+                ],
+                "rounds": 1,
+                "unresolved": [
+                  "No operational data or vibration measurements are available to validate noise characteristics.",
+                  "No independent verification of asset identity or maintenance history exists.",
+                  "The static image does not permit inference of internal dynamics or micro-structural conditions."
+                ],
+                "limitations": [
+                  "Generated mechanisms and proposed evidence relationships remain unverified.",
+                  "Rank scores are transparent heuristics, not probabilities; high support is not claimed.",
+                  "Photographs cannot prove internal damage or estimate RUL; use qualified inspection.",
+                  "A NASA demonstration prediction does not describe the physical photographed component."
+                ],
+                "stop_reason": "no_new_evidence",
+                "hypothesis_revisions": [
+                  {
+                    "round": 1,
+                    "evidence_ids": [
+                      "652625bf337de7da7e79b51c",
+                      "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                      "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                      "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                      "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                      "user:13d5f809c4074b11984cc8011c9ef901"
+                    ],
+                    "candidates": [
+                      {
+                        "id": "HYP:19d15c76f3ef6918",
+                        "status": "tentative",
+                        "support": [
+                          "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                          "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4"
+                        ],
+                        "conflicts": []
+                      },
+                      {
+                        "id": "HYP:4a0e2dcc8e73a0ae",
+                        "status": "tentative",
+                        "support": [
+                          "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72"
+                        ],
+                        "conflicts": []
+                      },
+                      {
+                        "id": "HYP:7d191a94dadbc01b",
+                        "status": "tentative",
+                        "support": [
+                          "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                          "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c"
+                        ],
+                        "conflicts": []
+                      }
+                    ],
+                    "merges": [
+                      {
+                        "hypothesis_id": "HYP:19d15c76f3ef6918",
+                        "canonical_key": "dynamic misalignment of rollers due to internal clearance variation under load causing intermittent contact and noise",
+                        "proposal_ids": [
+                          "H1"
+                        ],
+                        "merged_count": 1,
+                        "ambiguous_source_ids": [],
+                        "disputed_prerequisites": []
+                      },
+                      {
+                        "hypothesis_id": "HYP:4a0e2dcc8e73a0ae",
+                        "canonical_key": "internal material fatigue or micro wear in the bearing components produces intermittent noise under load",
+                        "proposal_ids": [
+                          "H3"
+                        ],
+                        "merged_count": 1,
+                        "ambiguous_source_ids": [],
+                        "disputed_prerequisites": []
+                      },
+                      {
+                        "hypothesis_id": "HYP:7d191a94dadbc01b",
+                        "canonical_key": "particulate or moisture contamination in the split joint region causes intermittent friction and noise under load",
+                        "proposal_ids": [
+                          "H2"
+                        ],
+                        "merged_count": 1,
+                        "ambiguous_source_ids": [],
+                        "disputed_prerequisites": []
+                      }
+                    ],
+                    "model_context_selection": {
+                      "provided_sources": 6,
+                      "omitted_sources": 0,
+                      "excerpted_sources": [],
+                      "question_excerpted": false
+                    },
+                    "model_reference_map": {
+                      "E1": "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                      "E2": "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                      "E3": "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                      "E4": "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                      "E5": "652625bf337de7da7e79b51c",
+                      "E6": "user:13d5f809c4074b11984cc8011c9ef901"
+                    },
+                    "state_sha256": "bd03ebfec963d24b7c7279c9f55420954b8dbeb29ae60c22f53b1bb6c362acbf"
+                  }
+                ],
+                "id": "971f1fb25fd2452cb704e6891ce7c5d6"
+              },
+              "content": "## Investigation\n\n**Dynamic misalignment of rollers due to internal clearance variation under load, causing intermittent contact and noise.**\n\nStatus: tentative; evidence support: low.\n\nNext checks: Lubrication level and consistency measurement (e.g., oil film thickness or contamination); Operational vibration spectrum under load (frequency domain analysis)\n\n**Internal material fatigue or micro-wear in the bearing components produces intermittent noise under load.**\n\nStatus: tentative; evidence support: low.\n\nNext checks: Non-destructive testing (e.g., ultrasonic or X-ray imaging); Surface texture analysis at micro-scale\n\n**Particulate or moisture contamination in the split joint region causes intermittent friction and noise under load.**\n\nStatus: tentative; evidence support: low.\n\nNext checks: Chemical analysis of lubricant or debris; Microscopic inspection of the split joint region\n\nThese are proposed mechanisms, not a confirmed diagnosis."
+            },
+            {
+              "type": "done",
+              "status": "complete",
+              "metadata": {
+                "provider": "ollama",
+                "model": "qwen3:4b-instruct",
+                "tools": [
+                  {
+                    "tool": "vision.inspect",
+                    "status": "cached",
+                    "provider": "ollama",
+                    "model": "qwen3-vl:2b-instruct",
+                    "model_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+                    "elapsed_seconds": 0.48399999999674037,
+                    "source_ids": [
+                      "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                      "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                      "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                      "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72"
+                    ]
+                  },
+                  {
+                    "tool": "search_documents",
+                    "status": "complete",
+                    "elapsed_seconds": 0.031000000002677552,
+                    "source_ids": [
+                      "652625bf337de7da7e79b51c"
+                    ]
+                  },
+                  {
+                    "tool": "propose_hypotheses",
+                    "status": "complete",
+                    "provider": "ollama",
+                    "model": "qwen3:4b-instruct",
+                    "elapsed_seconds": 84.76599999999598,
+                    "source_ids": [
+                      "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                      "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                      "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                      "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                      "652625bf337de7da7e79b51c",
+                      "user:13d5f809c4074b11984cc8011c9ef901"
+                    ]
+                  },
+                  {
+                    "tool": "search_documents",
+                    "status": "complete",
+                    "provider": null,
+                    "model": null,
+                    "elapsed_seconds": 0.01600000000325963,
+                    "source_ids": []
+                  },
+                  {
+                    "tool": "search_documents",
+                    "status": "complete",
+                    "provider": null,
+                    "model": null,
+                    "elapsed_seconds": 0.0,
+                    "source_ids": [
+                      "652625bf337de7da7e79b51c"
+                    ]
+                  }
+                ],
+                "evidence": [
+                  {
+                    "id": "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                    "modality": "image",
+                    "kind": "model_inference",
+                    "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "observation": "The bearing has a split design with a central ring and multiple rollers.",
+                    "locator": "licensed-bearing-demo.jpg",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a static photograph and cannot establish the root cause of the noise.",
+                      "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                      "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                    ]
+                  },
+                  {
+                    "id": "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                    "modality": "image",
+                    "kind": "model_inference",
+                    "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "observation": "The rollers are arranged in a row and appear to be in good condition.",
+                    "locator": "licensed-bearing-demo.jpg",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a static photograph and cannot establish the root cause of the noise.",
+                      "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                      "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                    ]
+                  },
+                  {
+                    "id": "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                    "modality": "image",
+                    "kind": "model_inference",
+                    "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "observation": "The outer ring is smooth and has a slight sheen, indicating it is likely made of steel or a similar material.",
+                    "locator": "licensed-bearing-demo.jpg",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a static photograph and cannot establish the root cause of the noise.",
+                      "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                      "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                    ]
+                  },
+                  {
+                    "id": "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                    "modality": "image",
+                    "kind": "model_inference",
+                    "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "observation": "The bearing is not showing any visible signs of wear, damage, or deformation.",
+                    "locator": "licensed-bearing-demo.jpg",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a static photograph and cannot establish the root cause of the noise.",
+                      "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                      "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                    ]
+                  },
+                  {
+                    "id": "652625bf337de7da7e79b51c",
+                    "modality": "document",
+                    "kind": "document_guidance",
+                    "source_id": "555b3d1f041547d5961b50e36b4dce60",
+                    "origin_id": null,
+                    "observation": "Project demonstration note: this is a licensed component photograph. No verified maintenance, lubrication or alignment measurements or independently verified asset identity have been supplied. A photo alone cannot establish internal damage or RUL.",
+                    "locator": "demonstration-limitations.txt / lines 1-1, chars 1-247",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": []
+                  },
+                  {
+                    "id": "user:13d5f809c4074b11984cc8011c9ef901",
+                    "modality": "text",
+                    "kind": "user_claim",
+                    "source_id": "13d5f809c4074b11984cc8011c9ef901",
+                    "origin_id": null,
+                    "observation": "Investigate the attached licensed demonstration photograph. Hypothetically the operator reports intermittent bearing noise under load; that is a simulated user claim, not a measured incident. Compare plausible mechanisms and missing discriminating measurements. Cite only actual supplied evidence.",
+                    "locator": null,
+                    "reliability": "low",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": []
+                  }
+                ],
+                "attachments": [
+                  "9f2bcf14e8624c039f3e9f5e3050be24",
+                  "555b3d1f041547d5961b50e36b4dce60"
+                ],
+                "orchestration": {
+                  "run_id": "1c85dd48-8153-4780-841b-cd5db60fbe4a",
+                  "intent": "incident_investigation"
+                },
+                "investigation_id": "971f1fb25fd2452cb704e6891ce7c5d6",
+                "investigation": {
+                  "case": {
+                    "question": "Investigate the attached licensed demonstration photograph. Hypothetically the operator reports intermittent bearing noise under load; that is a simulated user claim, not a measured incident. Compare plausible mechanisms and missing discriminating measurements. Cite only actual supplied evidence.",
+                    "conversation_id": "16eaf00e6b7b4d0fb4548252e1ced357",
+                    "evidence": [
+                      {
+                        "id": "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                        "modality": "image",
+                        "kind": "model_inference",
+                        "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                        "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                        "observation": "The bearing has a split design with a central ring and multiple rollers.",
+                        "locator": "licensed-bearing-demo.jpg",
+                        "reliability": "medium",
+                        "asset_identity": null,
+                        "predicate": null,
+                        "value": null,
+                        "limitations": [
+                          "The image is a static photograph and cannot establish the root cause of the noise.",
+                          "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                          "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                        ]
+                      },
+                      {
+                        "id": "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                        "modality": "image",
+                        "kind": "model_inference",
+                        "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                        "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                        "observation": "The rollers are arranged in a row and appear to be in good condition.",
+                        "locator": "licensed-bearing-demo.jpg",
+                        "reliability": "medium",
+                        "asset_identity": null,
+                        "predicate": null,
+                        "value": null,
+                        "limitations": [
+                          "The image is a static photograph and cannot establish the root cause of the noise.",
+                          "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                          "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                        ]
+                      },
+                      {
+                        "id": "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                        "modality": "image",
+                        "kind": "model_inference",
+                        "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                        "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                        "observation": "The outer ring is smooth and has a slight sheen, indicating it is likely made of steel or a similar material.",
+                        "locator": "licensed-bearing-demo.jpg",
+                        "reliability": "medium",
+                        "asset_identity": null,
+                        "predicate": null,
+                        "value": null,
+                        "limitations": [
+                          "The image is a static photograph and cannot establish the root cause of the noise.",
+                          "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                          "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                        ]
+                      },
+                      {
+                        "id": "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                        "modality": "image",
+                        "kind": "model_inference",
+                        "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                        "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                        "observation": "The bearing is not showing any visible signs of wear, damage, or deformation.",
+                        "locator": "licensed-bearing-demo.jpg",
+                        "reliability": "medium",
+                        "asset_identity": null,
+                        "predicate": null,
+                        "value": null,
+                        "limitations": [
+                          "The image is a static photograph and cannot establish the root cause of the noise.",
+                          "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                          "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                        ]
+                      },
+                      {
+                        "id": "652625bf337de7da7e79b51c",
+                        "modality": "document",
+                        "kind": "document_guidance",
+                        "source_id": "555b3d1f041547d5961b50e36b4dce60",
+                        "origin_id": null,
+                        "observation": "Project demonstration note: this is a licensed component photograph. No verified maintenance, lubrication or alignment measurements or independently verified asset identity have been supplied. A photo alone cannot establish internal damage or RUL.",
+                        "locator": "demonstration-limitations.txt / lines 1-1, chars 1-247",
+                        "reliability": "medium",
+                        "asset_identity": null,
+                        "predicate": null,
+                        "value": null,
+                        "limitations": []
+                      },
+                      {
+                        "id": "user:13d5f809c4074b11984cc8011c9ef901",
+                        "modality": "text",
+                        "kind": "user_claim",
+                        "source_id": "13d5f809c4074b11984cc8011c9ef901",
+                        "origin_id": null,
+                        "observation": "Investigate the attached licensed demonstration photograph. Hypothetically the operator reports intermittent bearing noise under load; that is a simulated user claim, not a measured incident. Compare plausible mechanisms and missing discriminating measurements. Cite only actual supplied evidence.",
+                        "locator": null,
+                        "reliability": "low",
+                        "asset_identity": null,
+                        "predicate": null,
+                        "value": null,
+                        "limitations": []
+                      }
+                    ],
+                    "linked_asset": false,
+                    "parent_case_id": null
+                  },
+                  "hypotheses": [
+                    {
+                      "id": "HYP:19d15c76f3ef6918",
+                      "mechanism": "Dynamic misalignment of rollers due to internal clearance variation under load, causing intermittent contact and noise.",
+                      "assumptions": [
+                        "Intermittent noise under load may arise from internal clearance variation in split bearings.",
+                        "The rollers are symmetrically arranged and operate under dynamic load distribution."
+                      ],
+                      "expected_signs": [
+                        {
+                          "predicate": "The bearing exhibits micro-variation in roller alignment under load",
+                          "expected_value": true
+                        },
+                        {
+                          "predicate": "The outer ring shows subtle surface irregularities not visible in static image",
+                          "expected_value": true
+                        }
+                      ],
+                      "supporting_evidence_ids": [
+                        "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                        "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4"
+                      ],
+                      "contradicting_evidence_ids": [],
+                      "missing_tests": [
+                        "Lubrication level and consistency measurement (e.g., oil film thickness or contamination)",
+                        "Operational vibration spectrum under load (frequency domain analysis)"
+                      ],
+                      "status": "tentative",
+                      "evidence_support": "low",
+                      "ranking_score": 0.05,
+                      "falsified_by": [],
+                      "excluded_as_unlinked": [],
+                      "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+                    },
+                    {
+                      "id": "HYP:4a0e2dcc8e73a0ae",
+                      "mechanism": "Internal material fatigue or micro-wear in the bearing components produces intermittent noise under load.",
+                      "assumptions": [
+                        "Such wear could produce intermittent noise via micro-contacts under load.",
+                        "The bearing may have internal wear not visible in static image due to material fatigue or micro-cracking."
+                      ],
+                      "expected_signs": [
+                        {
+                          "predicate": "Internal micro-cracks or wear patterns are detectable via non-destructive testing",
+                          "expected_value": true
+                        },
+                        {
+                          "predicate": "The outer ring shows non-uniform surface texture under magnification",
+                          "expected_value": true
+                        }
+                      ],
+                      "supporting_evidence_ids": [
+                        "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72"
+                      ],
+                      "contradicting_evidence_ids": [],
+                      "missing_tests": [
+                        "Non-destructive testing (e.g., ultrasonic or X-ray imaging)",
+                        "Surface texture analysis at micro-scale"
+                      ],
+                      "status": "tentative",
+                      "evidence_support": "low",
+                      "ranking_score": 0.05,
+                      "falsified_by": [],
+                      "excluded_as_unlinked": [],
+                      "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+                    },
+                    {
+                      "id": "HYP:7d191a94dadbc01b",
+                      "mechanism": "Particulate or moisture contamination in the split joint region causes intermittent friction and noise under load.",
+                      "assumptions": [
+                        "Contamination (e.g., particulate or moisture) may be trapped in the split joint region.",
+                        "Such contamination can cause intermittent friction and noise under load."
+                      ],
+                      "expected_signs": [
+                        {
+                          "predicate": "Lubricant is visibly degraded or absent in the joint area",
+                          "expected_value": true
+                        },
+                        {
+                          "predicate": "The split joint region shows visible particulate or discoloration",
+                          "expected_value": true
+                        }
+                      ],
+                      "supporting_evidence_ids": [
+                        "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                        "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c"
+                      ],
+                      "contradicting_evidence_ids": [],
+                      "missing_tests": [
+                        "Chemical analysis of lubricant or debris",
+                        "Microscopic inspection of the split joint region"
+                      ],
+                      "status": "tentative",
+                      "evidence_support": "low",
+                      "ranking_score": 0.05,
+                      "falsified_by": [],
+                      "excluded_as_unlinked": [],
+                      "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+                    }
+                  ],
+                  "tools": [
+                    {
+                      "tool": "propose_hypotheses",
+                      "status": "complete",
+                      "provider": "ollama",
+                      "model": "qwen3:4b-instruct",
+                      "elapsed_seconds": 84.76599999999598,
+                      "source_ids": [
+                        "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                        "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                        "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                        "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                        "652625bf337de7da7e79b51c",
+                        "user:13d5f809c4074b11984cc8011c9ef901"
+                      ]
+                    },
+                    {
+                      "tool": "search_documents",
+                      "status": "complete",
+                      "provider": null,
+                      "model": null,
+                      "elapsed_seconds": 0.01600000000325963,
+                      "source_ids": []
+                    },
+                    {
+                      "tool": "search_documents",
+                      "status": "complete",
+                      "provider": null,
+                      "model": null,
+                      "elapsed_seconds": 0.0,
+                      "source_ids": [
+                        "652625bf337de7da7e79b51c"
+                      ]
+                    }
+                  ],
+                  "rounds": 1,
+                  "unresolved": [
+                    "No operational data or vibration measurements are available to validate noise characteristics.",
+                    "No independent verification of asset identity or maintenance history exists.",
+                    "The static image does not permit inference of internal dynamics or micro-structural conditions."
+                  ],
+                  "limitations": [
+                    "Generated mechanisms and proposed evidence relationships remain unverified.",
+                    "Rank scores are transparent heuristics, not probabilities; high support is not claimed.",
+                    "Photographs cannot prove internal damage or estimate RUL; use qualified inspection.",
+                    "A NASA demonstration prediction does not describe the physical photographed component."
+                  ],
+                  "stop_reason": "no_new_evidence",
+                  "hypothesis_revisions": [
+                    {
+                      "round": 1,
+                      "evidence_ids": [
+                        "652625bf337de7da7e79b51c",
+                        "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                        "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                        "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                        "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                        "user:13d5f809c4074b11984cc8011c9ef901"
+                      ],
+                      "candidates": [
+                        {
+                          "id": "HYP:19d15c76f3ef6918",
+                          "status": "tentative",
+                          "support": [
+                            "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                            "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4"
+                          ],
+                          "conflicts": []
+                        },
+                        {
+                          "id": "HYP:4a0e2dcc8e73a0ae",
+                          "status": "tentative",
+                          "support": [
+                            "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72"
+                          ],
+                          "conflicts": []
+                        },
+                        {
+                          "id": "HYP:7d191a94dadbc01b",
+                          "status": "tentative",
+                          "support": [
+                            "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                            "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c"
+                          ],
+                          "conflicts": []
+                        }
+                      ],
+                      "merges": [
+                        {
+                          "hypothesis_id": "HYP:19d15c76f3ef6918",
+                          "canonical_key": "dynamic misalignment of rollers due to internal clearance variation under load causing intermittent contact and noise",
+                          "proposal_ids": [
+                            "H1"
+                          ],
+                          "merged_count": 1,
+                          "ambiguous_source_ids": [],
+                          "disputed_prerequisites": []
+                        },
+                        {
+                          "hypothesis_id": "HYP:4a0e2dcc8e73a0ae",
+                          "canonical_key": "internal material fatigue or micro wear in the bearing components produces intermittent noise under load",
+                          "proposal_ids": [
+                            "H3"
+                          ],
+                          "merged_count": 1,
+                          "ambiguous_source_ids": [],
+                          "disputed_prerequisites": []
+                        },
+                        {
+                          "hypothesis_id": "HYP:7d191a94dadbc01b",
+                          "canonical_key": "particulate or moisture contamination in the split joint region causes intermittent friction and noise under load",
+                          "proposal_ids": [
+                            "H2"
+                          ],
+                          "merged_count": 1,
+                          "ambiguous_source_ids": [],
+                          "disputed_prerequisites": []
+                        }
+                      ],
+                      "model_context_selection": {
+                        "provided_sources": 6,
+                        "omitted_sources": 0,
+                        "excerpted_sources": [],
+                        "question_excerpted": false
+                      },
+                      "model_reference_map": {
+                        "E1": "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                        "E2": "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                        "E3": "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                        "E4": "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                        "E5": "652625bf337de7da7e79b51c",
+                        "E6": "user:13d5f809c4074b11984cc8011c9ef901"
+                      },
+                      "state_sha256": "bd03ebfec963d24b7c7279c9f55420954b8dbeb29ae60c22f53b1bb6c362acbf"
+                    }
+                  ],
+                  "id": "971f1fb25fd2452cb704e6891ce7c5d6"
+                },
+                "elapsed_seconds": 85.35900000000402
+              }
+            }
+          ],
+          "elapsed_seconds": 85.39099999999598,
+          "conversation_id": "16eaf00e6b7b4d0fb4548252e1ced357",
+          "metadata": {
+            "provider": "ollama",
+            "model": "qwen3:4b-instruct",
+            "tools": [
+              {
+                "tool": "vision.inspect",
+                "status": "cached",
+                "provider": "ollama",
+                "model": "qwen3-vl:2b-instruct",
+                "model_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+                "elapsed_seconds": 0.48399999999674037,
+                "source_ids": [
+                  "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                  "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                  "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                  "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72"
+                ]
+              },
+              {
+                "tool": "search_documents",
+                "status": "complete",
+                "elapsed_seconds": 0.031000000002677552,
+                "source_ids": [
+                  "652625bf337de7da7e79b51c"
+                ]
+              },
+              {
+                "tool": "propose_hypotheses",
+                "status": "complete",
+                "provider": "ollama",
+                "model": "qwen3:4b-instruct",
+                "elapsed_seconds": 84.76599999999598,
+                "source_ids": [
+                  "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                  "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                  "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                  "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                  "652625bf337de7da7e79b51c",
+                  "user:13d5f809c4074b11984cc8011c9ef901"
+                ]
+              },
+              {
+                "tool": "search_documents",
+                "status": "complete",
+                "provider": null,
+                "model": null,
+                "elapsed_seconds": 0.01600000000325963,
+                "source_ids": []
+              },
+              {
+                "tool": "search_documents",
+                "status": "complete",
+                "provider": null,
+                "model": null,
+                "elapsed_seconds": 0.0,
+                "source_ids": [
+                  "652625bf337de7da7e79b51c"
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "id": "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                "modality": "image",
+                "kind": "model_inference",
+                "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                "observation": "The bearing has a split design with a central ring and multiple rollers.",
+                "locator": "licensed-bearing-demo.jpg",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a static photograph and cannot establish the root cause of the noise.",
+                  "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                  "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                ]
+              },
+              {
+                "id": "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                "modality": "image",
+                "kind": "model_inference",
+                "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                "observation": "The rollers are arranged in a row and appear to be in good condition.",
+                "locator": "licensed-bearing-demo.jpg",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a static photograph and cannot establish the root cause of the noise.",
+                  "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                  "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                ]
+              },
+              {
+                "id": "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                "modality": "image",
+                "kind": "model_inference",
+                "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                "observation": "The outer ring is smooth and has a slight sheen, indicating it is likely made of steel or a similar material.",
+                "locator": "licensed-bearing-demo.jpg",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a static photograph and cannot establish the root cause of the noise.",
+                  "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                  "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                ]
+              },
+              {
+                "id": "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                "modality": "image",
+                "kind": "model_inference",
+                "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                "observation": "The bearing is not showing any visible signs of wear, damage, or deformation.",
+                "locator": "licensed-bearing-demo.jpg",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a static photograph and cannot establish the root cause of the noise.",
+                  "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                  "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                ]
+              },
+              {
+                "id": "652625bf337de7da7e79b51c",
+                "modality": "document",
+                "kind": "document_guidance",
+                "source_id": "555b3d1f041547d5961b50e36b4dce60",
+                "origin_id": null,
+                "observation": "Project demonstration note: this is a licensed component photograph. No verified maintenance, lubrication or alignment measurements or independently verified asset identity have been supplied. A photo alone cannot establish internal damage or RUL.",
+                "locator": "demonstration-limitations.txt / lines 1-1, chars 1-247",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": []
+              },
+              {
+                "id": "user:13d5f809c4074b11984cc8011c9ef901",
+                "modality": "text",
+                "kind": "user_claim",
+                "source_id": "13d5f809c4074b11984cc8011c9ef901",
+                "origin_id": null,
+                "observation": "Investigate the attached licensed demonstration photograph. Hypothetically the operator reports intermittent bearing noise under load; that is a simulated user claim, not a measured incident. Compare plausible mechanisms and missing discriminating measurements. Cite only actual supplied evidence.",
+                "locator": null,
+                "reliability": "low",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": []
+              }
+            ],
+            "attachments": [
+              "9f2bcf14e8624c039f3e9f5e3050be24",
+              "555b3d1f041547d5961b50e36b4dce60"
+            ],
+            "orchestration": {
+              "run_id": "1c85dd48-8153-4780-841b-cd5db60fbe4a",
+              "intent": "incident_investigation"
+            },
+            "investigation_id": "971f1fb25fd2452cb704e6891ce7c5d6",
+            "investigation": {
+              "case": {
+                "question": "Investigate the attached licensed demonstration photograph. Hypothetically the operator reports intermittent bearing noise under load; that is a simulated user claim, not a measured incident. Compare plausible mechanisms and missing discriminating measurements. Cite only actual supplied evidence.",
+                "conversation_id": "16eaf00e6b7b4d0fb4548252e1ced357",
+                "evidence": [
+                  {
+                    "id": "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                    "modality": "image",
+                    "kind": "model_inference",
+                    "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "observation": "The bearing has a split design with a central ring and multiple rollers.",
+                    "locator": "licensed-bearing-demo.jpg",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a static photograph and cannot establish the root cause of the noise.",
+                      "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                      "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                    ]
+                  },
+                  {
+                    "id": "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                    "modality": "image",
+                    "kind": "model_inference",
+                    "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "observation": "The rollers are arranged in a row and appear to be in good condition.",
+                    "locator": "licensed-bearing-demo.jpg",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a static photograph and cannot establish the root cause of the noise.",
+                      "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                      "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                    ]
+                  },
+                  {
+                    "id": "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                    "modality": "image",
+                    "kind": "model_inference",
+                    "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "observation": "The outer ring is smooth and has a slight sheen, indicating it is likely made of steel or a similar material.",
+                    "locator": "licensed-bearing-demo.jpg",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a static photograph and cannot establish the root cause of the noise.",
+                      "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                      "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                    ]
+                  },
+                  {
+                    "id": "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                    "modality": "image",
+                    "kind": "model_inference",
+                    "source_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "origin_id": "9f2bcf14e8624c039f3e9f5e3050be24",
+                    "observation": "The bearing is not showing any visible signs of wear, damage, or deformation.",
+                    "locator": "licensed-bearing-demo.jpg",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a static photograph and cannot establish the root cause of the noise.",
+                      "The absence of visible damage does not rule out internal issues such as wear or contamination.",
+                      "The lack of operational data makes it impossible to determine the exact cause of the intermittent noise."
+                    ]
+                  },
+                  {
+                    "id": "652625bf337de7da7e79b51c",
+                    "modality": "document",
+                    "kind": "document_guidance",
+                    "source_id": "555b3d1f041547d5961b50e36b4dce60",
+                    "origin_id": null,
+                    "observation": "Project demonstration note: this is a licensed component photograph. No verified maintenance, lubrication or alignment measurements or independently verified asset identity have been supplied. A photo alone cannot establish internal damage or RUL.",
+                    "locator": "demonstration-limitations.txt / lines 1-1, chars 1-247",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": []
+                  },
+                  {
+                    "id": "user:13d5f809c4074b11984cc8011c9ef901",
+                    "modality": "text",
+                    "kind": "user_claim",
+                    "source_id": "13d5f809c4074b11984cc8011c9ef901",
+                    "origin_id": null,
+                    "observation": "Investigate the attached licensed demonstration photograph. Hypothetically the operator reports intermittent bearing noise under load; that is a simulated user claim, not a measured incident. Compare plausible mechanisms and missing discriminating measurements. Cite only actual supplied evidence.",
+                    "locator": null,
+                    "reliability": "low",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": []
+                  }
+                ],
+                "linked_asset": false,
+                "parent_case_id": null
+              },
+              "hypotheses": [
+                {
+                  "id": "HYP:19d15c76f3ef6918",
+                  "mechanism": "Dynamic misalignment of rollers due to internal clearance variation under load, causing intermittent contact and noise.",
+                  "assumptions": [
+                    "Intermittent noise under load may arise from internal clearance variation in split bearings.",
+                    "The rollers are symmetrically arranged and operate under dynamic load distribution."
+                  ],
+                  "expected_signs": [
+                    {
+                      "predicate": "The bearing exhibits micro-variation in roller alignment under load",
+                      "expected_value": true
+                    },
+                    {
+                      "predicate": "The outer ring shows subtle surface irregularities not visible in static image",
+                      "expected_value": true
+                    }
+                  ],
+                  "supporting_evidence_ids": [
+                    "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                    "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4"
+                  ],
+                  "contradicting_evidence_ids": [],
+                  "missing_tests": [
+                    "Lubrication level and consistency measurement (e.g., oil film thickness or contamination)",
+                    "Operational vibration spectrum under load (frequency domain analysis)"
+                  ],
+                  "status": "tentative",
+                  "evidence_support": "low",
+                  "ranking_score": 0.05,
+                  "falsified_by": [],
+                  "excluded_as_unlinked": [],
+                  "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+                },
+                {
+                  "id": "HYP:4a0e2dcc8e73a0ae",
+                  "mechanism": "Internal material fatigue or micro-wear in the bearing components produces intermittent noise under load.",
+                  "assumptions": [
+                    "Such wear could produce intermittent noise via micro-contacts under load.",
+                    "The bearing may have internal wear not visible in static image due to material fatigue or micro-cracking."
+                  ],
+                  "expected_signs": [
+                    {
+                      "predicate": "Internal micro-cracks or wear patterns are detectable via non-destructive testing",
+                      "expected_value": true
+                    },
+                    {
+                      "predicate": "The outer ring shows non-uniform surface texture under magnification",
+                      "expected_value": true
+                    }
+                  ],
+                  "supporting_evidence_ids": [
+                    "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72"
+                  ],
+                  "contradicting_evidence_ids": [],
+                  "missing_tests": [
+                    "Non-destructive testing (e.g., ultrasonic or X-ray imaging)",
+                    "Surface texture analysis at micro-scale"
+                  ],
+                  "status": "tentative",
+                  "evidence_support": "low",
+                  "ranking_score": 0.05,
+                  "falsified_by": [],
+                  "excluded_as_unlinked": [],
+                  "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+                },
+                {
+                  "id": "HYP:7d191a94dadbc01b",
+                  "mechanism": "Particulate or moisture contamination in the split joint region causes intermittent friction and noise under load.",
+                  "assumptions": [
+                    "Contamination (e.g., particulate or moisture) may be trapped in the split joint region.",
+                    "Such contamination can cause intermittent friction and noise under load."
+                  ],
+                  "expected_signs": [
+                    {
+                      "predicate": "Lubricant is visibly degraded or absent in the joint area",
+                      "expected_value": true
+                    },
+                    {
+                      "predicate": "The split joint region shows visible particulate or discoloration",
+                      "expected_value": true
+                    }
+                  ],
+                  "supporting_evidence_ids": [
+                    "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                    "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c"
+                  ],
+                  "contradicting_evidence_ids": [],
+                  "missing_tests": [
+                    "Chemical analysis of lubricant or debris",
+                    "Microscopic inspection of the split joint region"
+                  ],
+                  "status": "tentative",
+                  "evidence_support": "low",
+                  "ranking_score": 0.05,
+                  "falsified_by": [],
+                  "excluded_as_unlinked": [],
+                  "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+                }
+              ],
+              "tools": [
+                {
+                  "tool": "propose_hypotheses",
+                  "status": "complete",
+                  "provider": "ollama",
+                  "model": "qwen3:4b-instruct",
+                  "elapsed_seconds": 84.76599999999598,
+                  "source_ids": [
+                    "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                    "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                    "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                    "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                    "652625bf337de7da7e79b51c",
+                    "user:13d5f809c4074b11984cc8011c9ef901"
+                  ]
+                },
+                {
+                  "tool": "search_documents",
+                  "status": "complete",
+                  "provider": null,
+                  "model": null,
+                  "elapsed_seconds": 0.01600000000325963,
+                  "source_ids": []
+                },
+                {
+                  "tool": "search_documents",
+                  "status": "complete",
+                  "provider": null,
+                  "model": null,
+                  "elapsed_seconds": 0.0,
+                  "source_ids": [
+                    "652625bf337de7da7e79b51c"
+                  ]
+                }
+              ],
+              "rounds": 1,
+              "unresolved": [
+                "No operational data or vibration measurements are available to validate noise characteristics.",
+                "No independent verification of asset identity or maintenance history exists.",
+                "The static image does not permit inference of internal dynamics or micro-structural conditions."
+              ],
+              "limitations": [
+                "Generated mechanisms and proposed evidence relationships remain unverified.",
+                "Rank scores are transparent heuristics, not probabilities; high support is not claimed.",
+                "Photographs cannot prove internal damage or estimate RUL; use qualified inspection.",
+                "A NASA demonstration prediction does not describe the physical photographed component."
+              ],
+              "stop_reason": "no_new_evidence",
+              "hypothesis_revisions": [
+                {
+                  "round": 1,
+                  "evidence_ids": [
+                    "652625bf337de7da7e79b51c",
+                    "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                    "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                    "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                    "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                    "user:13d5f809c4074b11984cc8011c9ef901"
+                  ],
+                  "candidates": [
+                    {
+                      "id": "HYP:19d15c76f3ef6918",
+                      "status": "tentative",
+                      "support": [
+                        "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                        "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4"
+                      ],
+                      "conflicts": []
+                    },
+                    {
+                      "id": "HYP:4a0e2dcc8e73a0ae",
+                      "status": "tentative",
+                      "support": [
+                        "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72"
+                      ],
+                      "conflicts": []
+                    },
+                    {
+                      "id": "HYP:7d191a94dadbc01b",
+                      "status": "tentative",
+                      "support": [
+                        "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                        "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c"
+                      ],
+                      "conflicts": []
+                    }
+                  ],
+                  "merges": [
+                    {
+                      "hypothesis_id": "HYP:19d15c76f3ef6918",
+                      "canonical_key": "dynamic misalignment of rollers due to internal clearance variation under load causing intermittent contact and noise",
+                      "proposal_ids": [
+                        "H1"
+                      ],
+                      "merged_count": 1,
+                      "ambiguous_source_ids": [],
+                      "disputed_prerequisites": []
+                    },
+                    {
+                      "hypothesis_id": "HYP:4a0e2dcc8e73a0ae",
+                      "canonical_key": "internal material fatigue or micro wear in the bearing components produces intermittent noise under load",
+                      "proposal_ids": [
+                        "H3"
+                      ],
+                      "merged_count": 1,
+                      "ambiguous_source_ids": [],
+                      "disputed_prerequisites": []
+                    },
+                    {
+                      "hypothesis_id": "HYP:7d191a94dadbc01b",
+                      "canonical_key": "particulate or moisture contamination in the split joint region causes intermittent friction and noise under load",
+                      "proposal_ids": [
+                        "H2"
+                      ],
+                      "merged_count": 1,
+                      "ambiguous_source_ids": [],
+                      "disputed_prerequisites": []
+                    }
+                  ],
+                  "model_context_selection": {
+                    "provided_sources": 6,
+                    "omitted_sources": 0,
+                    "excerpted_sources": [],
+                    "question_excerpted": false
+                  },
+                  "model_reference_map": {
+                    "E1": "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                    "E2": "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                    "E3": "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                    "E4": "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                    "E5": "652625bf337de7da7e79b51c",
+                    "E6": "user:13d5f809c4074b11984cc8011c9ef901"
+                  },
+                  "state_sha256": "bd03ebfec963d24b7c7279c9f55420954b8dbeb29ae60c22f53b1bb6c362acbf"
+                }
+              ],
+              "id": "971f1fb25fd2452cb704e6891ce7c5d6"
+            },
+            "elapsed_seconds": 85.35900000000402
+          },
+          "text": "## Investigation\n\n**Dynamic misalignment of rollers due to internal clearance variation under load, causing intermittent contact and noise.**\n\nStatus: tentative; evidence support: low.\n\nNext checks: Lubrication level and consistency measurement (e.g., oil film thickness or contamination); Operational vibration spectrum under load (frequency domain analysis)\n\n**Internal material fatigue or micro-wear in the bearing components produces intermittent noise under load.**\n\nStatus: tentative; evidence support: low.\n\nNext checks: Non-destructive testing (e.g., ultrasonic or X-ray imaging); Surface texture analysis at micro-scale\n\n**Particulate or moisture contamination in the split joint region causes intermittent friction and noise under load.**\n\nStatus: tentative; evidence support: low.\n\nNext checks: Chemical analysis of lubricant or debris; Microscopic inspection of the split joint region\n\nThese are proposed mechanisms, not a confirmed diagnosis.",
+          "trace": {
+            "id": "1c85dd48-8153-4780-841b-cd5db60fbe4a",
+            "plan": {
+              "id": "f1a1dd8f-f64b-4e60-abff-2e28f24054f0",
+              "intent": "incident_investigation",
+              "goals": [
+                "Answer using supplied evidence and actual local tools"
+              ],
+              "tools": [
+                {
+                  "tool_id": "vision.inspect",
+                  "arguments": {
+                    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                  },
+                  "depends_on": []
+                },
+                {
+                  "tool_id": "knowledge.retrieve",
+                  "arguments": {
+                    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                  },
+                  "depends_on": []
+                },
+                {
+                  "tool_id": "hypotheses.investigate",
+                  "arguments": {
+                    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                  },
+                  "depends_on": []
+                }
+              ],
+              "evidence_ids": [],
+              "allowed_external_providers": [],
+              "deadline_seconds": 300.0,
+              "max_tool_calls": 12,
+              "fallback": "Return explicit partial/error status; never fabricate tool findings."
+            },
+            "started_at": "2026-11-17T09:26:07.194674+00:00",
+            "steps": [
+              {
+                "tool_id": "vision.inspect",
+                "started_at": "2026-11-17T09:26:07.708163+00:00",
+                "input_evidence_ids": [
+                  "9f2bcf14e8624c039f3e9f5e3050be24"
+                ],
+                "output_evidence_ids": [
+                  "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                  "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                  "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                  "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72"
+                ],
+                "status": "cached",
+                "warnings": [],
+                "network": "local_only",
+                "model_provenance": {
+                  "provider": "ollama",
+                  "model": "qwen3-vl:2b-instruct",
+                  "digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+                  "execution": "exact saved inference reused"
+                },
+                "ended_at": "2026-11-17T09:26:07.714197+00:00",
+                "elapsed_seconds": 0.0
+              },
+              {
+                "tool_id": "knowledge.retrieve",
+                "started_at": "2026-11-17T09:26:07.730731+00:00",
+                "input_evidence_ids": [],
+                "output_evidence_ids": [],
+                "status": "ok",
+                "warnings": [],
+                "network": "local_only",
+                "ended_at": "2026-11-17T09:26:07.742433+00:00",
+                "elapsed_seconds": 0.0
+              },
+              {
+                "tool_id": "hypotheses.investigate",
+                "started_at": "2026-11-17T09:26:07.750937+00:00",
+                "input_evidence_ids": [],
+                "output_evidence_ids": [
+                  "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                  "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                  "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                  "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                  "652625bf337de7da7e79b51c",
+                  "user:13d5f809c4074b11984cc8011c9ef901"
+                ],
+                "status": "ok",
+                "warnings": [],
+                "network": "local_only",
+                "model_provenance": {
+                  "provider": "ollama",
+                  "model": "qwen3:4b-instruct"
+                },
+                "actual_subtools": [
+                  {
+                    "tool": "propose_hypotheses",
+                    "status": "complete",
+                    "provider": "ollama",
+                    "model": "qwen3:4b-instruct",
+                    "elapsed_seconds": 84.76599999999598,
+                    "source_ids": [
+                      "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                      "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                      "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                      "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                      "652625bf337de7da7e79b51c",
+                      "user:13d5f809c4074b11984cc8011c9ef901"
+                    ]
+                  },
+                  {
+                    "tool": "search_documents",
+                    "status": "complete",
+                    "provider": null,
+                    "model": null,
+                    "elapsed_seconds": 0.01600000000325963,
+                    "source_ids": []
+                  },
+                  {
+                    "tool": "search_documents",
+                    "status": "complete",
+                    "provider": null,
+                    "model": null,
+                    "elapsed_seconds": 0.0,
+                    "source_ids": [
+                      "652625bf337de7da7e79b51c"
+                    ]
+                  }
+                ],
+                "ended_at": "2026-11-17T09:27:32.531018+00:00",
+                "elapsed_seconds": 84.78199999999924
+              }
+            ],
+            "status": "complete",
+            "network": "local_only",
+            "ended_at": "2026-11-17T09:27:32.546586+00:00",
+            "elapsed_seconds": 85.35900000000402
+          }
+        },
+        "export": {
+          "events": [
+            {
+              "type": "started",
+              "request_id": "97edc4bcaf3141d4833df7c4bcac3319",
+              "user_message_id": "31fcae600d9644e485b09e4b0f148ade"
+            },
+            {
+              "type": "plan",
+              "run_id": "d0abf3d6-9ac1-4afd-8cbd-fe740c8c9c12",
+              "plan": {
+                "id": "c9be1cef-7021-4243-9e8e-0b6dd46c1218",
+                "intent": "evidence_report_export",
+                "goals": [
+                  "Export the actual saved uploaded-evidence investigation"
+                ],
+                "tools": [
+                  {
+                    "tool_id": "evidence_case.report",
+                    "arguments": {
+                      "sha256": "f518f172573fde92da4acfdac3a955a57ac9967e7df43a692ca51bf8fa067488"
+                    },
+                    "depends_on": []
+                  }
+                ],
+                "evidence_ids": [],
+                "allowed_external_providers": [],
+                "deadline_seconds": 90,
+                "max_tool_calls": 12,
+                "fallback": "Return explicit partial/error status; never fabricate tool findings."
+              }
+            },
+            {
+              "type": "tool",
+              "tool": "evidence_case.report",
+              "status": "running"
+            },
+            {
+              "type": "tool",
+              "tool": "evidence_case.report",
+              "status": "complete",
+              "source_ids": [
+                "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                "EV:b5a584cf83501e32e2ef1764d540cc475623cecb42995eba7023b092dc0a10ae",
+                "EV:29c847fb9377b1756ab8d61fda2e5bd3ea842d7a18d8bbbff2489b13eb603b80"
+              ]
+            },
+            {
+              "type": "delta",
+              "text": "Created the report from saved investigation `971f1fb25fd2452cb704e6891ce7c5d6` and its exact source snapshots. [Download PDF](/api/v1/reports/report-de0d26a05bd5e2827cfb321130e3d70ac7c9b54c1c099b39dfe80be7fa2e8032/download?format=pdf) ? [Download Markdown](/api/v1/reports/report-de0d26a05bd5e2827cfb321130e3d70ac7c9b54c1c099b39dfe80be7fa2e8032/download?format=markdown). The investigation remains unverified; this export does not establish a physical cause.",
+              "source": "actual_report_export"
+            },
+            {
+              "type": "done",
+              "status": "complete",
+              "metadata": {
+                "provider": "ollama",
+                "model": "qwen3:4b-instruct",
+                "tools": [],
+                "evidence": [],
+                "attachments": [],
+                "orchestration": {
+                  "run_id": "d0abf3d6-9ac1-4afd-8cbd-fe740c8c9c12",
+                  "intent": "evidence_report_export"
+                },
+                "generic_report": {
+                  "id": "report-de0d26a05bd5e2827cfb321130e3d70ac7c9b54c1c099b39dfe80be7fa2e8032",
+                  "case_id": "971f1fb25fd2452cb704e6891ce7c5d6",
+                  "sha256": "74a0ae2a9282b44368ee3cabec039a37010fdcd8ad367d86efec37bcc7ad2a9f",
+                  "created_at": "2026-11-17T09:27:32.885666+00:00",
+                  "source_type": "model_generated",
+                  "evidence_ids": [
+                    "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                    "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                    "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                    "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                    "EV:b5a584cf83501e32e2ef1764d540cc475623cecb42995eba7023b092dc0a10ae",
+                    "EV:29c847fb9377b1756ab8d61fda2e5bd3ea842d7a18d8bbbff2489b13eb603b80"
+                  ]
+                },
+                "elapsed_seconds": 0.17199999999866122
+              }
+            }
+          ],
+          "elapsed_seconds": 0.20300000000133878,
+          "conversation_id": "16eaf00e6b7b4d0fb4548252e1ced357",
+          "metadata": {
+            "provider": "ollama",
+            "model": "qwen3:4b-instruct",
+            "tools": [],
+            "evidence": [],
+            "attachments": [],
+            "orchestration": {
+              "run_id": "d0abf3d6-9ac1-4afd-8cbd-fe740c8c9c12",
+              "intent": "evidence_report_export"
+            },
+            "generic_report": {
+              "id": "report-de0d26a05bd5e2827cfb321130e3d70ac7c9b54c1c099b39dfe80be7fa2e8032",
+              "case_id": "971f1fb25fd2452cb704e6891ce7c5d6",
+              "sha256": "74a0ae2a9282b44368ee3cabec039a37010fdcd8ad367d86efec37bcc7ad2a9f",
+              "created_at": "2026-11-17T09:27:32.885666+00:00",
+              "source_type": "model_generated",
+              "evidence_ids": [
+                "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                "EV:b5a584cf83501e32e2ef1764d540cc475623cecb42995eba7023b092dc0a10ae",
+                "EV:29c847fb9377b1756ab8d61fda2e5bd3ea842d7a18d8bbbff2489b13eb603b80"
+              ]
+            },
+            "elapsed_seconds": 0.17199999999866122
+          },
+          "text": "Created the report from saved investigation `971f1fb25fd2452cb704e6891ce7c5d6` and its exact source snapshots. [Download PDF](/api/v1/reports/report-de0d26a05bd5e2827cfb321130e3d70ac7c9b54c1c099b39dfe80be7fa2e8032/download?format=pdf) ? [Download Markdown](/api/v1/reports/report-de0d26a05bd5e2827cfb321130e3d70ac7c9b54c1c099b39dfe80be7fa2e8032/download?format=markdown). The investigation remains unverified; this export does not establish a physical cause.",
+          "trace": {
+            "id": "d0abf3d6-9ac1-4afd-8cbd-fe740c8c9c12",
+            "plan": {
+              "id": "c9be1cef-7021-4243-9e8e-0b6dd46c1218",
+              "intent": "evidence_report_export",
+              "goals": [
+                "Export the actual saved uploaded-evidence investigation"
+              ],
+              "tools": [
+                {
+                  "tool_id": "evidence_case.report",
+                  "arguments": {
+                    "sha256": "f518f172573fde92da4acfdac3a955a57ac9967e7df43a692ca51bf8fa067488"
+                  },
+                  "depends_on": []
+                }
+              ],
+              "evidence_ids": [],
+              "allowed_external_providers": [],
+              "deadline_seconds": 90,
+              "max_tool_calls": 12,
+              "fallback": "Return explicit partial/error status; never fabricate tool findings."
+            },
+            "started_at": "2026-11-17T09:27:32.739733+00:00",
+            "steps": [
+              {
+                "tool_id": "evidence_case.report",
+                "started_at": "2026-11-17T09:27:32.783834+00:00",
+                "input_evidence_ids": [],
+                "output_evidence_ids": [
+                  "EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223",
+                  "EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4",
+                  "EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c",
+                  "EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72",
+                  "EV:b5a584cf83501e32e2ef1764d540cc475623cecb42995eba7023b092dc0a10ae",
+                  "EV:29c847fb9377b1756ab8d61fda2e5bd3ea842d7a18d8bbbff2489b13eb603b80"
+                ],
+                "status": "ok",
+                "warnings": [],
+                "network": "local_only",
+                "arguments_sha256": "f518f172573fde92da4acfdac3a955a57ac9967e7df43a692ca51bf8fa067488",
+                "ended_at": "2026-11-17T09:27:32.894677+00:00",
+                "elapsed_seconds": 0.10899999999674037
+              }
+            ],
+            "status": "complete",
+            "network": "local_only",
+            "ended_at": "2026-11-17T09:27:32.902208+00:00",
+            "elapsed_seconds": 0.17199999999866122
+          }
+        },
+        "pdf_bytes": 8966
+      },
+      "elapsed_seconds": 86.10900000000402
+    }
+  },
+  "verification_scope": "Actual API/content/model/media checks; browser/microphone/speaker interaction not exercised.",
+  "health": {
+    "status": "ok",
+    "contract_version": "2.0",
+    "ml_ready": true,
+    "ollama_ready": true,
+    "text_ready": true,
+    "vision_ready": true,
+    "models": [
+      "qwen3:4b-instruct",
+      "qwen3-vl:2b-instruct",
+      "qwen3-vl:2b",
+      "qwen3:4b"
+    ],
+    "mode": "local",
+    "hosted_providers": "disabled"
+  },
+  "capabilities": {
+    "tools": [
+      {
+        "tool_id": "text.profile",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Bounded untrusted user text, never executable tool instructions.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "title": "TextInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "text"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "evidence.resolve",
+        "version": "1",
+        "input_schema": {
+          "description": "Opaque evidence ID; no arbitrary file or SQL input.",
+          "properties": {
+            "evidence_id": {
+              "maxLength": 100,
+              "title": "Evidence Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "evidence_id"
+          ],
+          "title": "ResolveInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "evidence_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "knowledge.retrieve",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Search only a selected existing conversation.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            },
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "conversation_id"
+          ],
+          "title": "SearchInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "text",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "prediction.run",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit NASA source; synthetic facility IDs cannot satisfy this schema/domain.",
+          "properties": {
+            "dataset": {
+              "pattern": "^FD00[1-4]$",
+              "title": "Dataset",
+              "type": "string"
+            },
+            "model_id": {
+              "title": "Model Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "dataset",
+            "model_id",
+            "asset_id"
+          ],
+          "title": "PredictionInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "nasa_cmapss"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 120.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "llm.chat",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Bounded untrusted user text, never executable tool instructions.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "title": "TextInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "text"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 150.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "ollama_ready": true,
+          "text_ready": true,
+          "vision_ready": true,
+          "models": [
+            "qwen3:4b-instruct",
+            "qwen3-vl:2b-instruct",
+            "qwen3-vl:2b",
+            "qwen3:4b"
+          ]
+        }
+      },
+      {
+        "tool_id": "temporal.summary",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "assets.relations",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "facility.investigate",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "events.timeline",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "case.report",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "An existing persisted facility case identity.",
+          "properties": {
+            "case_id": {
+              "title": "Case Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "case_id"
+          ],
+          "title": "CaseInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "case_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "case.similar",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "An existing persisted facility case identity.",
+          "properties": {
+            "case_id": {
+              "title": "Case Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "case_id"
+          ],
+          "title": "CaseInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "case_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "fleet.overview",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "simulation.compare",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit bounded toy intervention assumptions.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            },
+            "service_hour": {
+              "anyOf": [
+                {
+                  "maximum": 96,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Service Hour"
+            },
+            "load_factor": {
+              "anyOf": [
+                {
+                  "maximum": 1.2,
+                  "minimum": 0.5,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Load Factor"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "InterventionInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "vision.inspect",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "One validated attachment from the selected conversation.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            },
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            },
+            "attachment_id": {
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "conversation_id",
+            "attachment_id"
+          ],
+          "title": "ImageInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "image",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 150.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "prediction.saved_result",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "A saved inference identity, never client-invented results.",
+          "properties": {
+            "prediction_id": {
+              "title": "Prediction Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "prediction_id"
+          ],
+          "title": "SavedPredictionInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "prediction_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "hypotheses.investigate",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Search only a selected existing conversation.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            },
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "conversation_id"
+          ],
+          "title": "SearchInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "text",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 220.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "measurements.profile",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Existing source attachment constrained to one conversation.",
+          "properties": {
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            },
+            "attachment_id": {
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "conversation_id",
+            "attachment_id"
+          ],
+          "title": "AttachmentInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "csv",
+          "json",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "audio.transcript",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Existing source attachment constrained to one conversation.",
+          "properties": {
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            },
+            "attachment_id": {
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "conversation_id",
+            "attachment_id"
+          ],
+          "title": "AttachmentInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "audio",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "video.frames",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Existing source attachment constrained to one conversation.",
+          "properties": {
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            },
+            "attachment_id": {
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "conversation_id",
+            "attachment_id"
+          ],
+          "title": "AttachmentInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "video",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "evidence_case.report",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "An existing persisted facility case identity.",
+          "properties": {
+            "case_id": {
+              "title": "Case Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "case_id"
+          ],
+          "title": "CaseInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "case_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      }
+    ],
+    "privacy": "local_only",
+    "voice": {
+      "asr_ready": true,
+      "tts_ready": true,
+      "video_ready": true,
+      "asr_configured": true,
+      "tts_configured": true,
+      "network": "Local workers only; no hosted speech or browser cloud recognition.",
+      "hardware_interaction": "Browser microphone permission and speaker playback require user interaction; not probed here.",
+      "reason": "Readiness reflects configured files and successful worker probes; microphone/speaker interaction is separate.",
+      "asr_package_present": true,
+      "piper_package_present": false,
+      "ffmpeg_present": false
+    }
+  },
+  "voice_capabilities": {
+    "asr_ready": true,
+    "tts_ready": true,
+    "video_ready": true,
+    "asr_configured": true,
+    "tts_configured": true,
+    "network": "Local workers only; no hosted speech or browser cloud recognition.",
+    "hardware_interaction": "Browser microphone permission and speaker playback require user interaction; not probed here.",
+    "reason": "Readiness reflects configured files and successful worker probes; microphone/speaker interaction is separate.",
+    "asr_package_present": true,
+    "piper_package_present": false,
+    "ffmpeg_present": false
+  },
+  "status": "PASS for executed API/model/media checks"
+}

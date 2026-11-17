@@ -1,0 +1,60 @@
+{
+  "timestamp_utc": "2026-11-16T20:15:01.329195+00:00",
+  "health": {
+    "status": "ok",
+    "contract_version": "2.0",
+    "ml_ready": true,
+    "ollama_ready": true,
+    "text_ready": true,
+    "vision_ready": true,
+    "models": [
+      "qwen3:4b-instruct",
+      "qwen3-vl:2b-instruct",
+      "qwen3-vl:2b",
+      "qwen3:4b"
+    ],
+    "mode": "local",
+    "hosted_providers": "disabled"
+  },
+  "routes": {
+    "/": 200,
+    "/chat": 200,
+    "/predictions": 200,
+    "/models": 200,
+    "/knowledge": 200,
+    "/settings": 200,
+    "/investigations": 200,
+    "/docs": 200,
+    "/openapi.json": 200
+  },
+  "static_assets": {
+    "/static/index-BHbTlQE-.js": 200,
+    "/static/index-BXAIACRn.css": 200
+  },
+  "restart_history": {
+    "messages": 8,
+    "attachments": 2
+  },
+  "cancelled_turn_after_restart": {
+    "status": "cancelled",
+    "characters": 3
+  },
+  "coverage": {
+    "FD001": {
+      "routes": 42,
+      "ready": 42
+    },
+    "FD002": {
+      "routes": 42,
+      "ready": 42
+    },
+    "FD003": {
+      "routes": 42,
+      "ready": 42
+    },
+    "FD004": {
+      "routes": 42,
+      "ready": 42
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "events": [
+    {
+      "type": "started",
+      "request_id": "34e6cb8b72804366a4938605aa930ea5",
+      "user_message_id": "a4b6aef556ba4e938f521e6a37f14d71"
+    },
+    {
+      "type": "plan",
+      "run_id": "411ca60a-2558-437e-8cd9-f0ef01485d5e",
+      "plan": {
+        "id": "2c2af86e-c0c5-4296-9945-056ceaf6e4a3",
+        "intent": "knowledge_query",
+        "goals": [
+          "Answer using supplied evidence and actual local tools"
+        ],
+        "tools": [
+          {
+            "tool_id": "knowledge.retrieve",
+            "arguments": {
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            "depends_on": []
+          },
+          {
+            "tool_id": "llm.chat",
+            "arguments": {
+              "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            "depends_on": []
+          }
+        ],
+        "evidence_ids": [],
+        "allowed_external_providers": [],
+        "deadline_seconds": 300.0,
+        "max_tool_calls": 12,
+        "fallback": "Return explicit partial/error status; never fabricate tool findings."
+      }
+    },
+    {
+      "type": "tool",
+      "tool": "search_documents",
+      "status": "complete",
+      "elapsed_seconds": 0.031000000002677552,
+      "source_ids": [
+        "652625bf337de7da7e79b51c"
+      ]
+    },
+    {
+      "type": "evidence",
+      "evidence": [
+        {
+          "id": "652625bf337de7da7e79b51c",
+          "modality": "document",
+          "kind": "document_guidance",
+          "source_id": "555b3d1f041547d5961b50e36b4dce60",
+          "origin_id": null,
+          "observation": "Project demonstration note: this is a licensed component photograph. No verified maintenance, lubrication or alignment measurements or independently verified asset identity have been supplied. A photo alone cannot establish internal damage or RUL.",
+          "locator": "demonstration-limitations.txt / lines 1-1, chars 1-247",
+          "reliability": "medium",
+          "asset_identity": null,
+          "predicate": null,
+          "value": null,
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "type": "delta",
+      "text": "No maintenance information is actually supplied in the attached note. The note explicitly states that no verified maintenance, lubrication, or alignment measurements have been provided [652625bf337de7da7e79b51c].",
+      "delivery": "source_reference_checked_model_commentary"
+    },
+    {
+      "type": "done",
+      "status": "complete",
+      "metadata": {
+        "provider": "ollama",
+        "model": "qwen3:4b-instruct",
+        "tools": [
+          {
+            "tool": "search_documents",
+            "status": "complete",
+            "elapsed_seconds": 0.031000000002677552,
+            "source_ids": [
+              "652625bf337de7da7e79b51c"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "id": "652625bf337de7da7e79b51c",
+            "modality": "document",
+            "kind": "document_guidance",
+            "source_id": "555b3d1f041547d5961b50e36b4dce60",
+            "origin_id": null,
+            "observation": "Project demonstration note: this is a licensed component photograph. No verified maintenance, lubrication or alignment measurements or independently verified asset identity have been supplied. A photo alone cannot establish internal damage or RUL.",
+            "locator": "demonstration-limitations.txt / lines 1-1, chars 1-247",
+            "reliability": "medium",
+            "asset_identity": null,
+            "predicate": null,
+            "value": null,
+            "limitations": []
+          }
+        ],
+        "attachments": [
+          "555b3d1f041547d5961b50e36b4dce60"
+        ],
+        "orchestration": {
+          "run_id": "411ca60a-2558-437e-8cd9-f0ef01485d5e",
+          "intent": "knowledge_query"
+        },
+        "context_selection": {
+          "provided_sources": 1,
+          "omitted_sources": 0,
+          "excerpted_sources": [],
+          "question_excerpted": false,
+          "reference_map": {
+            "E1": "652625bf337de7da7e79b51c"
+          },
+          "history_turns_sent": 5
+        },
+        "elapsed_seconds": 21.218000000000757
+      }
+    }
+  ],
+  "text": "No maintenance information is actually supplied in the attached note. The note explicitly states that no verified maintenance, lubrication, or alignment measurements have been provided [652625bf337de7da7e79b51c].",
+  "elapsed_seconds": 21.25,
+  "scope": "Fresh real Qwen document answer verifies compact alias restoration, existing actual note parser/chunk reused."
+}

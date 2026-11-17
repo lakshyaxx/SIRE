@@ -1,0 +1,393 @@
+{
+  "scope": "V4 source/client/server audit; status is limited to cited evidence. Native browser selection and physical hardware are not verified.",
+  "status_values": [
+    "verified_end_to_end",
+    "verified_backend_only",
+    "partial",
+    "broken",
+    "unsupported",
+    "untested"
+  ],
+  "capabilities": [
+    {
+      "capability": "Chat",
+      "owning_modules": [
+        "app/chat/service.py",
+        "app/providers/adapter.py"
+      ],
+      "api_entrypoints": [
+        "POST /api/v1/chat/message",
+        "GET /api/v1/conversations/{identifier}"
+      ],
+      "client_entrypoint": "web/src/features/chat/Chat.tsx",
+      "persistent_entities": [
+        "conversations",
+        "messages",
+        "v3_runs"
+      ],
+      "configured_models_or_tools": [
+        "qwen3:4b-instruct",
+        "typed orchestration"
+      ],
+      "status": "verified_backend_only",
+      "positive_test": "Real SSE model response/persistence, historical and voice chat; final suite246passed",
+      "negative_test": "tests/unit/test_v2_chat.py",
+      "measured_latency_seconds": 10.562,
+      "blocking_defect": "V4_E2E_VERIFICATION.md; physical browser pending",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "Files",
+      "owning_modules": [
+        "app/knowledge/ingestion.py"
+      ],
+      "api_entrypoints": [
+        "POST /api/v1/attachments"
+      ],
+      "client_entrypoint": "Chat.tsx picker/drag-drop -> api.ts FormData",
+      "persistent_entities": [
+        "attachments",
+        "chunks",
+        "v3_sources",
+        "v3_evidence"
+      ],
+      "configured_models_or_tools": [
+        "actual local parsers"
+      ],
+      "status": "verified_backend_only",
+      "positive_test": "Five real receipts/use; two actual picker-handler regressions pass; malformed inputs controlled",
+      "negative_test": "bad width/non-image/scoped duplicate tests",
+      "measured_latency_seconds": null,
+      "blocking_defect": "Native browser picker/cancel/reload pending",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "Structured data",
+      "owning_modules": [
+        "app/evidence/measurements.py",
+        "app/prediction/telemetry.py"
+      ],
+      "api_entrypoints": [
+        "POST /api/v1/attachments",
+        "POST /api/v1/chat/message"
+      ],
+      "client_entrypoint": "Chat.tsx -> Inspector.tsx",
+      "persistent_entities": [
+        "attachments",
+        "v3_evidence"
+      ],
+      "configured_models_or_tools": [
+        "measurements.profile; explicit configured header units"
+      ],
+      "status": "verified_backend_only",
+      "positive_test": "11 actual uploaded channels/44 verified statistics;6347historical rows; pagination contracts",
+      "negative_test": "test_v4_upload malformed schema/NASA ineligibility",
+      "measured_latency_seconds": 0.446,
+      "blocking_defect": "Source authenticity/physical association unverified",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "Documents",
+      "owning_modules": [
+        "app/evidence/formats.py",
+        "app/knowledge/search.py"
+      ],
+      "api_entrypoints": [
+        "POST /api/v1/attachments"
+      ],
+      "client_entrypoint": "Chat.tsx / Inspector.tsx",
+      "persistent_entities": [
+        "attachments",
+        "chunks"
+      ],
+      "configured_models_or_tools": [
+        "pypdf",
+        "DOCX/XLSX parsers",
+        "lexical retrieval",
+        "Qwen text"
+      ],
+      "status": "verified_backend_only",
+      "positive_test": "Actual PDF/DOCX/XLSX exact passages verified contextually via HTTP",
+      "negative_test": "test_v2_ingestion; format/injection regressions",
+      "measured_latency_seconds": 71.1,
+      "blocking_defect": "No OCR; physical applicability unverified",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "Vision",
+      "owning_modules": [
+        "app/chat/vision.py",
+        "app/providers/ollama.py"
+      ],
+      "api_entrypoints": [
+        "POST /api/v1/chat/message"
+      ],
+      "client_entrypoint": "Chat.tsx uploaded image",
+      "persistent_entities": [
+        "attachments",
+        "v3_evidence",
+        "messages"
+      ],
+      "configured_models_or_tools": [
+        "qwen3-vl:2b-instruct"
+      ],
+      "status": "partial",
+      "positive_test": "Actual VLM image and first video frame; exact image cache trace",
+      "negative_test": "test_v3_2_reports_vision",
+      "measured_latency_seconds": 92.372,
+      "blocking_defect": "Schematic interpretations are not physical observations; UI pending",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "Voice",
+      "owning_modules": [
+        "app/voice",
+        "app/media/worker.py"
+      ],
+      "api_entrypoints": [
+        "POST /api/v1/voice/transcribe",
+        "POST /api/v1/voice/speak",
+        "POST /api/v1/voice/cancel"
+      ],
+      "client_entrypoint": "web/src/features/chat/Voice.tsx",
+      "persistent_entities": [
+        "attachments",
+        "messages"
+      ],
+      "configured_models_or_tools": [
+        "Whisper tiny.en int8",
+        "Kokoro English int8"
+      ],
+      "status": "broken",
+      "positive_test": "Prior actual audio fixtures retained; V4 rerun pending",
+      "negative_test": "test_v3_2_voice",
+      "measured_latency_seconds": null,
+      "blocking_defect": "ReadReply generates a blob but does not start playback; interactive voice linkage pending",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "Video",
+      "owning_modules": [
+        "app/media/video.py",
+        "app/knowledge/ingestion.py"
+      ],
+      "api_entrypoints": [
+        "POST /api/v1/attachments"
+      ],
+      "client_entrypoint": "Chat.tsx media preview",
+      "persistent_entities": [
+        "attachments",
+        "v3_evidence"
+      ],
+      "configured_models_or_tools": [
+        "OpenCV bounded real frames",
+        "Qwen VLM"
+      ],
+      "status": "partial",
+      "positive_test": "3frames actually decoded, first-frame actual VLM40.719s",
+      "negative_test": "test_v3_2_ingestion codec/container tests",
+      "measured_latency_seconds": null,
+      "blocking_defect": "Other frames/full chat not rerun",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "Orchestration",
+      "owning_modules": [
+        "app/orchestration",
+        "app/chat/service.py"
+      ],
+      "api_entrypoints": [
+        "POST /api/v1/chat/message",
+        "GET /api/v1/runs/{identifier}/trace"
+      ],
+      "client_entrypoint": "Chat.tsx / Trace / Inspector",
+      "persistent_entities": [
+        "v3_runs"
+      ],
+      "configured_models_or_tools": [
+        "typed deterministic tools; local text/vision"
+      ],
+      "status": "partial",
+      "positive_test": "Actual five-flow traces; deterministic CSV route",
+      "negative_test": "test_v3_2_workspace; stress history cancellation regressions",
+      "measured_latency_seconds": null,
+      "blocking_defect": "Natural multi-case routes partial; input context filled4096 tokens and shifted during generation",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "Hypotheses",
+      "owning_modules": [
+        "app/investigation/engine.py",
+        "app/investigation/proposal_schema.py",
+        "app/investigation/identity.py"
+      ],
+      "api_entrypoints": [
+        "POST /api/v1/chat/message",
+        "POST /api/v1/investigations"
+      ],
+      "client_entrypoint": "Chat Investigate / Inspector Hypotheses",
+      "persistent_entities": [
+        "cases"
+      ],
+      "configured_models_or_tools": [
+        "actual bounded local Qwen proposals",
+        "source-group ranking"
+      ],
+      "status": "partial",
+      "positive_test": "Actual2round case/report complete; failed-followup preservation regression; unlinked CSV ranking exclusion",
+      "negative_test": "test_v2_hypotheses; test_v3_2_hypotheses",
+      "measured_latency_seconds": 195.034,
+      "blocking_defect": "Generated missing-evidence prose still contradicts available channels; physical cause unverified",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "Evidence verification",
+      "owning_modules": [
+        "app/evidence/ledger.py",
+        "app/evidence/context.py"
+      ],
+      "api_entrypoints": [
+        "GET /api/v1/evidence/{identifier}"
+      ],
+      "client_entrypoint": "Inspector Evidence",
+      "persistent_entities": [
+        "v3_sources",
+        "v3_evidence"
+      ],
+      "configured_models_or_tools": [
+        "immutable SHA; source aliases; exact source arithmetic"
+      ],
+      "status": "partial",
+      "positive_test": "Durable receipt/source resolution; retained exact snapshot tests",
+      "negative_test": "test_stress_lab_history; test_evidence_context",
+      "measured_latency_seconds": null,
+      "blocking_defect": "General qualitative entailment and typed claim verification incomplete",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "Industrial",
+      "owning_modules": [
+        "app/temporal",
+        "app/assets/fleet.py",
+        "app/investigation/facility.py",
+        "app/simulation"
+      ],
+      "api_entrypoints": [
+        "GET /api/v1/scenarios",
+        "GET /api/v1/fleet/overview",
+        "POST /api/v1/simulations/what-if"
+      ],
+      "client_entrypoint": "Engineer.tsx / ContextPicker / Interventions",
+      "persistent_entities": [
+        "v3_cases",
+        "scenario observations"
+      ],
+      "configured_models_or_tools": [
+        "deterministic history/rules; no NASA transfer"
+      ],
+      "status": "verified_backend_only",
+      "positive_test": "Actual temporal/events/fleet peer route;6347rows and controlled external what-if422",
+      "negative_test": "test_stress_lab_regressions",
+      "measured_latency_seconds": null,
+      "blocking_defect": "Synthetic observations only, no equipment control",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "RUL and ML",
+      "owning_modules": [
+        "app/prediction",
+        "ml/registry/catalog.json"
+      ],
+      "api_entrypoints": [
+        "POST /api/v1/predictions/run"
+      ],
+      "client_entrypoint": "Predictions.tsx",
+      "persistent_entities": [
+        "predictions"
+      ],
+      "configured_models_or_tools": [
+        "preserved168 native routes, FD001-FD004"
+      ],
+      "status": "untested",
+      "positive_test": "813 hashes pass; fresh four-dataset V4 smoke pending",
+      "negative_test": "incompatible upload test; retained parity metadata",
+      "measured_latency_seconds": null,
+      "blocking_defect": "No V4 fresh inference claimed yet",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "Reports",
+      "owning_modules": [
+        "app/reports"
+      ],
+      "api_entrypoints": [
+        "POST /api/v1/evidence-investigations/{identifier}/report",
+        "GET /api/v1/reports/{identifier}/download"
+      ],
+      "client_entrypoint": "Inspector Reports / Engineer",
+      "persistent_entities": [
+        "v3_reports",
+        "cases"
+      ],
+      "configured_models_or_tools": [
+        "ReportLab/Markdown exact snapshots"
+      ],
+      "status": "partial",
+      "positive_test": "Real saved-case PDF/Markdown downloaded and parsed",
+      "negative_test": "test_v3_2_reports_vision; test_v3_2_hypotheses",
+      "measured_latency_seconds": null,
+      "blocking_defect": "147page full snapshot PDF; visual layout and concise summary pending",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "UI",
+      "owning_modules": [
+        "web/src/features/chat",
+        "web/src/features/workspace"
+      ],
+      "api_entrypoints": [
+        "same-origin /api/v1"
+      ],
+      "client_entrypoint": "React/Vite",
+      "persistent_entities": [
+        "server conversation state"
+      ],
+      "configured_models_or_tools": [
+        "API client; actual SSE"
+      ],
+      "status": "partial",
+      "positive_test": "Build/typecheck/7contracts; source controls and inline player implemented",
+      "negative_test": "API errors; file limits; retry/abort contract tests",
+      "measured_latency_seconds": null,
+      "blocking_defect": "Actual picker/mobile/microphone/speaker acceptance blocked",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    },
+    {
+      "capability": "Reliability and privacy",
+      "owning_modules": [
+        "app/storage/database.py",
+        "app/media/runtime.py",
+        "app/chat/service.py"
+      ],
+      "api_entrypoints": [
+        "GET /api/v1/health",
+        "POST /api/v1/chat/cancel"
+      ],
+      "client_entrypoint": "all existing clients",
+      "persistent_entities": [
+        "13 existing production tables preserved"
+      ],
+      "configured_models_or_tools": [
+        "local-only providers; bounded jobs; hashes"
+      ],
+      "status": "partial",
+      "positive_test": "Preflight native813/prod13/stress7956 snapshots; focused regressions",
+      "negative_test": "isolated outage/socket/malformed input regressions",
+      "measured_latency_seconds": null,
+      "blocking_defect": "V4 final disconnect/restart/voice and final preservation comparison pending",
+      "v4_evidence_index": "docs/V4_E2E_VERIFICATION.md"
+    }
+  ],
+  "current_runtime": "V4 loaded on loopback8000; physical browser/device acceptance pending",
+  "scorecard": "docs/V4_VERIFICATION_SCORECARD.json"
+}

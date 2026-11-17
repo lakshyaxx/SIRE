@@ -1,0 +1,29 @@
+[
+  {
+    "pdf": "output\\v3_2\\20261117T092605\\uploaded-evidence-report.pdf",
+    "pages": 4,
+    "bytes": 8966,
+    "rendered_pages": [
+      "output\\v3_2\\pdf_review\\uploaded-evidence-report-1.png",
+      "output\\v3_2\\pdf_review\\uploaded-evidence-report-2.png",
+      "output\\v3_2\\pdf_review\\uploaded-evidence-report-3.png",
+      "output\\v3_2\\pdf_review\\uploaded-evidence-report-4.png"
+    ],
+    "visual_review": "All rendered pages reviewed; no clipping/overlap observed. Dense source snapshots retained deliberately."
+  },
+  {
+    "pdf": "output\\v3_2\\20261117T084346\\facility-reconstruction-report.pdf",
+    "pages": 7,
+    "bytes": 13762,
+    "rendered_pages": [
+      "output\\v3_2\\pdf_review\\facility-reconstruction-report-1.png",
+      "output\\v3_2\\pdf_review\\facility-reconstruction-report-2.png",
+      "output\\v3_2\\pdf_review\\facility-reconstruction-report-3.png",
+      "output\\v3_2\\pdf_review\\facility-reconstruction-report-4.png",
+      "output\\v3_2\\pdf_review\\facility-reconstruction-report-5.png",
+      "output\\v3_2\\pdf_review\\facility-reconstruction-report-6.png",
+      "output\\v3_2\\pdf_review\\facility-reconstruction-report-7.png"
+    ],
+    "visual_review": "All rendered pages reviewed; no clipping/overlap observed. Dense source snapshots retained deliberately."
+  }
+]

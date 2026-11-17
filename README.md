@@ -1,65 +1,82 @@
-# SIRE
+# SIRE V3.2 investigation workspace
 
-**SIRE** is an agentic, multimodal diagnosis system. You give it a photo of a problem (an engine bay, a leaking oil pan, ...), the maintenance history you remember (mileage, missed services, when you noticed it) and, when you have them, sensor readings. It answers three questions:
+V3.2 is running locally at **http://127.0.0.1:8000**. It connects incident context, sensor history/replay, evidence and competing hypotheses, retrospective case memory, fleet/what-if, actual NASA model comparison, execution traces and real PDF/Markdown exports to the existing chat. Local English speech and bounded audio/video ingestion are implemented with isolated open-source workers.
 
-1. **What failed?**
-2. **What was the lead-up?** Breakdowns are rarely a single event. Something has been going wrong for a while (a hardened gasket, a skipped service, repeated overheating) before a part finally gives up.
-3. **What should have been done, and when?** The prevention step that would have broken the chain, and how much useful life is left.
+Final verification: **198 tests passed / 139.21s**, two documented dependency warnings; Ruff/Black and TypeScript/Vite passed. All **813** protected native hashes match. Actual Qwen, four FD defaults/comparison, photo/document hypotheses, recorded-file speech round trip, sampled-frame vision and historical/report paths were exercised. All existing database tables survived cutover exactly. Browser/mobile and physical microphone/speaker interaction remain **unverified**; source-valid model claims can still be weak or wrong. This is a local prototype, not a validated industrial diagnostic system.
 
-SIRE builds several competing hypotheses, scores each one against evidence (what the photo shows, what you told it, cited knowledge retrieved from a real knowledge base, and RUL predictions from models trained on NASA C-MAPSS and N-CMAPSS) and returns the most plausible explanation with its confidence and sources.
+Start `.\scripts\dev.ps1`; keep the protected external Python environment. Read [current handoff](docs/V3_2_HANDOFF_REPORT.md), [progress and actual checks](docs/V3_2_PROGRESS.md), [capability status](docs/V3_2_CAPABILITY_MATRIX.md), [A/B/C runbook](docs/V3_2_RUNBOOK.md) and [optional media provenance/setup](docs/MEDIA_PROVENANCE.md). `python scripts/demo_v3_2.py --base http://127.0.0.1:8000` runs actual demonstrations serially and retains failures. `python scripts/export_runtime.py` now creates the separate private **V3.2** bundle; old V2/V3 bundles remain unchanged. No training/tuning, protected research deletion, paid service or public deployment occurred.
 
-Everything is open-source and runs locally: Qwen models for language and vision, our own RUL models, a local vector database. No hard-coded answers and no placeholder data anywhere.
+The following V3/V2 sections are historical checkpoints; current V3.2 guidance above supersedes their old voice/video, process and export status.
 
-## Scope note
-C-MAPSS and N-CMAPSS are NASA turbofan sensor datasets, so the RUL models only apply when a sensor time series exists (turbofan-type or other instrumented machinery). A phone photo of a car has no sensor stream: photo-only cases go through perception (Phase E), retrieval (Phase C) and the hypothesis engine (Phase D). The engine treats RUL as one evidence source among several.
+---
 
-## Phases
-| Phase | Folder | What it delivers | Depends on |
-|---|---|---|---|
-| A | `Phase_A_RUL_Training/` | Train and compare eight RUL models on C-MAPSS and N-CMAPSS, one at a time, starting from a LightGBM baseline. | datasets only |
-| B | `Phase_B_LLM_Integration/` | Local Qwen LLM plus the RUL models as tools: data in, the LLM routes it, the model predicts, the LLM explains using only the model's numbers. | A |
-| C | `Phase_C_Knowledge_RAG/` | Real documents, hybrid retrieval and cited cause-chain cards: the evidence chamber. | none (can run alongside B) |
-| D | `Phase_D_Hypothesis_Engine/` | The separate brain: competing hypotheses, expected evidence, matching, scoring, follow-up questions and prevention planning. | A, B, C |
-| E | `Phase_E_Vision/` | Qwen vision-language perception: photos become structured, calibrated evidence. | C, D (schemas) |
-| F | `Phase_F_Frontend_Voice/` | UI imported from the Figma design, plus voice in and out. Skeleton only until Phases A-E are accepted. | API contract (implemented in G) |
-| G | `Phase_G_Final_Integration/` | Gateway, model manager, end-to-end tests, full evaluation, packaging and demo. | A-F |
+# SIRE V3 industrial intelligence
 
-Work in the order A, B, C, D, E, F, G. Phase C does not depend on A and may run alongside B. Do not start a phase before the acceptance checklist of the previous one is ticked, unless the table says the phase is independent.
+V3 extends the working V2 app with typed tool planning, an immutable evidence ledger, a deterministic simulated facility, historical replay, evidence-linked differential investigations, case memory/review notes, fleet indicators, same-seed what-if and Markdown/PDF reports. New code is verified incrementally; the current gate, exact tests and blockers are in [V3 progress](docs/V3_PROGRESS.md) and [capability matrix](docs/V3_CAPABILITY_MATRIX.md).
 
-## Final architecture
-```text
- photo(s) + text history + optional sensor file
-              |
-     +--------v---------+
-     | Perception  (E)  |  Qwen vision-language model -> structured evidence
-     +--------+---------+
-              |
-     +--------v-------------------------------------------------+
-     | Hypothesis Engine (D) - the separate brain                |
-     |  generate -> expect -> match -> score -> ask / finalize   |
-     +---+------------------+-------------------+---------------+
-         |                  |                   |
-   +-----v------+   +-------v--------+   +------v-----------+
-   | RAG (C)    |   | RUL tools (A,B)|   | LLM runtime (B)  |
-   | knowledge  |   | C-MAPSS and    |   | Qwen3 orchestra- |
-   | + citations|   | N-CMAPSS models|   | tion, tool calls |
-   +------------+   +----------------+   +------------------+
-              |
-   root cause, lead-up chain, prevention, maintenance plan,
-   RUL, confidence, sources
-   UI + voice (F)      gateway, evaluation, packaging (G)
+Launch: `.\scripts\dev.ps1`; open **http://127.0.0.1:8000** and **/engineer**. The launcher idempotently creates only missing synthetic scenario data. Verified V3 now serves on port 8000 with the original V2 history; cutover proof is in docs/V3_CUTOVER_VERIFICATION.json. Keep the protected external Python environment. [Deployment guide](docs/DEPLOYMENT_GUIDE.md), [data dictionary](docs/DATA_DICTIONARY.md), [method](docs/INVESTIGATION_METHOD.md), [model provenance](docs/MODEL_PROVENANCE.md) and [actual synthetic evaluation](docs/EVALUATION_REPORT.md) describe the practical limits.
+
+Run `.\scripts\verify_v3.ps1` for tests/lint/format/staged build; `--full-model-audit` additionally executes every native route. `python scripts/demo_smoke.py --base http://127.0.0.1:8000` calls real providers and tools. `python scripts/evaluate_scenarios.py` runs the offline truth-isolated toy benchmark. `python scripts/export_runtime.py` creates the separate private V3 bundle and preserves the V2 ZIP.
+
+Source labels remain distinct: NASA simulation, SIRE synthetic scenarios, real uploads, manual claims and model interpretations. The scenario engine never passes plant-pump telemetry to NASA RUL models. Model explanations are tentative; source-backed numeric cards and narration guards prevent unsupported confidence/interval claims from becoming completed prediction answers. General semantic claim entailment is not proven.
+
+Local ASR/TTS/video generation and browser/mobile interaction QA are blocked by current runtime/tool availability. No public deployment, paid API, research deletion, training or tuning occurred. The older V2 instructions below remain useful context; current V3 commands/status take precedence for the active application.
+
+---
+
+# SIRE local investigation app
+
+SIRE opens into persistent chat. Ask ordinary questions, attach images or PDF/TXT/MD/CSV evidence, and request competing engineering explanations. The separate Predictions screen runs original saved NASA C-MAPSS models for FD001–FD004. Photos cannot produce RUL. Saved sensor predictions join chat through an explicit result ID.
+
+Start this installed workspace in PowerShell:
+
+```powershell
+.\scripts\dev.ps1
 ```
 
-## How to drive it (VS Code + Codex)
-1. Unzip, then open the `SIRE/` folder in VS Code. Codex reads `AGENTS.md` automatically.
-2. Put the datasets in `Phase_A_RUL_Training/CMAPSS/data/` and `Phase_A_RUL_Training/NCMAPSS/data/`.
-3. Open `Phase_A_RUL_Training/README.md`, paste the prompt from section 4 into Codex, then drive it with short commands (`setup cmapss`, `build common cmapss`, `train 01_lightgbm on FD001`, ...).
-4. Every phase folder has its own `README.md` containing the prompt for that phase, the order of work, the contracts it must satisfy and an acceptance checklist.
-5. `STATUS.md` is the single place that shows where the project stands. Codex updates it after every step.
+Open **http://127.0.0.1:8000**. API docs: **http://127.0.0.1:8000/docs**. Ctrl+C stops the launcher. It starts an already installed local Ollama when needed and never downloads software. Configured tags: `qwen3:4b-instruct` and `qwen3-vl:2b-instruct`. No hosted fallback is enabled.
 
-## Ground rules (every phase)
-- Real, working code only: no placeholders, no stubs, no mocked results, no invented data or numbers.
-- Open-source models and libraries only, with their licences checked.
-- Results come from code that actually ran. Failures are reported, not hidden.
-- No data leakage: split by unit, vehicle or session; fit on training data only; never tune on test data.
-- One phase at a time, one step at a time, each step ending with a report.
+Root `.venv` currently reuses third-party packages through a `.pth` pointing to `C:/Users/laksh/SIRE_SAFETY_BACKUPS/v2_retired_20261117/environment/Lib/site-packages`. **Keep that preserved environment** until a clean replacement is installed and checked. Application source and ML artifacts do not import retired phase folders.
+
+For a fresh Windows environment, restore private `ml/artifacts` files and registry from the checksummed runtime bundle, install Python 3.11 and Node 22.12+, then run:
+
+```powershell
+py -3.11 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-runtime.lock.txt
+cd web
+npm ci
+npm run build
+cd ..
+.\scripts\dev.ps1
+```
+
+The full lock includes the PyTorch CUDA wheel index; actual serving was verified on CPU. A fresh network install and macOS/Linux install were not executed. Other platforms can use `python scripts/dev.py` with compatible dependencies; the captured Windows lock may need platform-specific wheel changes. A Git source clone lacks private weights/data. The bundle excludes Python/Node environments, Ollama weights and private chat state.
+
+| Path | Purpose |
+| --- | --- |
+| `app/` | API, chat, prediction, knowledge, providers, evidence engine and SQLite |
+| `web/` | React/TypeScript chat-first UI and replaceable CSS tokens |
+| `ml/registry/catalog.json` | One application catalog: 168 native inference routes |
+| `ml/artifacts/cmapss/` | Native loaders, weights, preprocessing and sensor histories; Git ignored |
+| `data/` | Licensed demo image and project model card |
+| `tests/` | Unit, integration and preserved C-MAPSS regressions |
+| `docs/` | Proof, contracts, migration and manual review |
+
+Verification and private export:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests -q -p no:cacheprovider
+.\.venv\Scripts\python.exe -m ruff check app scripts tests
+.\.venv\Scripts\python.exe -m black --check app scripts tests
+.\.venv\Scripts\python.exe scripts/verify_parity.py
+# Slower: fresh CPU inference for every route
+.\.venv\Scripts\python.exe scripts/audit_models.py
+# App must be running; these call real local models
+.\.venv\Scripts\python.exe scripts/smoke_transport.py
+.\.venv\Scripts\python.exe scripts/smoke_v2.py
+.\.venv\Scripts\python.exe scripts/export_runtime.py
+```
+
+Read [build status](docs/BUILD_STATUS.md), [test evidence](docs/TEST_EVIDENCE.md), [manual review](docs/SHOWCASE_RUNBOOK.md), [model coverage](docs/MODEL_CATALOG.md), [API contracts](docs/API_CONTRACTS.md), [deployment](docs/DEPLOYMENT.md) and [preservation/rollback](docs/CLEANUP_MANIFEST.md).
+
+Old phase trees and V1 app are reversibly relocated to the verified external archive. No permanent research deletion, retraining, Optuna resume, Git publication or public deployment occurred. Browser/mobile interaction and visual accessibility review remain unverified. Small-model explanations are tentative, without a fault-diagnosis accuracy benchmark. N-CMAPSS and voice are outside this prototype.

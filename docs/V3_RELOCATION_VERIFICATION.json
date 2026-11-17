@@ -1,0 +1,50 @@
+{
+  "integrity_files": 813,
+  "native_prediction": {
+    "rul": 32.158785034361294,
+    "rul_unit": "cycles",
+    "n_steps_used": 40,
+    "model": "01_lightgbm",
+    "dataset": "FD004",
+    "seed": 42,
+    "version": "09812b709683fdeeb64ab42ea8814bef006b57b1c270d811c0ab75a12c6fcca6",
+    "warnings": [
+      "Used the latest 40 of 230 available cycles."
+    ],
+    "top_contributors": [
+      {
+        "channel": "s14",
+        "mean_abs_contribution": 22.132096947536983,
+        "mean_contribution": -22.132096947536983
+      },
+      {
+        "channel": "s9",
+        "mean_abs_contribution": 13.415743857763953,
+        "mean_contribution": -13.415743857763953
+      },
+      {
+        "channel": "s13",
+        "mean_abs_contribution": 7.061949609280146,
+        "mean_contribution": -7.061949609280146
+      },
+      {
+        "channel": "s11",
+        "mean_abs_contribution": 6.4897822557101446,
+        "mean_contribution": -6.4897822557101446
+      },
+      {
+        "channel": "s8",
+        "mean_abs_contribution": 4.003721458850409,
+        "mean_contribution": -4.003721458850409
+      }
+    ]
+  },
+  "case_evidence_count": 33,
+  "pdf_bytes": 14184,
+  "scenario_api_status": 200,
+  "case_api_status": 200,
+  "dependency_scope": "Current protected shared third-party environment; not a fresh install or another OS.",
+  "zip_sha256": "e7ea3c9f7e287a88118ddfe3c77697a530287c7ec6b13e09edda4719d5505ac8",
+  "bundle_files": 1003,
+  "bundle_zip_bytes": 140016123
+}

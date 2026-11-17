@@ -1,0 +1,1113 @@
+{
+  "health": {
+    "status": "ok",
+    "contract_version": "2.0",
+    "ml_ready": true,
+    "ollama_ready": true,
+    "text_ready": true,
+    "vision_ready": true,
+    "models": [
+      "qwen3:4b-instruct",
+      "qwen3-vl:2b-instruct",
+      "qwen3-vl:2b",
+      "qwen3:4b"
+    ],
+    "mode": "local",
+    "hosted_providers": "disabled"
+  },
+  "openapi_version": "3.2.0",
+  "routes": {
+    "/": 200,
+    "/engineer": 200,
+    "/predictions": 200,
+    "/models": 200,
+    "/knowledge": 200,
+    "/docs": 200
+  },
+  "assets": {
+    "/static/index-BwfOH2fU.js": {
+      "bytes": 776102,
+      "sha256": "644877242c50a3e29424a61eb9b1317413f27d3549aac0ecb13c8451d3b4ff65"
+    },
+    "/static/index-BZ9ydRu6.css": {
+      "bytes": 25864,
+      "sha256": "9bc6a0153ae7bc6c4dd7a5478ccb350d654800e2b9073379e06987e23613d235"
+    }
+  },
+  "scenario_count": 10,
+  "voice": {
+    "asr_ready": true,
+    "tts_ready": true,
+    "video_ready": true,
+    "asr_configured": true,
+    "tts_configured": true,
+    "network": "Local workers only; no hosted speech or browser cloud recognition.",
+    "hardware_interaction": "Browser microphone permission and speaker playback require user interaction; not probed here.",
+    "reason": "Readiness reflects configured files and successful worker probes; microphone/speaker interaction is separate.",
+    "asr_package_present": true,
+    "piper_package_present": false,
+    "ffmpeg_present": false
+  },
+  "capabilities": {
+    "tools": [
+      {
+        "tool_id": "text.profile",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Bounded untrusted user text, never executable tool instructions.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "title": "TextInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "text"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "evidence.resolve",
+        "version": "1",
+        "input_schema": {
+          "description": "Opaque evidence ID; no arbitrary file or SQL input.",
+          "properties": {
+            "evidence_id": {
+              "maxLength": 100,
+              "title": "Evidence Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "evidence_id"
+          ],
+          "title": "ResolveInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "evidence_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "knowledge.retrieve",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Search only a selected existing conversation.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            },
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "conversation_id"
+          ],
+          "title": "SearchInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "text",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "prediction.run",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit NASA source; synthetic facility IDs cannot satisfy this schema/domain.",
+          "properties": {
+            "dataset": {
+              "pattern": "^FD00[1-4]$",
+              "title": "Dataset",
+              "type": "string"
+            },
+            "model_id": {
+              "title": "Model Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "dataset",
+            "model_id",
+            "asset_id"
+          ],
+          "title": "PredictionInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "nasa_cmapss"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 120.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "llm.chat",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Bounded untrusted user text, never executable tool instructions.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "title": "TextInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "text"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 150.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "ollama_ready": true,
+          "text_ready": true,
+          "vision_ready": true,
+          "models": [
+            "qwen3:4b-instruct",
+            "qwen3-vl:2b-instruct",
+            "qwen3-vl:2b",
+            "qwen3:4b"
+          ]
+        }
+      },
+      {
+        "tool_id": "temporal.summary",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "assets.relations",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "facility.investigate",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "events.timeline",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "case.report",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "An existing persisted facility case identity.",
+          "properties": {
+            "case_id": {
+              "title": "Case Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "case_id"
+          ],
+          "title": "CaseInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "case_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "case.similar",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "An existing persisted facility case identity.",
+          "properties": {
+            "case_id": {
+              "title": "Case Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "case_id"
+          ],
+          "title": "CaseInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "case_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "fleet.overview",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "simulation.compare",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit bounded toy intervention assumptions.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            },
+            "service_hour": {
+              "anyOf": [
+                {
+                  "maximum": 96,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Service Hour"
+            },
+            "load_factor": {
+              "anyOf": [
+                {
+                  "maximum": 1.2,
+                  "minimum": 0.5,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Load Factor"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "InterventionInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "vision.inspect",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "One validated attachment from the selected conversation.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            },
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            },
+            "attachment_id": {
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "conversation_id",
+            "attachment_id"
+          ],
+          "title": "ImageInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "image",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 150.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "prediction.saved_result",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "A saved inference identity, never client-invented results.",
+          "properties": {
+            "prediction_id": {
+              "title": "Prediction Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "prediction_id"
+          ],
+          "title": "SavedPredictionInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "prediction_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "hypotheses.investigate",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Search only a selected existing conversation.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            },
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "conversation_id"
+          ],
+          "title": "SearchInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "text",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 220.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "measurements.profile",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Existing source attachment constrained to one conversation.",
+          "properties": {
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            },
+            "attachment_id": {
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "conversation_id",
+            "attachment_id"
+          ],
+          "title": "AttachmentInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "csv",
+          "json",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "audio.transcript",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Existing source attachment constrained to one conversation.",
+          "properties": {
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            },
+            "attachment_id": {
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "conversation_id",
+            "attachment_id"
+          ],
+          "title": "AttachmentInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "audio",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "video.frames",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Existing source attachment constrained to one conversation.",
+          "properties": {
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            },
+            "attachment_id": {
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "conversation_id",
+            "attachment_id"
+          ],
+          "title": "AttachmentInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "video",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "evidence_case.report",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "An existing persisted facility case identity.",
+          "properties": {
+            "case_id": {
+              "title": "Case Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "case_id"
+          ],
+          "title": "CaseInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "case_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      }
+    ],
+    "privacy": "local_only",
+    "voice": {
+      "asr_ready": true,
+      "tts_ready": true,
+      "video_ready": true,
+      "asr_configured": true,
+      "tts_configured": true,
+      "network": "Local workers only; no hosted speech or browser cloud recognition.",
+      "hardware_interaction": "Browser microphone permission and speaker playback require user interaction; not probed here.",
+      "reason": "Readiness reflects configured files and successful worker probes; microphone/speaker interaction is separate.",
+      "asr_package_present": true,
+      "piper_package_present": false,
+      "ffmpeg_present": false
+    }
+  },
+  "protected_native_hashes": 813,
+  "catalog_routes": 168,
+  "browser_scope": "Actual serving/version/assets/content checks only; browser access host remains unavailable."
+}

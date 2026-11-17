@@ -1,0 +1,61 @@
+{
+  "integrity_files": 813,
+  "native_prediction": {
+    "rul": 32.158785034361294,
+    "rul_unit": "cycles",
+    "n_steps_used": 40,
+    "model": "01_lightgbm",
+    "dataset": "FD004",
+    "seed": 42,
+    "version": "09812b709683fdeeb64ab42ea8814bef006b57b1c270d811c0ab75a12c6fcca6",
+    "warnings": [
+      "Used the latest 40 of 230 available cycles."
+    ],
+    "top_contributors": [
+      {
+        "channel": "s14",
+        "mean_abs_contribution": 22.132096947536983,
+        "mean_contribution": -22.132096947536983
+      },
+      {
+        "channel": "s9",
+        "mean_abs_contribution": 13.415743857763953,
+        "mean_contribution": -13.415743857763953
+      },
+      {
+        "channel": "s13",
+        "mean_abs_contribution": 7.061949609280146,
+        "mean_contribution": -7.061949609280146
+      },
+      {
+        "channel": "s11",
+        "mean_abs_contribution": 6.4897822557101446,
+        "mean_contribution": -6.4897822557101446
+      },
+      {
+        "channel": "s8",
+        "mean_abs_contribution": 4.003721458850409,
+        "mean_contribution": -4.003721458850409
+      }
+    ]
+  },
+  "case_evidence_count": 33,
+  "pdf_bytes": 14188,
+  "scenario_api_status": 200,
+  "case_api_status": 200,
+  "openapi_version": "3.2.0",
+  "missing_media_error": {
+    "error": {
+      "code": "media_runtime_missing",
+      "message": "Optional local runtime is missing. Run scripts/setup_media.py.",
+      "details": {},
+      "request_id": "ed717873e55d487ab7a44665381a8540"
+    }
+  },
+  "dependency_scope": "Current protected shared third-party environment; not a fresh install, another OS, or bundled optional media/model-provider weights.",
+  "zip_sha256": "7137fd98e6ee6fd38a8d7adebc513cdca0d3a2b2e16ede147d6a0a479017093a",
+  "bundle_files": 1052,
+  "bundle_zip_bytes": 140260908,
+  "relocation": "output\\v3_2_relocation_check_20261117T094200",
+  "private_exclusions_checked": true
+}

@@ -1,0 +1,13 @@
+# Local deployment and limits
+
+Run `.\scripts\dev.ps1` from the root. It uses root `.venv/Scripts/python.exe`, serves `web/dist` and `app.api.main:app` on loopback port 8000, and discovers installed Ollama. `python scripts/dev.py` is the cross-platform equivalent. No tunnel, firewall change or public listener is created. Installed-workspace startup was verified after cutover.
+
+Root venv currently shares third-party packages through `sire-preserved-runtime.pth` with `C:/Users/laksh/SIRE_SAFETY_BACKUPS/v2_retired_20261117/environment/Lib/site-packages`. Do not remove that external environment. Fresh setups should install the full pinned runtime lock and restore private artifacts, then rerun checks. Fresh downloads/install and macOS/Linux have not been verified. The Windows PyTorch CUDA lock is not a tested cross-platform lock; serving deliberately forces CPU.
+
+Application/native sources and weights resolve repository-relative paths. The native hierarchy stays under `ml/artifacts/cmapss`. A public source checkout alone lacks ignored weights/data. `scripts/export_runtime.py` creates a private ZIP of source, built UI and all indexed native dependencies, verifies entry CRCs/SHA-256 and writes a manifest. It excludes personal conversations/uploads, Python/Node environments, Ollama runtime/weights, Git and research archive. It is not a standalone offline installer.
+
+Approved Ollama CPU portable runtime: current account `AppData/Local/Programs/SIRE-Ollama`; original executable signature/hash and upstream notices recorded in OLLAMA_RUNTIME_MANIFEST.json. The launcher starts it only when needed, cloud disabled, one loaded model/parallel call. Configured instruct tags were actually tested; original thinking tags remain installed. GPU Ollama performance and engineering diagnosis accuracy were not benchmarked. On another machine install an approved official runtime and restore/pull tags separately. Startup never downloads weights.
+
+No secrets are needed for local inference. OS overrides are in `.env.example`; the application does not auto-load `.env`. The provider endpoint must remain loopback. Back up SQLite and attachment files together while stopped. Existing attachment paths refer to this machine; portable state migration is not implemented.
+
+This is a single-user prototype without account authentication. Public deployment requires separately reviewed authentication, HTTPS, resources, private artifact storage, retention/consent and a reachable model runtime; static hosting cannot call a visitor's laptop Ollama. No public deployment occurred. LAN/phone camera testing needs deliberate secure networking; no exposure was authorized. See manual browser checks in SHOWCASE_RUNBOOK.md.

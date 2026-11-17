@@ -42,3 +42,24 @@ Phase_E_Vision/datasets/raw_photos/*
 Phase_G_Final_Integration/persistence/*.db
 *.sqlite3
 .DS_Store
+
+# Local application generated state
+node_modules/
+web/dist/
+.runtime/
+.env.*
+!.env.example
+*.tsbuildinfo
+output/
+
+# Immutable native ML container and local upload state are private runtime assets
+ml/artifacts/
+migration_staging/
+
+# V3 private generated/imported state and staging builds
+web/dist-v3/
+data/imports/
+data/scenarios/
+
+# Private synthetic assessment packages remain data, outside application exports.
+/SIRE_STRESS_LAB*/

@@ -1,0 +1,18 @@
+{
+  "output/sire_v2_local_runtime.zip": {
+    "bytes": 139847263,
+    "sha256": "18c9bb7c20af2ca43cf470d9594c72313a129011304521c07ca90bd50b5f3f24"
+  },
+  "output/sire_v3_local_runtime.zip": {
+    "bytes": 140016123,
+    "sha256": "e7ea3c9f7e287a88118ddfe3c77697a530287c7ec6b13e09edda4719d5505ac8"
+  },
+  "ml/registry/verification.json": {
+    "bytes": 289505,
+    "sha256": "612f40316672c279280a944e7a28151256d68256fdd3a0d093e793b2ac9901ed"
+  },
+  "ml/registry/v3_verification.json": {
+    "bytes": 289505,
+    "sha256": "612f40316672c279280a944e7a28151256d68256fdd3a0d093e793b2ac9901ed"
+  }
+}

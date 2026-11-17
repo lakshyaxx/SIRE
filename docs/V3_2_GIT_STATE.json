@@ -1,0 +1,14 @@
+{
+  "aggregate": {
+    "modified_records": 4,
+    "deleted_records": 2792,
+    "untracked_files": 246,
+    "other_records": 0
+  },
+  "baseline": {
+    "modified_records": 4,
+    "deleted_records": 2792,
+    "untracked_files": 195
+  },
+  "scope": "No reset, clean, staging, commit, push or new protected research deletion. Deleted-path records are inherited migration/retirement state; full private paths saved only in .runtime."
+}

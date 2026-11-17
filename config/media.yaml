@@ -1,0 +1,36 @@
+version: '3.2'
+optional_dependencies: .runtime/optional_deps
+model_root: .runtime/media_models
+timeout_seconds: 120
+threads: 2
+tts_threads: 4
+tts_cache_entries: 8
+tts_cache_bytes: 8000000
+tts_cache_ttl_seconds: 300
+max_audio_seconds: 60
+max_video_seconds: 60
+max_video_frames: 3
+max_decoded_frames: 3600
+max_frame_pixels: 4000000
+max_tts_characters: 1200
+models:
+  vad:
+    directory: silero-vad
+    license: MIT
+    files:
+      silero_vad.onnx: 9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6
+  asr:
+    directory: whisper-tiny-en
+    license: MIT
+    files:
+      tiny.en-encoder.int8.onnx: 0ce578b827c94a961aacb8fa14b02f096504b337e5c94be37c36238cbe3e8bc6
+      tiny.en-decoder.int8.onnx: 06c0e6ff6348d427e51839219d1c886c18cfdf411e629e33f5e1679bff9c1527
+      tiny.en-tokens.txt: 306cd27f03c1a714eca7108e03d66b7dc042abe8c258b44c199a7ed9838dd930
+  tts:
+    directory: kokoro-en
+    license: Apache-2.0
+    files:
+      model.int8.onnx: e0530c5031c03c5dc957edfc6d72582c2246e9b4566643ff67eeb03610c11641
+      voices.bin: a372c67b056ef0b695c375d39b99630d23fb07ad4c8d87aa32a19a62fca523ad
+      tokens.txt: 4f31c71282d14af4e926cd12462078fe9d20d00c589e63fe2750a8f56d6d7f7b
+      lexicon-en-us.txt: 8b67ae549a465eee78f92ecb74644ad90c3c58ce65f19c68baf85878a10ef73a

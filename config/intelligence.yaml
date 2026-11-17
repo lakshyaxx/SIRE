@@ -1,0 +1,15 @@
+version: '3.2'
+parallel_read_tools: [temporal.summary, assets.relations, events.timeline]
+max_parallel_reads: 3
+deadline_seconds: 240
+max_tool_calls: 12
+intents:
+  investigation: ['investigat', 'diagnos', 'hypothes', 'root cause', 'what went wrong', 'what is wrong', "what's wrong", 'why did', 'warning', 'failure', 'fault', 'contradict', 'evidence for', 'evidence against']
+  temporal: ['trend', 'sensor', 'temperature', 'vibration', 'pressure', 'reading', 'telemetry', 'history', 'historical', 'earlier', 'before', 'replay']
+  onset: ['earliest', 'first anomaly', 'first abnormal']
+  events: ['maintenance', 'event', 'record', 'log', 'timeline', 'repair']
+  graph: ['dependenc', 'upstream', 'downstream', 'connected', 'relation']
+  memory: ['similar', 'prior case', 'case memory', 'past case', 'previous case']
+  report: ['report', 'export', 'download', 'pdf']
+  fleet: ['fleet', 'all assets', 'overview', 'same-type', 'same type', 'peers']
+  intervention: ['what if', 'what-if', 'intervention']

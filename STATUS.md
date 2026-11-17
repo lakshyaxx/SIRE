@@ -1,3 +1,45 @@
+## V4.5.2 focused performance repair — 2026-11-18
+
+Running at http://127.0.0.1:8000. CPU-only Ollama repaired with verified same-version CUDA runtime; RTX4050 actual text100%GPU, vision/CLIP GPU verified. No new models. Final network general question6.187s cold/0.938s warm; staged fresh investigation30.532s versusCPU138.031s. New speech remains32.047s; exact cached WAV replay0.171–0.172s. Backend293passed/1warning/145.21s, frontend13passed; build/static checks pass. All813native hashes,7956frozen files,20Ollama blobs and3original bundles verified. All15production tables match immediate pre-cutover backup; earlier operational voice-state change documented. Browser/mic/audible acceptance remains open. See [performance findings](docs/PERFORMANCE_DIAGNOSIS.md) and [actual results](docs/PERFORMANCE_RESULTS.json). Older checkpoints below are historical.
+
+## V4.5.1 conversation regression repair ? 2026-11-18
+
+Running at http://127.0.0.1:8000; reload the browser tab. Reproduced the real empty-source E1 error and fabricated self-description in an isolated Qwen replay. Added source-backed capability answers, fast social conversation, transport-independent speech provenance, paired history, strict reference/numeric checks, cancellation origins, playback gating/explicit interruption and exact PCM pre-roll. Backend287passed/1warning/142.44s; frontend13passed; Ruff/Black/TypeScript/build pass. Existing failed history recovers; real recorded voice/text follow-ups and source-backed industrial statistics pass. All15production tables,813native files,7956frozen results and3original bundles preserved. Physical microphone/speaker/barge-in and noise-only acceptance remain unverified; cold Kokoro and open-ended CPU chat are still slow. See [conversation findings](docs/CONVERSATION_REGRESSION_FINDINGS.md) and [machine-readable results](docs/CONVERSATION_REGRESSION_RESULTS.json). Older checkpoints below are historical.
+
+## V4.5 local engineering preview — 2026-11-18
+
+V4.5 runs at http://127.0.0.1:8000 with the existing production state. Durable background investigation, fast saved status/recall, retained hypothesis registry, evidence inventory/absence checks, shared provider scheduler, actual VAD/WebSocket voice and selected NASA pathways are connected. Backend275passed/2warnings/164.84s; frontend10passed; Ruff/Black/TypeScript/build pass. Main loaded-source/frontend and native startup readiness verified. All813native files,7956frozen outputs,13old production tables and3original bundles unchanged; no retraining/protected cleanup/public deployment.
+
+Not fully V4.5 accepted: physical browser/mic/speaker/barge-in, voice latency75.406s, incomplete generated mechanism prose, broad semantic entailment, optional Qwen speech and clean-environment portability remain open. Read [release readiness](docs/V45_RELEASE_READINESS.md), [measured performance](docs/V45_PERFORMANCE_RESULTS.md) and [progress](docs/V45_PROGRESS.md). Earlier checkpoints below are historical.
+
+## V4 local integration checkpoint
+
+Patched app running at http://127.0.0.1:8000. Upload pipeline repaired; evidence/inline voice integrated; actual backend/client checks recorded. Not V4-complete: browser/device acceptance, qualitative missing-evidence accuracy and interactive latency remain limited. See [V4 release readiness](docs/V4_RELEASE_READINESS.md) and [progress](docs/V4_PROGRESS.md). Protected813native files,13production tables and7956frozen stress files preserved.
+
+# Stress Lab source assessment checkpoint - 2026-11-17
+
+Assessment of the existing V3 stack/API3.2.0: all563 synthetic cases recorded, **544 executed /19 explicitly unrun** (shared provider shutdown and bounded high-load cases). All P0 and304/305 P1 executed. Ten reproduced source defects fixed with regressions; **229 tests passed /2warnings /165.45s**, Ruff/Black/TypeScript pass. All813 native hashes and13 production table digests preserved; actual36 NASA routes used genuine compatible samples. Private known-cause/false-positive metrics remain unavailable; strict selected narrative claims4/9 supported expose an open entailment gap. Browser/hardware acceptance remains open. See docs/STRESS_TEST_FINDINGS.md, STRESS_TEST_SCORECARD.json and STRESS_TEST_RUNBOOK.md. Existing production was not restarted and still runs the prior loaded V3.2 code; no test corpus/state or patched bundle was deployed/published.
+
+# Running V3.2 checkpoint before assessment patches
+
+Running on http://127.0.0.1:8000 with the final chat workspace and preserved user state. **198 passed, 2 warnings, 139.21s**; Ruff/Black/TypeScript/Vite pass. All 813 native hashes intact; four FD defaults and a two-model comparison freshly executed, complete 168-route audit retained from V3. Actual provider, photo/document, replay/report, recorded speech and bounded video paths verified to the scopes in docs/V3_2_VALIDATION_SUMMARY.json. All 13 existing SQLite tables exactly preserved after cutover. Browser/mobile and physical microphone/speaker acceptance remain open. Conservative routing/lexical retrieval/provisional semantic reasoning and toy simulated causality have documented limits. Read docs/V3_2_HANDOFF_REPORT.md, V3_2_PROGRESS.md and V3_2_CAPABILITY_MATRIX.md first. No training, tuning, protected deletion, paid or public actions.
+
+Earlier checkpoints below are historical.
+
+---
+
+# V3 current verified checkpoint
+
+Verified local V3 core running at http://127.0.0.1:8000 (/engineer). Final suite 155 passed/86.32s, Ruff/Black/TypeScript/Vite pass; fresh 168 native routes, 813 hashes and 44 frozen-reference comparisons pass. Original six V2 tables are byte-for-value unchanged; frontend/source/SQLite backups preserved. Synthetic evaluation: 20 trials, top-1 12/16, top-3 16/16, citations 588/588, controls 0/2 false warnings. Browser/mobile QA and speech/video remain blocked; semantic planning/memory generality remains partial. Private V3 bundle CRC/SHA and relocated actual FD004 + case/report checks passed; original V2 ZIP unchanged. Read docs/V3_PROGRESS.md, V3_CAPABILITY_MATRIX.md and V3_HANDOFF_REPORT.md. No training, deletion, paid services or public deployment.
+
+# Current V2 checkpoint — 2026-11-17
+
+Chat-first app implemented under app/web/ml/data/tests. 168 native CPU routes inferred, 813 hashes intact, 44 primary parity comparisons pass. Full suite 116 passed in 159.19s, including the export test. Real text/image/document/hypotheses, explicit prediction linkage/cancel and restart persistence checked. Phase folders reversibly retired; no permanent deletion/training. Browser/mobile QA blocked; manual steps in docs/SHOWCASE_RUNBOOK.md. Root venv currently requires the external preserved third-party environment. Current details: docs/BUILD_STATUS.md.
+
+The phase log below is historical provenance, not current app layout/acceptance.
+
+---
+
 # SIRE status
 
 Update this file at the end of every step (Codex does it; you can edit it too).
@@ -5,7 +47,7 @@ Update this file at the end of every step (Codex does it; you can edit it too).
 ## Phases
 | Phase | Name | Status | Last update | Notes |
 |---|---|---|---|---|
-| A | RUL model training | in progress | 2026-11-01 | CMAPSS setup/audit and 8-model seed 42/43/44 results complete; existing weights were not retrained for uncertainty. `val_last` is used for selection and ensemble interval calibration. The LightGBM w50 ablation is complete. New LightGBM quantile models are fitted for every dataset/seed. Registry keeps its model shape and adds two uncertainty predictors per dataset; all 40 base/uncertainty registry loads passed from another cwd. The report includes interval metrics, an engine-level onset audit with four plots, and the full per-model breakdown in `CMAPSS/results/MODEL_RESULTS.md`. N-CMAPSS remains unstarted. |
+| A | RUL model training | in progress | 2026-11-03 | CMAPSS model runs and packaging are complete, but requested broad tuning of deep models 02-07 was not done; 09 used a 48-config validation grid rather than the requested three-fold/60-trial Optuna study. LightGBM 01 tuning, uncertainty evaluation, anomaly-role correction and the time-series baseline are documented. Registry smoke loaded 44 predictors from another cwd; the 56-test CMAPSS suite and package validator pass. N-CMAPSS remains unstarted. |
 | B | LLM integration | not started | - | |
 | C | Knowledge base and RAG | not started | - | |
 | D | Hypothesis engine | not started | - | |
@@ -24,7 +66,8 @@ Cell values: `-` not started, a dataset id (FD001, DS01, ...) for partial progre
 ## Log
 Newest first. One line per step: date, step, one-sentence result.
 
-- 2026-11-01, CMAPSS detailed results, wrote `CMAPSS/results/MODEL_RESULTS.md` with per-model, per-dataset all-window validation, `val_last`, raw/clipped test metrics, interval-predictor results, and onset summaries.
+- 2026-11-03, CMAPSS final report and checks, added actual saved hyperparameters and recorded trial counts to the 12-page PDF, pinned Patsy, loaded all 44 registered predictor paths from a different cwd with zero failures, passed finalization validation and all 56 tests, and confirmed the exact five-file model package layout. Deep-model 02-07 tuning remains unperformed; 09 search was the documented 48-config grid.
+- 2026-11-01, CMAPSS detailed results, wrote `CMAPSS/artifacts/report_archive/MODEL_RESULTS.md` with per-model, per-dataset all-window validation, `val_last`, raw/clipped test metrics, interval-predictor results, and onset summaries.
 - 2026-11-01, CMAPSS uncertainty and onset audit, fitted LightGBM q10/q90 models for all 12 dataset/seed pairs; calibrated ensemble spread only on pooled `val_last` raw labels (80.0-80.3% validation coverage); evaluated both intervals on validation/test, audited all 2,121 autoencoder engine-seed rows, saved four six-engine HI/onset plots, verified all 40 registry prediction paths from another cwd, and passed 51 CMAPSS tests.
 - 2026-11-01, CMAPSS finalization, completed seed 43/44 runs for models 04-08 without retraining seed 42; wrote multi-seed report and validation-selected registry, verified all 32 predictors from another cwd on raw test engine rows (0 failures), and passed 47 CMAPSS tests.
 - 2026-11-01, CMAPSS finalization paused at user request; common `val_last` selection and tests added, LightGBM w50 ablation completed on FD001-FD004 with seeds 42/43/44, and seed 43/44 runs completed for models 01-03 on FD001-FD004 plus model 04 on FD001-FD003; 04 FD004 was interrupted and models 05-08 multi-seed runs have not started. Existing seed-42 base runs were reused.
@@ -63,3 +106,30 @@ Newest first. One line per step: date, step, one-sentence result.
 - 2026-11-01, CMAPSS 01_lightgbm on FD001, trained seed 42 with early stopping at 170 best iterations; validation RMSE was 12.6049 and raw/clipped test RMSE was 14.6009/13.4675.
 - 2026-11-01, CMAPSS setup (Step 0), installed the pinned CUDA environment and audited all four subsets; after the FD004 249/248 count deviation was reported, the user directed work to start using the supplied files.
 - 2026-10-31, CMAPSS setup (Step 0), created the Phase A virtual environment and pinned requirements; GPU detected; data audit initially blocked because required C-MAPSS files were absent and the CUDA PyTorch wheel download was interrupted before installation.
+
+## CMAPSS final-tuning run progress
+Budget: 8 hours (default; GPU: NVIDIA GeForce RTX 4050 Laptop GPU, 6 GB VRAM). The Phase A virtual environment has CUDA PyTorch 2.8.0+cu128, LightGBM 4.6.0, Optuna 4.5.0, NumPy 2.2.6, and pandas 2.3.3.
+
+| Stage | Elapsed | Budget remaining | Status / verdict |
+|---|---:|---:|---|
+| 0. Budget and archive | 00:05 | 07:55 | Complete. `_archive/CMAPSS_before_tuning.zip` contains all 2,876 files; ZIP CRC check passed. Before/after: not applicable (no model changes). |
+| 1. 06_autoencoder anomaly role | 00:55 | 07:05 | Complete. Replaced RUL head with healthy-only anomaly detector, validation-selected threshold/config, three seeds and PCA/Mahalanobis baselines; saved onset streams and HI plots. FD002–FD004 and seeds 42–44 fully evaluated; FD001 test aggregates recovered from the already-written seed outputs after a report-writer error, with no second test-file read. Test AUROC (FD001–FD004): 0.601, 0.609, 0.619, 0.609; TPR@5% FPR: 0.228, 0.196, 0.240, 0.192. Verdict: beats PCA at TPR@5 on all four; does not beat PCA AUROC on FD002–FD004. |
+| 2. 01_lightgbm tuning and quantiles | 02:45 | 05:15 | Complete. Validation-only grouped tuning and tuned three-seed refits on FD001–FD004; fitted q10/q90 predictors on the chosen feature families. Trials: FD001 64, FD002 27, FD003 20, FD004 18 completed. FD004 search stopped after individual trials reached 397 seconds; no test arrays were used for search. Clipped test RMSE before → tuned mean±SD: FD001 13.48±0.24 → 12.75±0.06; FD002 13.53±0.14 → 12.48±0.07; FD003 13.11±0.25 → 12.67±0.18; FD004 14.87±0.29 → 14.03±0.04. Verdict: the decrease exceeds the seed SD in all four datasets. |
+| 3. 09_ts_degradation | 03:00 | 05:00 | Complete. Added PCA/supervised HI variants, causal EMA, linear/quadratic extrapolation, and residual-bootstrap intervals; evaluated all four datasets for seeds 42–44. Validation clipped RMSE FD001–FD004: 32.10, 27.61, 26.81, 28.46; clipped test RMSE: 22.65, 29.00, 35.69, 30.69. Verdict: interpretable baseline, clearly behind learned regressors; same selected configuration repeats across seeds, hence zero observed seed SD. |
+| 4-7. Deep-model tuning | - | - | Not completed in this time-boxed pass. Models 02-07 retain saved baseline weights/configurations; no fresh B/C grouped engine splits, per-subset SQLite studies, broad/refine trials, or transfer/refinement were run. Do not interpret their scores as tuning results. |
+| 8. 08_ensemble rebuild and conformal intervals | 03:10 | 04:50 | Complete. RUL-only members are 01, 02, 03, 04, 05, 07, and 09; 06 is excluded. Compared equal, NNLS, positive Ridge, and Caruana weights using five-fold validation-engine OOF predictions. Quantile and ensemble intervals were calibrated on pooled validation last windows plus 20 fixed-seed truncations; no test fitting. PDF reports empirical coverage and width for validation/test, raw/clipped. |
+| 9-10. Cleanup, verification, report | 04:30 | 03:30 | Complete. Model folders each contain exactly the required five files; results/ contains only all_results.csv and Results_Report.pdf. Registry smoke: 44 predictors loaded from another cwd, zero failures. validate_finalization.py passed; full suite: 56 passed, one joblib CPU-count warning. Final 12-page PDF rendered and page 3 visually checked. Report now lists actual selected hyperparameters and recorded LightGBM trial counts. |
+
+
+## Authorized application build ? 2026-11-16
+
+The user explicitly authorized repository-wide application integration instead of continuing Phase A training. All historical status above is preserved. No training or Optuna resume occurred.
+
+- External preservation snapshot verified: `C:/Users/laksh/SIRE_SAFETY_BACKUPS/snapshot_20261116_223519` (9,373 files, 2,943,176,784 bytes; exclusions and rollback in docs/MIGRATION_LEDGER.md).
+- Additive React/FastAPI application: real RUL inference, raw sensor charts, CSV validation, model compare, separate anomaly scoring, local project guidance and Ollama adapters.
+- Current compatibility: all 44 registered routes pass CPU inference; all 790 captured inference files match the snapshot. Direct FD001 LightGBM parity passed.
+- Validation: 34 new application tests, 56 existing CMAPSS tests, frontend build/typecheck and Ruff pass. Dependency check clean. Browser/mobile verification blocked by computer-use URL detection.
+- Ollama installation/model downloads approved and in progress; no working text/vision generation claimed yet.
+- Active checkpoint: docs/BUILD_STATUS.md and docs/WORK_LOG.md. Original phase trees, binaries, reports and studies remain in place.
+
+Application checkpoint completed locally: 35 new tests and 56 legacy tests pass; all 44 registered routes verified on CPU. Ollama CPU runtime installed, text investigation succeeded, and the explicit Qwen3-VL 2B instruct variant returned real bearing-image observations over HTTP 200. Earlier vision failures were retained. Browser/mobile QA and old-tree retirement remain incomplete; see docs/BUILD_STATUS.md. No original Phase A working file differs from the verified snapshot.

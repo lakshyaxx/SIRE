@@ -1,0 +1,6 @@
+version: '4.5'
+preferred_seed: 42
+primary_families:
+  low_latency: 01_lightgbm
+  advanced: 08_ensemble
+  deep: 03_bilstm_attention

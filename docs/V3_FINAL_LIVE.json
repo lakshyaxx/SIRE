@@ -1,0 +1,134 @@
+{
+  "prediction_chat": {
+    "events": [
+      {
+        "type": "started",
+        "request_id": "262395c73fc54f74944a6df9b0670e9a",
+        "user_message_id": "9468c778cbfa4208bf5bc54c931383bb"
+      },
+      {
+        "type": "tool",
+        "tool": "prediction.run",
+        "status": "running"
+      },
+      {
+        "type": "tool",
+        "tool": "prediction.run",
+        "status": "complete",
+        "source_ids": [
+          "EV:06a733d7e56e4c4a20f50bf47037ab058abc8c21292b2f9a9540b6e85ac781c9"
+        ]
+      },
+      {
+        "type": "evidence",
+        "evidence": [
+          {
+            "id": "prediction:ce82f7bf4c104712baaea521d3d68771",
+            "modality": "sensor_model",
+            "kind": "model_inference",
+            "source_id": "ce82f7bf4c104712baaea521d3d68771",
+            "observation": "{\"id\": \"ce82f7bf4c104712baaea521d3d68771\", \"dataset\": \"FD003\", \"model_id\": \"fd003-08_ensemble-s42\", \"data_origin\": \"nasa_cmapss_simulation\", \"last_cycle\": 87, \"rul_cycles\": 114.49630975928234, \"interval\": [96.18562212280787, 132.8069973957568], \"interval_method\": \"cross_fitted_split_conformal_member_spread\", \"provenance\": {\"source\": \"ml/artifacts/cmapss/model_registry.json\", \"artifact_dir\": \"artifacts/08_ensemble/outputs/FD003/seed_42\", \"version\": \"c6b38471231b402575ff47c129e305ab4b6dc418eece51aee912d1162c5718f8\", \"seed\": 42, \"runtime\": \"cpu\", \"bundle_sha256\": \"3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37\"}, \"limitations\": [\"NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.\", \"A prediction is model inference, not proof of a failed component or a maintenance limit.\"]}",
+            "locator": null,
+            "reliability": "medium",
+            "asset_identity": "FD003-ENGINE-042",
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+              "A prediction is model inference, not proof of a failed component or a maintenance limit."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "delta",
+        "text": "**Saved model inference:** 114.49630975928234 operating cycles.\n\nModel: `fd003-08_ensemble-s42`; dataset: FD003; source: FD003-ENGINE-042.\n\nNative interval endpoints: 96.18562212280787 to 132.8069973957568 cycles. Method: `cross_fitted_split_conformal_member_spread`. This is not an exact confidence percentage about a physical component.\n\nSimulation-domain estimate, not a measured lifespan or certified maintenance limit.\n\n",
+        "source": "validated_tool_facts"
+      },
+      {
+        "type": "delta",
+        "text": "- The NASA C-MAPSS dataset simulates turbofan engine operation and does not represent real-world component degradation or physical conditions.  \n- Model predictions are inferential and do not constitute definitive evidence of imminent failure or a required maintenance threshold.",
+        "delivery": "validated_buffered_model_commentary"
+      },
+      {
+        "type": "done",
+        "status": "complete",
+        "metadata": {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "tools": [
+            {
+              "tool": "prediction.run",
+              "status": "complete",
+              "source_ids": [
+                "EV:06a733d7e56e4c4a20f50bf47037ab058abc8c21292b2f9a9540b6e85ac781c9"
+              ]
+            }
+          ],
+          "evidence": [
+            {
+              "id": "prediction:ce82f7bf4c104712baaea521d3d68771",
+              "modality": "sensor_model",
+              "kind": "model_inference",
+              "source_id": "ce82f7bf4c104712baaea521d3d68771",
+              "observation": "{\"id\": \"ce82f7bf4c104712baaea521d3d68771\", \"dataset\": \"FD003\", \"model_id\": \"fd003-08_ensemble-s42\", \"data_origin\": \"nasa_cmapss_simulation\", \"last_cycle\": 87, \"rul_cycles\": 114.49630975928234, \"interval\": [96.18562212280787, 132.8069973957568], \"interval_method\": \"cross_fitted_split_conformal_member_spread\", \"provenance\": {\"source\": \"ml/artifacts/cmapss/model_registry.json\", \"artifact_dir\": \"artifacts/08_ensemble/outputs/FD003/seed_42\", \"version\": \"c6b38471231b402575ff47c129e305ab4b6dc418eece51aee912d1162c5718f8\", \"seed\": 42, \"runtime\": \"cpu\", \"bundle_sha256\": \"3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37\"}, \"limitations\": [\"NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.\", \"A prediction is model inference, not proof of a failed component or a maintenance limit.\"]}",
+              "locator": null,
+              "reliability": "medium",
+              "asset_identity": "FD003-ENGINE-042",
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+                "A prediction is model inference, not proof of a failed component or a maintenance limit."
+              ]
+            }
+          ],
+          "attachments": [],
+          "orchestration": {
+            "run_id": "3a0d1839-da1e-4a84-9f3e-0043e3879c6c",
+            "intent": "rul_prediction"
+          },
+          "delivery": "Tool facts immediately; actual model commentary buffered until numerical validation.",
+          "elapsed_seconds": 22.1720000000023
+        }
+      }
+    ],
+    "elapsed_seconds": 22.187000000001717,
+    "conversation_id": "35e341628d10413ab2146b7e4675ffc6"
+  },
+  "report": {
+    "id": "report-81f7067dbd27f5277a22371545eb82069cd820d8a21ca1d3e5c7e3d6a7666451",
+    "case_id": "d396ff26-fec2-4e3f-a8d7-ef7279fdb17e",
+    "bytes": 13704,
+    "pages": 7,
+    "pdf_sha256": "e7d46891f34a816e43b9040eee80b45a98ecc2a00d4937231abcc77eebb3dba9",
+    "identical_repeated_download": true,
+    "created_at": "2026-11-16T23:17:02.233605+00:00"
+  },
+  "what_if": {
+    "compared_assets": [
+      "COMP-201",
+      "MOTOR-401"
+    ],
+    "motor_differences": {
+      "current": -7.5776156666666665,
+      "load": -12.145258499999997,
+      "vibration": 0.0,
+      "winding_temp": 0.0
+    }
+  },
+  "resolved_saved_visual_claims": [
+    {
+      "alias": "96713357f77342d79ccd946cc4e89beb:visual:0",
+      "canonical_id": "EV:9791d768587aa6acf2d9e71a6091afcd1cc1bd109dc1720c44065d5e0e86e58b"
+    },
+    {
+      "alias": "96713357f77342d79ccd946cc4e89beb:visual:1",
+      "canonical_id": "EV:173727aa52d21e68a9e3afb461ff7960a0ba72b3ca564d3cb89cfba15600dc57"
+    },
+    {
+      "alias": "96713357f77342d79ccd946cc4e89beb:visual:2",
+      "canonical_id": "EV:d7b7d71c4d0ad8dac00b714f47a2b37ef84560e8966761c404c71adf15ceb15d"
+    }
+  ]
+}

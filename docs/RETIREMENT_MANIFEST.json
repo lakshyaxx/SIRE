@@ -1,0 +1,114 @@
+{
+  "snapshot": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_20261117_000722\\manifest.json",
+  "mode": "reversible relocation; no permanent deletion",
+  "moves": [
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\Phase_A_RUL_Training\\.venv",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\environment"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\Phase_A_RUL_Training",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\Phase_A_RUL_Training"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\Phase_B_LLM_Integration",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\Phase_B_LLM_Integration"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\Phase_C_Knowledge_RAG",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\Phase_C_Knowledge_RAG"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\Phase_D_Hypothesis_Engine",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\Phase_D_Hypothesis_Engine"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\Phase_E_Vision",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\Phase_E_Vision"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\Phase_F_Frontend_Voice",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\Phase_F_Frontend_Voice"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\Phase_G_Final_Integration",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\Phase_G_Final_Integration"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\engine",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\engine"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\backend",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\backend"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\frontend",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\frontend"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\model_store",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\model_store"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\samples",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\samples"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\_archive",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\_archive"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\output",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\output"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\migration_staging",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\research_and_v1\\migration_staging"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\tests\\conftest.py",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\v1_tests\\conftest.py"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\tests\\test_api.py",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\v1_tests\\test_api.py"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\tests\\test_knowledge.py",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\v1_tests\\test_knowledge.py"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\tests\\test_models.py",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\v1_tests\\test_models.py"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\tests\\test_providers.py",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\v1_tests\\test_providers.py"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\tests\\test_scripts.py",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\v1_tests\\test_scripts.py"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\tests\\test_telemetry.py",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\v1_tests\\test_telemetry.py"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\scripts\\inventory.py",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\v1_scripts\\inventory.py"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\scripts\\verify_models.py",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\v1_scripts\\verify_models.py"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\scripts\\package_demo.py",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\v1_scripts\\package_demo.py"
+    },
+    {
+      "old_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\scripts\\smoke_test.py",
+      "archive_path": "C:\\Users\\laksh\\SIRE_SAFETY_BACKUPS\\v2_retired_20261117\\v1_scripts\\smoke_test.py"
+    }
+  ]
+}

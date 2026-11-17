@@ -1,0 +1,5066 @@
+{
+  "health": {
+    "status": "ok",
+    "contract_version": "2.0",
+    "ml_ready": true,
+    "ollama_ready": true,
+    "text_ready": true,
+    "vision_ready": true,
+    "models": [
+      "qwen3:4b-instruct",
+      "qwen3-vl:2b-instruct",
+      "qwen3-vl:2b",
+      "qwen3:4b"
+    ],
+    "mode": "local",
+    "hosted_providers": "disabled"
+  },
+  "conversation_id": "27e1c68702284ea9b3403fa44f0bed0b",
+  "text": {
+    "events": [
+      {
+        "type": "started",
+        "request_id": "3eb73f397dd8411492858de2d63d60c5",
+        "user_message_id": "467924eca183460aa5aea7d4ef0707f5"
+      },
+      {
+        "type": "evidence",
+        "evidence": []
+      },
+      {
+        "type": "tool",
+        "tool": "hypothesis_engine",
+        "status": "running"
+      },
+      {
+        "type": "report",
+        "report": {
+          "case": {
+            "question": "Hello. Briefly explain how evidence differs from a hypothesis.",
+            "conversation_id": "27e1c68702284ea9b3403fa44f0bed0b",
+            "evidence": [
+              {
+                "id": "user:467924eca183460aa5aea7d4ef0707f5",
+                "modality": "text",
+                "kind": "user_claim",
+                "source_id": "467924eca183460aa5aea7d4ef0707f5",
+                "observation": "Hello. Briefly explain how evidence differs from a hypothesis.",
+                "locator": null,
+                "reliability": "low",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": []
+              }
+            ],
+            "linked_asset": false
+          },
+          "hypotheses": [
+            {
+              "id": "h1",
+              "mechanism": "Distinguishing evidence from hypothesis based on verifiability and origin: evidence originates from observed data, while a hypothesis is a speculative explanation derived from incomplete data or assumptions. No direct evidence is provided in the input to support or contradict this distinction, so the mechanism remains untested in this context. Missing inspection: whether any prior data points were observed and recorded as evidence before a hypothesis was formed. No contradiction observed in supplied data. Test required to validate mechanism in actual data flow.",
+              "assumptions": [
+                "Evidence is a factual, observable, and verifiable data point derived from direct or indirect measurement.",
+                "A hypothesis is a proposed explanation for a phenomenon, not yet proven or tested."
+              ],
+              "expected_signs": [
+                {
+                  "predicate": "evidence_is_factual_and_verifiable",
+                  "expected_value": true
+                },
+                {
+                  "predicate": "hypothesis_is_factual_and_verifiable",
+                  "expected_value": false
+                }
+              ],
+              "supporting_evidence_ids": [],
+              "contradicting_evidence_ids": [],
+              "missing_tests": [
+                "Verify if any prior observations were recorded as evidence before a hypothesis was proposed."
+              ],
+              "status": "tentative",
+              "evidence_support": "low",
+              "ranking_score": -0.2,
+              "falsified_by": [],
+              "excluded_as_unlinked": [],
+              "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+            },
+            {
+              "id": "h2",
+              "mechanism": "Evidence is traceable to a source with known reliability (e.g., sensor, report), while a hypothesis is an unverified inference. The user input contains no such traceable data, so this mechanism cannot be validated. Missing inspection: whether any sensor or report data existed prior to the user claim. No contradiction observed. Test required to confirm if any prior traceable data existed.",
+              "assumptions": [
+                "Evidence must be traceable to a source with known reliability, such as sensor readings or documented reports.",
+                "A hypothesis is a logical inference, not a measurable fact."
+              ],
+              "expected_signs": [
+                {
+                  "predicate": "evidence_has_traceable_source",
+                  "expected_value": true
+                },
+                {
+                  "predicate": "hypothesis_has_traceable_source",
+                  "expected_value": false
+                }
+              ],
+              "supporting_evidence_ids": [],
+              "contradicting_evidence_ids": [],
+              "missing_tests": [
+                "Check for prior sensor or report data that could serve as evidence before the user claim."
+              ],
+              "status": "tentative",
+              "evidence_support": "low",
+              "ranking_score": -0.2,
+              "falsified_by": [],
+              "excluded_as_unlinked": [],
+              "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+            }
+          ],
+          "tools": [
+            {
+              "tool": "propose_hypotheses",
+              "status": "complete",
+              "provider": "ollama",
+              "model": "qwen3:4b-instruct",
+              "elapsed_seconds": 55.21799999999712,
+              "source_ids": [
+                "user:467924eca183460aa5aea7d4ef0707f5"
+              ]
+            },
+            {
+              "tool": "search_documents",
+              "status": "complete",
+              "provider": null,
+              "model": null,
+              "elapsed_seconds": 0.01600000000325963,
+              "source_ids": []
+            },
+            {
+              "tool": "search_documents",
+              "status": "complete",
+              "provider": null,
+              "model": null,
+              "elapsed_seconds": 0.0,
+              "source_ids": []
+            }
+          ],
+          "rounds": 1,
+          "unresolved": [
+            "No reliable contradiction is observed in the supplied evidence.",
+            "No actual data points are provided to serve as evidence or support a hypothesis."
+          ],
+          "limitations": [
+            "Generated mechanisms and proposed evidence relationships remain unverified.",
+            "Rank scores are transparent heuristics, not probabilities; high support is not claimed.",
+            "Photographs cannot prove internal damage or estimate RUL; use qualified inspection.",
+            "A NASA demonstration prediction does not describe the physical photographed component."
+          ],
+          "id": "47aafaa8f1f54c9485eeaf530d5bb88c"
+        },
+        "content": "## Investigation\n\n**Distinguishing evidence from hypothesis based on verifiability and origin: evidence originates from observed data, while a hypothesis is a speculative explanation derived from incomplete data or assumptions. No direct evidence is provided in the input to support or contradict this distinction, so the mechanism remains untested in this context. Missing inspection: whether any prior data points were observed and recorded as evidence before a hypothesis was formed. No contradiction observed in supplied data. Test required to validate mechanism in actual data flow.**\n\nStatus: tentative; evidence support: low.\n\nNext checks: Verify if any prior observations were recorded as evidence before a hypothesis was proposed.\n\n**Evidence is traceable to a source with known reliability (e.g., sensor, report), while a hypothesis is an unverified inference. The user input contains no such traceable data, so this mechanism cannot be validated. Missing inspection: whether any sensor or report data existed prior to the user claim. No contradiction observed. Test required to confirm if any prior traceable data existed.**\n\nStatus: tentative; evidence support: low.\n\nNext checks: Check for prior sensor or report data that could serve as evidence before the user claim.\n\nThese are proposed mechanisms, not a confirmed diagnosis."
+      },
+      {
+        "type": "done",
+        "status": "complete",
+        "metadata": {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "tools": [
+            {
+              "tool": "propose_hypotheses",
+              "status": "complete",
+              "provider": "ollama",
+              "model": "qwen3:4b-instruct",
+              "elapsed_seconds": 55.21799999999712,
+              "source_ids": [
+                "user:467924eca183460aa5aea7d4ef0707f5"
+              ]
+            },
+            {
+              "tool": "search_documents",
+              "status": "complete",
+              "provider": null,
+              "model": null,
+              "elapsed_seconds": 0.01600000000325963,
+              "source_ids": []
+            },
+            {
+              "tool": "search_documents",
+              "status": "complete",
+              "provider": null,
+              "model": null,
+              "elapsed_seconds": 0.0,
+              "source_ids": []
+            }
+          ],
+          "evidence": [
+            {
+              "id": "user:467924eca183460aa5aea7d4ef0707f5",
+              "modality": "text",
+              "kind": "user_claim",
+              "source_id": "467924eca183460aa5aea7d4ef0707f5",
+              "observation": "Hello. Briefly explain how evidence differs from a hypothesis.",
+              "locator": null,
+              "reliability": "low",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": []
+            }
+          ],
+          "attachments": [],
+          "orchestration": {
+            "run_id": "df89a40e-afd8-43d4-89c4-4a9b7a470f21",
+            "intent": "incident_investigation"
+          },
+          "investigation_id": "47aafaa8f1f54c9485eeaf530d5bb88c",
+          "investigation": {
+            "case": {
+              "question": "Hello. Briefly explain how evidence differs from a hypothesis.",
+              "conversation_id": "27e1c68702284ea9b3403fa44f0bed0b",
+              "evidence": [
+                {
+                  "id": "user:467924eca183460aa5aea7d4ef0707f5",
+                  "modality": "text",
+                  "kind": "user_claim",
+                  "source_id": "467924eca183460aa5aea7d4ef0707f5",
+                  "observation": "Hello. Briefly explain how evidence differs from a hypothesis.",
+                  "locator": null,
+                  "reliability": "low",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": []
+                }
+              ],
+              "linked_asset": false
+            },
+            "hypotheses": [
+              {
+                "id": "h1",
+                "mechanism": "Distinguishing evidence from hypothesis based on verifiability and origin: evidence originates from observed data, while a hypothesis is a speculative explanation derived from incomplete data or assumptions. No direct evidence is provided in the input to support or contradict this distinction, so the mechanism remains untested in this context. Missing inspection: whether any prior data points were observed and recorded as evidence before a hypothesis was formed. No contradiction observed in supplied data. Test required to validate mechanism in actual data flow.",
+                "assumptions": [
+                  "Evidence is a factual, observable, and verifiable data point derived from direct or indirect measurement.",
+                  "A hypothesis is a proposed explanation for a phenomenon, not yet proven or tested."
+                ],
+                "expected_signs": [
+                  {
+                    "predicate": "evidence_is_factual_and_verifiable",
+                    "expected_value": true
+                  },
+                  {
+                    "predicate": "hypothesis_is_factual_and_verifiable",
+                    "expected_value": false
+                  }
+                ],
+                "supporting_evidence_ids": [],
+                "contradicting_evidence_ids": [],
+                "missing_tests": [
+                  "Verify if any prior observations were recorded as evidence before a hypothesis was proposed."
+                ],
+                "status": "tentative",
+                "evidence_support": "low",
+                "ranking_score": -0.2,
+                "falsified_by": [],
+                "excluded_as_unlinked": [],
+                "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+              },
+              {
+                "id": "h2",
+                "mechanism": "Evidence is traceable to a source with known reliability (e.g., sensor, report), while a hypothesis is an unverified inference. The user input contains no such traceable data, so this mechanism cannot be validated. Missing inspection: whether any sensor or report data existed prior to the user claim. No contradiction observed. Test required to confirm if any prior traceable data existed.",
+                "assumptions": [
+                  "Evidence must be traceable to a source with known reliability, such as sensor readings or documented reports.",
+                  "A hypothesis is a logical inference, not a measurable fact."
+                ],
+                "expected_signs": [
+                  {
+                    "predicate": "evidence_has_traceable_source",
+                    "expected_value": true
+                  },
+                  {
+                    "predicate": "hypothesis_has_traceable_source",
+                    "expected_value": false
+                  }
+                ],
+                "supporting_evidence_ids": [],
+                "contradicting_evidence_ids": [],
+                "missing_tests": [
+                  "Check for prior sensor or report data that could serve as evidence before the user claim."
+                ],
+                "status": "tentative",
+                "evidence_support": "low",
+                "ranking_score": -0.2,
+                "falsified_by": [],
+                "excluded_as_unlinked": [],
+                "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+              }
+            ],
+            "tools": [
+              {
+                "tool": "propose_hypotheses",
+                "status": "complete",
+                "provider": "ollama",
+                "model": "qwen3:4b-instruct",
+                "elapsed_seconds": 55.21799999999712,
+                "source_ids": [
+                  "user:467924eca183460aa5aea7d4ef0707f5"
+                ]
+              },
+              {
+                "tool": "search_documents",
+                "status": "complete",
+                "provider": null,
+                "model": null,
+                "elapsed_seconds": 0.01600000000325963,
+                "source_ids": []
+              },
+              {
+                "tool": "search_documents",
+                "status": "complete",
+                "provider": null,
+                "model": null,
+                "elapsed_seconds": 0.0,
+                "source_ids": []
+              }
+            ],
+            "rounds": 1,
+            "unresolved": [
+              "No reliable contradiction is observed in the supplied evidence.",
+              "No actual data points are provided to serve as evidence or support a hypothesis."
+            ],
+            "limitations": [
+              "Generated mechanisms and proposed evidence relationships remain unverified.",
+              "Rank scores are transparent heuristics, not probabilities; high support is not claimed.",
+              "Photographs cannot prove internal damage or estimate RUL; use qualified inspection.",
+              "A NASA demonstration prediction does not describe the physical photographed component."
+            ],
+            "id": "47aafaa8f1f54c9485eeaf530d5bb88c"
+          },
+          "elapsed_seconds": 55.2970000000023
+        }
+      }
+    ],
+    "elapsed_seconds": 55.31200000000172
+  },
+  "image": {
+    "events": [
+      {
+        "type": "started",
+        "request_id": "b2d1bdb61c774c0ea6861f5d866d043b",
+        "user_message_id": "c52b08cbde204c0d8baec004bb3a9586"
+      },
+      {
+        "type": "tool",
+        "tool": "vision",
+        "status": "running",
+        "source_id": "96713357f77342d79ccd946cc4e89beb"
+      },
+      {
+        "type": "tool",
+        "tool": "vision",
+        "status": "complete",
+        "provider": "ollama",
+        "model": "qwen3-vl:2b-instruct",
+        "elapsed_seconds": 36.60900000000038,
+        "source_ids": [
+          "96713357f77342d79ccd946cc4e89beb"
+        ]
+      },
+      {
+        "type": "evidence",
+        "evidence": [
+          {
+            "id": "96713357f77342d79ccd946cc4e89beb:visual:0",
+            "modality": "image",
+            "kind": "model_inference",
+            "source_id": "96713357f77342d79ccd946cc4e89beb",
+            "observation": "A cylindrical roller bearing with multiple rows of rollers and a cage",
+            "locator": "bearing_cc0.jpg",
+            "reliability": "medium",
+            "asset_identity": null,
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "The image is a close-up view and may not show all details of the bearing's internal structure",
+              "The image quality may not allow for definitive identification of the bearing's condition"
+            ]
+          },
+          {
+            "id": "96713357f77342d79ccd946cc4e89beb:visual:1",
+            "modality": "image",
+            "kind": "model_inference",
+            "source_id": "96713357f77342d79ccd946cc4e89beb",
+            "observation": "The rollers are arranged in a circular pattern with a central bore",
+            "locator": "bearing_cc0.jpg",
+            "reliability": "medium",
+            "asset_identity": null,
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "The image is a close-up view and may not show all details of the bearing's internal structure",
+              "The image quality may not allow for definitive identification of the bearing's condition"
+            ]
+          },
+          {
+            "id": "96713357f77342d79ccd946cc4e89beb:visual:2",
+            "modality": "image",
+            "kind": "model_inference",
+            "source_id": "96713357f77342d79ccd946cc4e89beb",
+            "observation": "The outer ring has a smooth, polished surface with a slight sheen",
+            "locator": "bearing_cc0.jpg",
+            "reliability": "medium",
+            "asset_identity": null,
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "The image is a close-up view and may not show all details of the bearing's internal structure",
+              "The image quality may not allow for definitive identification of the bearing's condition"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "delta",
+        "text": "**"
+      },
+      {
+        "type": "delta",
+        "text": "Visible"
+      },
+      {
+        "type": "delta",
+        "text": " Features"
+      },
+      {
+        "type": "delta",
+        "text": " ("
+      },
+      {
+        "type": "delta",
+        "text": "from"
+      },
+      {
+        "type": "delta",
+        "text": " un"
+      },
+      {
+        "type": "delta",
+        "text": "trusted"
+      },
+      {
+        "type": "delta",
+        "text": " evidence"
+      },
+      {
+        "type": "delta",
+        "text": "):"
+      },
+      {
+        "type": "delta",
+        "text": "**"
+      },
+      {
+        "type": "delta",
+        "text": "  \n"
+      },
+      {
+        "type": "delta",
+        "text": "-"
+      },
+      {
+        "type": "delta",
+        "text": " A"
+      },
+      {
+        "type": "delta",
+        "text": " cylindrical"
+      },
+      {
+        "type": "delta",
+        "text": " roller"
+      },
+      {
+        "type": "delta",
+        "text": " bearing"
+      },
+      {
+        "type": "delta",
+        "text": " with"
+      },
+      {
+        "type": "delta",
+        "text": " multiple"
+      },
+      {
+        "type": "delta",
+        "text": " rows"
+      },
+      {
+        "type": "delta",
+        "text": " of"
+      },
+      {
+        "type": "delta",
+        "text": " rollers"
+      },
+      {
+        "type": "delta",
+        "text": " arranged"
+      },
+      {
+        "type": "delta",
+        "text": " in"
+      },
+      {
+        "type": "delta",
+        "text": " a"
+      },
+      {
+        "type": "delta",
+        "text": " circular"
+      },
+      {
+        "type": "delta",
+        "text": " pattern"
+      },
+      {
+        "type": "delta",
+        "text": "."
+      },
+      {
+        "type": "delta",
+        "text": "  \n"
+      },
+      {
+        "type": "delta",
+        "text": "-"
+      },
+      {
+        "type": "delta",
+        "text": " A"
+      },
+      {
+        "type": "delta",
+        "text": " central"
+      },
+      {
+        "type": "delta",
+        "text": " bore"
+      },
+      {
+        "type": "delta",
+        "text": " visible"
+      },
+      {
+        "type": "delta",
+        "text": " within"
+      },
+      {
+        "type": "delta",
+        "text": " the"
+      },
+      {
+        "type": "delta",
+        "text": " bearing"
+      },
+      {
+        "type": "delta",
+        "text": " structure"
+      },
+      {
+        "type": "delta",
+        "text": "."
+      },
+      {
+        "type": "delta",
+        "text": "  \n"
+      },
+      {
+        "type": "delta",
+        "text": "-"
+      },
+      {
+        "type": "delta",
+        "text": " The"
+      },
+      {
+        "type": "delta",
+        "text": " outer"
+      },
+      {
+        "type": "delta",
+        "text": " ring"
+      },
+      {
+        "type": "delta",
+        "text": " exhibits"
+      },
+      {
+        "type": "delta",
+        "text": " a"
+      },
+      {
+        "type": "delta",
+        "text": " smooth"
+      },
+      {
+        "type": "delta",
+        "text": ","
+      },
+      {
+        "type": "delta",
+        "text": " polished"
+      },
+      {
+        "type": "delta",
+        "text": " surface"
+      },
+      {
+        "type": "delta",
+        "text": " with"
+      },
+      {
+        "type": "delta",
+        "text": " a"
+      },
+      {
+        "type": "delta",
+        "text": " slight"
+      },
+      {
+        "type": "delta",
+        "text": " she"
+      },
+      {
+        "type": "delta",
+        "text": "en"
+      },
+      {
+        "type": "delta",
+        "text": ".\n\n"
+      },
+      {
+        "type": "delta",
+        "text": "**"
+      },
+      {
+        "type": "delta",
+        "text": "Limit"
+      },
+      {
+        "type": "delta",
+        "text": "ations"
+      },
+      {
+        "type": "delta",
+        "text": " ("
+      },
+      {
+        "type": "delta",
+        "text": "from"
+      },
+      {
+        "type": "delta",
+        "text": " un"
+      },
+      {
+        "type": "delta",
+        "text": "trusted"
+      },
+      {
+        "type": "delta",
+        "text": " evidence"
+      },
+      {
+        "type": "delta",
+        "text": "):"
+      },
+      {
+        "type": "delta",
+        "text": "**"
+      },
+      {
+        "type": "delta",
+        "text": "  \n"
+      },
+      {
+        "type": "delta",
+        "text": "-"
+      },
+      {
+        "type": "delta",
+        "text": " The"
+      },
+      {
+        "type": "delta",
+        "text": " image"
+      },
+      {
+        "type": "delta",
+        "text": " is"
+      },
+      {
+        "type": "delta",
+        "text": " a"
+      },
+      {
+        "type": "delta",
+        "text": " close"
+      },
+      {
+        "type": "delta",
+        "text": "-up"
+      },
+      {
+        "type": "delta",
+        "text": " view"
+      },
+      {
+        "type": "delta",
+        "text": " and"
+      },
+      {
+        "type": "delta",
+        "text": " may"
+      },
+      {
+        "type": "delta",
+        "text": " not"
+      },
+      {
+        "type": "delta",
+        "text": " show"
+      },
+      {
+        "type": "delta",
+        "text": " all"
+      },
+      {
+        "type": "delta",
+        "text": " details"
+      },
+      {
+        "type": "delta",
+        "text": " of"
+      },
+      {
+        "type": "delta",
+        "text": " the"
+      },
+      {
+        "type": "delta",
+        "text": " bearing"
+      },
+      {
+        "type": "delta",
+        "text": "'s"
+      },
+      {
+        "type": "delta",
+        "text": " internal"
+      },
+      {
+        "type": "delta",
+        "text": " structure"
+      },
+      {
+        "type": "delta",
+        "text": "."
+      },
+      {
+        "type": "delta",
+        "text": "  \n"
+      },
+      {
+        "type": "delta",
+        "text": "-"
+      },
+      {
+        "type": "delta",
+        "text": " Image"
+      },
+      {
+        "type": "delta",
+        "text": " quality"
+      },
+      {
+        "type": "delta",
+        "text": " does"
+      },
+      {
+        "type": "delta",
+        "text": " not"
+      },
+      {
+        "type": "delta",
+        "text": " allow"
+      },
+      {
+        "type": "delta",
+        "text": " for"
+      },
+      {
+        "type": "delta",
+        "text": " definitive"
+      },
+      {
+        "type": "delta",
+        "text": " identification"
+      },
+      {
+        "type": "delta",
+        "text": " of"
+      },
+      {
+        "type": "delta",
+        "text": " the"
+      },
+      {
+        "type": "delta",
+        "text": " bearing"
+      },
+      {
+        "type": "delta",
+        "text": "'s"
+      },
+      {
+        "type": "delta",
+        "text": " condition"
+      },
+      {
+        "type": "delta",
+        "text": "."
+      },
+      {
+        "type": "delta",
+        "text": "  \n"
+      },
+      {
+        "type": "delta",
+        "text": "-"
+      },
+      {
+        "type": "delta",
+        "text": " No"
+      },
+      {
+        "type": "delta",
+        "text": " physical"
+      },
+      {
+        "type": "delta",
+        "text": " linkage"
+      },
+      {
+        "type": "delta",
+        "text": " exists"
+      },
+      {
+        "type": "delta",
+        "text": " between"
+      },
+      {
+        "type": "delta",
+        "text": " this"
+      },
+      {
+        "type": "delta",
+        "text": " image"
+      },
+      {
+        "type": "delta",
+        "text": " and"
+      },
+      {
+        "type": "delta",
+        "text": " any"
+      },
+      {
+        "type": "delta",
+        "text": " NASA"
+      },
+      {
+        "type": "delta",
+        "text": " simulation"
+      },
+      {
+        "type": "delta",
+        "text": " or"
+      },
+      {
+        "type": "delta",
+        "text": " operational"
+      },
+      {
+        "type": "delta",
+        "text": " data"
+      },
+      {
+        "type": "delta",
+        "text": "."
+      },
+      {
+        "type": "delta",
+        "text": "  \n\n"
+      },
+      {
+        "type": "delta",
+        "text": "**"
+      },
+      {
+        "type": "delta",
+        "text": "Note"
+      },
+      {
+        "type": "delta",
+        "text": ":**"
+      },
+      {
+        "type": "delta",
+        "text": " These"
+      },
+      {
+        "type": "delta",
+        "text": " observations"
+      },
+      {
+        "type": "delta",
+        "text": " are"
+      },
+      {
+        "type": "delta",
+        "text": " derived"
+      },
+      {
+        "type": "delta",
+        "text": " from"
+      },
+      {
+        "type": "delta",
+        "text": " model"
+      },
+      {
+        "type": "delta",
+        "text": " in"
+      },
+      {
+        "type": "delta",
+        "text": "ferences"
+      },
+      {
+        "type": "delta",
+        "text": " applied"
+      },
+      {
+        "type": "delta",
+        "text": " to"
+      },
+      {
+        "type": "delta",
+        "text": " the"
+      },
+      {
+        "type": "delta",
+        "text": " image"
+      },
+      {
+        "type": "delta",
+        "text": ","
+      },
+      {
+        "type": "delta",
+        "text": " not"
+      },
+      {
+        "type": "delta",
+        "text": " direct"
+      },
+      {
+        "type": "delta",
+        "text": " physical"
+      },
+      {
+        "type": "delta",
+        "text": " inspection"
+      },
+      {
+        "type": "delta",
+        "text": " or"
+      },
+      {
+        "type": "delta",
+        "text": " sensor"
+      },
+      {
+        "type": "delta",
+        "text": " data"
+      },
+      {
+        "type": "delta",
+        "text": "."
+      },
+      {
+        "type": "delta",
+        "text": " No"
+      },
+      {
+        "type": "delta",
+        "text": " failure"
+      },
+      {
+        "type": "delta",
+        "text": " is"
+      },
+      {
+        "type": "delta",
+        "text": " assumed"
+      },
+      {
+        "type": "delta",
+        "text": "."
+      },
+      {
+        "type": "delta",
+        "text": " The"
+      },
+      {
+        "type": "delta",
+        "text": " evidence"
+      },
+      {
+        "type": "delta",
+        "text": " reliability"
+      },
+      {
+        "type": "delta",
+        "text": " is"
+      },
+      {
+        "type": "delta",
+        "text": " medium"
+      },
+      {
+        "type": "delta",
+        "text": ","
+      },
+      {
+        "type": "delta",
+        "text": " and"
+      },
+      {
+        "type": "delta",
+        "text": " no"
+      },
+      {
+        "type": "delta",
+        "text": " internal"
+      },
+      {
+        "type": "delta",
+        "text": " damage"
+      },
+      {
+        "type": "delta",
+        "text": " or"
+      },
+      {
+        "type": "delta",
+        "text": " performance"
+      },
+      {
+        "type": "delta",
+        "text": " degradation"
+      },
+      {
+        "type": "delta",
+        "text": " can"
+      },
+      {
+        "type": "delta",
+        "text": " be"
+      },
+      {
+        "type": "delta",
+        "text": " confirmed"
+      },
+      {
+        "type": "delta",
+        "text": "."
+      },
+      {
+        "type": "done",
+        "status": "complete",
+        "metadata": {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "tools": [
+            {
+              "tool": "vision",
+              "status": "complete",
+              "provider": "ollama",
+              "model": "qwen3-vl:2b-instruct",
+              "elapsed_seconds": 36.60900000000038,
+              "source_ids": [
+                "96713357f77342d79ccd946cc4e89beb"
+              ]
+            }
+          ],
+          "evidence": [
+            {
+              "id": "96713357f77342d79ccd946cc4e89beb:visual:0",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "96713357f77342d79ccd946cc4e89beb",
+              "observation": "A cylindrical roller bearing with multiple rows of rollers and a cage",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a close-up view and may not show all details of the bearing's internal structure",
+                "The image quality may not allow for definitive identification of the bearing's condition"
+              ]
+            },
+            {
+              "id": "96713357f77342d79ccd946cc4e89beb:visual:1",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "96713357f77342d79ccd946cc4e89beb",
+              "observation": "The rollers are arranged in a circular pattern with a central bore",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a close-up view and may not show all details of the bearing's internal structure",
+                "The image quality may not allow for definitive identification of the bearing's condition"
+              ]
+            },
+            {
+              "id": "96713357f77342d79ccd946cc4e89beb:visual:2",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "96713357f77342d79ccd946cc4e89beb",
+              "observation": "The outer ring has a smooth, polished surface with a slight sheen",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a close-up view and may not show all details of the bearing's internal structure",
+                "The image quality may not allow for definitive identification of the bearing's condition"
+              ]
+            }
+          ],
+          "attachments": [
+            "96713357f77342d79ccd946cc4e89beb"
+          ],
+          "orchestration": {
+            "run_id": "760c5603-2b98-4ba5-99ef-8b6f99b5acdc",
+            "intent": "visual_inspection"
+          },
+          "elapsed_seconds": 68.79699999999866
+        }
+      }
+    ],
+    "elapsed_seconds": 68.82900000000154
+  },
+  "scenario_count": 10,
+  "case": {
+    "id": "d396ff26-fec2-4e3f-a8d7-ef7279fdb17e",
+    "parent_case_id": null,
+    "scenario_id": "5230d716-3ee7-5f40-92ff-178f46c5619d",
+    "asset_id": "COMP-201",
+    "as_of": "2026-11-15T00:00:00+00:00",
+    "created_at": "2026-11-16T22:14:46.926039+00:00",
+    "source_type": "sire_synthetic_scenario",
+    "confirmation_status": "simulation_unconfirmed",
+    "hypotheses": [
+      {
+        "id": "lubrication_loss",
+        "mechanism": "Lubrication supply deterioration",
+        "status": "supported",
+        "score": 15.0,
+        "support": [
+          "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a",
+          "EV:184627a9e159c72a5f791471b48febca7256b8a7f96bd87e65ce96e630bf67a3",
+          "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af",
+          "EV:6944068b1ae646828643281c6497265aec3146800e76698054ed8787216b0af7",
+          "EV:b95fe38c654656099df270ddd07430049e35bf7fde76e567585a770474f24b76"
+        ],
+        "contradictions": [],
+        "expected_observations": [
+          "LUBE-501/oil_pressure down",
+          "*/vibration up",
+          "*/bearing_temp up",
+          "*/discharge_temp up"
+        ],
+        "missing_measurements": [],
+        "next_checks": [
+          "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+        ],
+        "provenance": "sire-facility-rules-1",
+        "support_band": "moderate",
+        "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+      },
+      {
+        "id": "filter_restriction",
+        "mechanism": "Oil-filter restriction as a possible contributor",
+        "status": "supported",
+        "score": 6.0,
+        "support": [
+          "EV:eb41a55e9383af005976e9fb8580f61e3556ba1d4af6394832b4ddb47e548e1e",
+          "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a"
+        ],
+        "contradictions": [],
+        "expected_observations": [
+          "LUBE-501/filter_dp up",
+          "LUBE-501/oil_pressure down"
+        ],
+        "missing_measurements": [],
+        "next_checks": [
+          "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+        ],
+        "provenance": "sire-facility-rules-1",
+        "support_band": "moderate",
+        "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+      },
+      {
+        "id": "misalignment",
+        "mechanism": "Mechanical alignment problem",
+        "status": "supported",
+        "score": 4.0,
+        "support": [
+          "EV:184627a9e159c72a5f791471b48febca7256b8a7f96bd87e65ce96e630bf67a3",
+          "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af"
+        ],
+        "contradictions": [
+          "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a"
+        ],
+        "expected_observations": [
+          "*/vibration up"
+        ],
+        "missing_measurements": [],
+        "next_checks": [
+          "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+        ],
+        "provenance": "sire-facility-rules-1",
+        "support_band": "moderate",
+        "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+      },
+      {
+        "id": "cavitation",
+        "mechanism": "Process starvation / cavitation",
+        "status": "active",
+        "score": 3.0,
+        "support": [
+          "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af"
+        ],
+        "contradictions": [],
+        "expected_observations": [
+          "PUMP-101/flow down",
+          "COMP-201/suction_pressure down",
+          "PUMP-101/vibration up"
+        ],
+        "missing_measurements": [],
+        "next_checks": [
+          "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+        ],
+        "provenance": "sire-facility-rules-1",
+        "support_band": "low",
+        "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+      },
+      {
+        "id": "cooling_degradation",
+        "mechanism": "Cooling supply deterioration",
+        "status": "active",
+        "score": 3.0,
+        "support": [
+          "EV:b95fe38c654656099df270ddd07430049e35bf7fde76e567585a770474f24b76"
+        ],
+        "contradictions": [],
+        "expected_observations": [
+          "HEAT-601/coolant_flow down",
+          "*/winding_temp up",
+          "*/discharge_temp up"
+        ],
+        "missing_measurements": [],
+        "next_checks": [
+          "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+        ],
+        "provenance": "sire-facility-rules-1",
+        "support_band": "low",
+        "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+      },
+      {
+        "id": "deferred_service",
+        "mechanism": "Deferred inspection as a contextual contributor",
+        "status": "active",
+        "score": 3.0,
+        "support": [
+          "EV:671cfe07ea559adc15886858cf201ce5010811d24911b624b0593f219250cadb"
+        ],
+        "contradictions": [],
+        "expected_observations": [],
+        "missing_measurements": [],
+        "next_checks": [
+          "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+        ],
+        "provenance": "sire-facility-rules-1",
+        "support_band": "low",
+        "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+      },
+      {
+        "id": "overload",
+        "mechanism": "Elevated electrical/process load",
+        "status": "inconclusive",
+        "score": 0.0,
+        "support": [],
+        "contradictions": [],
+        "expected_observations": [
+          "MOTOR-401/load up",
+          "MOTOR-401/current up",
+          "MOTOR-401/winding_temp up"
+        ],
+        "missing_measurements": [],
+        "next_checks": [
+          "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+        ],
+        "provenance": "sire-facility-rules-1",
+        "support_band": "low",
+        "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+      },
+      {
+        "id": "pressure_control",
+        "mechanism": "Pressure-control actuator mismatch",
+        "status": "inconclusive",
+        "score": 0.0,
+        "support": [],
+        "contradictions": [],
+        "expected_observations": [
+          "VALVE-301/position_error up"
+        ],
+        "missing_measurements": [],
+        "next_checks": [
+          "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+        ],
+        "provenance": "sire-facility-rules-1",
+        "support_band": "low",
+        "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+      },
+      {
+        "id": "sensor_fault",
+        "mechanism": "Temperature sensor disagreement",
+        "status": "inconclusive",
+        "score": -0.25,
+        "support": [],
+        "contradictions": [],
+        "expected_observations": [],
+        "missing_measurements": [
+          "Independent redundant measurement disagreement"
+        ],
+        "next_checks": [
+          "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+        ],
+        "provenance": "sire-facility-rules-1",
+        "support_band": "low",
+        "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+      }
+    ],
+    "evidence_ids": [
+      "EV:df3bc80712f3485a614213760aa2ea077729c853c9da8fe0c55d167d2e619605",
+      "EV:b95fe38c654656099df270ddd07430049e35bf7fde76e567585a770474f24b76",
+      "EV:fe2c33caf5179d164e440c1ac01a2431f40079da473db57f16c096dfae810ca9",
+      "EV:42b837307a3c202e11ecd808ce5ba22a13a1086c7fd10997926925bbadea5137",
+      "EV:d73314e9d08fb91217be0bd4d6de1da594d69ace6e8b86554c7485d292dbbdf5",
+      "EV:184627a9e159c72a5f791471b48febca7256b8a7f96bd87e65ce96e630bf67a3",
+      "EV:777a20abfdf323c092d84c0fb958a3db328bed43a6008439690953f2d69400c6",
+      "EV:d628137f2a4b637dec20fc131c896e6dc7f7353ad97592e30e4a61cb1fdf2218",
+      "EV:34ca57bf3d65cee85fc17b640d9ed3e530184e3a4d26abbe76b282ed1c1467af",
+      "EV:eb41a55e9383af005976e9fb8580f61e3556ba1d4af6394832b4ddb47e548e1e",
+      "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a",
+      "EV:1c4c92f711dc821360ae5bc7a117cb96186677fcfebb1ddf2e248ffe9013da17",
+      "EV:ebf8df01a5500c053820154f4536dab2d4bce940029213a8e2f58fd1eeaf99bb",
+      "EV:c019966ebc90ef6aaaeafa6c2b3048d17b55902f1ee6516a7b61c93c0900e227",
+      "EV:df0a80082dfc0e3d171b0740b1ee5fe292067409b84366a8b7aa97c54dff8274",
+      "EV:f0d45b3c35d30b0fbb8d9867f4ce9f55c8593bedf28a021381f4e08639d365df",
+      "EV:6944068b1ae646828643281c6497265aec3146800e76698054ed8787216b0af7",
+      "EV:2d7c0e80262937c7cfa116e5666ac942f703a0750d6a7ff6391fed3c4947895a",
+      "EV:3a7aac20aa47a950e99ef11a146f0e5aa74d127fe2be337f2a1845c0a22383d4",
+      "EV:2b80b3a4687a35f5bce7388f9aaab2985a2ff8f1f66e85984de5325b91bcef7c",
+      "EV:1838dae970ef94a0edebd0de9db095efc07fd1b531ebb86efcf94fd2502d836e",
+      "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af",
+      "EV:174a9170df5b378890bac9ce405cb58e3e3155ba911b668d9ee1d76ee3152efc",
+      "EV:bde828724696f8acf7a6e8ea93f97303775ac07432139fee7023b53e5ea3f742",
+      "EV:f15bff6bf9a1754d6f1b6042b7d05fefc6e1abbf7c985c8d68ce047c70c72a4a",
+      "EV:d4e963beb3a9b2815c1036303a6ab7bc833b90441038bbb48dc78790dad8c09c",
+      "EV:b29037e7e2b3ad33e08dcd25e84dc1119f75272af06cef70a986a3f57b1ac11a",
+      "EV:871fa9ef19f806adc3bdfbb6f6caaab4447ea9221f6129e84bff2251dc9c61bf",
+      "EV:02877739609337e22aee7328c55d03627e8b32fd2ec8cdeb16e5ee70220d76b8",
+      "EV:06813101222bb23945b15fea698404b065003acd615a8725980179abba852d47",
+      "EV:671cfe07ea559adc15886858cf201ce5010811d24911b624b0593f219250cadb"
+    ],
+    "summaries": [
+      {
+        "asset_id": "COMP-201",
+        "as_of": "2026-11-15T00:00:00+00:00",
+        "channels": {
+          "discharge_pressure": {
+            "baseline_mean": 9.00101175,
+            "recent_mean": 8.9767835,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.024228250000000173,
+            "unit": "bar",
+            "evidence_id": "EV:df3bc80712f3485a614213760aa2ea077729c853c9da8fe0c55d167d2e619605"
+          },
+          "discharge_temp": {
+            "baseline_mean": 84.95544608333333,
+            "recent_mean": 100.47907483333333,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": 15.52362875,
+            "unit": "degC",
+            "evidence_id": "EV:b95fe38c654656099df270ddd07430049e35bf7fde76e567585a770474f24b76"
+          },
+          "lube_demand": {
+            "baseline_mean": 12.0087885,
+            "recent_mean": 11.960869333333333,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.04791916666666651,
+            "unit": "L/min",
+            "evidence_id": "EV:fe2c33caf5179d164e440c1ac01a2431f40079da473db57f16c096dfae810ca9"
+          },
+          "speed": {
+            "baseline_mean": 3599.2076905416666,
+            "recent_mean": 3592.716788333333,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -6.490902208333409,
+            "unit": "rpm",
+            "evidence_id": "EV:42b837307a3c202e11ecd808ce5ba22a13a1086c7fd10997926925bbadea5137"
+          },
+          "suction_pressure": {
+            "baseline_mean": 3.798576125,
+            "recent_mean": 3.7833491666666665,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.015226958333333318,
+            "unit": "bar",
+            "evidence_id": "EV:d73314e9d08fb91217be0bd4d6de1da594d69ace6e8b86554c7485d292dbbdf5"
+          },
+          "vibration": {
+            "baseline_mean": 1.903079,
+            "recent_mean": 3.8459426666666667,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": 1.9428636666666668,
+            "unit": "mm/s RMS",
+            "evidence_id": "EV:184627a9e159c72a5f791471b48febca7256b8a7f96bd87e65ce96e630bf67a3"
+          }
+        },
+        "evidence_ids": [
+          "EV:df3bc80712f3485a614213760aa2ea077729c853c9da8fe0c55d167d2e619605",
+          "EV:b95fe38c654656099df270ddd07430049e35bf7fde76e567585a770474f24b76",
+          "EV:fe2c33caf5179d164e440c1ac01a2431f40079da473db57f16c096dfae810ca9",
+          "EV:42b837307a3c202e11ecd808ce5ba22a13a1086c7fd10997926925bbadea5137",
+          "EV:d73314e9d08fb91217be0bd4d6de1da594d69ace6e8b86554c7485d292dbbdf5",
+          "EV:184627a9e159c72a5f791471b48febca7256b8a7f96bd87e65ce96e630bf67a3"
+        ],
+        "method": "first 24 visible samples vs latest 6; minimum 30 total/6 baseline/4 recent valid samples",
+        "limitations": [
+          "Trend differences do not prove physical causes.",
+          "Baseline uses visible prefix only; no future normalization."
+        ]
+      },
+      {
+        "asset_id": "HEAT-601",
+        "as_of": "2026-11-15T00:00:00+00:00",
+        "channels": {
+          "coolant_flow": {
+            "baseline_mean": 22.004829208333334,
+            "recent_mean": 21.870908333333333,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.13392087500000116,
+            "unit": "L/min",
+            "evidence_id": "EV:777a20abfdf323c092d84c0fb958a3db328bed43a6008439690953f2d69400c6"
+          },
+          "coolant_temp": {
+            "baseline_mean": 24.012154541666668,
+            "recent_mean": 23.917318333333334,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.09483620833333362,
+            "unit": "degC",
+            "evidence_id": "EV:d628137f2a4b637dec20fc131c896e6dc7f7353ad97592e30e4a61cb1fdf2218"
+          }
+        },
+        "evidence_ids": [
+          "EV:777a20abfdf323c092d84c0fb958a3db328bed43a6008439690953f2d69400c6",
+          "EV:d628137f2a4b637dec20fc131c896e6dc7f7353ad97592e30e4a61cb1fdf2218"
+        ],
+        "method": "first 24 visible samples vs latest 6; minimum 30 total/6 baseline/4 recent valid samples",
+        "limitations": [
+          "Trend differences do not prove physical causes.",
+          "Baseline uses visible prefix only; no future normalization."
+        ]
+      },
+      {
+        "asset_id": "LUBE-501",
+        "as_of": "2026-11-15T00:00:00+00:00",
+        "channels": {
+          "circulation_status": {
+            "baseline_mean": 1.0,
+            "recent_mean": 1.0,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": 0.0,
+            "unit": "boolean",
+            "evidence_id": "EV:34ca57bf3d65cee85fc17b640d9ed3e530184e3a4d26abbe76b282ed1c1467af"
+          },
+          "filter_dp": {
+            "baseline_mean": 0.29843870833333336,
+            "recent_mean": 1.2249321666666666,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": 0.9264934583333333,
+            "unit": "bar",
+            "evidence_id": "EV:eb41a55e9383af005976e9fb8580f61e3556ba1d4af6394832b4ddb47e548e1e"
+          },
+          "oil_pressure": {
+            "baseline_mean": 4.601602583333333,
+            "recent_mean": 3.072094,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -1.5295085833333335,
+            "unit": "bar",
+            "evidence_id": "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a"
+          },
+          "oil_temp": {
+            "baseline_mean": 48.02677020833333,
+            "recent_mean": 54.335077999999996,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": 6.308307791666664,
+            "unit": "degC",
+            "evidence_id": "EV:1c4c92f711dc821360ae5bc7a117cb96186677fcfebb1ddf2e248ffe9013da17"
+          }
+        },
+        "evidence_ids": [
+          "EV:34ca57bf3d65cee85fc17b640d9ed3e530184e3a4d26abbe76b282ed1c1467af",
+          "EV:eb41a55e9383af005976e9fb8580f61e3556ba1d4af6394832b4ddb47e548e1e",
+          "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a",
+          "EV:1c4c92f711dc821360ae5bc7a117cb96186677fcfebb1ddf2e248ffe9013da17"
+        ],
+        "method": "first 24 visible samples vs latest 6; minimum 30 total/6 baseline/4 recent valid samples",
+        "limitations": [
+          "Trend differences do not prove physical causes.",
+          "Baseline uses visible prefix only; no future normalization."
+        ]
+      },
+      {
+        "asset_id": "MOTOR-401",
+        "as_of": "2026-11-15T00:00:00+00:00",
+        "channels": {
+          "current": {
+            "baseline_mean": 38.05010975,
+            "recent_mean": 37.837157,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.21295274999999947,
+            "unit": "A",
+            "evidence_id": "EV:ebf8df01a5500c053820154f4536dab2d4bce940029213a8e2f58fd1eeaf99bb"
+          },
+          "load": {
+            "baseline_mean": 60.95366,
+            "recent_mean": 60.668879000000004,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.2847809999999953,
+            "unit": "%",
+            "evidence_id": "EV:c019966ebc90ef6aaaeafa6c2b3048d17b55902f1ee6516a7b61c93c0900e227"
+          },
+          "vibration": {
+            "baseline_mean": 1.2964063333333333,
+            "recent_mean": 1.2940443333333334,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.0023619999999999752,
+            "unit": "mm/s RMS",
+            "evidence_id": "EV:df0a80082dfc0e3d171b0740b1ee5fe292067409b84366a8b7aa97c54dff8274"
+          },
+          "winding_temp": {
+            "baseline_mean": 71.97337579166667,
+            "recent_mean": 71.816901,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.15647479166666756,
+            "unit": "degC",
+            "evidence_id": "EV:f0d45b3c35d30b0fbb8d9867f4ce9f55c8593bedf28a021381f4e08639d365df"
+          }
+        },
+        "evidence_ids": [
+          "EV:ebf8df01a5500c053820154f4536dab2d4bce940029213a8e2f58fd1eeaf99bb",
+          "EV:c019966ebc90ef6aaaeafa6c2b3048d17b55902f1ee6516a7b61c93c0900e227",
+          "EV:df0a80082dfc0e3d171b0740b1ee5fe292067409b84366a8b7aa97c54dff8274",
+          "EV:f0d45b3c35d30b0fbb8d9867f4ce9f55c8593bedf28a021381f4e08639d365df"
+        ],
+        "method": "first 24 visible samples vs latest 6; minimum 30 total/6 baseline/4 recent valid samples",
+        "limitations": [
+          "Trend differences do not prove physical causes.",
+          "Baseline uses visible prefix only; no future normalization."
+        ]
+      },
+      {
+        "asset_id": "PUMP-101",
+        "as_of": "2026-11-15T00:00:00+00:00",
+        "channels": {
+          "bearing_temp": {
+            "baseline_mean": 66.00012041666666,
+            "recent_mean": 81.34816016666667,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": 15.348039750000012,
+            "unit": "degC",
+            "evidence_id": "EV:6944068b1ae646828643281c6497265aec3146800e76698054ed8787216b0af7"
+          },
+          "differential_pressure": {
+            "baseline_mean": 4.003645625,
+            "recent_mean": 3.9853503333333333,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.018295291666666547,
+            "unit": "bar",
+            "evidence_id": "EV:2d7c0e80262937c7cfa116e5666ac942f703a0750d6a7ff6391fed3c4947895a"
+          },
+          "flow": {
+            "baseline_mean": 85.06995775,
+            "recent_mean": 84.74805516666666,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.32190258333334043,
+            "unit": "m3/h",
+            "evidence_id": "EV:3a7aac20aa47a950e99ef11a146f0e5aa74d127fe2be337f2a1845c0a22383d4"
+          },
+          "speed": {
+            "baseline_mean": 2896.5806212083335,
+            "recent_mean": 2891.8430695,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -4.737551708333285,
+            "unit": "rpm",
+            "evidence_id": "EV:2b80b3a4687a35f5bce7388f9aaab2985a2ff8f1f66e85984de5325b91bcef7c"
+          },
+          "temperature_backup": {
+            "baseline_mean": 66.04458137499999,
+            "recent_mean": 81.64572166666667,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": 15.601140291666681,
+            "unit": "degC",
+            "evidence_id": "EV:1838dae970ef94a0edebd0de9db095efc07fd1b531ebb86efcf94fd2502d836e"
+          },
+          "vibration": {
+            "baseline_mean": 1.6014575416666668,
+            "recent_mean": 3.5508146666666667,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": 1.949357125,
+            "unit": "mm/s RMS",
+            "evidence_id": "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af"
+          }
+        },
+        "evidence_ids": [
+          "EV:6944068b1ae646828643281c6497265aec3146800e76698054ed8787216b0af7",
+          "EV:2d7c0e80262937c7cfa116e5666ac942f703a0750d6a7ff6391fed3c4947895a",
+          "EV:3a7aac20aa47a950e99ef11a146f0e5aa74d127fe2be337f2a1845c0a22383d4",
+          "EV:2b80b3a4687a35f5bce7388f9aaab2985a2ff8f1f66e85984de5325b91bcef7c",
+          "EV:1838dae970ef94a0edebd0de9db095efc07fd1b531ebb86efcf94fd2502d836e",
+          "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af"
+        ],
+        "method": "first 24 visible samples vs latest 6; minimum 30 total/6 baseline/4 recent valid samples",
+        "limitations": [
+          "Trend differences do not prove physical causes.",
+          "Baseline uses visible prefix only; no future normalization."
+        ]
+      },
+      {
+        "asset_id": "VALVE-301",
+        "as_of": "2026-11-15T00:00:00+00:00",
+        "channels": {
+          "actuator_status": {
+            "baseline_mean": 1.0,
+            "recent_mean": 1.0,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": 0.0,
+            "unit": "boolean",
+            "evidence_id": "EV:174a9170df5b378890bac9ce405cb58e3e3155ba911b668d9ee1d76ee3152efc"
+          },
+          "downstream_pressure": {
+            "baseline_mean": 4.002289333333334,
+            "recent_mean": 3.9885391666666665,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.013750166666667063,
+            "unit": "bar",
+            "evidence_id": "EV:bde828724696f8acf7a6e8ea93f97303775ac07432139fee7023b53e5ea3f742"
+          },
+          "position": {
+            "baseline_mean": 55.032127458333335,
+            "recent_mean": 55.02442633333334,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.007701124999996978,
+            "unit": "%",
+            "evidence_id": "EV:f15bff6bf9a1754d6f1b6042b7d05fefc6e1abbf7c985c8d68ce047c70c72a4a"
+          },
+          "position_error": {
+            "baseline_mean": 0.497394875,
+            "recent_mean": 0.48828283333333333,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.009112041666666681,
+            "unit": "%",
+            "evidence_id": "EV:d4e963beb3a9b2815c1036303a6ab7bc833b90441038bbb48dc78790dad8c09c"
+          },
+          "set_point": {
+            "baseline_mean": 55.05913625,
+            "recent_mean": 54.788184,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.27095225000000056,
+            "unit": "%",
+            "evidence_id": "EV:b29037e7e2b3ad33e08dcd25e84dc1119f75272af06cef70a986a3f57b1ac11a"
+          },
+          "upstream_pressure": {
+            "baseline_mean": 8.996592416666667,
+            "recent_mean": 8.943968,
+            "count": 73,
+            "valid_count": 73,
+            "missing_count": 0,
+            "available": true,
+            "delta": -0.05262441666666717,
+            "unit": "bar",
+            "evidence_id": "EV:871fa9ef19f806adc3bdfbb6f6caaab4447ea9221f6129e84bff2251dc9c61bf"
+          }
+        },
+        "evidence_ids": [
+          "EV:174a9170df5b378890bac9ce405cb58e3e3155ba911b668d9ee1d76ee3152efc",
+          "EV:bde828724696f8acf7a6e8ea93f97303775ac07432139fee7023b53e5ea3f742",
+          "EV:f15bff6bf9a1754d6f1b6042b7d05fefc6e1abbf7c985c8d68ce047c70c72a4a",
+          "EV:d4e963beb3a9b2815c1036303a6ab7bc833b90441038bbb48dc78790dad8c09c",
+          "EV:b29037e7e2b3ad33e08dcd25e84dc1119f75272af06cef70a986a3f57b1ac11a",
+          "EV:871fa9ef19f806adc3bdfbb6f6caaab4447ea9221f6129e84bff2251dc9c61bf"
+        ],
+        "method": "first 24 visible samples vs latest 6; minimum 30 total/6 baseline/4 recent valid samples",
+        "limitations": [
+          "Trend differences do not prove physical causes.",
+          "Baseline uses visible prefix only; no future normalization."
+        ]
+      }
+    ],
+    "timeline": [
+      {
+        "id": 1,
+        "scenario_id": "5230d716-3ee7-5f40-92ff-178f46c5619d",
+        "asset_id": "COMP-201",
+        "observed_at": "2026-11-12T10:00:00+00:00",
+        "available_at": "2026-11-12T10:00:00+00:00",
+        "event_type": "operator_note",
+        "text": "Routine walk-around completed; no intrusive inspection recorded.",
+        "source_type": "sire_synthetic_scenario",
+        "evidence_id": "EV:02877739609337e22aee7328c55d03627e8b32fd2ec8cdeb16e5ee70220d76b8"
+      },
+      {
+        "id": 2,
+        "scenario_id": "5230d716-3ee7-5f40-92ff-178f46c5619d",
+        "asset_id": "VALVE-301",
+        "observed_at": "2026-11-12T20:00:00+00:00",
+        "available_at": "2026-11-12T21:00:00+00:00",
+        "event_type": "work_order",
+        "text": "Identification plate replacement recorded; no process adjustment.",
+        "source_type": "sire_synthetic_scenario",
+        "evidence_id": "EV:06813101222bb23945b15fea698404b065003acd615a8725980179abba852d47"
+      },
+      {
+        "id": 4,
+        "scenario_id": "5230d716-3ee7-5f40-92ff-178f46c5619d",
+        "asset_id": "LUBE-501",
+        "observed_at": "2026-11-13T01:00:00+00:00",
+        "available_at": "2026-11-13T04:00:00+00:00",
+        "event_type": "service_deferred",
+        "text": "Scheduled lubrication/filter inspection deferred pending parts; completion not recorded.",
+        "source_type": "sire_synthetic_scenario",
+        "evidence_id": "EV:671cfe07ea559adc15886858cf201ce5010811d24911b624b0593f219250cadb"
+      }
+    ],
+    "rounds": [
+      {
+        "round": 1,
+        "state_sha256": "0aa49cb5b010f2e94f2e60b5ec097ce3288282cbf5fa0066988415e801eeff7f",
+        "evidence_count": 7,
+        "hypothesis_ids": [
+          "lubrication_loss",
+          "misalignment",
+          "cooling_degradation",
+          "deferred_service",
+          "pressure_control",
+          "sensor_fault",
+          "cavitation",
+          "filter_restriction",
+          "overload"
+        ],
+        "novel": true
+      },
+      {
+        "round": 2,
+        "state_sha256": "1f3b6cb3d122b35f129a5a5069294ccc537d5da469ff9745ec119ef1bd945ff4",
+        "evidence_count": 31,
+        "hypothesis_ids": [
+          "lubrication_loss",
+          "filter_restriction",
+          "misalignment",
+          "cavitation",
+          "cooling_degradation",
+          "deferred_service",
+          "overload",
+          "pressure_control",
+          "sensor_fault"
+        ],
+        "novel": true
+      }
+    ],
+    "stop_reason": "evidence_exhausted",
+    "conclusion": "Several evidence-consistent mechanisms remain; qualified review is needed.",
+    "abstained": false,
+    "possible_contributors": [
+      "lubrication_loss",
+      "filter_restriction",
+      "misalignment"
+    ],
+    "run_id": "01bc5923-fe69-4825-9a63-7165f2f84ccb",
+    "elapsed_seconds": 0.5470000000022992,
+    "limitations": [
+      "Synthetic toy facility, not a validated physical model.",
+      "Evidence ordering/graph dependence does not prove causality.",
+      "This rule engine does not read evaluator ground truth or use C-MAPSS models.",
+      "No automatic actions on real equipment."
+    ]
+  },
+  "trace": {
+    "id": "01bc5923-fe69-4825-9a63-7165f2f84ccb",
+    "plan": {
+      "id": "c4724451-732e-4ee0-9a2d-3ccaf106ea9c",
+      "intent": "incident_investigation",
+      "goals": [
+        "Investigate only observations available at cutoff",
+        "Compare mechanisms without hidden truth"
+      ],
+      "tools": [
+        {
+          "tool_id": "temporal.summary",
+          "arguments": {
+            "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+          },
+          "depends_on": []
+        },
+        {
+          "tool_id": "assets.relations",
+          "arguments": {
+            "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+          },
+          "depends_on": []
+        },
+        {
+          "tool_id": "hypotheses.rank",
+          "arguments": {
+            "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+          },
+          "depends_on": []
+        }
+      ],
+      "evidence_ids": [],
+      "allowed_external_providers": [],
+      "deadline_seconds": 60.0,
+      "max_tool_calls": 16,
+      "fallback": "Return explicit partial/error status; never fabricate tool findings."
+    },
+    "started_at": "2026-11-16T22:14:46.378808+00:00",
+    "steps": [
+      {
+        "tool_id": "temporal.summary",
+        "started_at": "2026-11-16T22:14:46.384338+00:00",
+        "input_evidence_ids": [],
+        "output_evidence_ids": [
+          "EV:df3bc80712f3485a614213760aa2ea077729c853c9da8fe0c55d167d2e619605",
+          "EV:b95fe38c654656099df270ddd07430049e35bf7fde76e567585a770474f24b76",
+          "EV:fe2c33caf5179d164e440c1ac01a2431f40079da473db57f16c096dfae810ca9",
+          "EV:42b837307a3c202e11ecd808ce5ba22a13a1086c7fd10997926925bbadea5137",
+          "EV:d73314e9d08fb91217be0bd4d6de1da594d69ace6e8b86554c7485d292dbbdf5",
+          "EV:184627a9e159c72a5f791471b48febca7256b8a7f96bd87e65ce96e630bf67a3"
+        ],
+        "status": "ok",
+        "warnings": [],
+        "network": "local_only",
+        "ended_at": "2026-11-16T22:14:46.473346+00:00",
+        "elapsed_seconds": 0.0779999999977008
+      },
+      {
+        "tool_id": "temporal.events",
+        "started_at": "2026-11-16T22:14:46.480871+00:00",
+        "input_evidence_ids": [],
+        "output_evidence_ids": [
+          "EV:02877739609337e22aee7328c55d03627e8b32fd2ec8cdeb16e5ee70220d76b8"
+        ],
+        "status": "ok",
+        "warnings": [],
+        "network": "local_only",
+        "ended_at": "2026-11-16T22:14:46.500388+00:00",
+        "elapsed_seconds": 0.014999999999417923
+      },
+      {
+        "tool_id": "hypotheses.rank",
+        "started_at": "2026-11-16T22:14:46.506388+00:00",
+        "input_evidence_ids": [],
+        "output_evidence_ids": [],
+        "status": "ok",
+        "warnings": [],
+        "network": "local_only",
+        "ended_at": "2026-11-16T22:14:46.513394+00:00",
+        "elapsed_seconds": 0.0
+      },
+      {
+        "tool_id": "assets.relations",
+        "started_at": "2026-11-16T22:14:46.519387+00:00",
+        "input_evidence_ids": [],
+        "output_evidence_ids": [],
+        "status": "ok",
+        "warnings": [],
+        "network": "local_only",
+        "ended_at": "2026-11-16T22:14:46.528385+00:00",
+        "elapsed_seconds": 0.01599999999962165
+      },
+      {
+        "tool_id": "temporal.summary",
+        "started_at": "2026-11-16T22:14:46.533387+00:00",
+        "input_evidence_ids": [],
+        "output_evidence_ids": [
+          "EV:df3bc80712f3485a614213760aa2ea077729c853c9da8fe0c55d167d2e619605",
+          "EV:b95fe38c654656099df270ddd07430049e35bf7fde76e567585a770474f24b76",
+          "EV:fe2c33caf5179d164e440c1ac01a2431f40079da473db57f16c096dfae810ca9",
+          "EV:42b837307a3c202e11ecd808ce5ba22a13a1086c7fd10997926925bbadea5137",
+          "EV:d73314e9d08fb91217be0bd4d6de1da594d69ace6e8b86554c7485d292dbbdf5",
+          "EV:184627a9e159c72a5f791471b48febca7256b8a7f96bd87e65ce96e630bf67a3",
+          "EV:777a20abfdf323c092d84c0fb958a3db328bed43a6008439690953f2d69400c6",
+          "EV:d628137f2a4b637dec20fc131c896e6dc7f7353ad97592e30e4a61cb1fdf2218",
+          "EV:34ca57bf3d65cee85fc17b640d9ed3e530184e3a4d26abbe76b282ed1c1467af",
+          "EV:eb41a55e9383af005976e9fb8580f61e3556ba1d4af6394832b4ddb47e548e1e",
+          "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a",
+          "EV:1c4c92f711dc821360ae5bc7a117cb96186677fcfebb1ddf2e248ffe9013da17",
+          "EV:ebf8df01a5500c053820154f4536dab2d4bce940029213a8e2f58fd1eeaf99bb",
+          "EV:c019966ebc90ef6aaaeafa6c2b3048d17b55902f1ee6516a7b61c93c0900e227",
+          "EV:df0a80082dfc0e3d171b0740b1ee5fe292067409b84366a8b7aa97c54dff8274",
+          "EV:f0d45b3c35d30b0fbb8d9867f4ce9f55c8593bedf28a021381f4e08639d365df",
+          "EV:6944068b1ae646828643281c6497265aec3146800e76698054ed8787216b0af7",
+          "EV:2d7c0e80262937c7cfa116e5666ac942f703a0750d6a7ff6391fed3c4947895a",
+          "EV:3a7aac20aa47a950e99ef11a146f0e5aa74d127fe2be337f2a1845c0a22383d4",
+          "EV:2b80b3a4687a35f5bce7388f9aaab2985a2ff8f1f66e85984de5325b91bcef7c",
+          "EV:1838dae970ef94a0edebd0de9db095efc07fd1b531ebb86efcf94fd2502d836e",
+          "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af",
+          "EV:174a9170df5b378890bac9ce405cb58e3e3155ba911b668d9ee1d76ee3152efc",
+          "EV:bde828724696f8acf7a6e8ea93f97303775ac07432139fee7023b53e5ea3f742",
+          "EV:f15bff6bf9a1754d6f1b6042b7d05fefc6e1abbf7c985c8d68ce047c70c72a4a",
+          "EV:d4e963beb3a9b2815c1036303a6ab7bc833b90441038bbb48dc78790dad8c09c",
+          "EV:b29037e7e2b3ad33e08dcd25e84dc1119f75272af06cef70a986a3f57b1ac11a",
+          "EV:871fa9ef19f806adc3bdfbb6f6caaab4447ea9221f6129e84bff2251dc9c61bf"
+        ],
+        "status": "ok",
+        "warnings": [],
+        "network": "local_only",
+        "ended_at": "2026-11-16T22:14:46.854506+00:00",
+        "elapsed_seconds": 0.3279999999977008
+      },
+      {
+        "tool_id": "temporal.events",
+        "started_at": "2026-11-16T22:14:46.860510+00:00",
+        "input_evidence_ids": [],
+        "output_evidence_ids": [
+          "EV:02877739609337e22aee7328c55d03627e8b32fd2ec8cdeb16e5ee70220d76b8",
+          "EV:06813101222bb23945b15fea698404b065003acd615a8725980179abba852d47",
+          "EV:671cfe07ea559adc15886858cf201ce5010811d24911b624b0593f219250cadb"
+        ],
+        "status": "ok",
+        "warnings": [],
+        "network": "local_only",
+        "ended_at": "2026-11-16T22:14:46.901035+00:00",
+        "elapsed_seconds": 0.0470000000022992
+      },
+      {
+        "tool_id": "hypotheses.rank",
+        "started_at": "2026-11-16T22:14:46.909034+00:00",
+        "input_evidence_ids": [],
+        "output_evidence_ids": [],
+        "status": "ok",
+        "warnings": [],
+        "network": "local_only",
+        "ended_at": "2026-11-16T22:14:46.917035+00:00",
+        "elapsed_seconds": 0.0
+      }
+    ],
+    "status": "complete",
+    "network": "local_only",
+    "ended_at": "2026-11-16T22:14:46.935037+00:00",
+    "elapsed_seconds": 0.5630000000019209
+  },
+  "what_if": {
+    "label": "SIMULATED WHAT-IF",
+    "source_type": "sire_synthetic_scenario",
+    "baseline_scenario_id": "5230d716-3ee7-5f40-92ff-178f46c5619d",
+    "intervention_scenario_id": "dd2ef31c-b1ac-5040-8e64-378dc1782b51",
+    "as_of": "2026-11-15T00:00:00+00:00",
+    "seed": 42,
+    "generator_version": "sire-facility-1",
+    "changes": {
+      "service_hour": 48
+    },
+    "comparison": [
+      {
+        "channel": "discharge_pressure",
+        "unit": "bar",
+        "baseline_recent_mean": 8.9767835,
+        "intervention_recent_mean": 8.9767835,
+        "difference": 0.0,
+        "trajectory": [
+          {
+            "observed_at": "2026-11-12T00:00:00+00:00",
+            "baseline": 9.004034,
+            "intervention": 9.004034
+          },
+          {
+            "observed_at": "2026-11-12T01:00:00+00:00",
+            "baseline": 8.991036,
+            "intervention": 8.991036
+          },
+          {
+            "observed_at": "2026-11-12T02:00:00+00:00",
+            "baseline": 9.049955,
+            "intervention": 9.049955
+          },
+          {
+            "observed_at": "2026-11-12T03:00:00+00:00",
+            "baseline": 9.036333,
+            "intervention": 9.036333
+          },
+          {
+            "observed_at": "2026-11-12T04:00:00+00:00",
+            "baseline": 9.115352,
+            "intervention": 9.115352
+          },
+          {
+            "observed_at": "2026-11-12T05:00:00+00:00",
+            "baseline": 9.086315,
+            "intervention": 9.086315
+          },
+          {
+            "observed_at": "2026-11-12T06:00:00+00:00",
+            "baseline": 9.050427,
+            "intervention": 9.050427
+          },
+          {
+            "observed_at": "2026-11-12T07:00:00+00:00",
+            "baseline": 9.090736,
+            "intervention": 9.090736
+          },
+          {
+            "observed_at": "2026-11-12T08:00:00+00:00",
+            "baseline": 9.039851,
+            "intervention": 9.039851
+          },
+          {
+            "observed_at": "2026-11-12T09:00:00+00:00",
+            "baseline": 9.025249,
+            "intervention": 9.025249
+          },
+          {
+            "observed_at": "2026-11-12T10:00:00+00:00",
+            "baseline": 9.0327,
+            "intervention": 9.0327
+          },
+          {
+            "observed_at": "2026-11-12T11:00:00+00:00",
+            "baseline": 9.047642,
+            "intervention": 9.047642
+          },
+          {
+            "observed_at": "2026-11-12T12:00:00+00:00",
+            "baseline": 8.980228,
+            "intervention": 8.980228
+          },
+          {
+            "observed_at": "2026-11-12T13:00:00+00:00",
+            "baseline": 8.914162,
+            "intervention": 8.914162
+          },
+          {
+            "observed_at": "2026-11-12T14:00:00+00:00",
+            "baseline": 8.973107,
+            "intervention": 8.973107
+          },
+          {
+            "observed_at": "2026-11-12T15:00:00+00:00",
+            "baseline": 8.918877,
+            "intervention": 8.918877
+          },
+          {
+            "observed_at": "2026-11-12T16:00:00+00:00",
+            "baseline": 8.978177,
+            "intervention": 8.978177
+          },
+          {
+            "observed_at": "2026-11-12T17:00:00+00:00",
+            "baseline": 8.935456,
+            "intervention": 8.935456
+          },
+          {
+            "observed_at": "2026-11-12T18:00:00+00:00",
+            "baseline": 8.9137,
+            "intervention": 8.9137
+          },
+          {
+            "observed_at": "2026-11-12T19:00:00+00:00",
+            "baseline": 8.951269,
+            "intervention": 8.951269
+          },
+          {
+            "observed_at": "2026-11-12T20:00:00+00:00",
+            "baseline": 8.938917,
+            "intervention": 8.938917
+          },
+          {
+            "observed_at": "2026-11-12T21:00:00+00:00",
+            "baseline": 8.982579,
+            "intervention": 8.982579
+          },
+          {
+            "observed_at": "2026-11-12T22:00:00+00:00",
+            "baseline": 8.961347,
+            "intervention": 8.961347
+          },
+          {
+            "observed_at": "2026-11-12T23:00:00+00:00",
+            "baseline": 9.006833,
+            "intervention": 9.006833
+          },
+          {
+            "observed_at": "2026-11-13T00:00:00+00:00",
+            "baseline": 9.027217,
+            "intervention": 9.027217
+          },
+          {
+            "observed_at": "2026-11-13T01:00:00+00:00",
+            "baseline": 9.107443,
+            "intervention": 9.107443
+          },
+          {
+            "observed_at": "2026-11-13T02:00:00+00:00",
+            "baseline": 8.996718,
+            "intervention": 8.996718
+          },
+          {
+            "observed_at": "2026-11-13T03:00:00+00:00",
+            "baseline": 9.045833,
+            "intervention": 9.045833
+          },
+          {
+            "observed_at": "2026-11-13T04:00:00+00:00",
+            "baseline": 8.998732,
+            "intervention": 8.998732
+          },
+          {
+            "observed_at": "2026-11-13T05:00:00+00:00",
+            "baseline": 9.050217,
+            "intervention": 9.050217
+          },
+          {
+            "observed_at": "2026-11-13T06:00:00+00:00",
+            "baseline": 9.083627,
+            "intervention": 9.083627
+          },
+          {
+            "observed_at": "2026-11-13T07:00:00+00:00",
+            "baseline": 9.03271,
+            "intervention": 9.03271
+          },
+          {
+            "observed_at": "2026-11-13T08:00:00+00:00",
+            "baseline": 9.011469,
+            "intervention": 9.011469
+          },
+          {
+            "observed_at": "2026-11-13T09:00:00+00:00",
+            "baseline": 9.014481,
+            "intervention": 9.014481
+          },
+          {
+            "observed_at": "2026-11-13T10:00:00+00:00",
+            "baseline": 9.027042,
+            "intervention": 9.027042
+          },
+          {
+            "observed_at": "2026-11-13T11:00:00+00:00",
+            "baseline": 9.074021,
+            "intervention": 9.074021
+          },
+          {
+            "observed_at": "2026-11-13T12:00:00+00:00",
+            "baseline": 9.048939,
+            "intervention": 9.048939
+          },
+          {
+            "observed_at": "2026-11-13T13:00:00+00:00",
+            "baseline": 8.989214,
+            "intervention": 8.989214
+          },
+          {
+            "observed_at": "2026-11-13T14:00:00+00:00",
+            "baseline": 8.955198,
+            "intervention": 8.955198
+          },
+          {
+            "observed_at": "2026-11-13T15:00:00+00:00",
+            "baseline": 9.001107,
+            "intervention": 9.001107
+          },
+          {
+            "observed_at": "2026-11-13T16:00:00+00:00",
+            "baseline": 8.993957,
+            "intervention": 8.993957
+          },
+          {
+            "observed_at": "2026-11-13T17:00:00+00:00",
+            "baseline": 8.954488,
+            "intervention": 8.954488
+          },
+          {
+            "observed_at": "2026-11-13T18:00:00+00:00",
+            "baseline": 8.913292,
+            "intervention": 8.913292
+          },
+          {
+            "observed_at": "2026-11-13T19:00:00+00:00",
+            "baseline": 8.922281,
+            "intervention": 8.922281
+          },
+          {
+            "observed_at": "2026-11-13T20:00:00+00:00",
+            "baseline": 8.893519,
+            "intervention": 8.893519
+          },
+          {
+            "observed_at": "2026-11-13T21:00:00+00:00",
+            "baseline": 8.946552,
+            "intervention": 8.946552
+          },
+          {
+            "observed_at": "2026-11-13T22:00:00+00:00",
+            "baseline": 8.975918,
+            "intervention": 8.975918
+          },
+          {
+            "observed_at": "2026-11-13T23:00:00+00:00",
+            "baseline": 9.014015,
+            "intervention": 9.014015
+          },
+          {
+            "observed_at": "2026-11-14T00:00:00+00:00",
+            "baseline": 9.025365,
+            "intervention": 9.025365
+          },
+          {
+            "observed_at": "2026-11-14T01:00:00+00:00",
+            "baseline": 9.039812,
+            "intervention": 9.039812
+          },
+          {
+            "observed_at": "2026-11-14T02:00:00+00:00",
+            "baseline": 9.025443,
+            "intervention": 9.025443
+          },
+          {
+            "observed_at": "2026-11-14T03:00:00+00:00",
+            "baseline": 9.088885,
+            "intervention": 9.088885
+          },
+          {
+            "observed_at": "2026-11-14T04:00:00+00:00",
+            "baseline": 9.080146,
+            "intervention": 9.080146
+          },
+          {
+            "observed_at": "2026-11-14T05:00:00+00:00",
+            "baseline": 9.032532,
+            "intervention": 9.032532
+          },
+          {
+            "observed_at": "2026-11-14T06:00:00+00:00",
+            "baseline": 9.005937,
+            "intervention": 9.005937
+          },
+          {
+            "observed_at": "2026-11-14T07:00:00+00:00",
+            "baseline": 9.035269,
+            "intervention": 9.035269
+          },
+          {
+            "observed_at": "2026-11-14T08:00:00+00:00",
+            "baseline": 9.03935,
+            "intervention": 9.03935
+          },
+          {
+            "observed_at": "2026-11-14T09:00:00+00:00",
+            "baseline": 9.090157,
+            "intervention": 9.090157
+          },
+          {
+            "observed_at": "2026-11-14T10:00:00+00:00",
+            "baseline": 9.024927,
+            "intervention": 9.024927
+          },
+          {
+            "observed_at": "2026-11-14T11:00:00+00:00",
+            "baseline": 9.007982,
+            "intervention": 9.007982
+          },
+          {
+            "observed_at": "2026-11-14T12:00:00+00:00",
+            "baseline": 8.940473,
+            "intervention": 8.940473
+          },
+          {
+            "observed_at": "2026-11-14T13:00:00+00:00",
+            "baseline": 8.957191,
+            "intervention": 8.957191
+          },
+          {
+            "observed_at": "2026-11-14T14:00:00+00:00",
+            "baseline": 9.009851,
+            "intervention": 9.009851
+          },
+          {
+            "observed_at": "2026-11-14T15:00:00+00:00",
+            "baseline": 8.954368,
+            "intervention": 8.954368
+          },
+          {
+            "observed_at": "2026-11-14T16:00:00+00:00",
+            "baseline": 8.999888,
+            "intervention": 8.999888
+          },
+          {
+            "observed_at": "2026-11-14T17:00:00+00:00",
+            "baseline": 8.981511,
+            "intervention": 8.981511
+          },
+          {
+            "observed_at": "2026-11-14T18:00:00+00:00",
+            "baseline": 8.899374,
+            "intervention": 8.899374
+          },
+          {
+            "observed_at": "2026-11-14T19:00:00+00:00",
+            "baseline": 8.966511,
+            "intervention": 8.966511
+          },
+          {
+            "observed_at": "2026-11-14T20:00:00+00:00",
+            "baseline": 9.000782,
+            "intervention": 9.000782
+          },
+          {
+            "observed_at": "2026-11-14T21:00:00+00:00",
+            "baseline": 8.952561,
+            "intervention": 8.952561
+          },
+          {
+            "observed_at": "2026-11-14T22:00:00+00:00",
+            "baseline": 8.971635,
+            "intervention": 8.971635
+          },
+          {
+            "observed_at": "2026-11-14T23:00:00+00:00",
+            "baseline": 8.98784,
+            "intervention": 8.98784
+          },
+          {
+            "observed_at": "2026-11-15T00:00:00+00:00",
+            "baseline": 8.981372,
+            "intervention": 8.981372
+          }
+        ]
+      },
+      {
+        "channel": "discharge_temp",
+        "unit": "degC",
+        "baseline_recent_mean": 100.47907483333333,
+        "intervention_recent_mean": 84.72907483333333,
+        "difference": -15.75,
+        "trajectory": [
+          {
+            "observed_at": "2026-11-12T00:00:00+00:00",
+            "baseline": 85.03191,
+            "intervention": 85.03191
+          },
+          {
+            "observed_at": "2026-11-12T01:00:00+00:00",
+            "baseline": 85.33451,
+            "intervention": 85.33451
+          },
+          {
+            "observed_at": "2026-11-12T02:00:00+00:00",
+            "baseline": 85.486392,
+            "intervention": 85.486392
+          },
+          {
+            "observed_at": "2026-11-12T03:00:00+00:00",
+            "baseline": 85.415265,
+            "intervention": 85.415265
+          },
+          {
+            "observed_at": "2026-11-12T04:00:00+00:00",
+            "baseline": 85.107794,
+            "intervention": 85.107794
+          },
+          {
+            "observed_at": "2026-11-12T05:00:00+00:00",
+            "baseline": 85.287962,
+            "intervention": 85.287962
+          },
+          {
+            "observed_at": "2026-11-12T06:00:00+00:00",
+            "baseline": 85.105366,
+            "intervention": 85.105366
+          },
+          {
+            "observed_at": "2026-11-12T07:00:00+00:00",
+            "baseline": 85.863182,
+            "intervention": 85.863182
+          },
+          {
+            "observed_at": "2026-11-12T08:00:00+00:00",
+            "baseline": 84.80752,
+            "intervention": 84.80752
+          },
+          {
+            "observed_at": "2026-11-12T09:00:00+00:00",
+            "baseline": 85.369138,
+            "intervention": 85.369138
+          },
+          {
+            "observed_at": "2026-11-12T10:00:00+00:00",
+            "baseline": 85.089161,
+            "intervention": 85.089161
+          },
+          {
+            "observed_at": "2026-11-12T11:00:00+00:00",
+            "baseline": 84.617283,
+            "intervention": 84.617283
+          },
+          {
+            "observed_at": "2026-11-12T12:00:00+00:00",
+            "baseline": 84.724705,
+            "intervention": 84.724705
+          },
+          {
+            "observed_at": "2026-11-12T13:00:00+00:00",
+            "baseline": 84.904055,
+            "intervention": 84.904055
+          },
+          {
+            "observed_at": "2026-11-12T14:00:00+00:00",
+            "baseline": 84.84838,
+            "intervention": 84.84838
+          },
+          {
+            "observed_at": "2026-11-12T15:00:00+00:00",
+            "baseline": 84.790201,
+            "intervention": 84.790201
+          },
+          {
+            "observed_at": "2026-11-12T16:00:00+00:00",
+            "baseline": 84.401736,
+            "intervention": 84.401736
+          },
+          {
+            "observed_at": "2026-11-12T17:00:00+00:00",
+            "baseline": 84.031603,
+            "intervention": 84.031603
+          },
+          {
+            "observed_at": "2026-11-12T18:00:00+00:00",
+            "baseline": 84.551387,
+            "intervention": 84.551387
+          },
+          {
+            "observed_at": "2026-11-12T19:00:00+00:00",
+            "baseline": 84.498159,
+            "intervention": 84.498159
+          },
+          {
+            "observed_at": "2026-11-12T20:00:00+00:00",
+            "baseline": 85.191344,
+            "intervention": 85.191344
+          },
+          {
+            "observed_at": "2026-11-12T21:00:00+00:00",
+            "baseline": 84.745429,
+            "intervention": 84.745429
+          },
+          {
+            "observed_at": "2026-11-12T22:00:00+00:00",
+            "baseline": 84.939748,
+            "intervention": 84.939748
+          },
+          {
+            "observed_at": "2026-11-12T23:00:00+00:00",
+            "baseline": 84.788476,
+            "intervention": 84.788476
+          },
+          {
+            "observed_at": "2026-11-13T00:00:00+00:00",
+            "baseline": 84.922629,
+            "intervention": 84.922629
+          },
+          {
+            "observed_at": "2026-11-13T01:00:00+00:00",
+            "baseline": 85.440575,
+            "intervention": 85.440575
+          },
+          {
+            "observed_at": "2026-11-13T02:00:00+00:00",
+            "baseline": 86.064894,
+            "intervention": 86.064894
+          },
+          {
+            "observed_at": "2026-11-13T03:00:00+00:00",
+            "baseline": 84.791798,
+            "intervention": 84.791798
+          },
+          {
+            "observed_at": "2026-11-13T04:00:00+00:00",
+            "baseline": 85.496711,
+            "intervention": 85.496711
+          },
+          {
+            "observed_at": "2026-11-13T05:00:00+00:00",
+            "baseline": 85.900164,
+            "intervention": 85.900164
+          },
+          {
+            "observed_at": "2026-11-13T06:00:00+00:00",
+            "baseline": 85.407689,
+            "intervention": 85.407689
+          },
+          {
+            "observed_at": "2026-11-13T07:00:00+00:00",
+            "baseline": 85.202674,
+            "intervention": 85.202674
+          },
+          {
+            "observed_at": "2026-11-13T08:00:00+00:00",
+            "baseline": 85.869503,
+            "intervention": 85.869503
+          },
+          {
+            "observed_at": "2026-11-13T09:00:00+00:00",
+            "baseline": 85.500127,
+            "intervention": 85.500127
+          },
+          {
+            "observed_at": "2026-11-13T10:00:00+00:00",
+            "baseline": 85.108258,
+            "intervention": 85.108258
+          },
+          {
+            "observed_at": "2026-11-13T11:00:00+00:00",
+            "baseline": 84.929179,
+            "intervention": 84.929179
+          },
+          {
+            "observed_at": "2026-11-13T12:00:00+00:00",
+            "baseline": 85.224232,
+            "intervention": 85.224232
+          },
+          {
+            "observed_at": "2026-11-13T13:00:00+00:00",
+            "baseline": 84.702355,
+            "intervention": 84.702355
+          },
+          {
+            "observed_at": "2026-11-13T14:00:00+00:00",
+            "baseline": 84.444882,
+            "intervention": 84.444882
+          },
+          {
+            "observed_at": "2026-11-13T15:00:00+00:00",
+            "baseline": 84.91754,
+            "intervention": 84.91754
+          },
+          {
+            "observed_at": "2026-11-13T16:00:00+00:00",
+            "baseline": 86.332041,
+            "intervention": 86.332041
+          },
+          {
+            "observed_at": "2026-11-13T17:00:00+00:00",
+            "baseline": 85.466375,
+            "intervention": 85.466375
+          },
+          {
+            "observed_at": "2026-11-13T18:00:00+00:00",
+            "baseline": 86.174432,
+            "intervention": 86.174432
+          },
+          {
+            "observed_at": "2026-11-13T19:00:00+00:00",
+            "baseline": 87.208523,
+            "intervention": 87.208523
+          },
+          {
+            "observed_at": "2026-11-13T20:00:00+00:00",
+            "baseline": 87.494246,
+            "intervention": 87.494246
+          },
+          {
+            "observed_at": "2026-11-13T21:00:00+00:00",
+            "baseline": 88.015334,
+            "intervention": 88.015334
+          },
+          {
+            "observed_at": "2026-11-13T22:00:00+00:00",
+            "baseline": 89.236604,
+            "intervention": 89.236604
+          },
+          {
+            "observed_at": "2026-11-13T23:00:00+00:00",
+            "baseline": 89.512818,
+            "intervention": 89.512818
+          },
+          {
+            "observed_at": "2026-11-14T00:00:00+00:00",
+            "baseline": 90.240057,
+            "intervention": 90.240057
+          },
+          {
+            "observed_at": "2026-11-14T01:00:00+00:00",
+            "baseline": 90.760733,
+            "intervention": 90.073233
+          },
+          {
+            "observed_at": "2026-11-14T02:00:00+00:00",
+            "baseline": 91.168725,
+            "intervention": 89.668725
+          },
+          {
+            "observed_at": "2026-11-14T03:00:00+00:00",
+            "baseline": 91.300466,
+            "intervention": 88.862966
+          },
+          {
+            "observed_at": "2026-11-14T04:00:00+00:00",
+            "baseline": 92.774716,
+            "intervention": 89.274716
+          },
+          {
+            "observed_at": "2026-11-14T05:00:00+00:00",
+            "baseline": 92.928171,
+            "intervention": 88.240671
+          },
+          {
+            "observed_at": "2026-11-14T06:00:00+00:00",
+            "baseline": 93.244548,
+            "intervention": 87.244548
+          },
+          {
+            "observed_at": "2026-11-14T07:00:00+00:00",
+            "baseline": 94.095781,
+            "intervention": 86.658281
+          },
+          {
+            "observed_at": "2026-11-14T08:00:00+00:00",
+            "baseline": 94.386718,
+            "intervention": 85.386718
+          },
+          {
+            "observed_at": "2026-11-14T09:00:00+00:00",
+            "baseline": 94.675259,
+            "intervention": 85.175259
+          },
+          {
+            "observed_at": "2026-11-14T10:00:00+00:00",
+            "baseline": 95.146825,
+            "intervention": 85.146825
+          },
+          {
+            "observed_at": "2026-11-14T11:00:00+00:00",
+            "baseline": 96.2302,
+            "intervention": 85.7302
+          },
+          {
+            "observed_at": "2026-11-14T12:00:00+00:00",
+            "baseline": 96.206814,
+            "intervention": 85.206814
+          },
+          {
+            "observed_at": "2026-11-14T13:00:00+00:00",
+            "baseline": 96.253423,
+            "intervention": 84.753423
+          },
+          {
+            "observed_at": "2026-11-14T14:00:00+00:00",
+            "baseline": 96.360275,
+            "intervention": 84.360275
+          },
+          {
+            "observed_at": "2026-11-14T15:00:00+00:00",
+            "baseline": 96.92123,
+            "intervention": 84.42123
+          },
+          {
+            "observed_at": "2026-11-14T16:00:00+00:00",
+            "baseline": 97.829991,
+            "intervention": 84.829991
+          },
+          {
+            "observed_at": "2026-11-14T17:00:00+00:00",
+            "baseline": 98.27615,
+            "intervention": 84.77615
+          },
+          {
+            "observed_at": "2026-11-14T18:00:00+00:00",
+            "baseline": 98.442372,
+            "intervention": 84.442372
+          },
+          {
+            "observed_at": "2026-11-14T19:00:00+00:00",
+            "baseline": 99.019802,
+            "intervention": 84.519802
+          },
+          {
+            "observed_at": "2026-11-14T20:00:00+00:00",
+            "baseline": 99.43782,
+            "intervention": 84.43782
+          },
+          {
+            "observed_at": "2026-11-14T21:00:00+00:00",
+            "baseline": 100.458236,
+            "intervention": 84.958236
+          },
+          {
+            "observed_at": "2026-11-14T22:00:00+00:00",
+            "baseline": 100.552461,
+            "intervention": 84.552461
+          },
+          {
+            "observed_at": "2026-11-14T23:00:00+00:00",
+            "baseline": 101.424925,
+            "intervention": 84.924925
+          },
+          {
+            "observed_at": "2026-11-15T00:00:00+00:00",
+            "baseline": 101.981205,
+            "intervention": 84.981205
+          }
+        ]
+      },
+      {
+        "channel": "lube_demand",
+        "unit": "L/min",
+        "baseline_recent_mean": 11.960869333333333,
+        "intervention_recent_mean": 11.960869333333333,
+        "difference": 0.0,
+        "trajectory": [
+          {
+            "observed_at": "2026-11-12T00:00:00+00:00",
+            "baseline": 12.009613,
+            "intervention": 12.009613
+          },
+          {
+            "observed_at": "2026-11-12T01:00:00+00:00",
+            "baseline": 12.056592,
+            "intervention": 12.056592
+          },
+          {
+            "observed_at": "2026-11-12T02:00:00+00:00",
+            "baseline": 11.987483,
+            "intervention": 11.987483
+          },
+          {
+            "observed_at": "2026-11-12T03:00:00+00:00",
+            "baseline": 12.068202,
+            "intervention": 12.068202
+          },
+          {
+            "observed_at": "2026-11-12T04:00:00+00:00",
+            "baseline": 12.103351,
+            "intervention": 12.103351
+          },
+          {
+            "observed_at": "2026-11-12T05:00:00+00:00",
+            "baseline": 12.087258,
+            "intervention": 12.087258
+          },
+          {
+            "observed_at": "2026-11-12T06:00:00+00:00",
+            "baseline": 12.034778,
+            "intervention": 12.034778
+          },
+          {
+            "observed_at": "2026-11-12T07:00:00+00:00",
+            "baseline": 12.070807,
+            "intervention": 12.070807
+          },
+          {
+            "observed_at": "2026-11-12T08:00:00+00:00",
+            "baseline": 12.049429,
+            "intervention": 12.049429
+          },
+          {
+            "observed_at": "2026-11-12T09:00:00+00:00",
+            "baseline": 12.063353,
+            "intervention": 12.063353
+          },
+          {
+            "observed_at": "2026-11-12T10:00:00+00:00",
+            "baseline": 12.070193,
+            "intervention": 12.070193
+          },
+          {
+            "observed_at": "2026-11-12T11:00:00+00:00",
+            "baseline": 11.978484,
+            "intervention": 11.978484
+          },
+          {
+            "observed_at": "2026-11-12T12:00:00+00:00",
+            "baseline": 12.049116,
+            "intervention": 12.049116
+          },
+          {
+            "observed_at": "2026-11-12T13:00:00+00:00",
+            "baseline": 11.900143,
+            "intervention": 11.900143
+          },
+          {
+            "observed_at": "2026-11-12T14:00:00+00:00",
+            "baseline": 12.025789,
+            "intervention": 12.025789
+          },
+          {
+            "observed_at": "2026-11-12T15:00:00+00:00",
+            "baseline": 12.000593,
+            "intervention": 12.000593
+          },
+          {
+            "observed_at": "2026-11-12T16:00:00+00:00",
+            "baseline": 11.991645,
+            "intervention": 11.991645
+          },
+          {
+            "observed_at": "2026-11-12T17:00:00+00:00",
+            "baseline": 12.004971,
+            "intervention": 12.004971
+          },
+          {
+            "observed_at": "2026-11-12T18:00:00+00:00",
+            "baseline": 11.92247,
+            "intervention": 11.92247
+          },
+          {
+            "observed_at": "2026-11-12T19:00:00+00:00",
+            "baseline": 11.923073,
+            "intervention": 11.923073
+          },
+          {
+            "observed_at": "2026-11-12T20:00:00+00:00",
+            "baseline": 11.95038,
+            "intervention": 11.95038
+          },
+          {
+            "observed_at": "2026-11-12T21:00:00+00:00",
+            "baseline": 11.851711,
+            "intervention": 11.851711
+          },
+          {
+            "observed_at": "2026-11-12T22:00:00+00:00",
+            "baseline": 11.960687,
+            "intervention": 11.960687
+          },
+          {
+            "observed_at": "2026-11-12T23:00:00+00:00",
+            "baseline": 12.050803,
+            "intervention": 12.050803
+          },
+          {
+            "observed_at": "2026-11-13T00:00:00+00:00",
+            "baseline": 11.996628,
+            "intervention": 11.996628
+          },
+          {
+            "observed_at": "2026-11-13T01:00:00+00:00",
+            "baseline": 11.971013,
+            "intervention": 11.971013
+          },
+          {
+            "observed_at": "2026-11-13T02:00:00+00:00",
+            "baseline": 12.026103,
+            "intervention": 12.026103
+          },
+          {
+            "observed_at": "2026-11-13T03:00:00+00:00",
+            "baseline": 12.08148,
+            "intervention": 12.08148
+          },
+          {
+            "observed_at": "2026-11-13T04:00:00+00:00",
+            "baseline": 12.059201,
+            "intervention": 12.059201
+          },
+          {
+            "observed_at": "2026-11-13T05:00:00+00:00",
+            "baseline": 12.113684,
+            "intervention": 12.113684
+          },
+          {
+            "observed_at": "2026-11-13T06:00:00+00:00",
+            "baseline": 12.080979,
+            "intervention": 12.080979
+          },
+          {
+            "observed_at": "2026-11-13T07:00:00+00:00",
+            "baseline": 11.994809,
+            "intervention": 11.994809
+          },
+          {
+            "observed_at": "2026-11-13T08:00:00+00:00",
+            "baseline": 12.150431,
+            "intervention": 12.150431
+          },
+          {
+            "observed_at": "2026-11-13T09:00:00+00:00",
+            "baseline": 12.066503,
+            "intervention": 12.066503
+          },
+          {
+            "observed_at": "2026-11-13T10:00:00+00:00",
+            "baseline": 12.124473,
+            "intervention": 12.124473
+          },
+          {
+            "observed_at": "2026-11-13T11:00:00+00:00",
+            "baseline": 11.933359,
+            "intervention": 11.933359
+          },
+          {
+            "observed_at": "2026-11-13T12:00:00+00:00",
+            "baseline": 12.053651,
+            "intervention": 12.053651
+          },
+          {
+            "observed_at": "2026-11-13T13:00:00+00:00",
+            "baseline": 11.965042,
+            "intervention": 11.965042
+          },
+          {
+            "observed_at": "2026-11-13T14:00:00+00:00",
+            "baseline": 11.965198,
+            "intervention": 11.965198
+          },
+          {
+            "observed_at": "2026-11-13T15:00:00+00:00",
+            "baseline": 12.014922,
+            "intervention": 12.014922
+          },
+          {
+            "observed_at": "2026-11-13T16:00:00+00:00",
+            "baseline": 11.920109,
+            "intervention": 11.920109
+          },
+          {
+            "observed_at": "2026-11-13T17:00:00+00:00",
+            "baseline": 11.808019,
+            "intervention": 11.808019
+          },
+          {
+            "observed_at": "2026-11-13T18:00:00+00:00",
+            "baseline": 12.04099,
+            "intervention": 12.04099
+          },
+          {
+            "observed_at": "2026-11-13T19:00:00+00:00",
+            "baseline": 11.982206,
+            "intervention": 11.982206
+          },
+          {
+            "observed_at": "2026-11-13T20:00:00+00:00",
+            "baseline": 11.870937,
+            "intervention": 11.870937
+          },
+          {
+            "observed_at": "2026-11-13T21:00:00+00:00",
+            "baseline": 11.918166,
+            "intervention": 11.918166
+          },
+          {
+            "observed_at": "2026-11-13T22:00:00+00:00",
+            "baseline": 11.949805,
+            "intervention": 11.949805
+          },
+          {
+            "observed_at": "2026-11-13T23:00:00+00:00",
+            "baseline": 12.0372,
+            "intervention": 12.0372
+          },
+          {
+            "observed_at": "2026-11-14T00:00:00+00:00",
+            "baseline": 11.927892,
+            "intervention": 11.927892
+          },
+          {
+            "observed_at": "2026-11-14T01:00:00+00:00",
+            "baseline": 12.069554,
+            "intervention": 12.069554
+          },
+          {
+            "observed_at": "2026-11-14T02:00:00+00:00",
+            "baseline": 12.026494,
+            "intervention": 12.026494
+          },
+          {
+            "observed_at": "2026-11-14T03:00:00+00:00",
+            "baseline": 12.02054,
+            "intervention": 12.02054
+          },
+          {
+            "observed_at": "2026-11-14T04:00:00+00:00",
+            "baseline": 12.043188,
+            "intervention": 12.043188
+          },
+          {
+            "observed_at": "2026-11-14T05:00:00+00:00",
+            "baseline": 12.077545,
+            "intervention": 12.077545
+          },
+          {
+            "observed_at": "2026-11-14T06:00:00+00:00",
+            "baseline": 12.137607,
+            "intervention": 12.137607
+          },
+          {
+            "observed_at": "2026-11-14T07:00:00+00:00",
+            "baseline": 12.01319,
+            "intervention": 12.01319
+          },
+          {
+            "observed_at": "2026-11-14T08:00:00+00:00",
+            "baseline": 12.077566,
+            "intervention": 12.077566
+          },
+          {
+            "observed_at": "2026-11-14T09:00:00+00:00",
+            "baseline": 12.071074,
+            "intervention": 12.071074
+          },
+          {
+            "observed_at": "2026-11-14T10:00:00+00:00",
+            "baseline": 12.049505,
+            "intervention": 12.049505
+          },
+          {
+            "observed_at": "2026-11-14T11:00:00+00:00",
+            "baseline": 11.966463,
+            "intervention": 11.966463
+          },
+          {
+            "observed_at": "2026-11-14T12:00:00+00:00",
+            "baseline": 12.047912,
+            "intervention": 12.047912
+          },
+          {
+            "observed_at": "2026-11-14T13:00:00+00:00",
+            "baseline": 11.989246,
+            "intervention": 11.989246
+          },
+          {
+            "observed_at": "2026-11-14T14:00:00+00:00",
+            "baseline": 12.029204,
+            "intervention": 12.029204
+          },
+          {
+            "observed_at": "2026-11-14T15:00:00+00:00",
+            "baseline": 11.942406,
+            "intervention": 11.942406
+          },
+          {
+            "observed_at": "2026-11-14T16:00:00+00:00",
+            "baseline": 11.96899,
+            "intervention": 11.96899
+          },
+          {
+            "observed_at": "2026-11-14T17:00:00+00:00",
+            "baseline": 11.998386,
+            "intervention": 11.998386
+          },
+          {
+            "observed_at": "2026-11-14T18:00:00+00:00",
+            "baseline": 11.907687,
+            "intervention": 11.907687
+          },
+          {
+            "observed_at": "2026-11-14T19:00:00+00:00",
+            "baseline": 11.953622,
+            "intervention": 11.953622
+          },
+          {
+            "observed_at": "2026-11-14T20:00:00+00:00",
+            "baseline": 11.943093,
+            "intervention": 11.943093
+          },
+          {
+            "observed_at": "2026-11-14T21:00:00+00:00",
+            "baseline": 11.892244,
+            "intervention": 11.892244
+          },
+          {
+            "observed_at": "2026-11-14T22:00:00+00:00",
+            "baseline": 12.051331,
+            "intervention": 12.051331
+          },
+          {
+            "observed_at": "2026-11-14T23:00:00+00:00",
+            "baseline": 11.942757,
+            "intervention": 11.942757
+          },
+          {
+            "observed_at": "2026-11-15T00:00:00+00:00",
+            "baseline": 11.982169,
+            "intervention": 11.982169
+          }
+        ]
+      },
+      {
+        "channel": "speed",
+        "unit": "rpm",
+        "baseline_recent_mean": 3592.716788333333,
+        "intervention_recent_mean": 3592.716788333333,
+        "difference": 0.0,
+        "trajectory": [
+          {
+            "observed_at": "2026-11-12T00:00:00+00:00",
+            "baseline": 3616.851397,
+            "intervention": 3616.851397
+          },
+          {
+            "observed_at": "2026-11-12T01:00:00+00:00",
+            "baseline": 3603.29608,
+            "intervention": 3603.29608
+          },
+          {
+            "observed_at": "2026-11-12T02:00:00+00:00",
+            "baseline": 3606.346903,
+            "intervention": 3606.346903
+          },
+          {
+            "observed_at": "2026-11-12T03:00:00+00:00",
+            "baseline": 3619.47073,
+            "intervention": 3619.47073
+          },
+          {
+            "observed_at": "2026-11-12T04:00:00+00:00",
+            "baseline": 3629.579863,
+            "intervention": 3629.579863
+          },
+          {
+            "observed_at": "2026-11-12T05:00:00+00:00",
+            "baseline": 3616.702493,
+            "intervention": 3616.702493
+          },
+          {
+            "observed_at": "2026-11-12T06:00:00+00:00",
+            "baseline": 3635.437338,
+            "intervention": 3635.437338
+          },
+          {
+            "observed_at": "2026-11-12T07:00:00+00:00",
+            "baseline": 3592.188856,
+            "intervention": 3592.188856
+          },
+          {
+            "observed_at": "2026-11-12T08:00:00+00:00",
+            "baseline": 3617.845192,
+            "intervention": 3617.845192
+          },
+          {
+            "observed_at": "2026-11-12T09:00:00+00:00",
+            "baseline": 3621.514862,
+            "intervention": 3621.514862
+          },
+          {
+            "observed_at": "2026-11-12T10:00:00+00:00",
+            "baseline": 3628.767766,
+            "intervention": 3628.767766
+          },
+          {
+            "observed_at": "2026-11-12T11:00:00+00:00",
+            "baseline": 3602.387436,
+            "intervention": 3602.387436
+          },
+          {
+            "observed_at": "2026-11-12T12:00:00+00:00",
+            "baseline": 3602.538627,
+            "intervention": 3602.538627
+          },
+          {
+            "observed_at": "2026-11-12T13:00:00+00:00",
+            "baseline": 3583.275739,
+            "intervention": 3583.275739
+          },
+          {
+            "observed_at": "2026-11-12T14:00:00+00:00",
+            "baseline": 3611.055903,
+            "intervention": 3611.055903
+          },
+          {
+            "observed_at": "2026-11-12T15:00:00+00:00",
+            "baseline": 3583.999308,
+            "intervention": 3583.999308
+          },
+          {
+            "observed_at": "2026-11-12T16:00:00+00:00",
+            "baseline": 3591.077923,
+            "intervention": 3591.077923
+          },
+          {
+            "observed_at": "2026-11-12T17:00:00+00:00",
+            "baseline": 3570.795663,
+            "intervention": 3570.795663
+          },
+          {
+            "observed_at": "2026-11-12T18:00:00+00:00",
+            "baseline": 3564.15336,
+            "intervention": 3564.15336
+          },
+          {
+            "observed_at": "2026-11-12T19:00:00+00:00",
+            "baseline": 3575.582115,
+            "intervention": 3575.582115
+          },
+          {
+            "observed_at": "2026-11-12T20:00:00+00:00",
+            "baseline": 3587.343806,
+            "intervention": 3587.343806
+          },
+          {
+            "observed_at": "2026-11-12T21:00:00+00:00",
+            "baseline": 3566.836816,
+            "intervention": 3566.836816
+          },
+          {
+            "observed_at": "2026-11-12T22:00:00+00:00",
+            "baseline": 3559.350081,
+            "intervention": 3559.350081
+          },
+          {
+            "observed_at": "2026-11-12T23:00:00+00:00",
+            "baseline": 3594.586316,
+            "intervention": 3594.586316
+          },
+          {
+            "observed_at": "2026-11-13T00:00:00+00:00",
+            "baseline": 3586.71594,
+            "intervention": 3586.71594
+          },
+          {
+            "observed_at": "2026-11-13T01:00:00+00:00",
+            "baseline": 3593.98901,
+            "intervention": 3593.98901
+          },
+          {
+            "observed_at": "2026-11-13T02:00:00+00:00",
+            "baseline": 3602.163083,
+            "intervention": 3602.163083
+          },
+          {
+            "observed_at": "2026-11-13T03:00:00+00:00",
+            "baseline": 3623.129804,
+            "intervention": 3623.129804
+          },
+          {
+            "observed_at": "2026-11-13T04:00:00+00:00",
+            "baseline": 3615.534724,
+            "intervention": 3615.534724
+          },
+          {
+            "observed_at": "2026-11-13T05:00:00+00:00",
+            "baseline": 3625.71301,
+            "intervention": 3625.71301
+          },
+          {
+            "observed_at": "2026-11-13T06:00:00+00:00",
+            "baseline": 3627.805681,
+            "intervention": 3627.805681
+          },
+          {
+            "observed_at": "2026-11-13T07:00:00+00:00",
+            "baseline": 3617.392322,
+            "intervention": 3617.392322
+          },
+          {
+            "observed_at": "2026-11-13T08:00:00+00:00",
+            "baseline": 3615.284981,
+            "intervention": 3615.284981
+          },
+          {
+            "observed_at": "2026-11-13T09:00:00+00:00",
+            "baseline": 3639.889865,
+            "intervention": 3639.889865
+          },
+          {
+            "observed_at": "2026-11-13T10:00:00+00:00",
+            "baseline": 3615.019554,
+            "intervention": 3615.019554
+          },
+          {
+            "observed_at": "2026-11-13T11:00:00+00:00",
+            "baseline": 3606.012655,
+            "intervention": 3606.012655
+          },
+          {
+            "observed_at": "2026-11-13T12:00:00+00:00",
+            "baseline": 3598.597332,
+            "intervention": 3598.597332
+          },
+          {
+            "observed_at": "2026-11-13T13:00:00+00:00",
+            "baseline": 3609.052035,
+            "intervention": 3609.052035
+          },
+          {
+            "observed_at": "2026-11-13T14:00:00+00:00",
+            "baseline": 3583.086352,
+            "intervention": 3583.086352
+          },
+          {
+            "observed_at": "2026-11-13T15:00:00+00:00",
+            "baseline": 3566.51198,
+            "intervention": 3566.51198
+          },
+          {
+            "observed_at": "2026-11-13T16:00:00+00:00",
+            "baseline": 3588.689919,
+            "intervention": 3588.689919
+          },
+          {
+            "observed_at": "2026-11-13T17:00:00+00:00",
+            "baseline": 3588.438305,
+            "intervention": 3588.438305
+          },
+          {
+            "observed_at": "2026-11-13T18:00:00+00:00",
+            "baseline": 3583.559795,
+            "intervention": 3583.559795
+          },
+          {
+            "observed_at": "2026-11-13T19:00:00+00:00",
+            "baseline": 3580.750372,
+            "intervention": 3580.750372
+          },
+          {
+            "observed_at": "2026-11-13T20:00:00+00:00",
+            "baseline": 3574.321294,
+            "intervention": 3574.321294
+          },
+          {
+            "observed_at": "2026-11-13T21:00:00+00:00",
+            "baseline": 3566.501565,
+            "intervention": 3566.501565
+          },
+          {
+            "observed_at": "2026-11-13T22:00:00+00:00",
+            "baseline": 3572.781023,
+            "intervention": 3572.781023
+          },
+          {
+            "observed_at": "2026-11-13T23:00:00+00:00",
+            "baseline": 3614.38121,
+            "intervention": 3614.38121
+          },
+          {
+            "observed_at": "2026-11-14T00:00:00+00:00",
+            "baseline": 3582.242068,
+            "intervention": 3582.242068
+          },
+          {
+            "observed_at": "2026-11-14T01:00:00+00:00",
+            "baseline": 3599.141083,
+            "intervention": 3599.141083
+          },
+          {
+            "observed_at": "2026-11-14T02:00:00+00:00",
+            "baseline": 3621.148759,
+            "intervention": 3621.148759
+          },
+          {
+            "observed_at": "2026-11-14T03:00:00+00:00",
+            "baseline": 3617.415593,
+            "intervention": 3617.415593
+          },
+          {
+            "observed_at": "2026-11-14T04:00:00+00:00",
+            "baseline": 3622.932879,
+            "intervention": 3622.932879
+          },
+          {
+            "observed_at": "2026-11-14T05:00:00+00:00",
+            "baseline": 3620.132589,
+            "intervention": 3620.132589
+          },
+          {
+            "observed_at": "2026-11-14T06:00:00+00:00",
+            "baseline": 3634.392042,
+            "intervention": 3634.392042
+          },
+          {
+            "observed_at": "2026-11-14T07:00:00+00:00",
+            "baseline": 3629.433301,
+            "intervention": 3629.433301
+          },
+          {
+            "observed_at": "2026-11-14T08:00:00+00:00",
+            "baseline": 3598.60039,
+            "intervention": 3598.60039
+          },
+          {
+            "observed_at": "2026-11-14T09:00:00+00:00",
+            "baseline": 3589.900299,
+            "intervention": 3589.900299
+          },
+          {
+            "observed_at": "2026-11-14T10:00:00+00:00",
+            "baseline": 3637.511444,
+            "intervention": 3637.511444
+          },
+          {
+            "observed_at": "2026-11-14T11:00:00+00:00",
+            "baseline": 3608.054234,
+            "intervention": 3608.054234
+          },
+          {
+            "observed_at": "2026-11-14T12:00:00+00:00",
+            "baseline": 3602.074429,
+            "intervention": 3602.074429
+          },
+          {
+            "observed_at": "2026-11-14T13:00:00+00:00",
+            "baseline": 3588.912526,
+            "intervention": 3588.912526
+          },
+          {
+            "observed_at": "2026-11-14T14:00:00+00:00",
+            "baseline": 3588.42594,
+            "intervention": 3588.42594
+          },
+          {
+            "observed_at": "2026-11-14T15:00:00+00:00",
+            "baseline": 3604.817017,
+            "intervention": 3604.817017
+          },
+          {
+            "observed_at": "2026-11-14T16:00:00+00:00",
+            "baseline": 3570.183975,
+            "intervention": 3570.183975
+          },
+          {
+            "observed_at": "2026-11-14T17:00:00+00:00",
+            "baseline": 3596.934323,
+            "intervention": 3596.934323
+          },
+          {
+            "observed_at": "2026-11-14T18:00:00+00:00",
+            "baseline": 3581.1829,
+            "intervention": 3581.1829
+          },
+          {
+            "observed_at": "2026-11-14T19:00:00+00:00",
+            "baseline": 3599.854778,
+            "intervention": 3599.854778
+          },
+          {
+            "observed_at": "2026-11-14T20:00:00+00:00",
+            "baseline": 3593.963378,
+            "intervention": 3593.963378
+          },
+          {
+            "observed_at": "2026-11-14T21:00:00+00:00",
+            "baseline": 3585.94675,
+            "intervention": 3585.94675
+          },
+          {
+            "observed_at": "2026-11-14T22:00:00+00:00",
+            "baseline": 3583.942547,
+            "intervention": 3583.942547
+          },
+          {
+            "observed_at": "2026-11-14T23:00:00+00:00",
+            "baseline": 3590.318157,
+            "intervention": 3590.318157
+          },
+          {
+            "observed_at": "2026-11-15T00:00:00+00:00",
+            "baseline": 3602.27512,
+            "intervention": 3602.27512
+          }
+        ]
+      },
+      {
+        "channel": "suction_pressure",
+        "unit": "bar",
+        "baseline_recent_mean": 3.7833491666666665,
+        "intervention_recent_mean": 3.7833491666666665,
+        "difference": 0.0,
+        "trajectory": [
+          {
+            "observed_at": "2026-11-12T00:00:00+00:00",
+            "baseline": 3.791318,
+            "intervention": 3.791318
+          },
+          {
+            "observed_at": "2026-11-12T01:00:00+00:00",
+            "baseline": 3.812474,
+            "intervention": 3.812474
+          },
+          {
+            "observed_at": "2026-11-12T02:00:00+00:00",
+            "baseline": 3.7911,
+            "intervention": 3.7911
+          },
+          {
+            "observed_at": "2026-11-12T03:00:00+00:00",
+            "baseline": 3.808174,
+            "intervention": 3.808174
+          },
+          {
+            "observed_at": "2026-11-12T04:00:00+00:00",
+            "baseline": 3.830963,
+            "intervention": 3.830963
+          },
+          {
+            "observed_at": "2026-11-12T05:00:00+00:00",
+            "baseline": 3.814837,
+            "intervention": 3.814837
+          },
+          {
+            "observed_at": "2026-11-12T06:00:00+00:00",
+            "baseline": 3.819994,
+            "intervention": 3.819994
+          },
+          {
+            "observed_at": "2026-11-12T07:00:00+00:00",
+            "baseline": 3.823255,
+            "intervention": 3.823255
+          },
+          {
+            "observed_at": "2026-11-12T08:00:00+00:00",
+            "baseline": 3.8025,
+            "intervention": 3.8025
+          },
+          {
+            "observed_at": "2026-11-12T09:00:00+00:00",
+            "baseline": 3.820232,
+            "intervention": 3.820232
+          },
+          {
+            "observed_at": "2026-11-12T10:00:00+00:00",
+            "baseline": 3.805836,
+            "intervention": 3.805836
+          },
+          {
+            "observed_at": "2026-11-12T11:00:00+00:00",
+            "baseline": 3.800089,
+            "intervention": 3.800089
+          },
+          {
+            "observed_at": "2026-11-12T12:00:00+00:00",
+            "baseline": 3.81029,
+            "intervention": 3.81029
+          },
+          {
+            "observed_at": "2026-11-12T13:00:00+00:00",
+            "baseline": 3.810777,
+            "intervention": 3.810777
+          },
+          {
+            "observed_at": "2026-11-12T14:00:00+00:00",
+            "baseline": 3.795498,
+            "intervention": 3.795498
+          },
+          {
+            "observed_at": "2026-11-12T15:00:00+00:00",
+            "baseline": 3.767252,
+            "intervention": 3.767252
+          },
+          {
+            "observed_at": "2026-11-12T16:00:00+00:00",
+            "baseline": 3.793762,
+            "intervention": 3.793762
+          },
+          {
+            "observed_at": "2026-11-12T17:00:00+00:00",
+            "baseline": 3.795995,
+            "intervention": 3.795995
+          },
+          {
+            "observed_at": "2026-11-12T18:00:00+00:00",
+            "baseline": 3.762345,
+            "intervention": 3.762345
+          },
+          {
+            "observed_at": "2026-11-12T19:00:00+00:00",
+            "baseline": 3.753147,
+            "intervention": 3.753147
+          },
+          {
+            "observed_at": "2026-11-12T20:00:00+00:00",
+            "baseline": 3.779691,
+            "intervention": 3.779691
+          },
+          {
+            "observed_at": "2026-11-12T21:00:00+00:00",
+            "baseline": 3.792133,
+            "intervention": 3.792133
+          },
+          {
+            "observed_at": "2026-11-12T22:00:00+00:00",
+            "baseline": 3.786692,
+            "intervention": 3.786692
+          },
+          {
+            "observed_at": "2026-11-12T23:00:00+00:00",
+            "baseline": 3.797473,
+            "intervention": 3.797473
+          },
+          {
+            "observed_at": "2026-11-13T00:00:00+00:00",
+            "baseline": 3.835779,
+            "intervention": 3.835779
+          },
+          {
+            "observed_at": "2026-11-13T01:00:00+00:00",
+            "baseline": 3.785964,
+            "intervention": 3.785964
+          },
+          {
+            "observed_at": "2026-11-13T02:00:00+00:00",
+            "baseline": 3.819703,
+            "intervention": 3.819703
+          },
+          {
+            "observed_at": "2026-11-13T03:00:00+00:00",
+            "baseline": 3.824899,
+            "intervention": 3.824899
+          },
+          {
+            "observed_at": "2026-11-13T04:00:00+00:00",
+            "baseline": 3.830756,
+            "intervention": 3.830756
+          },
+          {
+            "observed_at": "2026-11-13T05:00:00+00:00",
+            "baseline": 3.814121,
+            "intervention": 3.814121
+          },
+          {
+            "observed_at": "2026-11-13T06:00:00+00:00",
+            "baseline": 3.837983,
+            "intervention": 3.837983
+          },
+          {
+            "observed_at": "2026-11-13T07:00:00+00:00",
+            "baseline": 3.836725,
+            "intervention": 3.836725
+          },
+          {
+            "observed_at": "2026-11-13T08:00:00+00:00",
+            "baseline": 3.843806,
+            "intervention": 3.843806
+          },
+          {
+            "observed_at": "2026-11-13T09:00:00+00:00",
+            "baseline": 3.797044,
+            "intervention": 3.797044
+          },
+          {
+            "observed_at": "2026-11-13T10:00:00+00:00",
+            "baseline": 3.790868,
+            "intervention": 3.790868
+          },
+          {
+            "observed_at": "2026-11-13T11:00:00+00:00",
+            "baseline": 3.80394,
+            "intervention": 3.80394
+          },
+          {
+            "observed_at": "2026-11-13T12:00:00+00:00",
+            "baseline": 3.807952,
+            "intervention": 3.807952
+          },
+          {
+            "observed_at": "2026-11-13T13:00:00+00:00",
+            "baseline": 3.817154,
+            "intervention": 3.817154
+          },
+          {
+            "observed_at": "2026-11-13T14:00:00+00:00",
+            "baseline": 3.761491,
+            "intervention": 3.761491
+          },
+          {
+            "observed_at": "2026-11-13T15:00:00+00:00",
+            "baseline": 3.783956,
+            "intervention": 3.783956
+          },
+          {
+            "observed_at": "2026-11-13T16:00:00+00:00",
+            "baseline": 3.74719,
+            "intervention": 3.74719
+          },
+          {
+            "observed_at": "2026-11-13T17:00:00+00:00",
+            "baseline": 3.785339,
+            "intervention": 3.785339
+          },
+          {
+            "observed_at": "2026-11-13T18:00:00+00:00",
+            "baseline": 3.782965,
+            "intervention": 3.782965
+          },
+          {
+            "observed_at": "2026-11-13T19:00:00+00:00",
+            "baseline": 3.771447,
+            "intervention": 3.771447
+          },
+          {
+            "observed_at": "2026-11-13T20:00:00+00:00",
+            "baseline": 3.768082,
+            "intervention": 3.768082
+          },
+          {
+            "observed_at": "2026-11-13T21:00:00+00:00",
+            "baseline": 3.805554,
+            "intervention": 3.805554
+          },
+          {
+            "observed_at": "2026-11-13T22:00:00+00:00",
+            "baseline": 3.799707,
+            "intervention": 3.799707
+          },
+          {
+            "observed_at": "2026-11-13T23:00:00+00:00",
+            "baseline": 3.783635,
+            "intervention": 3.783635
+          },
+          {
+            "observed_at": "2026-11-14T00:00:00+00:00",
+            "baseline": 3.80746,
+            "intervention": 3.80746
+          },
+          {
+            "observed_at": "2026-11-14T01:00:00+00:00",
+            "baseline": 3.813847,
+            "intervention": 3.813847
+          },
+          {
+            "observed_at": "2026-11-14T02:00:00+00:00",
+            "baseline": 3.812793,
+            "intervention": 3.812793
+          },
+          {
+            "observed_at": "2026-11-14T03:00:00+00:00",
+            "baseline": 3.836005,
+            "intervention": 3.836005
+          },
+          {
+            "observed_at": "2026-11-14T04:00:00+00:00",
+            "baseline": 3.806856,
+            "intervention": 3.806856
+          },
+          {
+            "observed_at": "2026-11-14T05:00:00+00:00",
+            "baseline": 3.837334,
+            "intervention": 3.837334
+          },
+          {
+            "observed_at": "2026-11-14T06:00:00+00:00",
+            "baseline": 3.822473,
+            "intervention": 3.822473
+          },
+          {
+            "observed_at": "2026-11-14T07:00:00+00:00",
+            "baseline": 3.835437,
+            "intervention": 3.835437
+          },
+          {
+            "observed_at": "2026-11-14T08:00:00+00:00",
+            "baseline": 3.832116,
+            "intervention": 3.832116
+          },
+          {
+            "observed_at": "2026-11-14T09:00:00+00:00",
+            "baseline": 3.802815,
+            "intervention": 3.802815
+          },
+          {
+            "observed_at": "2026-11-14T10:00:00+00:00",
+            "baseline": 3.807186,
+            "intervention": 3.807186
+          },
+          {
+            "observed_at": "2026-11-14T11:00:00+00:00",
+            "baseline": 3.79659,
+            "intervention": 3.79659
+          },
+          {
+            "observed_at": "2026-11-14T12:00:00+00:00",
+            "baseline": 3.8063,
+            "intervention": 3.8063
+          },
+          {
+            "observed_at": "2026-11-14T13:00:00+00:00",
+            "baseline": 3.791503,
+            "intervention": 3.791503
+          },
+          {
+            "observed_at": "2026-11-14T14:00:00+00:00",
+            "baseline": 3.778689,
+            "intervention": 3.778689
+          },
+          {
+            "observed_at": "2026-11-14T15:00:00+00:00",
+            "baseline": 3.772196,
+            "intervention": 3.772196
+          },
+          {
+            "observed_at": "2026-11-14T16:00:00+00:00",
+            "baseline": 3.776572,
+            "intervention": 3.776572
+          },
+          {
+            "observed_at": "2026-11-14T17:00:00+00:00",
+            "baseline": 3.760236,
+            "intervention": 3.760236
+          },
+          {
+            "observed_at": "2026-11-14T18:00:00+00:00",
+            "baseline": 3.777285,
+            "intervention": 3.777285
+          },
+          {
+            "observed_at": "2026-11-14T19:00:00+00:00",
+            "baseline": 3.758308,
+            "intervention": 3.758308
+          },
+          {
+            "observed_at": "2026-11-14T20:00:00+00:00",
+            "baseline": 3.792353,
+            "intervention": 3.792353
+          },
+          {
+            "observed_at": "2026-11-14T21:00:00+00:00",
+            "baseline": 3.779601,
+            "intervention": 3.779601
+          },
+          {
+            "observed_at": "2026-11-14T22:00:00+00:00",
+            "baseline": 3.776949,
+            "intervention": 3.776949
+          },
+          {
+            "observed_at": "2026-11-14T23:00:00+00:00",
+            "baseline": 3.785876,
+            "intervention": 3.785876
+          },
+          {
+            "observed_at": "2026-11-15T00:00:00+00:00",
+            "baseline": 3.807008,
+            "intervention": 3.807008
+          }
+        ]
+      },
+      {
+        "channel": "vibration",
+        "unit": "mm/s RMS",
+        "baseline_recent_mean": 3.8459426666666667,
+        "intervention_recent_mean": 1.8907701666666668,
+        "difference": -1.9551725,
+        "trajectory": [
+          {
+            "observed_at": "2026-11-12T00:00:00+00:00",
+            "baseline": 1.882994,
+            "intervention": 1.882994
+          },
+          {
+            "observed_at": "2026-11-12T01:00:00+00:00",
+            "baseline": 1.901571,
+            "intervention": 1.901571
+          },
+          {
+            "observed_at": "2026-11-12T02:00:00+00:00",
+            "baseline": 1.940832,
+            "intervention": 1.940832
+          },
+          {
+            "observed_at": "2026-11-12T03:00:00+00:00",
+            "baseline": 1.922272,
+            "intervention": 1.922272
+          },
+          {
+            "observed_at": "2026-11-12T04:00:00+00:00",
+            "baseline": 1.903087,
+            "intervention": 1.903087
+          },
+          {
+            "observed_at": "2026-11-12T05:00:00+00:00",
+            "baseline": 1.890902,
+            "intervention": 1.890902
+          },
+          {
+            "observed_at": "2026-11-12T06:00:00+00:00",
+            "baseline": 1.924724,
+            "intervention": 1.924724
+          },
+          {
+            "observed_at": "2026-11-12T07:00:00+00:00",
+            "baseline": 1.916653,
+            "intervention": 1.916653
+          },
+          {
+            "observed_at": "2026-11-12T08:00:00+00:00",
+            "baseline": 1.91339,
+            "intervention": 1.91339
+          },
+          {
+            "observed_at": "2026-11-12T09:00:00+00:00",
+            "baseline": 1.910565,
+            "intervention": 1.910565
+          },
+          {
+            "observed_at": "2026-11-12T10:00:00+00:00",
+            "baseline": 1.937499,
+            "intervention": 1.937499
+          },
+          {
+            "observed_at": "2026-11-12T11:00:00+00:00",
+            "baseline": 1.91534,
+            "intervention": 1.91534
+          },
+          {
+            "observed_at": "2026-11-12T12:00:00+00:00",
+            "baseline": 1.899768,
+            "intervention": 1.899768
+          },
+          {
+            "observed_at": "2026-11-12T13:00:00+00:00",
+            "baseline": 1.879667,
+            "intervention": 1.879667
+          },
+          {
+            "observed_at": "2026-11-12T14:00:00+00:00",
+            "baseline": 1.894312,
+            "intervention": 1.894312
+          },
+          {
+            "observed_at": "2026-11-12T15:00:00+00:00",
+            "baseline": 1.897035,
+            "intervention": 1.897035
+          },
+          {
+            "observed_at": "2026-11-12T16:00:00+00:00",
+            "baseline": 1.8878,
+            "intervention": 1.8878
+          },
+          {
+            "observed_at": "2026-11-12T17:00:00+00:00",
+            "baseline": 1.878733,
+            "intervention": 1.878733
+          },
+          {
+            "observed_at": "2026-11-12T18:00:00+00:00",
+            "baseline": 1.910002,
+            "intervention": 1.910002
+          },
+          {
+            "observed_at": "2026-11-12T19:00:00+00:00",
+            "baseline": 1.888874,
+            "intervention": 1.888874
+          },
+          {
+            "observed_at": "2026-11-12T20:00:00+00:00",
+            "baseline": 1.880819,
+            "intervention": 1.880819
+          },
+          {
+            "observed_at": "2026-11-12T21:00:00+00:00",
+            "baseline": 1.88409,
+            "intervention": 1.88409
+          },
+          {
+            "observed_at": "2026-11-12T22:00:00+00:00",
+            "baseline": 1.913157,
+            "intervention": 1.913157
+          },
+          {
+            "observed_at": "2026-11-12T23:00:00+00:00",
+            "baseline": 1.89981,
+            "intervention": 1.89981
+          },
+          {
+            "observed_at": "2026-11-13T00:00:00+00:00",
+            "baseline": 1.899452,
+            "intervention": 1.899452
+          },
+          {
+            "observed_at": "2026-11-13T01:00:00+00:00",
+            "baseline": 1.881673,
+            "intervention": 1.881673
+          },
+          {
+            "observed_at": "2026-11-13T02:00:00+00:00",
+            "baseline": 1.90266,
+            "intervention": 1.90266
+          },
+          {
+            "observed_at": "2026-11-13T03:00:00+00:00",
+            "baseline": 1.910983,
+            "intervention": 1.910983
+          },
+          {
+            "observed_at": "2026-11-13T04:00:00+00:00",
+            "baseline": 1.879293,
+            "intervention": 1.879293
+          },
+          {
+            "observed_at": "2026-11-13T05:00:00+00:00",
+            "baseline": 1.88576,
+            "intervention": 1.88576
+          },
+          {
+            "observed_at": "2026-11-13T06:00:00+00:00",
+            "baseline": 1.902627,
+            "intervention": 1.902627
+          },
+          {
+            "observed_at": "2026-11-13T07:00:00+00:00",
+            "baseline": 1.896335,
+            "intervention": 1.896335
+          },
+          {
+            "observed_at": "2026-11-13T08:00:00+00:00",
+            "baseline": 1.914162,
+            "intervention": 1.914162
+          },
+          {
+            "observed_at": "2026-11-13T09:00:00+00:00",
+            "baseline": 1.936136,
+            "intervention": 1.936136
+          },
+          {
+            "observed_at": "2026-11-13T10:00:00+00:00",
+            "baseline": 1.887612,
+            "intervention": 1.887612
+          },
+          {
+            "observed_at": "2026-11-13T11:00:00+00:00",
+            "baseline": 1.905948,
+            "intervention": 1.905948
+          },
+          {
+            "observed_at": "2026-11-13T12:00:00+00:00",
+            "baseline": 1.90978,
+            "intervention": 1.90978
+          },
+          {
+            "observed_at": "2026-11-13T13:00:00+00:00",
+            "baseline": 1.892992,
+            "intervention": 1.892992
+          },
+          {
+            "observed_at": "2026-11-13T14:00:00+00:00",
+            "baseline": 1.906141,
+            "intervention": 1.906141
+          },
+          {
+            "observed_at": "2026-11-13T15:00:00+00:00",
+            "baseline": 1.959007,
+            "intervention": 1.959007
+          },
+          {
+            "observed_at": "2026-11-13T16:00:00+00:00",
+            "baseline": 2.005794,
+            "intervention": 2.005794
+          },
+          {
+            "observed_at": "2026-11-13T17:00:00+00:00",
+            "baseline": 2.088537,
+            "intervention": 2.088537
+          },
+          {
+            "observed_at": "2026-11-13T18:00:00+00:00",
+            "baseline": 2.132821,
+            "intervention": 2.132821
+          },
+          {
+            "observed_at": "2026-11-13T19:00:00+00:00",
+            "baseline": 2.200784,
+            "intervention": 2.200784
+          },
+          {
+            "observed_at": "2026-11-13T20:00:00+00:00",
+            "baseline": 2.280765,
+            "intervention": 2.280765
+          },
+          {
+            "observed_at": "2026-11-13T21:00:00+00:00",
+            "baseline": 2.355863,
+            "intervention": 2.355863
+          },
+          {
+            "observed_at": "2026-11-13T22:00:00+00:00",
+            "baseline": 2.379366,
+            "intervention": 2.379366
+          },
+          {
+            "observed_at": "2026-11-13T23:00:00+00:00",
+            "baseline": 2.457955,
+            "intervention": 2.457955
+          },
+          {
+            "observed_at": "2026-11-14T00:00:00+00:00",
+            "baseline": 2.524615,
+            "intervention": 2.524615
+          },
+          {
+            "observed_at": "2026-11-14T01:00:00+00:00",
+            "baseline": 2.589773,
+            "intervention": 2.504428
+          },
+          {
+            "observed_at": "2026-11-14T02:00:00+00:00",
+            "baseline": 2.655041,
+            "intervention": 2.468834
+          },
+          {
+            "observed_at": "2026-11-14T03:00:00+00:00",
+            "baseline": 2.723494,
+            "intervention": 2.420908
+          },
+          {
+            "observed_at": "2026-11-14T04:00:00+00:00",
+            "baseline": 2.780628,
+            "intervention": 2.346146
+          },
+          {
+            "observed_at": "2026-11-14T05:00:00+00:00",
+            "baseline": 2.84939,
+            "intervention": 2.267494
+          },
+          {
+            "observed_at": "2026-11-14T06:00:00+00:00",
+            "baseline": 2.910932,
+            "intervention": 2.166104
+          },
+          {
+            "observed_at": "2026-11-14T07:00:00+00:00",
+            "baseline": 2.979303,
+            "intervention": 2.056027
+          },
+          {
+            "observed_at": "2026-11-14T08:00:00+00:00",
+            "baseline": 3.024297,
+            "intervention": 1.907056
+          },
+          {
+            "observed_at": "2026-11-14T09:00:00+00:00",
+            "baseline": 3.050471,
+            "intervention": 1.871161
+          },
+          {
+            "observed_at": "2026-11-14T10:00:00+00:00",
+            "baseline": 3.157678,
+            "intervention": 1.916299
+          },
+          {
+            "observed_at": "2026-11-14T11:00:00+00:00",
+            "baseline": 3.210455,
+            "intervention": 1.907007
+          },
+          {
+            "observed_at": "2026-11-14T12:00:00+00:00",
+            "baseline": 3.273963,
+            "intervention": 1.908446
+          },
+          {
+            "observed_at": "2026-11-14T13:00:00+00:00",
+            "baseline": 3.328333,
+            "intervention": 1.900747
+          },
+          {
+            "observed_at": "2026-11-14T14:00:00+00:00",
+            "baseline": 3.386704,
+            "intervention": 1.897048
+          },
+          {
+            "observed_at": "2026-11-14T15:00:00+00:00",
+            "baseline": 3.44247,
+            "intervention": 1.890746
+          },
+          {
+            "observed_at": "2026-11-14T16:00:00+00:00",
+            "baseline": 3.501707,
+            "intervention": 1.887914
+          },
+          {
+            "observed_at": "2026-11-14T17:00:00+00:00",
+            "baseline": 3.552005,
+            "intervention": 1.876143
+          },
+          {
+            "observed_at": "2026-11-14T18:00:00+00:00",
+            "baseline": 3.610839,
+            "intervention": 1.872908
+          },
+          {
+            "observed_at": "2026-11-14T19:00:00+00:00",
+            "baseline": 3.658832,
+            "intervention": 1.858832
+          },
+          {
+            "observed_at": "2026-11-14T20:00:00+00:00",
+            "baseline": 3.720024,
+            "intervention": 1.857955
+          },
+          {
+            "observed_at": "2026-11-14T21:00:00+00:00",
+            "baseline": 3.80321,
+            "intervention": 1.879072
+          },
+          {
+            "observed_at": "2026-11-14T22:00:00+00:00",
+            "baseline": 3.884969,
+            "intervention": 1.898762
+          },
+          {
+            "observed_at": "2026-11-14T23:00:00+00:00",
+            "baseline": 3.969948,
+            "intervention": 1.921672
+          },
+          {
+            "observed_at": "2026-11-15T00:00:00+00:00",
+            "baseline": 4.038673,
+            "intervention": 1.928328
+          }
+        ]
+      }
+    ],
+    "baseline_sha256": "802ba04c46460fe6a367be590a4c46ca514cdbd791978ad24606927ff11492e7",
+    "intervention_sha256": "09dea07fa90ff44361c7694e3914f253931d67a756095559d072ada232fb639a",
+    "limitations": [
+      "Same initial seed/noise, explicit toy response rules; no physical causal validity claimed.",
+      "Service reduces modeled oil-pressure loss over eight hours; it does not guarantee actual prevention.",
+      "NASA predictors and real uploaded histories are not used."
+    ],
+    "evidence_ids": [
+      "EV:1c725168f026158da3d5ad7694748cc4231453c3aec0e7eaaf96ae552e8d41de"
+    ]
+  },
+  "report": {
+    "metadata": {
+      "id": "report-83547ca4e1c4a27cc264c2f289f3020453587d9a5f23b79194a6875d0336c400",
+      "case_id": "d396ff26-fec2-4e3f-a8d7-ef7279fdb17e",
+      "sha256": "83547ca4e1c4a27cc264c2f289f3020453587d9a5f23b79194a6875d0336c400",
+      "human_review_status": "unreviewed",
+      "source_type": "sire_synthetic_scenario"
+    },
+    "pdf_bytes": 13527,
+    "pages": 7
+  },
+  "predictions": [
+    {
+      "dataset": "FD001",
+      "model_id": "fd001-01_lightgbm-s42",
+      "purpose": "rul",
+      "asset_id": "FD001-ENGINE-001",
+      "attachment_id": null,
+      "data_origin": "nasa_cmapss_simulation",
+      "last_cycle": 31,
+      "legacy_output": {
+        "rul": 115.3478990753549,
+        "rul_unit": "cycles",
+        "n_steps_used": 31,
+        "model": "01_lightgbm",
+        "dataset": "FD001",
+        "seed": 42,
+        "version": "709db1f819ba0df538580470cffc97c2dfb95d9cdc26fa2c12fbe681a9c18133",
+        "warnings": [
+          "History has 31 cycles; left-padded by repeating the first observation."
+        ],
+        "top_contributors": [
+          {
+            "channel": "s4",
+            "mean_abs_contribution": 8.01133567102933,
+            "mean_contribution": 8.01133567102933
+          },
+          {
+            "channel": "s12",
+            "mean_abs_contribution": 4.923191480448874,
+            "mean_contribution": 4.923191480448874
+          },
+          {
+            "channel": "s9",
+            "mean_abs_contribution": 3.2231015305331367,
+            "mean_contribution": 3.2231015305331367
+          },
+          {
+            "channel": "s7",
+            "mean_abs_contribution": 2.9662628541531535,
+            "mean_contribution": 2.9662628541531535
+          },
+          {
+            "channel": "s2",
+            "mean_abs_contribution": 2.956613995577235,
+            "mean_contribution": 2.956613995577235
+          }
+        ]
+      },
+      "rul_cycles": 115.3478990753549,
+      "interval": null,
+      "interval_method": null,
+      "anomaly": null,
+      "provenance": {
+        "source": "ml/artifacts/cmapss/model_registry.json",
+        "artifact_dir": "artifacts/01_lightgbm/outputs_tuned/FD001/seed_42",
+        "version": "709db1f819ba0df538580470cffc97c2dfb95d9cdc26fa2c12fbe681a9c18133",
+        "seed": 42,
+        "runtime": "cpu",
+        "bundle_sha256": "3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37"
+      },
+      "warnings": [
+        "History has 31 cycles; left-padded by repeating the first observation."
+      ],
+      "target_policy": "Original saved inference; RUL training targets capped where configured; output is not recapped",
+      "limitations": [
+        "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+        "A prediction is model inference, not proof of a failed component or a maintenance limit."
+      ],
+      "id": "dac02f23087149a88070ba36ef58ebc7"
+    },
+    {
+      "dataset": "FD002",
+      "model_id": "fd002-08_ensemble-s44",
+      "purpose": "rul",
+      "asset_id": "FD002-ENGINE-001",
+      "attachment_id": null,
+      "data_origin": "nasa_cmapss_simulation",
+      "last_cycle": 258,
+      "legacy_output": {
+        "rul": 11.592229512416276,
+        "rul_unit": "cycles",
+        "n_steps_used": 30,
+        "model": "08_ensemble",
+        "dataset": "FD002",
+        "seed": 44,
+        "version": "345197d727608fad3e7cd2c49f4fe7dc9d0c73a86696557deac75bbfab80590b",
+        "warnings": [
+          "Used the latest 50 of 258 available cycles.",
+          "Used the latest 30 of 258 available cycles."
+        ],
+        "members": {
+          "01_lightgbm_tuned": {
+            "rul": 18.62893727482336,
+            "rul_unit": "cycles",
+            "n_steps_used": 50,
+            "model": "01_lightgbm",
+            "dataset": "FD002",
+            "seed": 44,
+            "version": "06a26eecf1f2a9e76c47930f5488c428280687477223660a27d440d931ccee12",
+            "warnings": [
+              "Used the latest 50 of 258 available cycles."
+            ],
+            "top_contributors": [
+              {
+                "channel": "s11",
+                "mean_abs_contribution": 23.362568678930117,
+                "mean_contribution": -23.362568678930117
+              },
+              {
+                "channel": "s4",
+                "mean_abs_contribution": 16.875908954767738,
+                "mean_contribution": -16.875908954767738
+              },
+              {
+                "channel": "s14",
+                "mean_abs_contribution": 6.474103378755389,
+                "mean_contribution": -6.474103378755389
+              },
+              {
+                "channel": "s9",
+                "mean_abs_contribution": 5.87559374605369,
+                "mean_contribution": -5.87559374605369
+              },
+              {
+                "channel": "s15",
+                "mean_abs_contribution": 3.775351838555588,
+                "mean_contribution": -3.775351838555588
+              }
+            ]
+          },
+          "02_lstm": {
+            "rul": 12.565897777676582,
+            "rul_unit": "cycles",
+            "n_steps_used": 50,
+            "model": "02_lstm",
+            "dataset": "FD002",
+            "seed": 44,
+            "version": "ac7b6efc9a3c5288dc85d51b4a737ce30fa46fdc9deefcab25749efb8a6f4b33",
+            "warnings": [
+              "Used the latest 50 of 258 available cycles."
+            ]
+          },
+          "03_bilstm_attention": {
+            "rul": 12.266295030713081,
+            "rul_unit": "cycles",
+            "n_steps_used": 30,
+            "model": "03_bilstm_attention",
+            "dataset": "FD002",
+            "seed": 44,
+            "version": "16b8a1e938710bfe31f5bf30544f3f787138a44de7a16a8d6d46838816d0fd1f",
+            "warnings": [
+              "Used the latest 30 of 258 available cycles."
+            ],
+            "attention": [
+              0.0005859064985997975,
+              0.002072779694572091,
+              0.004801406059414148,
+              0.010275638662278652,
+              0.015721987932920456,
+              0.020246004685759544,
+              0.01947360672056675,
+              0.026683930307626724,
+              0.03545702248811722,
+              0.0349825955927372,
+              0.037096358835697174,
+              0.034887440502643585,
+              0.03470241650938988,
+              0.03151463344693184,
+              0.03794319927692413,
+              0.0424068421125412,
+              0.04413989931344986,
+              0.049613527953624725,
+              0.04490252211689949,
+              0.049046508967876434,
+              0.048089511692523956,
+              0.0494423545897007,
+              0.05332621932029724,
+              0.05357742682099342,
+              0.04841914400458336,
+              0.04743203520774841,
+              0.0451422780752182,
+              0.034568902105093,
+              0.027358800172805786,
+              0.016089100390672684
+            ]
+          },
+          "04_cnn1d": {
+            "rul": 20.95431089401245,
+            "rul_unit": "cycles",
+            "n_steps_used": 30,
+            "model": "04_cnn1d",
+            "dataset": "FD002",
+            "seed": 44,
+            "version": "f8c1cb5884e3a6914955800d52eaf788aad745f814b789cce700a8d1784bd95f",
+            "warnings": [
+              "Used the latest 30 of 258 available cycles."
+            ]
+          },
+          "05_transformer": {
+            "rul": 10.870489291846752,
+            "rul_unit": "cycles",
+            "n_steps_used": 30,
+            "model": "05_transformer",
+            "dataset": "FD002",
+            "seed": 44,
+            "version": "52627c6738be191e1207e8205de41c06e6716af6dd859907dfaa18762c95a4ee",
+            "warnings": [
+              "Used the latest 30 of 258 available cycles."
+            ]
+          },
+          "07_cnn_transformer": {
+            "rul": 16.732273623347282,
+            "rul_unit": "cycles",
+            "n_steps_used": 30,
+            "model": "07_cnn_transformer",
+            "dataset": "FD002",
+            "seed": 44,
+            "version": "1ac778ca4e40943dd1f54d79eba1fd543d903f7c59a019ca608a3167ca508345",
+            "warnings": [
+              "Used the latest 30 of 258 available cycles."
+            ]
+          },
+          "09_ts_degradation": {
+            "rul": 11.0,
+            "interval_80": [
+              8.0,
+              14.0
+            ],
+            "rul_unit": "cycles",
+            "n_steps_used": 258,
+            "model": "09_ts_degradation",
+            "dataset": "FD002",
+            "seed": 44,
+            "version": "06015f03c294ca8dcfb3bb0a7e73f1aef01bafd6aecb940e49d884d8b2627415",
+            "health_index": 0.8672311688579777,
+            "threshold": 0.9621386547688924,
+            "uncertainty_method": "bootstrap_fit_residuals",
+            "warnings": []
+          }
+        },
+        "member_prediction_std": 3.7323596014633007,
+        "member_prediction_min": 10.870489291846752,
+        "member_prediction_max": 20.95431089401245,
+        "interval_80": [
+          5.343085043168889,
+          17.841373981663665
+        ],
+        "interval_90": [
+          3.233931876866862,
+          19.95052714796569
+        ],
+        "uncertainty_method": "cross_fitted_split_conformal_member_spread"
+      },
+      "rul_cycles": 11.592229512416276,
+      "interval": [
+        5.343085043168889,
+        17.841373981663665
+      ],
+      "interval_method": "cross_fitted_split_conformal_member_spread",
+      "anomaly": null,
+      "provenance": {
+        "source": "ml/artifacts/cmapss/model_registry.json",
+        "artifact_dir": "artifacts/08_ensemble/outputs/FD002/seed_44",
+        "version": "345197d727608fad3e7cd2c49f4fe7dc9d0c73a86696557deac75bbfab80590b",
+        "seed": 44,
+        "runtime": "cpu",
+        "bundle_sha256": "3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37"
+      },
+      "warnings": [
+        "Used the latest 50 of 258 available cycles.",
+        "Used the latest 30 of 258 available cycles."
+      ],
+      "target_policy": "Original saved inference; RUL training targets capped where configured; output is not recapped",
+      "limitations": [
+        "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+        "A prediction is model inference, not proof of a failed component or a maintenance limit."
+      ],
+      "id": "b2a17006905c46479e9816b2a795eccf"
+    },
+    {
+      "dataset": "FD003",
+      "model_id": "fd003-08_ensemble-s42",
+      "purpose": "rul",
+      "asset_id": "FD003-ENGINE-001",
+      "attachment_id": null,
+      "data_origin": "nasa_cmapss_simulation",
+      "last_cycle": 233,
+      "legacy_output": {
+        "rul": 51.46118890357053,
+        "rul_unit": "cycles",
+        "n_steps_used": 30,
+        "model": "08_ensemble",
+        "dataset": "FD003",
+        "seed": 42,
+        "version": "c6b38471231b402575ff47c129e305ab4b6dc418eece51aee912d1162c5718f8",
+        "warnings": [
+          "Used the latest 40 of 233 available cycles.",
+          "Used the latest 50 of 233 available cycles.",
+          "Used the latest 30 of 233 available cycles."
+        ],
+        "members": {
+          "01_lightgbm_tuned": {
+            "rul": 43.38973340387454,
+            "rul_unit": "cycles",
+            "n_steps_used": 40,
+            "model": "01_lightgbm",
+            "dataset": "FD003",
+            "seed": 42,
+            "version": "6080ca36068bc8741bab1628c1aad52e1aed34d1fbda31da1b129e85584bd23b",
+            "warnings": [
+              "Used the latest 40 of 233 available cycles."
+            ],
+            "top_contributors": [
+              {
+                "channel": "s11",
+                "mean_abs_contribution": 15.173009104834229,
+                "mean_contribution": -15.173009104834229
+              },
+              {
+                "channel": "s9",
+                "mean_abs_contribution": 12.101093744100831,
+                "mean_contribution": -12.101093744100831
+              },
+              {
+                "channel": "s14",
+                "mean_abs_contribution": 10.097202423753302,
+                "mean_contribution": -10.097202423753302
+              },
+              {
+                "channel": "s12",
+                "mean_abs_contribution": 5.48391231801377,
+                "mean_contribution": -5.48391231801377
+              },
+              {
+                "channel": "s13",
+                "mean_abs_contribution": 4.108592059939515,
+                "mean_contribution": -4.108592059939515
+              }
+            ]
+          },
+          "02_lstm": {
+            "rul": 51.77265778183937,
+            "rul_unit": "cycles",
+            "n_steps_used": 50,
+            "model": "02_lstm",
+            "dataset": "FD003",
+            "seed": 42,
+            "version": "0fe97e9698178066723cb970ae19c107dac717ca7383de6acd1d286226f57a2c",
+            "warnings": [
+              "Used the latest 50 of 233 available cycles."
+            ]
+          },
+          "03_bilstm_attention": {
+            "rul": 42.143382132053375,
+            "rul_unit": "cycles",
+            "n_steps_used": 30,
+            "model": "03_bilstm_attention",
+            "dataset": "FD003",
+            "seed": 42,
+            "version": "9f2a79bacbfec4af286b138c96a19af963db37bf99526d1ad81277564d23ec7d",
+            "warnings": [
+              "Used the latest 30 of 233 available cycles."
+            ],
+            "attention": [
+              0.0005908436141908169,
+              0.003998084459453821,
+              0.011306497268378735,
+              0.019262148067355156,
+              0.024108819663524628,
+              0.022997822612524033,
+              0.018343981355428696,
+              0.014492045156657696,
+              0.011198734864592552,
+              0.008828094229102135,
+              0.008027025498449802,
+              0.007789398543536663,
+              0.00800369493663311,
+              0.006599866319447756,
+              0.00541825732216239,
+              0.005055199842900038,
+              0.004396387375891209,
+              0.005142064765095711,
+              0.00563257047906518,
+              0.008354924619197845,
+              0.011157989501953125,
+              0.018955418840050697,
+              0.032321345061063766,
+              0.05070425570011139,
+              0.07649537920951843,
+              0.09973321110010147,
+              0.13251547515392303,
+              0.14874255657196045,
+              0.14034290611743927,
+              0.0894850641489029
+            ]
+          },
+          "04_cnn1d": {
+            "rul": 48.91085624694824,
+            "rul_unit": "cycles",
+            "n_steps_used": 30,
+            "model": "04_cnn1d",
+            "dataset": "FD003",
+            "seed": 42,
+            "version": "899c7a6e1352ca37f087e65afe819fca7ad61e4e6c2749709a181e4a766fba81",
+            "warnings": [
+              "Used the latest 30 of 233 available cycles."
+            ]
+          },
+          "05_transformer": {
+            "rul": 49.686167389154434,
+            "rul_unit": "cycles",
+            "n_steps_used": 30,
+            "model": "05_transformer",
+            "dataset": "FD003",
+            "seed": 42,
+            "version": "74b0796c4e9bba95a9ce46fc6a96058a42402c869e6189ccd8e29e007cd94909",
+            "warnings": [
+              "Used the latest 30 of 233 available cycles."
+            ]
+          },
+          "07_cnn_transformer": {
+            "rul": 43.73887553811073,
+            "rul_unit": "cycles",
+            "n_steps_used": 30,
+            "model": "07_cnn_transformer",
+            "dataset": "FD003",
+            "seed": 42,
+            "version": "1cfae8f6802b6a2d9f74bc8a514ced6e5ad927058ae6890254365e38161d48dd",
+            "warnings": [
+              "Used the latest 30 of 233 available cycles."
+            ]
+          },
+          "09_ts_degradation": {
+            "rul": 61.0,
+            "interval_80": [
+              36.0,
+              125.0
+            ],
+            "rul_unit": "cycles",
+            "n_steps_used": 233,
+            "model": "09_ts_degradation",
+            "dataset": "FD003",
+            "seed": 42,
+            "version": "dadff2106d6f3bb7ea3f9a6a9c984893b81ea486d738d1dc5357a494e985d555",
+            "health_index": 0.5192447660933961,
+            "threshold": 1.1117861175261328,
+            "uncertainty_method": "bootstrap_fit_residuals",
+            "warnings": []
+          }
+        },
+        "member_prediction_std": 6.065589173302197,
+        "member_prediction_min": 42.143382132053375,
+        "member_prediction_max": 61.0,
+        "interval_80": [
+          41.272627884600446,
+          61.649749922540614
+        ],
+        "interval_90": [
+          37.10515347575772,
+          65.81722433138334
+        ],
+        "uncertainty_method": "cross_fitted_split_conformal_member_spread"
+      },
+      "rul_cycles": 51.46118890357053,
+      "interval": [
+        41.272627884600446,
+        61.649749922540614
+      ],
+      "interval_method": "cross_fitted_split_conformal_member_spread",
+      "anomaly": null,
+      "provenance": {
+        "source": "ml/artifacts/cmapss/model_registry.json",
+        "artifact_dir": "artifacts/08_ensemble/outputs/FD003/seed_42",
+        "version": "c6b38471231b402575ff47c129e305ab4b6dc418eece51aee912d1162c5718f8",
+        "seed": 42,
+        "runtime": "cpu",
+        "bundle_sha256": "3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37"
+      },
+      "warnings": [
+        "Used the latest 40 of 233 available cycles.",
+        "Used the latest 50 of 233 available cycles.",
+        "Used the latest 30 of 233 available cycles."
+      ],
+      "target_policy": "Original saved inference; RUL training targets capped where configured; output is not recapped",
+      "limitations": [
+        "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+        "A prediction is model inference, not proof of a failed component or a maintenance limit."
+      ],
+      "id": "caebe5bbc80a4c7c8888c928124de6d7"
+    },
+    {
+      "dataset": "FD004",
+      "model_id": "fd004-08_ensemble-s42",
+      "purpose": "rul",
+      "asset_id": "FD004-ENGINE-001",
+      "attachment_id": null,
+      "data_origin": "nasa_cmapss_simulation",
+      "last_cycle": 230,
+      "legacy_output": {
+        "rul": 25.05196696607433,
+        "rul_unit": "cycles",
+        "n_steps_used": 30,
+        "model": "08_ensemble",
+        "dataset": "FD004",
+        "seed": 42,
+        "version": "dd509b18ca35a45aebaa1d46a14bcf496c993ccbfc54d66f20a2411c08e63df8",
+        "warnings": [
+          "Used the latest 40 of 230 available cycles.",
+          "Used the latest 50 of 230 available cycles.",
+          "Used the latest 30 of 230 available cycles."
+        ],
+        "members": {
+          "01_lightgbm_tuned": {
+            "rul": 32.158785034361294,
+            "rul_unit": "cycles",
+            "n_steps_used": 40,
+            "model": "01_lightgbm",
+            "dataset": "FD004",
+            "seed": 42,
+            "version": "09812b709683fdeeb64ab42ea8814bef006b57b1c270d811c0ab75a12c6fcca6",
+            "warnings": [
+              "Used the latest 40 of 230 available cycles."
+            ],
+            "top_contributors": [
+              {
+                "channel": "s14",
+                "mean_abs_contribution": 22.132096947536983,
+                "mean_contribution": -22.132096947536983
+              },
+              {
+                "channel": "s9",
+                "mean_abs_contribution": 13.415743857763953,
+                "mean_contribution": -13.415743857763953
+              },
+              {
+                "channel": "s13",
+                "mean_abs_contribution": 7.061949609280146,
+                "mean_contribution": -7.061949609280146
+              },
+              {
+                "channel": "s11",
+                "mean_abs_contribution": 6.4897822557101446,
+                "mean_contribution": -6.4897822557101446
+              },
+              {
+                "channel": "s8",
+                "mean_abs_contribution": 4.003721458850409,
+                "mean_contribution": -4.003721458850409
+              }
+            ]
+          },
+          "02_lstm": {
+            "rul": 26.668459177017212,
+            "rul_unit": "cycles",
+            "n_steps_used": 50,
+            "model": "02_lstm",
+            "dataset": "FD004",
+            "seed": 42,
+            "version": "bd1ed86f9caf1b33356fac36ed27e1060d8e7d532f9172048d7940d47faca64a",
+            "warnings": [
+              "Used the latest 50 of 230 available cycles."
+            ]
+          },
+          "03_bilstm_attention": {
+            "rul": 24.990087375044823,
+            "rul_unit": "cycles",
+            "n_steps_used": 30,
+            "model": "03_bilstm_attention",
+            "dataset": "FD004",
+            "seed": 42,
+            "version": "c9fceb94a99536ae0935c6c110c1862a564034d9227d10f00063d1aaa49d2d99",
+            "warnings": [
+              "Used the latest 30 of 230 available cycles."
+            ],
+            "attention": [
+              0.0013380221789702773,
+              0.0012112221447750926,
+              0.001283971592783928,
+              0.0011045775609090924,
+              0.0011454001069068909,
+              0.0010800855234265327,
+              0.0011965413577854633,
+              0.001490532187744975,
+              0.001552651054225862,
+              0.0015626579988747835,
+              0.0019219913519918919,
+              0.0030031774658709764,
+              0.0033398326486349106,
+              0.004948123823851347,
+              0.008934049867093563,
+              0.00998943392187357,
+              0.013630838133394718,
+              0.020018309354782104,
+              0.024348821491003036,
+              0.03504682332277298,
+              0.05504612997174263,
+              0.06587536633014679,
+              0.083685003221035,
+              0.09920007735490799,
+              0.11431489884853363,
+              0.15767063200473785,
+              0.11547020822763443,
+              0.09686433523893356,
+              0.05204227939248085,
+              0.02168400213122368
+            ]
+          },
+          "04_cnn1d": {
+            "rul": 27.578845620155334,
+            "rul_unit": "cycles",
+            "n_steps_used": 30,
+            "model": "04_cnn1d",
+            "dataset": "FD004",
+            "seed": 42,
+            "version": "fd272b5e322300258afa88d5048732cd12fb75849486a09565a3bde3773e0d22",
+            "warnings": [
+              "Used the latest 30 of 230 available cycles."
+            ]
+          },
+          "05_transformer": {
+            "rul": 23.68038333952427,
+            "rul_unit": "cycles",
+            "n_steps_used": 30,
+            "model": "05_transformer",
+            "dataset": "FD004",
+            "seed": 42,
+            "version": "7433be5063e433d98c114d2fb47060589bb9eeda145d3ba0f02a6447e5bb0631",
+            "warnings": [
+              "Used the latest 30 of 230 available cycles."
+            ]
+          },
+          "07_cnn_transformer": {
+            "rul": 24.288848042488098,
+            "rul_unit": "cycles",
+            "n_steps_used": 30,
+            "model": "07_cnn_transformer",
+            "dataset": "FD004",
+            "seed": 42,
+            "version": "a364b1d864165f0c430e4e6c98e786bdf320f54290bd608876404acf79fb168c",
+            "warnings": [
+              "Used the latest 30 of 230 available cycles."
+            ]
+          },
+          "09_ts_degradation": {
+            "rul": 21.0,
+            "interval_80": [
+              19.0,
+              24.0
+            ],
+            "rul_unit": "cycles",
+            "n_steps_used": 230,
+            "model": "09_ts_degradation",
+            "dataset": "FD004",
+            "seed": 42,
+            "version": "248bebf3c46acd45dd271e6eab98342b8215dc8b421aff6e53d15308d592e749",
+            "health_index": 0.6918166570491573,
+            "threshold": 0.9826690285540808,
+            "uncertainty_method": "bootstrap_fit_residuals",
+            "warnings": []
+          }
+        },
+        "member_prediction_std": 3.2692749699954313,
+        "member_prediction_min": 21.0,
+        "member_prediction_max": 32.158785034361294,
+        "interval_80": [
+          19.01438404053125,
+          31.089549891617406
+        ],
+        "interval_90": [
+          16.925470465206402,
+          33.178463466942254
+        ],
+        "uncertainty_method": "cross_fitted_split_conformal_member_spread"
+      },
+      "rul_cycles": 25.05196696607433,
+      "interval": [
+        19.01438404053125,
+        31.089549891617406
+      ],
+      "interval_method": "cross_fitted_split_conformal_member_spread",
+      "anomaly": null,
+      "provenance": {
+        "source": "ml/artifacts/cmapss/model_registry.json",
+        "artifact_dir": "artifacts/08_ensemble/outputs/FD004/seed_42",
+        "version": "dd509b18ca35a45aebaa1d46a14bcf496c993ccbfc54d66f20a2411c08e63df8",
+        "seed": 42,
+        "runtime": "cpu",
+        "bundle_sha256": "3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37"
+      },
+      "warnings": [
+        "Used the latest 40 of 230 available cycles.",
+        "Used the latest 50 of 230 available cycles.",
+        "Used the latest 30 of 230 available cycles."
+      ],
+      "target_policy": "Original saved inference; RUL training targets capped where configured; output is not recapped",
+      "limitations": [
+        "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+        "A prediction is model inference, not proof of a failed component or a maintenance limit."
+      ],
+      "id": "227ada38f0854054b6d8d671e3a8061d"
+    }
+  ],
+  "voice": {
+    "asr_ready": false,
+    "tts_ready": false,
+    "video_ready": false,
+    "asr_package_present": false,
+    "piper_package_present": false,
+    "ffmpeg_present": false,
+    "reason": "No configured and verified local ASR/TTS model or bounded video adapter. Type your question; image and text tools remain available.",
+    "network": "No cloud speech API or browser cloud speech recognition is used."
+  },
+  "status": "PASS for executed routes; voice/video unavailable and browser UI not tested"
+}

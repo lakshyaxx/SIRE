@@ -1,0 +1,48 @@
+{
+  "scope": "Focused V4 execution/source checks only; no new stress campaign or private evaluator",
+  "backend_full_suite": {
+    "passed": 246,
+    "warnings": 2,
+    "seconds": 199.53,
+    "log": ".runtime/v4/final_pytest.log",
+    "final_alias_patch": "22 relevant hypothesis tests pass after full run; full suite not repeated"
+  },
+  "frontend_contracts": {
+    "passed": 7,
+    "physical_browser": false
+  },
+  "http_checks": {
+    "passed": 11,
+    "failed": 0,
+    "proof": ".runtime/v4/http_acceptance_verified/results.json"
+  },
+  "uploaded_numeric_checks": {
+    "total": 44,
+    "verified_exact": 44,
+    "scope": "Recomputed descriptive statistics for one synthetic CSV, not physical authenticity or narrative support rate"
+  },
+  "negative_control": ".runtime/v4/engineering_claim_corrected.json",
+  "combined_execution": {
+    "status": "complete",
+    "seconds": 175.5939494,
+    "actual_model_rounds": 2,
+    "vision": "exact saved inference cache reuse",
+    "semantic_missing_evidence_defect": "Generated unresolved text contradicts available flow/ambient channels; physical association and causal correctness unverified"
+  },
+  "top1": null,
+  "top3": null,
+  "population_false_positive_rate": null,
+  "population_citation_semantic_support_rate": null,
+  "unavailable_metric_reason": "No authorized isolated private-label evaluation; selected checks cannot establish population metrics",
+  "preservation": {
+    "native": 813,
+    "production_tables_unchanged_after_restart": 13,
+    "frozen_files": 7956,
+    "frozen_mismatches": 0
+  },
+  "browser_mobile_microphone_speaker": "unverified",
+  "runtime": {
+    "version": "4.0.0",
+    "loaded_source_matches_current": true
+  }
+}

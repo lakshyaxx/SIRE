@@ -1,0 +1,64 @@
+{
+  "timestamp_utc": "2026-11-16T23:21:33.189282+00:00",
+  "health": {
+    "status": "ok",
+    "contract_version": "2.0",
+    "ml_ready": true,
+    "ollama_ready": true,
+    "text_ready": true,
+    "vision_ready": true,
+    "models": [
+      "qwen3:4b-instruct",
+      "qwen3-vl:2b-instruct",
+      "qwen3-vl:2b",
+      "qwen3:4b"
+    ],
+    "mode": "local",
+    "hosted_providers": "disabled"
+  },
+  "openapi_version": "3.0.0",
+  "routes": {
+    "/": 200,
+    "/engineer": 200,
+    "/predictions": 200,
+    "/docs": 200,
+    "/api/v1/cases": 200
+  },
+  "scenario_count": 10,
+  "built_assets": {
+    "/static/index-94qQjop3.js": 200,
+    "/static/index-CuK9iGJ2.css": 200
+  },
+  "conversation_count": 4,
+  "voice": {
+    "asr_ready": false,
+    "tts_ready": false,
+    "video_ready": false,
+    "asr_package_present": false,
+    "piper_package_present": false,
+    "ffmpeg_present": false,
+    "reason": "No configured and verified local ASR/TTS model or bounded video adapter. Type your question; image and text tools remain available.",
+    "network": "No cloud speech API or browser cloud speech recognition is used."
+  },
+  "capability_count": 8,
+  "unchanged_v2_rows_after_cutover": {
+    "conversations": 4,
+    "messages": 36,
+    "attachments": 5,
+    "chunks": 4,
+    "cases": 3,
+    "predictions": 3
+  },
+  "schema_versions": [
+    1,
+    3
+  ],
+  "v3_tables": [
+    "v3_sources",
+    "v3_evidence",
+    "v3_runs",
+    "v3_cases",
+    "v3_reports",
+    "v3_annotations"
+  ]
+}

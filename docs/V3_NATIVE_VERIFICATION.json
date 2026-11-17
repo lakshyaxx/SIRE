@@ -1,0 +1,10 @@
+{
+  "timestamp_utc": "2026-11-16T22:54:00.470636+00:00",
+  "fresh_inferred_routes": 168,
+  "unavailable": 0,
+  "integrity_files": 813,
+  "primary_frozen_reference_comparisons": 44,
+  "reference_scope": "Fresh V3 CPU outputs compared to independently executed frozen pre-cutover V1 outputs; original archive code not rerun in V3.",
+  "verification_sha256": "612f40316672c279280a944e7a28151256d68256fdd3a0d093e793b2ac9901ed",
+  "io_recovery": "Initial OneDrive derived-metadata write failed after 113 saved successes; remaining routes resumed in temporary storage; full result published atomically."
+}

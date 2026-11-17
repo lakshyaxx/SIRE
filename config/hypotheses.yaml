@@ -1,0 +1,7 @@
+version: '3.2'
+max_candidates: 8
+ignore_identity_words: [possible, potential, proposed, mechanism, issue, problem]
+aliases:
+  lubrication_deficiency: [insufficient lubrication, inadequate lubrication, lubrication deficiency, lubrication starvation]
+  shaft_misalignment: [shaft misalignment, misaligned shaft]
+  rolling_contact_fatigue: [rolling contact fatigue, contact fatigue]

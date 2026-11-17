@@ -1,0 +1,26 @@
+version: '4.5.1'
+name: SIRE
+overview: >-
+  SIRE is a local industrial engineering assistant for investigating why machine
+  components may have failed and what evidence could help prevent recurrence.
+  It combines conversation, document retrieval, uploaded measurements and local
+  image interpretation with competing hypotheses. Its separate prediction tools
+  run preserved models on compatible NASA C-MAPSS engine histories. It also has
+  local English speech input and output. Availability depends on installed local providers.
+hypotheses: >-
+  SIRE proposes alternative mechanisms from the supplied evidence, merges explicit
+  duplicate identities, and retains candidates in a case registry. It compares
+  proposed support and conflicts, excludes unrelated assets, and preserves missing
+  tests and uncertainty. Reliable measured Boolean prerequisites can falsify a
+  matching hypothesis. Ranking scores are heuristics, not probabilities or proof
+  of root cause. Bounded local document follow-up may refine a case; deferred
+  candidates are retained. Saved-case questions can reuse results without rerunning models.
+limits: >-
+  Generated explanations, transcripts and visual observations need human review.
+  Images do not prove hidden damage or supply RUL. Synthetic NASA results do not
+  describe an unrelated physical component. SIRE does not operate equipment.
+  This manifest does not define an expansion of the name SIRE or claim validated
+  physical diagnostic accuracy, multilingual speech, or fast real-time voice.
+spoken:
+  overview: "SIRE helps investigate machine issues using local models and supplied evidence. Its conclusions need human review."
+  hypotheses: "I compare alternative explanations against evidence and missing tests. Ranking is tentative, not proof of a cause."

@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-11-16T23:19:47.391108+00:00",
+  "old_rows_preserved": {
+    "conversations": 4,
+    "messages": 36,
+    "attachments": 5,
+    "chunks": 4,
+    "cases": 3,
+    "predictions": 3
+  },
+  "counts_before_cutover": {
+    "conversations": 4,
+    "messages": 36,
+    "attachments": 5,
+    "chunks": 4,
+    "cases": 3,
+    "predictions": 3
+  },
+  "unchanged_v2_zip_sha256": "18c9bb7c20af2ca43cf470d9594c72313a129011304521c07ca90bd50b5f3f24"
+}

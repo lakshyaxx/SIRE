@@ -1,0 +1,173 @@
+{
+  "events": [
+    {
+      "type": "started",
+      "request_id": "4fbf8b6214a74dd08deb12df7bcb40f8",
+      "user_message_id": "a79d68e9812f48c982cc31077988160d"
+    },
+    {
+      "type": "tool",
+      "tool": "prediction.run",
+      "status": "running"
+    },
+    {
+      "type": "tool",
+      "tool": "prediction.run",
+      "status": "complete",
+      "source_ids": [
+        "EV:bdf672ff82cfd9a43a6f4d0afb077de8829e9428fb6e38e0f7031ad80005eb6d"
+      ]
+    },
+    {
+      "type": "evidence",
+      "evidence": [
+        {
+          "id": "prediction:f0f713a68bcb463989939574b24c5f55",
+          "modality": "sensor_model",
+          "kind": "model_inference",
+          "source_id": "f0f713a68bcb463989939574b24c5f55",
+          "observation": "{\"id\": \"f0f713a68bcb463989939574b24c5f55\", \"dataset\": \"FD003\", \"model_id\": \"fd003-08_ensemble-s42\", \"data_origin\": \"nasa_cmapss_simulation\", \"last_cycle\": 87, \"rul_cycles\": 114.49630975928234, \"interval\": [96.18562212280787, 132.8069973957568], \"interval_method\": \"cross_fitted_split_conformal_member_spread\", \"provenance\": {\"source\": \"ml/artifacts/cmapss/model_registry.json\", \"artifact_dir\": \"artifacts/08_ensemble/outputs/FD003/seed_42\", \"version\": \"c6b38471231b402575ff47c129e305ab4b6dc418eece51aee912d1162c5718f8\", \"seed\": 42, \"runtime\": \"cpu\", \"bundle_sha256\": \"3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37\"}, \"limitations\": [\"NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.\", \"A prediction is model inference, not proof of a failed component or a maintenance limit.\"]}",
+          "locator": null,
+          "reliability": "medium",
+          "asset_identity": "FD003-ENGINE-042",
+          "predicate": null,
+          "value": null,
+          "limitations": [
+            "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+            "A prediction is model inference, not proof of a failed component or a maintenance limit."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "delta",
+      "text": "**Saved model inference:** 114.49630975928234 operating cycles.\n\nModel: `fd003-08_ensemble-s42`; dataset: FD003; source: FD003-ENGINE-042.\n\nNative interval endpoints: 96.18562212280787 to 132.8069973957568 cycles. Method: `cross_fitted_split_conformal_member_spread`. This is not an exact confidence percentage about a physical component.\n\nSimulation-domain estimate, not a measured lifespan or certified maintenance limit.\n\n",
+      "source": "validated_tool_facts"
+    },
+    {
+      "type": "error",
+      "code": "unsupported_prediction_claim",
+      "message": "Local model introduced unsupported confidence language; its commentary was withheld. Actual tool facts are shown."
+    },
+    {
+      "type": "done",
+      "status": "error",
+      "metadata": {
+        "provider": "ollama",
+        "model": "qwen3:4b-instruct",
+        "tools": [
+          {
+            "tool": "prediction.run",
+            "status": "complete",
+            "source_ids": [
+              "EV:bdf672ff82cfd9a43a6f4d0afb077de8829e9428fb6e38e0f7031ad80005eb6d"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "id": "prediction:f0f713a68bcb463989939574b24c5f55",
+            "modality": "sensor_model",
+            "kind": "model_inference",
+            "source_id": "f0f713a68bcb463989939574b24c5f55",
+            "observation": "{\"id\": \"f0f713a68bcb463989939574b24c5f55\", \"dataset\": \"FD003\", \"model_id\": \"fd003-08_ensemble-s42\", \"data_origin\": \"nasa_cmapss_simulation\", \"last_cycle\": 87, \"rul_cycles\": 114.49630975928234, \"interval\": [96.18562212280787, 132.8069973957568], \"interval_method\": \"cross_fitted_split_conformal_member_spread\", \"provenance\": {\"source\": \"ml/artifacts/cmapss/model_registry.json\", \"artifact_dir\": \"artifacts/08_ensemble/outputs/FD003/seed_42\", \"version\": \"c6b38471231b402575ff47c129e305ab4b6dc418eece51aee912d1162c5718f8\", \"seed\": 42, \"runtime\": \"cpu\", \"bundle_sha256\": \"3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37\"}, \"limitations\": [\"NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.\", \"A prediction is model inference, not proof of a failed component or a maintenance limit.\"]}",
+            "locator": null,
+            "reliability": "medium",
+            "asset_identity": "FD003-ENGINE-042",
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+              "A prediction is model inference, not proof of a failed component or a maintenance limit."
+            ]
+          }
+        ],
+        "attachments": [],
+        "orchestration": {
+          "run_id": "17dec0fb-93e1-46b2-a421-112d0c8214bd",
+          "intent": "rul_prediction"
+        },
+        "delivery": "Tool facts immediately; actual model commentary buffered until numerical validation.",
+        "error": {
+          "code": "unsupported_prediction_claim",
+          "message": "Local model introduced unsupported confidence language; its commentary was withheld. Actual tool facts are shown."
+        },
+        "elapsed_seconds": 52.76599999999962
+      }
+    }
+  ],
+  "elapsed_seconds": 52.76599999999962,
+  "text": "**Saved model inference:** 114.49630975928234 operating cycles.\n\nModel: `fd003-08_ensemble-s42`; dataset: FD003; source: FD003-ENGINE-042.\n\nNative interval endpoints: 96.18562212280787 to 132.8069973957568 cycles. Method: `cross_fitted_split_conformal_member_spread`. This is not an exact confidence percentage about a physical component.\n\nSimulation-domain estimate, not a measured lifespan or certified maintenance limit.\n\n",
+  "trace": {
+    "id": "17dec0fb-93e1-46b2-a421-112d0c8214bd",
+    "plan": {
+      "id": "fa81ce54-384c-4d5e-8bda-256c6371662d",
+      "intent": "rul_prediction",
+      "goals": [
+        "Run the explicitly requested NASA simulation model, then explain its actual output"
+      ],
+      "tools": [
+        {
+          "tool_id": "prediction.run",
+          "arguments": {
+            "sha256": "0208060d2f5bb2b979ca5ca423792c66c87c59929d0094baac475175fba9912c"
+          },
+          "depends_on": []
+        },
+        {
+          "tool_id": "llm.chat",
+          "arguments": {
+            "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+          },
+          "depends_on": []
+        }
+      ],
+      "evidence_ids": [],
+      "allowed_external_providers": [],
+      "deadline_seconds": 300.0,
+      "max_tool_calls": 12,
+      "fallback": "Return explicit partial/error status; never fabricate tool findings."
+    },
+    "started_at": "2026-11-16T22:55:06.229142+00:00",
+    "steps": [
+      {
+        "tool_id": "prediction.run",
+        "started_at": "2026-11-16T22:55:06.264174+00:00",
+        "input_evidence_ids": [],
+        "output_evidence_ids": [
+          "EV:bdf672ff82cfd9a43a6f4d0afb077de8829e9428fb6e38e0f7031ad80005eb6d"
+        ],
+        "status": "ok",
+        "warnings": [],
+        "network": "local_only",
+        "arguments_sha256": "0208060d2f5bb2b979ca5ca423792c66c87c59929d0094baac475175fba9912c",
+        "ended_at": "2026-11-16T22:55:17.169586+00:00",
+        "elapsed_seconds": 10.90599999999904
+      },
+      {
+        "tool_id": "llm.chat",
+        "started_at": "2026-11-16T22:55:17.203120+00:00",
+        "input_evidence_ids": [],
+        "output_evidence_ids": [],
+        "status": "error",
+        "warnings": [],
+        "network": "local_only",
+        "model_provenance": {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct"
+        },
+        "error": {
+          "code": "unsupported_prediction_claim",
+          "detail": "Tool did not complete; no substituted output."
+        },
+        "ended_at": "2026-11-16T22:55:58.934252+00:00",
+        "elapsed_seconds": 41.73400000000038
+      }
+    ],
+    "status": "error",
+    "network": "local_only",
+    "ended_at": "2026-11-16T22:55:58.942346+00:00",
+    "elapsed_seconds": 52.70300000000134
+  },
+  "guard_status": "unsupported model commentary correctly withheld"
+}

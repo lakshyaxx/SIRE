@@ -1,0 +1,22 @@
+# Application requirements; full ML inference also requires requirements-runtime.lock.txt.
+fastapi==0.121.1
+uvicorn==0.38.0
+httpx==0.28.1
+python-multipart==0.0.20
+pydantic==2.12.4
+Pillow==12.0.0
+pypdf==6.1.1
+PyYAML==6.0.3
+pytest==8.4.2
+ruff==0.14.5
+black==25.11.0
+
+# Complete existing research-package dependencies detected by pip check.
+formulaic==1.2.1
+charset-normalizer==3.4.4
+
+# Local engineer PDF exports (existing installed dependency).
+reportlab==5.1.0
+
+# Local live-voice WebSocket transport (MIT); installed only in project .venv.
+wsproto==1.2.0

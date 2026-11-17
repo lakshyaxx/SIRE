@@ -1,0 +1,680 @@
+{
+  "release": "4.5.1",
+  "status": "conversation_regression_repaired_physical_voice_acceptance_partial",
+  "main": {
+    "scope": "Read-only main contracts/assets; test messages remain in disposable QA state",
+    "health": {
+      "status": "ok",
+      "contract_version": "2.0",
+      "application_version": "4.5.1",
+      "loaded_source_sha256": "521419520e72527519dabcab3ac594430b2aeb2d6d044ac3cc6f64810bfb91dd",
+      "ml_ready": true,
+      "ollama_ready": true,
+      "text_ready": true,
+      "vision_ready": true,
+      "models": [
+        "qwen3:4b-instruct",
+        "qwen3-vl:2b-instruct",
+        "qwen3-vl:2b",
+        "qwen3:4b"
+      ],
+      "mode": "local",
+      "hosted_providers": "disabled"
+    },
+    "assets": [
+      {
+        "url": "/static/index-CfMvNY8b.js",
+        "sha256": "ddb9d2dc51d6c733420dd03f8498dbf64e4217be267aa40137ae140d2cab2651",
+        "bytes": 801509
+      },
+      {
+        "url": "/static/index-DuCRFCmc.css",
+        "sha256": "9eabc53551901e521b09d17519e2aad0c936caf0cf23872dd8b21f740dfd04c5",
+        "bytes": 26324
+      }
+    ],
+    "voice_schema": {
+      "control_schema": {
+        "additionalProperties": false,
+        "description": "Only explicit voice transport controls are accepted; data is never executable.",
+        "properties": {
+          "op": {
+            "enum": [
+              "flush",
+              "reset",
+              "close",
+              "client_event"
+            ],
+            "title": "Op",
+            "type": "string"
+          },
+          "event": {
+            "anyOf": [
+              {
+                "enum": [
+                  "playback_blocked",
+                  "playback_resumed",
+                  "explicit_interrupt",
+                  "transcript_suppressed",
+                  "speech_candidate"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Event"
+          }
+        },
+        "required": [
+          "op"
+        ],
+        "title": "VoiceControl",
+        "type": "object"
+      },
+      "audio": {
+        "encoding": "PCM16 little-endian mono",
+        "sample_rate": 16000,
+        "max_message_bytes": 32768
+      },
+      "transcription": "Final VAD utterances only; configured Whisper is offline, no partial transcript claim",
+      "events": [
+        "ready",
+        "speech_started",
+        "transcribing",
+        "transcript",
+        "error",
+        "closed"
+      ],
+      "max_session_seconds": 600,
+      "playback_guard_ms": 500,
+      "interruption": "Speech onset is a candidate only. Microphone input is suppressed during playback; use Interrupt and speak for deliberate interruption."
+    },
+    "status": "pass"
+  },
+  "backend": {
+    "passed": 287,
+    "failed": 0,
+    "warnings": 1,
+    "seconds": 142.44,
+    "proof": ".runtime/v45_conversation/full_tests_final.log"
+  },
+  "frontend": {
+    "passed": 13,
+    "failed": 0,
+    "duration_ms": 905.5868,
+    "tsc": "pass",
+    "build": "pass",
+    "modules": 646,
+    "seconds": 9.78,
+    "js_bytes": 801509
+  },
+  "ruff": "pass",
+  "black": {
+    "status": "pass",
+    "files": 173
+  },
+  "cases": [
+    {
+      "test": "1_new_hi",
+      "network_check": "pass",
+      "acceptance_scope": "actual_network",
+      "question": "hi",
+      "route": "fast_conversation",
+      "response_route": "fast_conversation",
+      "evidence_schema": "EvidenceItem[]",
+      "validation_profile": "social_no_external_claims",
+      "first_text_seconds": 0.07799999999406282,
+      "total_seconds": 0.09399999999732245,
+      "speech_input_total_seconds": null,
+      "result_status": "complete",
+      "tool_ids": [
+        "conversation.respond"
+      ],
+      "model_activity": [],
+      "provider_metrics": null,
+      "source_ids": [],
+      "input_provenance": null,
+      "trace_path": ".runtime/v45_conversation/network_retry/results.json",
+      "error": null
+    },
+    {
+      "test": "2_existing_hi",
+      "network_check": "pass",
+      "acceptance_scope": "actual_network",
+      "question": "hi",
+      "route": "fast_conversation",
+      "response_route": "fast_conversation",
+      "evidence_schema": "EvidenceItem[]",
+      "validation_profile": "social_no_external_claims",
+      "first_text_seconds": 0.06199999999080319,
+      "total_seconds": 0.07799999999406282,
+      "speech_input_total_seconds": null,
+      "result_status": "complete",
+      "tool_ids": [
+        "conversation.respond"
+      ],
+      "model_activity": [],
+      "provider_metrics": null,
+      "source_ids": [],
+      "input_provenance": null,
+      "trace_path": ".runtime/v45_conversation/network_retry/results.json",
+      "error": null
+    },
+    {
+      "test": "3_what_is_SIRE",
+      "network_check": "pass",
+      "acceptance_scope": "actual_network",
+      "question": "What is SIRE?",
+      "route": "fast_conversation",
+      "response_route": "fast_conversation",
+      "evidence_schema": "EvidenceItem[]",
+      "validation_profile": "exact_application_documentation",
+      "first_text_seconds": 0.09399999999732245,
+      "total_seconds": 0.10899999999674037,
+      "speech_input_total_seconds": null,
+      "result_status": "complete",
+      "tool_ids": [
+        "system.describe"
+      ],
+      "model_activity": [],
+      "provider_metrics": null,
+      "source_ids": [
+        "EV:dfc2e30451d0c0b47c54ac8cc44965780169cf9286ed01e5f3a954c5f63fa1ba"
+      ],
+      "input_provenance": null,
+      "trace_path": ".runtime/v45_conversation/network_retry/results.json",
+      "error": null
+    },
+    {
+      "test": "4_hypothesis_engine",
+      "network_check": "pass",
+      "acceptance_scope": "actual_network",
+      "question": "How does your hypothesis engine work?",
+      "route": "fast_conversation",
+      "response_route": "fast_conversation",
+      "evidence_schema": "EvidenceItem[]",
+      "validation_profile": "exact_application_documentation",
+      "first_text_seconds": 0.09400000001187436,
+      "total_seconds": 0.09400000001187436,
+      "speech_input_total_seconds": null,
+      "result_status": "complete",
+      "tool_ids": [
+        "system.describe"
+      ],
+      "model_activity": [],
+      "provider_metrics": null,
+      "source_ids": [
+        "EV:640071cc8484aea989c437368006f3967409ac685f7cf70b2467e4795f5555cb"
+      ],
+      "input_provenance": null,
+      "trace_path": ".runtime/v45_conversation/network_retry/results.json",
+      "error": null
+    },
+    {
+      "test": "5_voice_Hello_recorded_file",
+      "network_check": "pass",
+      "acceptance_scope": "actual_recorded_audio_replay_not_live_microphone",
+      "question": "Hello?",
+      "route": "fast_conversation",
+      "response_route": "fast_conversation",
+      "evidence_schema": "EvidenceItem[]",
+      "validation_profile": "social_no_external_claims",
+      "first_text_seconds": 0.09399999999732245,
+      "total_seconds": 0.11000000000058208,
+      "speech_input_total_seconds": 6.328000000008615,
+      "result_status": "complete",
+      "tool_ids": [
+        "conversation.respond"
+      ],
+      "model_activity": [],
+      "provider_metrics": null,
+      "source_ids": [],
+      "input_provenance": {
+        "kind": "speech_input",
+        "attachment_id": "1c61b2b803dd41e2aa48970b33754e9d",
+        "sha256": "fd324efe302b1478689590036f6ecb96a7f5378c514c31dd2dbf3fcbda908fdb",
+        "transcript_model": "whisper-tiny.en-int8",
+        "transcript_provider": "sherpa-onnx-2.0.1",
+        "transcript_unverified": true,
+        "edited": false,
+        "scope": "Input provenance; not independent evidence for the answer"
+      },
+      "trace_path": ".runtime/v45_conversation/network_retry/results.json",
+      "error": null
+    },
+    {
+      "test": "6_voice_followup_after_text",
+      "network_check": "pass",
+      "acceptance_scope": "actual_recorded_audio_replay_not_live_microphone",
+      "question": "I want to talk to you, give me some answers, bro.",
+      "route": "fast_conversation",
+      "response_route": "fast_conversation",
+      "evidence_schema": "EvidenceItem[]",
+      "validation_profile": "social_no_external_claims",
+      "first_text_seconds": 0.09400000001187436,
+      "total_seconds": 0.11000000000058208,
+      "speech_input_total_seconds": 8.687999999994645,
+      "result_status": "complete",
+      "tool_ids": [
+        "conversation.respond"
+      ],
+      "model_activity": [],
+      "provider_metrics": null,
+      "source_ids": [],
+      "input_provenance": {
+        "kind": "speech_input",
+        "attachment_id": "61e57dfa07794167b5c2cb476f0d7846",
+        "sha256": "a19cb5f97468d38733e90b1cb4a541cc3543bd750f6c4d4d6fecb50512aa98b7",
+        "transcript_model": "whisper-tiny.en-int8",
+        "transcript_provider": "sherpa-onnx-2.0.1",
+        "transcript_unverified": true,
+        "edited": false,
+        "scope": "Input provenance; not independent evidence for the answer"
+      },
+      "trace_path": ".runtime/v45_conversation/network_retry/results.json",
+      "error": null
+    },
+    {
+      "test": "7_text_after_voice",
+      "network_check": "pass",
+      "acceptance_scope": "actual_network",
+      "question": "Can you explain to me what SIRE is all about?",
+      "route": "fast_conversation",
+      "response_route": "fast_conversation",
+      "evidence_schema": "EvidenceItem[]",
+      "validation_profile": "exact_application_documentation",
+      "first_text_seconds": 0.07800000000861473,
+      "total_seconds": 0.09300000000803266,
+      "speech_input_total_seconds": null,
+      "result_status": "complete",
+      "tool_ids": [
+        "system.describe"
+      ],
+      "model_activity": [],
+      "provider_metrics": null,
+      "source_ids": [
+        "EV:dfc2e30451d0c0b47c54ac8cc44965780169cf9286ed01e5f3a954c5f63fa1ba"
+      ],
+      "input_provenance": null,
+      "trace_path": ".runtime/v45_conversation/network_retry/results.json",
+      "error": null
+    },
+    {
+      "test": "8_deliberate_interrupt_network_control",
+      "network_check": "pass",
+      "acceptance_scope": "physical_playback_unverified",
+      "question": "Tell me a short story about a train.",
+      "route": "general_chat",
+      "response_route": "plain_conversation",
+      "evidence_schema": "EvidenceItem[]",
+      "validation_profile": "conversation_no_external_sources",
+      "first_text_seconds": null,
+      "total_seconds": 0.17199999999138527,
+      "speech_input_total_seconds": null,
+      "result_status": "cancelled",
+      "tool_ids": [
+        "llm.chat"
+      ],
+      "model_activity": [
+        {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "status": "cancelled",
+          "tool_id": "llm.chat"
+        }
+      ],
+      "provider_metrics": {
+        "prompt_characters": 737,
+        "output_token_limit": 160
+      },
+      "source_ids": [],
+      "input_provenance": null,
+      "trace_path": ".runtime/v45_conversation/network_retry/results.json",
+      "error": null
+    },
+    {
+      "test": "9_no_speech_control",
+      "network_check": "pass",
+      "acceptance_scope": "background_noise_unverified_quiet_control_only",
+      "question": null,
+      "route": "voice_VAD_only",
+      "response_route": null,
+      "evidence_schema": "No speech evidence generated",
+      "validation_profile": null,
+      "first_text_seconds": null,
+      "total_seconds": 4.10899999999674,
+      "speech_input_total_seconds": null,
+      "result_status": "quiet_control_pass_background_noise_unverified",
+      "tool_ids": [],
+      "model_activity": [],
+      "provider_metrics": null,
+      "source_ids": [],
+      "input_provenance": null,
+      "trace_path": ".runtime/v45_conversation/network_retry/results.json",
+      "error": null
+    },
+    {
+      "test": "10_industrial_source_backed_statistics",
+      "network_check": "pass",
+      "acceptance_scope": "actual_network",
+      "question": "Summarize exact descriptive sensor statistics and units from this uploaded CSV, citing actual evidence. These are synthetic measurements, not NASA inputs.",
+      "route": "knowledge_query",
+      "response_route": "exact_uploaded_measurement_statistics",
+      "evidence_schema": "EvidenceItem[]",
+      "validation_profile": null,
+      "first_text_seconds": 0.875,
+      "total_seconds": 1.0,
+      "speech_input_total_seconds": null,
+      "result_status": "complete",
+      "tool_ids": [
+        "measurements.profile"
+      ],
+      "model_activity": [],
+      "provider_metrics": null,
+      "source_ids": [
+        "EV:b1481f9279a76c99ee8f6641ecbb7b2d8db17dd37a0eba6eb205f603fe05d13e",
+        "EV:24ba39ea640c31defef44aef3ac4a914d672f2eda30ba31ed68f9c9d0e5d3281",
+        "EV:eb89fd06d1479aea365ee5f5a0043fbe758e75815432ea6b27def3189b621252",
+        "EV:25ed769cb43ee910c3ab63380d596db73d0a1ed14d2d4e9dd3742ee8d41c6b87",
+        "EV:45199126da488837064b466c8ecb37e08a8758927a49e6bf952a59149aaa0c26",
+        "EV:0726f7c4dac22d208aec32c87e649d1ceba778739ac2a7e354185242608bd84f",
+        "EV:c23a63f70e6c0f5368215105529629dafd6e3bfc9cb226d6d42d59488b3bffc1",
+        "EV:01f8add84eb3ebaf48e1f6b13ea28274eccc6071c4f412b85d052ab2e4ffc222",
+        "EV:a447c9dcca7f32abb3285ca4f8ace238f822004f756b1db17ef99b27ced1d920",
+        "EV:575f6d38466f2f59e99c1d79dc195fd2f3d04be4c1351b23edaf66d039448d6c",
+        "EV:0016180b231ee84e5a39df7610566bee59c6d9bc5f0376fc42fe0d987bef57ec",
+        "dbef4c69749d4b41a4321872a4b8ea63:schema"
+      ],
+      "input_provenance": null,
+      "trace_path": ".runtime/v45_conversation/network_retry/results.json",
+      "error": null
+    },
+    {
+      "test": "11_plain_model_unseen_question",
+      "network_check": "pass",
+      "acceptance_scope": "actual_network",
+      "question": "Tell me a short joke about trains.",
+      "route": "general_chat",
+      "response_route": "plain_conversation",
+      "evidence_schema": "EvidenceItem[]",
+      "validation_profile": "conversation_no_external_sources",
+      "first_text_seconds": 16.296999999991385,
+      "total_seconds": 16.312999999994645,
+      "speech_input_total_seconds": null,
+      "result_status": "complete",
+      "tool_ids": [
+        "llm.chat"
+      ],
+      "model_activity": [
+        {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "status": "ok",
+          "tool_id": "llm.chat"
+        }
+      ],
+      "provider_metrics": {
+        "prompt_characters": 735,
+        "output_token_limit": 160,
+        "queue_seconds": 4.89100000000326,
+        "first_token_seconds": 14.047000000005937,
+        "load_duration": 5384635300,
+        "prompt_eval_count": 201,
+        "prompt_eval_duration": 2671275000,
+        "prompt_eval_cached_count": 0,
+        "eval_count": 31,
+        "eval_duration": 2044581000,
+        "total_duration": 10120080600,
+        "done_reason": "stop",
+        "elapsed_seconds": 16.094000000011874
+      },
+      "source_ids": [],
+      "input_provenance": null,
+      "trace_path": ".runtime/v45_conversation/network_retry/results.json",
+      "error": null
+    },
+    {
+      "test": "12_engineering_general_concept",
+      "network_check": "pass",
+      "acceptance_scope": "actual_network",
+      "question": "In two short sentences, explain how rolling bearings reduce friction. No machine-specific measurements are supplied.",
+      "route": "general_chat",
+      "response_route": "evidence_conversation",
+      "evidence_schema": "EvidenceItem[]",
+      "validation_profile": "engineering_source_checks",
+      "first_text_seconds": 14.468999999997322,
+      "total_seconds": 14.485000000000582,
+      "speech_input_total_seconds": null,
+      "result_status": "complete",
+      "tool_ids": [
+        "llm.chat"
+      ],
+      "model_activity": [
+        {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "status": "ok",
+          "tool_id": "llm.chat"
+        }
+      ],
+      "provider_metrics": {
+        "prompt_characters": 1756,
+        "output_token_limit": 384,
+        "queue_seconds": 0.0,
+        "first_token_seconds": 11.625,
+        "load_duration": 4881745200,
+        "prompt_eval_count": 406,
+        "prompt_eval_duration": 5627283000,
+        "prompt_eval_cached_count": 0,
+        "eval_count": 35,
+        "eval_duration": 2731729000,
+        "total_duration": 13265391700,
+        "done_reason": "stop",
+        "elapsed_seconds": 14.360000000000582
+      },
+      "source_ids": [],
+      "input_provenance": null,
+      "trace_path": ".runtime/v45_conversation/network_retry/results.json",
+      "error": null
+    }
+  ],
+  "resident_cancellation": {
+    "status": "pass",
+    "cancel_to_terminal_seconds": 3.077999999994063,
+    "actual_resident_models": [
+      {
+        "name": "qwen3:4b-instruct",
+        "model": "qwen3:4b-instruct",
+        "size": 3186108660,
+        "digest": "0edcdef34593eac1aa2be9c7d06c432dcf81945adca5eca2f27662c18f168ba0",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "4.0B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-11-18T02:30:55.7890599+05:30",
+        "size_vram": 0,
+        "context_length": 4096,
+        "runner": "llamacpp"
+      }
+    ],
+    "trace": ".runtime/v45_conversation/actual_resident_interrupt.json"
+  },
+  "tts": {
+    "text": "Hello! I'm here. What would you like to talk about?",
+    "seconds_to_complete_network_WAV": 14.031000000002678,
+    "frames": 68449,
+    "sample_rate": 24000,
+    "model": "kokoro-en-v0.19-int8",
+    "first_audible_seconds": null
+  },
+  "preservation": {
+    "native_files": 813,
+    "production": [
+      {
+        "table": "attachments",
+        "before_rows": 14,
+        "after_rows": 14,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "cases",
+        "before_rows": 5,
+        "after_rows": 5,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "chunks",
+        "before_rows": 10,
+        "after_rows": 10,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "conversations",
+        "before_rows": 13,
+        "after_rows": 13,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "messages",
+        "before_rows": 64,
+        "after_rows": 64,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "predictions",
+        "before_rows": 3,
+        "after_rows": 3,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "schema_version",
+        "before_rows": 2,
+        "after_rows": 2,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "v3_annotations",
+        "before_rows": 0,
+        "after_rows": 0,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "v3_cases",
+        "before_rows": 2,
+        "after_rows": 2,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "v3_evidence",
+        "before_rows": 75,
+        "after_rows": 75,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "v3_reports",
+        "before_rows": 1,
+        "after_rows": 1,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "v3_runs",
+        "before_rows": 16,
+        "after_rows": 16,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "v3_sources",
+        "before_rows": 74,
+        "after_rows": 74,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "v45_jobs",
+        "before_rows": 0,
+        "after_rows": 0,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      },
+      {
+        "table": "v45_voice_sessions",
+        "before_rows": 1,
+        "after_rows": 1,
+        "missing_original_rows": [],
+        "changed_original_rows": [],
+        "exact_equal": true
+      }
+    ],
+    "stress_mismatches": [],
+    "original_bundles": [
+      {
+        "path": "output/sire_v2_local_runtime.zip",
+        "sha256": "18c9bb7c20af2ca43cf470d9594c72313a129011304521c07ca90bd50b5f3f24",
+        "equal": true
+      },
+      {
+        "path": "output/sire_v3_local_runtime.zip",
+        "sha256": "e7ea3c9f7e287a88118ddfe3c77697a530287c7ec6b13e09edda4719d5505ac8",
+        "equal": true
+      },
+      {
+        "path": "output/sire_v3_2_local_runtime.zip",
+        "sha256": "7137fd98e6ee6fd38a8d7adebc513cdca0d3a2b2e16ede147d6a0a479017093a",
+        "equal": true
+      }
+    ],
+    "stress_files": 7956,
+    "source_checkpoint_zip_valid": true,
+    "frontend_checkpoint_zip_valid": true,
+    "status": "pass"
+  },
+  "limitations": [
+    "Browser access host unavailable; no physical microphone/speaker/autoplay acceptance",
+    "Explicit Interrupt and speak is supported; automatic acoustic user-versus-echo identity is not claimed",
+    "Digital silence control passed; genuine noise-only recording unavailable",
+    "Cold Kokoro output still slow; first audible time unmeasured",
+    "Open-ended Qwen still uses CPU and has cold loading/queue latency"
+  ],
+  "raw_reproduction": {
+    "status": "error",
+    "seconds": 26.485000000000582,
+    "unknown_alias": "E1",
+    "invented_expansion_was_withheld": true,
+    "private_proof": ".runtime/v45_conversation/raw_reproduction.json"
+  }
+}

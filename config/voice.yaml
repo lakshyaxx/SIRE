@@ -1,0 +1,14 @@
+version: '4.5'
+sample_rate: 16000
+vad_threshold: 0.5
+min_silence_seconds: 0.7
+min_speech_seconds: 0.25
+max_speech_seconds: 20
+max_session_seconds: 600
+max_sessions: 1
+turn_queue: 2
+max_pcm_message_bytes: 32768
+worker_timeout_seconds: 10
+playback_guard_ms: 500
+pre_roll_seconds: 0.5
+source_buffer_seconds: 30

@@ -1,0 +1,161 @@
+{
+  "recorded_tests": 563,
+  "executed_tests": 544,
+  "by_priority_status": {
+    "P0": {
+      "pass_automated_only": 156,
+      "fail_capability_coverage": 14,
+      "fail": 4,
+      "pass": 9,
+      "needs_review": 21
+    },
+    "P1": {
+      "needs_review": 249,
+      "fail_capability_coverage": 36,
+      "fail": 7,
+      "pass_safe_silence_rejection": 1,
+      "pass_automated_only": 11,
+      "not_run": 1
+    },
+    "P2": {
+      "fail": 28,
+      "pass_automated_only": 8,
+      "not_run": 18
+    }
+  },
+  "latency_ms": {
+    "count": 544,
+    "p50": 1125.0,
+    "p95_nearest_rank": 35264.99999999942,
+    "scope": "Serial case wall time including public context preparation, uploads, actual tools and validation; not just inference."
+  },
+  "source_snapshot_support": {
+    "supported": 7983,
+    "checked": 7983,
+    "rate": 1.0,
+    "unreviewed": 91,
+    "scope": "Exact saved snapshot statistics/event text matched to original public records. This does not check how a generated answer uses the snapshot; it is not answer-claim entailment."
+  },
+  "citation_semantic_support": {
+    "supported": 4,
+    "checked": 9,
+    "rate": 0.4444444444444444,
+    "scope": "Small purposive agent visual/source review of explicitly selected claims after inference. Not representative, not private-label accuracy and not pooled with numeric-statistic checks.",
+    "review_path": ".runtime\\stress_lab\\manual_citation_review.jsonl",
+    "population_rate": null
+  },
+  "future_evidence_violations": 0,
+  "future_evidence_checks": 8074,
+  "top1_known_cause": null,
+  "top3_known_cause": null,
+  "false_positive_rate": null,
+  "private_label_evaluation": "Unavailable until a separate offline evaluator reads external private labels after frozen results. No labels are loaded by this runner.",
+  "continuation": {
+    "first_pass_executed": 515,
+    "additional_records": 29,
+    "additional_actual_executions": 29,
+    "results_path": ".runtime\\stress_lab\\completion\\completion_results.jsonl",
+    "sealed_answers_path": ".runtime\\stress_lab\\full\\assessment_answers.jsonl",
+    "answers_sha256": "e7356909ec4a6bcac94e863511c3d3eaeac0cbf4fd822c1b5bd14a82821e6ea5",
+    "original_answers_sha256": "9e82a85b9006654176ec4bb860c169a05adcc870e3bef6bc182386aed4797ce7",
+    "executed_failures_replaced": 0
+  },
+  "complete_case_inventory": true,
+  "corpus_case_inventory": 563,
+  "phase_results_paths": [
+    ".runtime\\stress_lab\\full\\P0_results.jsonl",
+    ".runtime\\stress_lab\\full\\P1_results.jsonl",
+    ".runtime\\stress_lab\\full\\P2_results.jsonl"
+  ],
+  "raw_results_frozen": true,
+  "browser_verification": "Blocked: supported browser access host unavailable; no navigation/mobile/keyboard interaction pass",
+  "hardware_verification": "Physical microphone/speaker unverified; recorded-file ASR/TTS are separate",
+  "availability_warning": "Corpus has no independent availability clock for all records. Same-time availability assumptions disclosed; closure content fenced at closed_at; lab analysis excluded.",
+  "by_category": {
+    "historical_root_cause": {
+      "pass_automated_only": 60
+    },
+    "temporal_leakage": {
+      "pass_automated_only": 60
+    },
+    "nasa_model_contract": {
+      "pass_automated_only": 36
+    },
+    "image_vision": {
+      "fail_capability_coverage": 6,
+      "fail": 4
+    },
+    "invalid_input": {
+      "pass": 9,
+      "needs_review": 6
+    },
+    "adversarial_content": {
+      "needs_review": 4,
+      "fail_capability_coverage": 3
+    },
+    "general_chat": {
+      "needs_review": 11,
+      "fail_capability_coverage": 5
+    },
+    "contradiction": {
+      "needs_review": 60
+    },
+    "timeline": {
+      "needs_review": 60
+    },
+    "document_grounding": {
+      "needs_review": 60
+    },
+    "fleet_health": {
+      "fail_capability_coverage": 24
+    },
+    "asset_graph": {
+      "needs_review": 24
+    },
+    "speech_transcription": {
+      "needs_review": 5,
+      "fail": 1,
+      "pass_safe_silence_rejection": 1
+    },
+    "video_frames": {
+      "fail": 2
+    },
+    "document_parsing": {
+      "needs_review": 7,
+      "fail": 1
+    },
+    "multiturn_context": {
+      "needs_review": 24
+    },
+    "execution_routing": {
+      "fail_capability_coverage": 12
+    },
+    "robustness": {
+      "pass_automated_only": 11,
+      "fail": 3,
+      "needs_review": 9,
+      "not_run": 1
+    },
+    "what_if": {
+      "fail": 24
+    },
+    "load_test": {
+      "pass_automated_only": 8,
+      "fail": 4,
+      "not_run": 18
+    }
+  },
+  "manual_semantic_sample": {
+    "supported": 4,
+    "reviewed": 9,
+    "rate": 0.4444444444444444,
+    "scope": "Small purposive agent visual/source review of explicitly selected claims after inference. Not representative, not private-label accuracy and not pooled with numeric-statistic checks.",
+    "review_path": ".runtime\\stress_lab\\manual_citation_review.jsonl"
+  },
+  "memory": {
+    "sampled_case_count": 368,
+    "largest_sampled_process_rss_bytes": 626573312,
+    "scope": "Recorded per-case sampler bounds apply; Windows fallback measures harness working set only. P0 had no psutil and is explicitly unmeasured; Ollama/VRAM/whole-system peaks not inferred."
+  },
+  "suggested_contract_validation": "jsonschema absent; projection provides required fields/statuses, full schema validation unverified"
+}

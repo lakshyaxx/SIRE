@@ -1,0 +1,2717 @@
+{
+  "timestamp_utc": "2026-11-16T20:16:17.036424+00:00",
+  "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+  "source": "NASA FD002 official test engine 1; image independently supplied and explicitly unrelated",
+  "upload": {
+    "id": "5824749c82e14e31b71585ede24cd8a5",
+    "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+    "name": "FD002_ENGINE001_SOURCE.csv",
+    "kind": "csv",
+    "mime": "text/csv",
+    "sha256": "13a7698b46b0267c1eb5a93ba3fbed5dd67709c3090b90830d670ff7fc8ae512",
+    "metadata": {
+      "rows": 258,
+      "columns": [
+        "unit",
+        "cycle",
+        "op1",
+        "op2",
+        "op3",
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10",
+        "s11",
+        "s12",
+        "s13",
+        "s14",
+        "s15",
+        "s16",
+        "s17",
+        "s18",
+        "s19",
+        "s20",
+        "s21"
+      ],
+      "prediction_eligible": true,
+      "preview": [
+        {
+          "unit": 1.0,
+          "cycle": 1.0,
+          "op1": 9.9987,
+          "op2": 0.2502,
+          "op3": 100.0,
+          "s1": 489.05,
+          "s2": 605.03,
+          "s3": 1497.17,
+          "s4": 1304.99,
+          "s5": 10.52,
+          "s6": 15.49,
+          "s7": 394.54,
+          "s8": 2318.96,
+          "s9": 8763.8,
+          "s10": 1.26,
+          "s11": 45.61,
+          "s12": 371.69,
+          "s13": 2388.18,
+          "s14": 8114.1,
+          "s15": 8.6476,
+          "s16": 0.03,
+          "s17": 369.0,
+          "s18": 2319.0,
+          "s19": 100.0,
+          "s20": 28.42,
+          "s21": 17.1551
+        },
+        {
+          "unit": 1.0,
+          "cycle": 2.0,
+          "op1": 20.0026,
+          "op2": 0.7,
+          "op3": 100.0,
+          "s1": 491.19,
+          "s2": 607.82,
+          "s3": 1481.2,
+          "s4": 1246.11,
+          "s5": 9.35,
+          "s6": 13.66,
+          "s7": 334.36,
+          "s8": 2323.95,
+          "s9": 8713.21,
+          "s10": 1.08,
+          "s11": 44.26,
+          "s12": 315.32,
+          "s13": 2388.12,
+          "s14": 8053.06,
+          "s15": 9.2405,
+          "s16": 0.02,
+          "s17": 364.0,
+          "s18": 2324.0,
+          "s19": 100.0,
+          "s20": 24.29,
+          "s21": 14.8039
+        },
+        {
+          "unit": 1.0,
+          "cycle": 3.0,
+          "op1": 35.0045,
+          "op2": 0.84,
+          "op3": 100.0,
+          "s1": 449.44,
+          "s2": 556.0,
+          "s3": 1359.08,
+          "s4": 1128.36,
+          "s5": 5.48,
+          "s6": 8.0,
+          "s7": 193.55,
+          "s8": 2222.67,
+          "s9": 8340.2,
+          "s10": 1.02,
+          "s11": 41.8,
+          "s12": 183.04,
+          "s13": 2387.75,
+          "s14": 8053.04,
+          "s15": 9.3472,
+          "s16": 0.02,
+          "s17": 333.0,
+          "s18": 2223.0,
+          "s19": 100.0,
+          "s20": 14.98,
+          "s21": 8.9125
+        },
+        {
+          "unit": 1.0,
+          "cycle": 4.0,
+          "op1": 42.0066,
+          "op2": 0.841,
+          "op3": 100.0,
+          "s1": 445.0,
+          "s2": 550.17,
+          "s3": 1349.69,
+          "s4": 1127.89,
+          "s5": 3.91,
+          "s6": 5.71,
+          "s7": 138.74,
+          "s8": 2211.58,
+          "s9": 8313.85,
+          "s10": 1.02,
+          "s11": 42.21,
+          "s12": 130.4,
+          "s13": 2387.72,
+          "s14": 8066.9,
+          "s15": 9.3961,
+          "s16": 0.02,
+          "s17": 332.0,
+          "s18": 2212.0,
+          "s19": 100.0,
+          "s20": 10.35,
+          "s21": 6.4181
+        },
+        {
+          "unit": 1.0,
+          "cycle": 5.0,
+          "op1": 24.9985,
+          "op2": 0.6213,
+          "op3": 60.0,
+          "s1": 462.54,
+          "s2": 536.72,
+          "s3": 1253.18,
+          "s4": 1050.69,
+          "s5": 7.05,
+          "s6": 9.03,
+          "s7": 175.75,
+          "s8": 1915.1,
+          "s9": 7997.13,
+          "s10": 0.94,
+          "s11": 36.76,
+          "s12": 164.56,
+          "s13": 2028.05,
+          "s14": 7865.66,
+          "s15": 10.8682,
+          "s16": 0.02,
+          "s17": 305.0,
+          "s18": 1915.0,
+          "s19": 84.93,
+          "s20": 14.31,
+          "s21": 8.574
+        }
+      ],
+      "warnings": [],
+      "declared_dataset": "FD002",
+      "compatible_cmapss": true
+    },
+    "created_at": "2026-11-16T20:16:17.790696+00:00"
+  },
+  "prediction": {
+    "dataset": "FD002",
+    "model_id": "fd002-08_ensemble-s44",
+    "purpose": "rul",
+    "asset_id": null,
+    "attachment_id": "5824749c82e14e31b71585ede24cd8a5",
+    "data_origin": "user_declared_cmapss",
+    "last_cycle": 258,
+    "legacy_output": {
+      "rul": 11.592229512416276,
+      "rul_unit": "cycles",
+      "n_steps_used": 30,
+      "model": "08_ensemble",
+      "dataset": "FD002",
+      "seed": 44,
+      "version": "345197d727608fad3e7cd2c49f4fe7dc9d0c73a86696557deac75bbfab80590b",
+      "warnings": [
+        "Used the latest 50 of 258 available cycles.",
+        "Used the latest 30 of 258 available cycles."
+      ],
+      "members": {
+        "01_lightgbm_tuned": {
+          "rul": 18.62893727482336,
+          "rul_unit": "cycles",
+          "n_steps_used": 50,
+          "model": "01_lightgbm",
+          "dataset": "FD002",
+          "seed": 44,
+          "version": "06a26eecf1f2a9e76c47930f5488c428280687477223660a27d440d931ccee12",
+          "warnings": [
+            "Used the latest 50 of 258 available cycles."
+          ],
+          "top_contributors": [
+            {
+              "channel": "s11",
+              "mean_abs_contribution": 23.362568678930117,
+              "mean_contribution": -23.362568678930117
+            },
+            {
+              "channel": "s4",
+              "mean_abs_contribution": 16.875908954767738,
+              "mean_contribution": -16.875908954767738
+            },
+            {
+              "channel": "s14",
+              "mean_abs_contribution": 6.474103378755389,
+              "mean_contribution": -6.474103378755389
+            },
+            {
+              "channel": "s9",
+              "mean_abs_contribution": 5.87559374605369,
+              "mean_contribution": -5.87559374605369
+            },
+            {
+              "channel": "s15",
+              "mean_abs_contribution": 3.775351838555588,
+              "mean_contribution": -3.775351838555588
+            }
+          ]
+        },
+        "02_lstm": {
+          "rul": 12.565897777676582,
+          "rul_unit": "cycles",
+          "n_steps_used": 50,
+          "model": "02_lstm",
+          "dataset": "FD002",
+          "seed": 44,
+          "version": "ac7b6efc9a3c5288dc85d51b4a737ce30fa46fdc9deefcab25749efb8a6f4b33",
+          "warnings": [
+            "Used the latest 50 of 258 available cycles."
+          ]
+        },
+        "03_bilstm_attention": {
+          "rul": 12.266295030713081,
+          "rul_unit": "cycles",
+          "n_steps_used": 30,
+          "model": "03_bilstm_attention",
+          "dataset": "FD002",
+          "seed": 44,
+          "version": "16b8a1e938710bfe31f5bf30544f3f787138a44de7a16a8d6d46838816d0fd1f",
+          "warnings": [
+            "Used the latest 30 of 258 available cycles."
+          ],
+          "attention": [
+            0.0005859064985997975,
+            0.002072779694572091,
+            0.004801406059414148,
+            0.010275638662278652,
+            0.015721987932920456,
+            0.020246004685759544,
+            0.01947360672056675,
+            0.026683930307626724,
+            0.03545702248811722,
+            0.0349825955927372,
+            0.037096358835697174,
+            0.034887440502643585,
+            0.03470241650938988,
+            0.03151463344693184,
+            0.03794319927692413,
+            0.0424068421125412,
+            0.04413989931344986,
+            0.049613527953624725,
+            0.04490252211689949,
+            0.049046508967876434,
+            0.048089511692523956,
+            0.0494423545897007,
+            0.05332621932029724,
+            0.05357742682099342,
+            0.04841914400458336,
+            0.04743203520774841,
+            0.0451422780752182,
+            0.034568902105093,
+            0.027358800172805786,
+            0.016089100390672684
+          ]
+        },
+        "04_cnn1d": {
+          "rul": 20.95431089401245,
+          "rul_unit": "cycles",
+          "n_steps_used": 30,
+          "model": "04_cnn1d",
+          "dataset": "FD002",
+          "seed": 44,
+          "version": "f8c1cb5884e3a6914955800d52eaf788aad745f814b789cce700a8d1784bd95f",
+          "warnings": [
+            "Used the latest 30 of 258 available cycles."
+          ]
+        },
+        "05_transformer": {
+          "rul": 10.870489291846752,
+          "rul_unit": "cycles",
+          "n_steps_used": 30,
+          "model": "05_transformer",
+          "dataset": "FD002",
+          "seed": 44,
+          "version": "52627c6738be191e1207e8205de41c06e6716af6dd859907dfaa18762c95a4ee",
+          "warnings": [
+            "Used the latest 30 of 258 available cycles."
+          ]
+        },
+        "07_cnn_transformer": {
+          "rul": 16.732273623347282,
+          "rul_unit": "cycles",
+          "n_steps_used": 30,
+          "model": "07_cnn_transformer",
+          "dataset": "FD002",
+          "seed": 44,
+          "version": "1ac778ca4e40943dd1f54d79eba1fd543d903f7c59a019ca608a3167ca508345",
+          "warnings": [
+            "Used the latest 30 of 258 available cycles."
+          ]
+        },
+        "09_ts_degradation": {
+          "rul": 11.0,
+          "interval_80": [
+            8.0,
+            14.0
+          ],
+          "rul_unit": "cycles",
+          "n_steps_used": 258,
+          "model": "09_ts_degradation",
+          "dataset": "FD002",
+          "seed": 44,
+          "version": "06015f03c294ca8dcfb3bb0a7e73f1aef01bafd6aecb940e49d884d8b2627415",
+          "health_index": 0.8672311688579777,
+          "threshold": 0.9621386547688924,
+          "uncertainty_method": "bootstrap_fit_residuals",
+          "warnings": []
+        }
+      },
+      "member_prediction_std": 3.7323596014633007,
+      "member_prediction_min": 10.870489291846752,
+      "member_prediction_max": 20.95431089401245,
+      "interval_80": [
+        5.343085043168889,
+        17.841373981663665
+      ],
+      "interval_90": [
+        3.233931876866862,
+        19.95052714796569
+      ],
+      "uncertainty_method": "cross_fitted_split_conformal_member_spread"
+    },
+    "rul_cycles": 11.592229512416276,
+    "interval": [
+      5.343085043168889,
+      17.841373981663665
+    ],
+    "interval_method": "cross_fitted_split_conformal_member_spread",
+    "anomaly": null,
+    "provenance": {
+      "source": "ml/artifacts/cmapss/model_registry.json",
+      "artifact_dir": "artifacts/08_ensemble/outputs/FD002/seed_44",
+      "version": "345197d727608fad3e7cd2c49f4fe7dc9d0c73a86696557deac75bbfab80590b",
+      "seed": 44,
+      "runtime": "cpu",
+      "bundle_sha256": "3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37"
+    },
+    "warnings": [
+      "Used the latest 50 of 258 available cycles.",
+      "Used the latest 30 of 258 available cycles."
+    ],
+    "target_policy": "Original saved inference; RUL training targets capped where configured; output is not recapped",
+    "limitations": [
+      "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+      "A prediction is model inference, not proof of a failed component or a maintenance limit."
+    ],
+    "id": "33bea9c028624317a657d7a0f952d1d0"
+  },
+  "elapsed_seconds": 113.65700000000106,
+  "events": [
+    {
+      "type": "started",
+      "request_id": "af26d23aed2445bfadfa7e9c0ad2eaa7",
+      "user_message_id": "3cf2f5bc5a4a4c289f0a7186ed042ca4"
+    },
+    {
+      "type": "tool",
+      "tool": "vision",
+      "status": "running",
+      "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d"
+    },
+    {
+      "type": "tool",
+      "tool": "vision",
+      "status": "cached",
+      "provider": "ollama",
+      "model": "qwen3-vl:2b-instruct",
+      "elapsed_seconds": 0.0,
+      "source_ids": [
+        "7ab00ef7c9ec4b04bc1f54c9132aab7d"
+      ]
+    },
+    {
+      "type": "tool",
+      "tool": "search_documents",
+      "status": "complete",
+      "elapsed_seconds": 0.0,
+      "source_ids": [
+        "20f4d9f9979def09c1c055b1"
+      ]
+    },
+    {
+      "type": "evidence",
+      "evidence": [
+        {
+          "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:0",
+          "modality": "image",
+          "kind": "model_inference",
+          "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+          "observation": "A cylindrical roller bearing with a split design, featuring a metallic outer ring and a series of ax",
+          "locator": "bearing_cc0.jpg",
+          "reliability": "medium",
+          "asset_identity": null,
+          "predicate": null,
+          "value": null,
+          "limitations": [
+            "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+            "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+          ]
+        },
+        {
+          "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:1",
+          "modality": "image",
+          "kind": "model_inference",
+          "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+          "observation": "The bearing has a metallic outer ring and a series of ax",
+          "locator": "bearing_cc0.jpg",
+          "reliability": "medium",
+          "asset_identity": null,
+          "predicate": null,
+          "value": null,
+          "limitations": [
+            "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+            "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+          ]
+        },
+        {
+          "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:2",
+          "modality": "image",
+          "kind": "model_inference",
+          "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+          "observation": "The bearing has a metallic outer ring and a series of ax",
+          "locator": "bearing_cc0.jpg",
+          "reliability": "medium",
+          "asset_identity": null,
+          "predicate": null,
+          "value": null,
+          "limitations": [
+            "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+            "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+          ]
+        },
+        {
+          "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:3",
+          "modality": "image",
+          "kind": "model_inference",
+          "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+          "observation": "The bearing has a metallic outer ring and a series of ax",
+          "locator": "bearing_cc0.jpg",
+          "reliability": "medium",
+          "asset_identity": null,
+          "predicate": null,
+          "value": null,
+          "limitations": [
+            "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+            "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+          ]
+        },
+        {
+          "id": "5824749c82e14e31b71585ede24cd8a5:schema",
+          "modality": "csv",
+          "kind": "measurement",
+          "source_id": "5824749c82e14e31b71585ede24cd8a5",
+          "observation": "{\"rows\": 258, \"columns\": [\"unit\", \"cycle\", \"op1\", \"op2\", \"op3\", \"s1\", \"s2\", \"s3\", \"s4\", \"s5\", \"s6\", \"s7\", \"s8\", \"s9\", \"s10\", \"s11\", \"s12\", \"s13\", \"s14\", \"s15\", \"s16\", \"s17\", \"s18\", \"s19\", \"s20\", \"s21\"], \"preview\": [{\"unit\": 1.0, \"cycle\": 1.0, \"op1\": 9.9987, \"op2\": 0.2502, \"op3\": 100.0, \"s1\": 489.05, \"s2\": 605.03, \"s3\": 1497.17, \"s4\": 1304.99, \"s5\": 10.52, \"s6\": 15.49, \"s7\": 394.54, \"s8\": 2318.96, \"s9\": 8763.8, \"s10\": 1.26, \"s11\": 45.61, \"s12\": 371.69, \"s13\": 2388.18, \"s14\": 8114.1, \"s15\": 8.6476, \"s16\": 0.03, \"s17\": 369.0, \"s18\": 2319.0, \"s19\": 100.0, \"s20\": 28.42, \"s21\": 17.1551}, {\"unit\": 1.0, \"cycle\": 2.0, \"op1\": 20.0026, \"op2\": 0.7, \"op3\": 100.0, \"s1\": 491.19, \"s2\": 607.82, \"s3\": 1481.2, \"s4\": 1246.11, \"s5\": 9.35, \"s6\": 13.66, \"s7\": 334.36, \"s8\": 2323.95, \"s9\": 8713.21, \"s10\": 1.08, \"s11\": 44.26, \"s12\": 315.32, \"s13\": 2388.12, \"s14\": 8053.06, \"s15\": 9.2405, \"s16\": 0.02, \"s17\": 364.0, \"s18\": 2324.0, \"s19\": 100.0, \"s20\": 24.29, \"s21\": 14.8039}, {\"unit\": 1.0, \"cycle\": 3.0, \"op1\": 35.0045, \"op2\": 0.84, \"op3\": 100.0, \"s1\": 449.44, \"s2\": 556.0, \"s3\": 1359.08, \"s4\": 1128.36, \"s5\": 5.48, \"s6\": 8.0, \"s7\": 193.55, \"s8\": 2222.67, \"s9\": 8340.2, \"s10\": 1.02, \"s11\": 41.8, \"s12\": 183.04, \"s13\": 2387.75, \"s14\": 8053.04, \"s15\": 9.3472, \"s16\": 0.02, \"s17\": 333.0, \"s18\": 2223.0, \"s19\": 100.0, \"s20\": 14.98, \"s21\": 8.9125}, {\"unit\": 1.0, \"cycle\": 4.0, \"op1\": 42.0066, \"op2\": 0.841, \"op3\": 100.0, \"s1\": 445.0, \"s2\": 550.17, \"s3\": 1349.69, \"s4\": 1127.89, \"s5\": 3.91, \"s6\": 5.71, \"s7\": 138.74, \"s8\": 2211.58, \"s9\": 8313.85, \"s10\": 1.02, \"s11\": 42.21, \"s12\": 130.4, \"s13\": 2387.72, \"s14\": 8066.9, \"s15\": 9.3961, \"s16\": 0.02, \"s17\": 332.0, \"s18\": 2212.0, \"s19\": 100.0, \"s20\": 10.35, \"s21\": 6.4181}, {\"unit\": 1.0, \"cycle\": 5.0, \"op1\": 24.9985, \"op2\": 0.6213, \"op3\": 60.0, \"s1\": 462.54, \"s2\": 536.72, \"s3\": 1253.18, \"s4\": 1050.69, \"s5\": 7.05, \"s6\": 9.03, \"s7\": 175.75, \"s8\": 1915.1, \"s9\": 7997.13, \"s10\": 0.94, \"s11\": 36.76, \"s12\": 164.56, \"s13\": 2028.05, \"s14\": 7865.66, \"s15\": 10.8682, \"s16\": 0.02, \"s17\": 305.0, \"s18\": 1915.0, \"s19\": 84.93, \"s20\": 14.31, \"s21\": 8.574}], \"prediction_eligible\": true, \"declared_dataset\": \"FD002\", \"warnings\": []}",
+          "locator": "FD002_ENGINE001_SOURCE.csv",
+          "reliability": "high",
+          "asset_identity": null,
+          "predicate": null,
+          "value": null,
+          "limitations": [
+            "Parsed CSV schema is not a validated transfer to a different machine domain."
+          ]
+        },
+        {
+          "id": "prediction:33bea9c028624317a657d7a0f952d1d0",
+          "modality": "sensor_model",
+          "kind": "model_inference",
+          "source_id": "33bea9c028624317a657d7a0f952d1d0",
+          "observation": "{\"id\": \"33bea9c028624317a657d7a0f952d1d0\", \"dataset\": \"FD002\", \"model_id\": \"fd002-08_ensemble-s44\", \"data_origin\": \"user_declared_cmapss\", \"last_cycle\": 258, \"rul_cycles\": 11.592229512416276, \"interval\": [5.343085043168889, 17.841373981663665], \"interval_method\": \"cross_fitted_split_conformal_member_spread\", \"provenance\": {\"source\": \"ml/artifacts/cmapss/model_registry.json\", \"artifact_dir\": \"artifacts/08_ensemble/outputs/FD002/seed_44\", \"version\": \"345197d727608fad3e7cd2c49f4fe7dc9d0c73a86696557deac75bbfab80590b\", \"seed\": 44, \"runtime\": \"cpu\", \"bundle_sha256\": \"3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37\"}, \"limitations\": [\"NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.\", \"A prediction is model inference, not proof of a failed component or a maintenance limit.\"]}",
+          "locator": null,
+          "reliability": "medium",
+          "asset_identity": null,
+          "predicate": null,
+          "value": null,
+          "limitations": [
+            "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+            "A prediction is model inference, not proof of a failed component or a maintenance limit."
+          ]
+        },
+        {
+          "id": "20f4d9f9979def09c1c055b1",
+          "modality": "document",
+          "kind": "document_guidance",
+          "source_id": "664bad722cab47c299bc412ae2aea0b3",
+          "observation": "# SIRE C-MAPSS demonstration model card\n\nProvenance: project-authored integration notes derived from the existing SIRE README and Phase A inference contracts. This is software documentation, not an equipment maintenance manual.\n\nC-MAPSS demonstration assets are simulated turbofan sensor histories. Remaining useful life (RUL) estimates use operating cycles. A cycle-to-calendar conversion is not available. These estimates are not certified maintenance limits and cannot establish a physical root cause.\n\nThe saved predictors require dataset-matched C-MAPSS histories with engine unit, cycle, three operating settings and twenty-one sensors. Fitted preprocessing is loaded from the original training artifacts. Generic vibration or vehicle CSV files are not compatible merely because they contain numeric readings.\n\nThe autoencoder anomaly detector is experimental. An anomaly score is not remaining useful life. A model's feature contributions describe its prediction, not proof of a failed component.\n\nPhotographs can support visible observations. They cannot prove internal damage or supply a sensor-based RUL estimate. A real component photograph and a NASA simulated engine are unrelated eviden",
+          "locator": "sire_model_card.md / lines 1-11, chars 1-1200",
+          "reliability": "medium",
+          "asset_identity": null,
+          "predicate": null,
+          "value": null,
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "type": "delta",
+      "text": "-"
+    },
+    {
+      "type": "delta",
+      "text": " **"
+    },
+    {
+      "type": "delta",
+      "text": "Image"
+    },
+    {
+      "type": "delta",
+      "text": " evidence"
+    },
+    {
+      "type": "delta",
+      "text": "**:"
+    },
+    {
+      "type": "delta",
+      "text": " Photograph"
+    },
+    {
+      "type": "delta",
+      "text": "s"
+    },
+    {
+      "type": "delta",
+      "text": " support"
+    },
+    {
+      "type": "delta",
+      "text": " visible"
+    },
+    {
+      "type": "delta",
+      "text": " observations"
+    },
+    {
+      "type": "delta",
+      "text": " but"
+    },
+    {
+      "type": "delta",
+      "text": " cannot"
+    },
+    {
+      "type": "delta",
+      "text": " prove"
+    },
+    {
+      "type": "delta",
+      "text": " internal"
+    },
+    {
+      "type": "delta",
+      "text": " damage"
+    },
+    {
+      "type": "delta",
+      "text": " or"
+    },
+    {
+      "type": "delta",
+      "text": " supply"
+    },
+    {
+      "type": "delta",
+      "text": " a"
+    },
+    {
+      "type": "delta",
+      "text": " sensor"
+    },
+    {
+      "type": "delta",
+      "text": "-based"
+    },
+    {
+      "type": "delta",
+      "text": " R"
+    },
+    {
+      "type": "delta",
+      "text": "UL"
+    },
+    {
+      "type": "delta",
+      "text": " estimate"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "delta",
+      "text": " No"
+    },
+    {
+      "type": "delta",
+      "text": " physical"
+    },
+    {
+      "type": "delta",
+      "text": " linkage"
+    },
+    {
+      "type": "delta",
+      "text": " exists"
+    },
+    {
+      "type": "delta",
+      "text": " between"
+    },
+    {
+      "type": "delta",
+      "text": " real"
+    },
+    {
+      "type": "delta",
+      "text": " component"
+    },
+    {
+      "type": "delta",
+      "text": " images"
+    },
+    {
+      "type": "delta",
+      "text": " and"
+    },
+    {
+      "type": "delta",
+      "text": " the"
+    },
+    {
+      "type": "delta",
+      "text": " NASA"
+    },
+    {
+      "type": "delta",
+      "text": " C"
+    },
+    {
+      "type": "delta",
+      "text": "-M"
+    },
+    {
+      "type": "delta",
+      "text": "AP"
+    },
+    {
+      "type": "delta",
+      "text": "SS"
+    },
+    {
+      "type": "delta",
+      "text": " simulation"
+    },
+    {
+      "type": "delta",
+      "text": ".\n\n"
+    },
+    {
+      "type": "delta",
+      "text": "-"
+    },
+    {
+      "type": "delta",
+      "text": " **"
+    },
+    {
+      "type": "delta",
+      "text": "Sensor"
+    },
+    {
+      "type": "delta",
+      "text": " data"
+    },
+    {
+      "type": "delta",
+      "text": " ("
+    },
+    {
+      "type": "delta",
+      "text": "CSV"
+    },
+    {
+      "type": "delta",
+      "text": ")**"
+    },
+    {
+      "type": "delta",
+      "text": ":"
+    },
+    {
+      "type": "delta",
+      "text": " The"
+    },
+    {
+      "type": "delta",
+      "text": " parsed"
+    },
+    {
+      "type": "delta",
+      "text": " CSV"
+    },
+    {
+      "type": "delta",
+      "text": " contains"
+    },
+    {
+      "type": "delta",
+      "text": " high"
+    },
+    {
+      "type": "delta",
+      "text": "-re"
+    },
+    {
+      "type": "delta",
+      "text": "li"
+    },
+    {
+      "type": "delta",
+      "text": "ability"
+    },
+    {
+      "type": "delta",
+      "text": " sensor"
+    },
+    {
+      "type": "delta",
+      "text": " readings"
+    },
+    {
+      "type": "delta",
+      "text": " from"
+    },
+    {
+      "type": "delta",
+      "text": " the"
+    },
+    {
+      "type": "delta",
+      "text": " NASA"
+    },
+    {
+      "type": "delta",
+      "text": " C"
+    },
+    {
+      "type": "delta",
+      "text": "-M"
+    },
+    {
+      "type": "delta",
+      "text": "AP"
+    },
+    {
+      "type": "delta",
+      "text": "SS"
+    },
+    {
+      "type": "delta",
+      "text": " simulation"
+    },
+    {
+      "type": "delta",
+      "text": " ("
+    },
+    {
+      "type": "delta",
+      "text": "FD"
+    },
+    {
+      "type": "delta",
+      "text": "0"
+    },
+    {
+      "type": "delta",
+      "text": "0"
+    },
+    {
+      "type": "delta",
+      "text": "2"
+    },
+    {
+      "type": "delta",
+      "text": " dataset"
+    },
+    {
+      "type": "delta",
+      "text": "),"
+    },
+    {
+      "type": "delta",
+      "text": " including"
+    },
+    {
+      "type": "delta",
+      "text": " "
+    },
+    {
+      "type": "delta",
+      "text": "2"
+    },
+    {
+      "type": "delta",
+      "text": "1"
+    },
+    {
+      "type": "delta",
+      "text": " sensor"
+    },
+    {
+      "type": "delta",
+      "text": " values"
+    },
+    {
+      "type": "delta",
+      "text": " and"
+    },
+    {
+      "type": "delta",
+      "text": " operating"
+    },
+    {
+      "type": "delta",
+      "text": " settings"
+    },
+    {
+      "type": "delta",
+      "text": " across"
+    },
+    {
+      "type": "delta",
+      "text": " "
+    },
+    {
+      "type": "delta",
+      "text": "2"
+    },
+    {
+      "type": "delta",
+      "text": "5"
+    },
+    {
+      "type": "delta",
+      "text": "8"
+    },
+    {
+      "type": "delta",
+      "text": " cycles"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "delta",
+      "text": " However"
+    },
+    {
+      "type": "delta",
+      "text": ","
+    },
+    {
+      "type": "delta",
+      "text": " the"
+    },
+    {
+      "type": "delta",
+      "text": " data"
+    },
+    {
+      "type": "delta",
+      "text": " is"
+    },
+    {
+      "type": "delta",
+      "text": " simulated"
+    },
+    {
+      "type": "delta",
+      "text": " and"
+    },
+    {
+      "type": "delta",
+      "text": " not"
+    },
+    {
+      "type": "delta",
+      "text": " directly"
+    },
+    {
+      "type": "delta",
+      "text": " transfer"
+    },
+    {
+      "type": "delta",
+      "text": "able"
+    },
+    {
+      "type": "delta",
+      "text": " to"
+    },
+    {
+      "type": "delta",
+      "text": " real"
+    },
+    {
+      "type": "delta",
+      "text": "-world"
+    },
+    {
+      "type": "delta",
+      "text": " machinery"
+    },
+    {
+      "type": "delta",
+      "text": ".\n\n"
+    },
+    {
+      "type": "delta",
+      "text": "-"
+    },
+    {
+      "type": "delta",
+      "text": " **"
+    },
+    {
+      "type": "delta",
+      "text": "Model"
+    },
+    {
+      "type": "delta",
+      "text": " prediction"
+    },
+    {
+      "type": "delta",
+      "text": "**:"
+    },
+    {
+      "type": "delta",
+      "text": " A"
+    },
+    {
+      "type": "delta",
+      "text": " remaining"
+    },
+    {
+      "type": "delta",
+      "text": " useful"
+    },
+    {
+      "type": "delta",
+      "text": " life"
+    },
+    {
+      "type": "delta",
+      "text": " ("
+    },
+    {
+      "type": "delta",
+      "text": "R"
+    },
+    {
+      "type": "delta",
+      "text": "UL"
+    },
+    {
+      "type": "delta",
+      "text": ")"
+    },
+    {
+      "type": "delta",
+      "text": " estimate"
+    },
+    {
+      "type": "delta",
+      "text": " of"
+    },
+    {
+      "type": "delta",
+      "text": " "
+    },
+    {
+      "type": "delta",
+      "text": "1"
+    },
+    {
+      "type": "delta",
+      "text": "1"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "delta",
+      "text": "5"
+    },
+    {
+      "type": "delta",
+      "text": "9"
+    },
+    {
+      "type": "delta",
+      "text": " cycles"
+    },
+    {
+      "type": "delta",
+      "text": " is"
+    },
+    {
+      "type": "delta",
+      "text": " provided"
+    },
+    {
+      "type": "delta",
+      "text": " by"
+    },
+    {
+      "type": "delta",
+      "text": " a"
+    },
+    {
+      "type": "delta",
+      "text": " trained"
+    },
+    {
+      "type": "delta",
+      "text": " model"
+    },
+    {
+      "type": "delta",
+      "text": " ("
+    },
+    {
+      "type": "delta",
+      "text": "FD"
+    },
+    {
+      "type": "delta",
+      "text": "0"
+    },
+    {
+      "type": "delta",
+      "text": "0"
+    },
+    {
+      "type": "delta",
+      "text": "2"
+    },
+    {
+      "type": "delta",
+      "text": "-"
+    },
+    {
+      "type": "delta",
+      "text": "0"
+    },
+    {
+      "type": "delta",
+      "text": "8"
+    },
+    {
+      "type": "delta",
+      "text": "_"
+    },
+    {
+      "type": "delta",
+      "text": "ensemble"
+    },
+    {
+      "type": "delta",
+      "text": "-s"
+    },
+    {
+      "type": "delta",
+      "text": "4"
+    },
+    {
+      "type": "delta",
+      "text": "4"
+    },
+    {
+      "type": "delta",
+      "text": "),"
+    },
+    {
+      "type": "delta",
+      "text": " derived"
+    },
+    {
+      "type": "delta",
+      "text": " from"
+    },
+    {
+      "type": "delta",
+      "text": " simulated"
+    },
+    {
+      "type": "delta",
+      "text": " data"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "delta",
+      "text": " This"
+    },
+    {
+      "type": "delta",
+      "text": " is"
+    },
+    {
+      "type": "delta",
+      "text": " a"
+    },
+    {
+      "type": "delta",
+      "text": " model"
+    },
+    {
+      "type": "delta",
+      "text": " inference"
+    },
+    {
+      "type": "delta",
+      "text": ","
+    },
+    {
+      "type": "delta",
+      "text": " not"
+    },
+    {
+      "type": "delta",
+      "text": " a"
+    },
+    {
+      "type": "delta",
+      "text": " proven"
+    },
+    {
+      "type": "delta",
+      "text": " failure"
+    },
+    {
+      "type": "delta",
+      "text": " or"
+    },
+    {
+      "type": "delta",
+      "text": " maintenance"
+    },
+    {
+      "type": "delta",
+      "text": " limit"
+    },
+    {
+      "type": "delta",
+      "text": ","
+    },
+    {
+      "type": "delta",
+      "text": " and"
+    },
+    {
+      "type": "delta",
+      "text": " does"
+    },
+    {
+      "type": "delta",
+      "text": " not"
+    },
+    {
+      "type": "delta",
+      "text": " establish"
+    },
+    {
+      "type": "delta",
+      "text": " a"
+    },
+    {
+      "type": "delta",
+      "text": " physical"
+    },
+    {
+      "type": "delta",
+      "text": " root"
+    },
+    {
+      "type": "delta",
+      "text": " cause"
+    },
+    {
+      "type": "delta",
+      "text": ".\n\n"
+    },
+    {
+      "type": "delta",
+      "text": "-"
+    },
+    {
+      "type": "delta",
+      "text": " **"
+    },
+    {
+      "type": "delta",
+      "text": "Document"
+    },
+    {
+      "type": "delta",
+      "text": " guidance"
+    },
+    {
+      "type": "delta",
+      "text": "**:"
+    },
+    {
+      "type": "delta",
+      "text": " The"
+    },
+    {
+      "type": "delta",
+      "text": " model"
+    },
+    {
+      "type": "delta",
+      "text": " card"
+    },
+    {
+      "type": "delta",
+      "text": " explicitly"
+    },
+    {
+      "type": "delta",
+      "text": " states"
+    },
+    {
+      "type": "delta",
+      "text": " that"
+    },
+    {
+      "type": "delta",
+      "text": " C"
+    },
+    {
+      "type": "delta",
+      "text": "-M"
+    },
+    {
+      "type": "delta",
+      "text": "AP"
+    },
+    {
+      "type": "delta",
+      "text": "SS"
+    },
+    {
+      "type": "delta",
+      "text": " data"
+    },
+    {
+      "type": "delta",
+      "text": " is"
+    },
+    {
+      "type": "delta",
+      "text": " simulated"
+    },
+    {
+      "type": "delta",
+      "text": ","
+    },
+    {
+      "type": "delta",
+      "text": " operating"
+    },
+    {
+      "type": "delta",
+      "text": " cycles"
+    },
+    {
+      "type": "delta",
+      "text": " are"
+    },
+    {
+      "type": "delta",
+      "text": " used"
+    },
+    {
+      "type": "delta",
+      "text": " ("
+    },
+    {
+      "type": "delta",
+      "text": "not"
+    },
+    {
+      "type": "delta",
+      "text": " calendar"
+    },
+    {
+      "type": "delta",
+      "text": " time"
+    },
+    {
+      "type": "delta",
+      "text": "),"
+    },
+    {
+      "type": "delta",
+      "text": " and"
+    },
+    {
+      "type": "delta",
+      "text": " R"
+    },
+    {
+      "type": "delta",
+      "text": "UL"
+    },
+    {
+      "type": "delta",
+      "text": " estimates"
+    },
+    {
+      "type": "delta",
+      "text": " are"
+    },
+    {
+      "type": "delta",
+      "text": " not"
+    },
+    {
+      "type": "delta",
+      "text": " certified"
+    },
+    {
+      "type": "delta",
+      "text": " maintenance"
+    },
+    {
+      "type": "delta",
+      "text": " limits"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "delta",
+      "text": " An"
+    },
+    {
+      "type": "delta",
+      "text": "omaly"
+    },
+    {
+      "type": "delta",
+      "text": " scores"
+    },
+    {
+      "type": "delta",
+      "text": " or"
+    },
+    {
+      "type": "delta",
+      "text": " model"
+    },
+    {
+      "type": "delta",
+      "text": " predictions"
+    },
+    {
+      "type": "delta",
+      "text": " do"
+    },
+    {
+      "type": "delta",
+      "text": " not"
+    },
+    {
+      "type": "delta",
+      "text": " equ"
+    },
+    {
+      "type": "delta",
+      "text": "ate"
+    },
+    {
+      "type": "delta",
+      "text": " to"
+    },
+    {
+      "type": "delta",
+      "text": " proof"
+    },
+    {
+      "type": "delta",
+      "text": " of"
+    },
+    {
+      "type": "delta",
+      "text": " component"
+    },
+    {
+      "type": "delta",
+      "text": " failure"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "delta",
+      "text": " All"
+    },
+    {
+      "type": "delta",
+      "text": " in"
+    },
+    {
+      "type": "delta",
+      "text": "ferences"
+    },
+    {
+      "type": "delta",
+      "text": " are"
+    },
+    {
+      "type": "delta",
+      "text": " software"
+    },
+    {
+      "type": "delta",
+      "text": "-based"
+    },
+    {
+      "type": "delta",
+      "text": " and"
+    },
+    {
+      "type": "delta",
+      "text": " not"
+    },
+    {
+      "type": "delta",
+      "text": " grounded"
+    },
+    {
+      "type": "delta",
+      "text": " in"
+    },
+    {
+      "type": "delta",
+      "text": " physical"
+    },
+    {
+      "type": "delta",
+      "text": " evidence"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "done",
+      "status": "complete",
+      "metadata": {
+        "provider": "ollama",
+        "model": "qwen3:4b-instruct",
+        "tools": [
+          {
+            "tool": "vision",
+            "status": "cached",
+            "provider": "ollama",
+            "model": "qwen3-vl:2b-instruct",
+            "elapsed_seconds": 0.0,
+            "source_ids": [
+              "7ab00ef7c9ec4b04bc1f54c9132aab7d"
+            ]
+          },
+          {
+            "tool": "search_documents",
+            "status": "complete",
+            "elapsed_seconds": 0.0,
+            "source_ids": [
+              "20f4d9f9979def09c1c055b1"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:0",
+            "modality": "image",
+            "kind": "model_inference",
+            "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+            "observation": "A cylindrical roller bearing with a split design, featuring a metallic outer ring and a series of ax",
+            "locator": "bearing_cc0.jpg",
+            "reliability": "medium",
+            "asset_identity": null,
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+              "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+            ]
+          },
+          {
+            "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:1",
+            "modality": "image",
+            "kind": "model_inference",
+            "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+            "observation": "The bearing has a metallic outer ring and a series of ax",
+            "locator": "bearing_cc0.jpg",
+            "reliability": "medium",
+            "asset_identity": null,
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+              "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+            ]
+          },
+          {
+            "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:2",
+            "modality": "image",
+            "kind": "model_inference",
+            "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+            "observation": "The bearing has a metallic outer ring and a series of ax",
+            "locator": "bearing_cc0.jpg",
+            "reliability": "medium",
+            "asset_identity": null,
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+              "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+            ]
+          },
+          {
+            "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:3",
+            "modality": "image",
+            "kind": "model_inference",
+            "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+            "observation": "The bearing has a metallic outer ring and a series of ax",
+            "locator": "bearing_cc0.jpg",
+            "reliability": "medium",
+            "asset_identity": null,
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+              "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+            ]
+          },
+          {
+            "id": "5824749c82e14e31b71585ede24cd8a5:schema",
+            "modality": "csv",
+            "kind": "measurement",
+            "source_id": "5824749c82e14e31b71585ede24cd8a5",
+            "observation": "{\"rows\": 258, \"columns\": [\"unit\", \"cycle\", \"op1\", \"op2\", \"op3\", \"s1\", \"s2\", \"s3\", \"s4\", \"s5\", \"s6\", \"s7\", \"s8\", \"s9\", \"s10\", \"s11\", \"s12\", \"s13\", \"s14\", \"s15\", \"s16\", \"s17\", \"s18\", \"s19\", \"s20\", \"s21\"], \"preview\": [{\"unit\": 1.0, \"cycle\": 1.0, \"op1\": 9.9987, \"op2\": 0.2502, \"op3\": 100.0, \"s1\": 489.05, \"s2\": 605.03, \"s3\": 1497.17, \"s4\": 1304.99, \"s5\": 10.52, \"s6\": 15.49, \"s7\": 394.54, \"s8\": 2318.96, \"s9\": 8763.8, \"s10\": 1.26, \"s11\": 45.61, \"s12\": 371.69, \"s13\": 2388.18, \"s14\": 8114.1, \"s15\": 8.6476, \"s16\": 0.03, \"s17\": 369.0, \"s18\": 2319.0, \"s19\": 100.0, \"s20\": 28.42, \"s21\": 17.1551}, {\"unit\": 1.0, \"cycle\": 2.0, \"op1\": 20.0026, \"op2\": 0.7, \"op3\": 100.0, \"s1\": 491.19, \"s2\": 607.82, \"s3\": 1481.2, \"s4\": 1246.11, \"s5\": 9.35, \"s6\": 13.66, \"s7\": 334.36, \"s8\": 2323.95, \"s9\": 8713.21, \"s10\": 1.08, \"s11\": 44.26, \"s12\": 315.32, \"s13\": 2388.12, \"s14\": 8053.06, \"s15\": 9.2405, \"s16\": 0.02, \"s17\": 364.0, \"s18\": 2324.0, \"s19\": 100.0, \"s20\": 24.29, \"s21\": 14.8039}, {\"unit\": 1.0, \"cycle\": 3.0, \"op1\": 35.0045, \"op2\": 0.84, \"op3\": 100.0, \"s1\": 449.44, \"s2\": 556.0, \"s3\": 1359.08, \"s4\": 1128.36, \"s5\": 5.48, \"s6\": 8.0, \"s7\": 193.55, \"s8\": 2222.67, \"s9\": 8340.2, \"s10\": 1.02, \"s11\": 41.8, \"s12\": 183.04, \"s13\": 2387.75, \"s14\": 8053.04, \"s15\": 9.3472, \"s16\": 0.02, \"s17\": 333.0, \"s18\": 2223.0, \"s19\": 100.0, \"s20\": 14.98, \"s21\": 8.9125}, {\"unit\": 1.0, \"cycle\": 4.0, \"op1\": 42.0066, \"op2\": 0.841, \"op3\": 100.0, \"s1\": 445.0, \"s2\": 550.17, \"s3\": 1349.69, \"s4\": 1127.89, \"s5\": 3.91, \"s6\": 5.71, \"s7\": 138.74, \"s8\": 2211.58, \"s9\": 8313.85, \"s10\": 1.02, \"s11\": 42.21, \"s12\": 130.4, \"s13\": 2387.72, \"s14\": 8066.9, \"s15\": 9.3961, \"s16\": 0.02, \"s17\": 332.0, \"s18\": 2212.0, \"s19\": 100.0, \"s20\": 10.35, \"s21\": 6.4181}, {\"unit\": 1.0, \"cycle\": 5.0, \"op1\": 24.9985, \"op2\": 0.6213, \"op3\": 60.0, \"s1\": 462.54, \"s2\": 536.72, \"s3\": 1253.18, \"s4\": 1050.69, \"s5\": 7.05, \"s6\": 9.03, \"s7\": 175.75, \"s8\": 1915.1, \"s9\": 7997.13, \"s10\": 0.94, \"s11\": 36.76, \"s12\": 164.56, \"s13\": 2028.05, \"s14\": 7865.66, \"s15\": 10.8682, \"s16\": 0.02, \"s17\": 305.0, \"s18\": 1915.0, \"s19\": 84.93, \"s20\": 14.31, \"s21\": 8.574}], \"prediction_eligible\": true, \"declared_dataset\": \"FD002\", \"warnings\": []}",
+            "locator": "FD002_ENGINE001_SOURCE.csv",
+            "reliability": "high",
+            "asset_identity": null,
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "Parsed CSV schema is not a validated transfer to a different machine domain."
+            ]
+          },
+          {
+            "id": "prediction:33bea9c028624317a657d7a0f952d1d0",
+            "modality": "sensor_model",
+            "kind": "model_inference",
+            "source_id": "33bea9c028624317a657d7a0f952d1d0",
+            "observation": "{\"id\": \"33bea9c028624317a657d7a0f952d1d0\", \"dataset\": \"FD002\", \"model_id\": \"fd002-08_ensemble-s44\", \"data_origin\": \"user_declared_cmapss\", \"last_cycle\": 258, \"rul_cycles\": 11.592229512416276, \"interval\": [5.343085043168889, 17.841373981663665], \"interval_method\": \"cross_fitted_split_conformal_member_spread\", \"provenance\": {\"source\": \"ml/artifacts/cmapss/model_registry.json\", \"artifact_dir\": \"artifacts/08_ensemble/outputs/FD002/seed_44\", \"version\": \"345197d727608fad3e7cd2c49f4fe7dc9d0c73a86696557deac75bbfab80590b\", \"seed\": 44, \"runtime\": \"cpu\", \"bundle_sha256\": \"3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37\"}, \"limitations\": [\"NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.\", \"A prediction is model inference, not proof of a failed component or a maintenance limit.\"]}",
+            "locator": null,
+            "reliability": "medium",
+            "asset_identity": null,
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+              "A prediction is model inference, not proof of a failed component or a maintenance limit."
+            ]
+          },
+          {
+            "id": "20f4d9f9979def09c1c055b1",
+            "modality": "document",
+            "kind": "document_guidance",
+            "source_id": "664bad722cab47c299bc412ae2aea0b3",
+            "observation": "# SIRE C-MAPSS demonstration model card\n\nProvenance: project-authored integration notes derived from the existing SIRE README and Phase A inference contracts. This is software documentation, not an equipment maintenance manual.\n\nC-MAPSS demonstration assets are simulated turbofan sensor histories. Remaining useful life (RUL) estimates use operating cycles. A cycle-to-calendar conversion is not available. These estimates are not certified maintenance limits and cannot establish a physical root cause.\n\nThe saved predictors require dataset-matched C-MAPSS histories with engine unit, cycle, three operating settings and twenty-one sensors. Fitted preprocessing is loaded from the original training artifacts. Generic vibration or vehicle CSV files are not compatible merely because they contain numeric readings.\n\nThe autoencoder anomaly detector is experimental. An anomaly score is not remaining useful life. A model's feature contributions describe its prediction, not proof of a failed component.\n\nPhotographs can support visible observations. They cannot prove internal damage or supply a sensor-based RUL estimate. A real component photograph and a NASA simulated engine are unrelated eviden",
+            "locator": "sire_model_card.md / lines 1-11, chars 1-1200",
+            "reliability": "medium",
+            "asset_identity": null,
+            "predicate": null,
+            "value": null,
+            "limitations": []
+          }
+        ],
+        "attachments": [
+          "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+          "664bad722cab47c299bc412ae2aea0b3",
+          "5824749c82e14e31b71585ede24cd8a5"
+        ],
+        "elapsed_seconds": 113.6090000000022
+      }
+    }
+  ],
+  "history": {
+    "id": "ac1e45349fba45019783f3a9633378ba",
+    "title": "[verification] V2 real-provider session",
+    "created_at": "2026-11-16T19:20:33.643767+00:00",
+    "updated_at": "2026-11-16T20:18:21.777066+00:00",
+    "messages": [
+      {
+        "id": "4dd99a410a17453aa52f4ac288db4f3c",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "role": "user",
+        "content": "Hi! Briefly explain what you can help with.",
+        "status": "complete",
+        "metadata": {
+          "attachments": [],
+          "prediction_id": null
+        },
+        "created_at": "2026-11-16T19:20:33.671347+00:00"
+      },
+      {
+        "id": "5a26448819b544b8b6ff412a95917328",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "role": "assistant",
+        "content": "I can help with general engineering questions, such as component behavior, system design, diagnostics, and troubleshooting. I provide explanations based on known engineering principles and available data sources, such as NASA C-MAPSS simulation data for turbofan systems. However, I do not interpret or validate physical photographs, internal component damage, or real-time sensor readings without trusted, verified evidence. My responses are derived from established engineering knowledge and cited sources, not from unverified observations or user-provided images. If you have a specific engineering query, feel free to ask!",
+        "status": "complete",
+        "metadata": {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "tools": [],
+          "evidence": [],
+          "attachments": [],
+          "elapsed_seconds": 17.656999999999243
+        },
+        "created_at": "2026-11-16T19:20:51.340195+00:00"
+      },
+      {
+        "id": "27630139ed894d3a9a9696cfb3d14f7d",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "role": "user",
+        "content": "Describe only visible features. No defect is known in this public example bearing photograph.",
+        "status": "complete",
+        "metadata": {
+          "attachments": [
+            "7ab00ef7c9ec4b04bc1f54c9132aab7d"
+          ],
+          "prediction_id": null
+        },
+        "created_at": "2026-11-16T19:20:51.499343+00:00"
+      },
+      {
+        "id": "96e66494d1404f74818f7e64a0253495",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "role": "assistant",
+        "content": "Visible features in the public bearing photograph include:\n\n- A cylindrical roller bearing with a split design  \n- A metallic outer ring  \n- A series of rollers (axial elements) arranged within the bearing structure  \n\nNote: The image does not show the bearing in use or under load. No defects are present, as stated in the query. This description is based solely on visible features and does not imply operational or mechanical condition beyond appearance.  \n\nSource ID: 7ab00ef7c9ec4b04bc1f54c9132aab7d  \nLimitation: No physical or operational linkage to NASA C-MAPSS or real-world performance data exists.",
+        "status": "complete",
+        "metadata": {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "tools": [
+            {
+              "tool": "vision",
+              "status": "complete",
+              "provider": "ollama",
+              "model": "qwen3-vl:2b-instruct",
+              "elapsed_seconds": 41.92200000000048,
+              "source_ids": [
+                "7ab00ef7c9ec4b04bc1f54c9132aab7d"
+              ]
+            }
+          ],
+          "evidence": [
+            {
+              "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:0",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+              "observation": "A cylindrical roller bearing with a split design, featuring a metallic outer ring and a series of ax",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+              ]
+            },
+            {
+              "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:1",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+              "observation": "The bearing has a metallic outer ring and a series of ax",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+              ]
+            },
+            {
+              "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:2",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+              "observation": "The bearing has a metallic outer ring and a series of ax",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+              ]
+            },
+            {
+              "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:3",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+              "observation": "The bearing has a metallic outer ring and a series of ax",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+              ]
+            }
+          ],
+          "attachments": [
+            "7ab00ef7c9ec4b04bc1f54c9132aab7d"
+          ],
+          "elapsed_seconds": 77.26599999999962
+        },
+        "created_at": "2026-11-16T19:22:08.765603+00:00"
+      },
+      {
+        "id": "b96871bbbbb541348e72de4920bba999",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "role": "user",
+        "content": "According to the attached project model card, can photographs prove internal damage or supply RUL? Cite the source.",
+        "status": "complete",
+        "metadata": {
+          "attachments": [
+            "664bad722cab47c299bc412ae2aea0b3"
+          ],
+          "prediction_id": null
+        },
+        "created_at": "2026-11-16T19:22:08.837103+00:00"
+      },
+      {
+        "id": "aee742d88b5f435dbe683c6e0cbc9b47",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "role": "assistant",
+        "content": "Photographs cannot prove internal damage or supply a Remaining Useful Life (RUL) estimate.  \n\nSource ID: 664bad722cab47c099bc412ae2aea0b3  \nCitation: The project model card explicitly states that \"photographs can support visible observations. They cannot prove internal damage or supply a sensor-based RUL estimate.\"  \n\nLimitation: No physical or operational linkage exists between the photograph and NASA C-MAPSS simulation data. The model card confirms that RUL estimates are derived from sensor histories and operating cycles, not visual inspection.  \n\nConclusion: Based on the provided source, photographs do not validate internal damage or provide RUL.",
+        "status": "complete",
+        "metadata": {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "tools": [
+            {
+              "tool": "search_documents",
+              "status": "complete",
+              "elapsed_seconds": 0.01600000000144064,
+              "source_ids": [
+                "20f4d9f9979def09c1c055b1"
+              ]
+            }
+          ],
+          "evidence": [
+            {
+              "id": "20f4d9f9979def09c1c055b1",
+              "modality": "document",
+              "kind": "document_guidance",
+              "source_id": "664bad722cab47c299bc412ae2aea0b3",
+              "observation": "# SIRE C-MAPSS demonstration model card\n\nProvenance: project-authored integration notes derived from the existing SIRE README and Phase A inference contracts. This is software documentation, not an equipment maintenance manual.\n\nC-MAPSS demonstration assets are simulated turbofan sensor histories. Remaining useful life (RUL) estimates use operating cycles. A cycle-to-calendar conversion is not available. These estimates are not certified maintenance limits and cannot establish a physical root cause.\n\nThe saved predictors require dataset-matched C-MAPSS histories with engine unit, cycle, three operating settings and twenty-one sensors. Fitted preprocessing is loaded from the original training artifacts. Generic vibration or vehicle CSV files are not compatible merely because they contain numeric readings.\n\nThe autoencoder anomaly detector is experimental. An anomaly score is not remaining useful life. A model's feature contributions describe its prediction, not proof of a failed component.\n\nPhotographs can support visible observations. They cannot prove internal damage or supply a sensor-based RUL estimate. A real component photograph and a NASA simulated engine are unrelated eviden",
+              "locator": "sire_model_card.md / lines 1-11, chars 1-1200",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": []
+            }
+          ],
+          "attachments": [
+            "664bad722cab47c299bc412ae2aea0b3"
+          ],
+          "elapsed_seconds": 30.889999999999418
+        },
+        "created_at": "2026-11-16T19:22:39.720105+00:00"
+      },
+      {
+        "id": "001954d6dfe34df59b1d771367650cac",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "role": "user",
+        "content": "No damage is established. Consider lubrication problems and misalignment as possible mechanisms for a hypothetical user report of noise. Compare them, cite actual observations or guidance, and identify missing discriminating tests. Do not invent a contradiction.",
+        "status": "complete",
+        "metadata": {
+          "attachments": [
+            "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+            "664bad722cab47c299bc412ae2aea0b3"
+          ],
+          "prediction_id": null
+        },
+        "created_at": "2026-11-16T19:22:39.764889+00:00"
+      },
+      {
+        "id": "ee4e1f29fdb34dc7900310c64d6dad3e",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "role": "assistant",
+        "content": "## Investigation\n\n**Lubrication problems leading to noise in roller bearings**\n\nStatus: tentative; evidence support: low.\n\nNext checks: Measurement of actual lubricant level or condition (e.g., oil viscosity, contamination) under operational load.; Vibration analysis with frequency domain decomposition to identify high-frequency peaks associated with dry or inadequate lubrication.\n\n**Misalignment leading to noise in roller bearings**\n\nStatus: tentative; evidence support: low.\n\nNext checks: Direct measurement of shaft alignment or bearing housing runout using dial indicators or laser alignment tools.; Comparison of vibration data across multiple sensor positions to detect asymmetry in dynamic response.\n\nThese are proposed mechanisms, not a confirmed diagnosis.",
+        "status": "complete",
+        "metadata": {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "tools": [
+            {
+              "tool": "vision",
+              "status": "cached",
+              "provider": "ollama",
+              "model": "qwen3-vl:2b-instruct",
+              "elapsed_seconds": 0.0,
+              "source_ids": [
+                "7ab00ef7c9ec4b04bc1f54c9132aab7d"
+              ]
+            },
+            {
+              "tool": "search_documents",
+              "status": "complete",
+              "elapsed_seconds": 0.0,
+              "source_ids": [
+                "20f4d9f9979def09c1c055b1"
+              ]
+            },
+            {
+              "tool": "propose_hypotheses",
+              "status": "complete",
+              "provider": "ollama",
+              "model": "qwen3:4b-instruct",
+              "elapsed_seconds": 115.45300000000134,
+              "source_ids": [
+                "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:0",
+                "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:1",
+                "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:2",
+                "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:3",
+                "20f4d9f9979def09c1c055b1",
+                "user:001954d6dfe34df59b1d771367650cac"
+              ]
+            },
+            {
+              "tool": "search_documents",
+              "status": "complete",
+              "provider": null,
+              "model": null,
+              "elapsed_seconds": 0.0,
+              "source_ids": [
+                "20f4d9f9979def09c1c055b1",
+                "c13eb788b7cb21a9bf04eead"
+              ]
+            },
+            {
+              "tool": "search_documents",
+              "status": "complete",
+              "provider": null,
+              "model": null,
+              "elapsed_seconds": 0.0,
+              "source_ids": [
+                "20f4d9f9979def09c1c055b1"
+              ]
+            },
+            {
+              "tool": "propose_hypotheses",
+              "status": "complete",
+              "provider": "ollama",
+              "model": "qwen3:4b-instruct",
+              "elapsed_seconds": 94.26499999999942,
+              "source_ids": [
+                "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:0",
+                "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:1",
+                "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:2",
+                "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:3",
+                "20f4d9f9979def09c1c055b1",
+                "user:001954d6dfe34df59b1d771367650cac",
+                "c13eb788b7cb21a9bf04eead"
+              ]
+            }
+          ],
+          "evidence": [
+            {
+              "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:0",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+              "observation": "A cylindrical roller bearing with a split design, featuring a metallic outer ring and a series of ax",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+              ]
+            },
+            {
+              "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:1",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+              "observation": "The bearing has a metallic outer ring and a series of ax",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+              ]
+            },
+            {
+              "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:2",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+              "observation": "The bearing has a metallic outer ring and a series of ax",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+              ]
+            },
+            {
+              "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:3",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+              "observation": "The bearing has a metallic outer ring and a series of ax",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+              ]
+            },
+            {
+              "id": "20f4d9f9979def09c1c055b1",
+              "modality": "document",
+              "kind": "document_guidance",
+              "source_id": "664bad722cab47c299bc412ae2aea0b3",
+              "observation": "# SIRE C-MAPSS demonstration model card\n\nProvenance: project-authored integration notes derived from the existing SIRE README and Phase A inference contracts. This is software documentation, not an equipment maintenance manual.\n\nC-MAPSS demonstration assets are simulated turbofan sensor histories. Remaining useful life (RUL) estimates use operating cycles. A cycle-to-calendar conversion is not available. These estimates are not certified maintenance limits and cannot establish a physical root cause.\n\nThe saved predictors require dataset-matched C-MAPSS histories with engine unit, cycle, three operating settings and twenty-one sensors. Fitted preprocessing is loaded from the original training artifacts. Generic vibration or vehicle CSV files are not compatible merely because they contain numeric readings.\n\nThe autoencoder anomaly detector is experimental. An anomaly score is not remaining useful life. A model's feature contributions describe its prediction, not proof of a failed component.\n\nPhotographs can support visible observations. They cannot prove internal damage or supply a sensor-based RUL estimate. A real component photograph and a NASA simulated engine are unrelated eviden",
+              "locator": "sire_model_card.md / lines 1-11, chars 1-1200",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": []
+            },
+            {
+              "id": "user:001954d6dfe34df59b1d771367650cac",
+              "modality": "text",
+              "kind": "user_claim",
+              "source_id": "001954d6dfe34df59b1d771367650cac",
+              "observation": "No damage is established. Consider lubrication problems and misalignment as possible mechanisms for a hypothetical user report of noise. Compare them, cite actual observations or guidance, and identify missing discriminating tests. Do not invent a contradiction.",
+              "locator": null,
+              "reliability": "low",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": []
+            },
+            {
+              "id": "c13eb788b7cb21a9bf04eead",
+              "modality": "document",
+              "kind": "document_guidance",
+              "source_id": "664bad722cab47c299bc412ae2aea0b3",
+              "observation": "ce sources unless an independently validated relationship exists.",
+              "locator": "sire_model_card.md / lines 1-11, chars 1201-1265",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": []
+            }
+          ],
+          "attachments": [
+            "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+            "664bad722cab47c299bc412ae2aea0b3"
+          ],
+          "investigation_id": "e7fea8ed131e4e3dbb799bed9c103121",
+          "investigation": {
+            "case": {
+              "question": "No damage is established. Consider lubrication problems and misalignment as possible mechanisms for a hypothetical user report of noise. Compare them, cite actual observations or guidance, and identify missing discriminating tests. Do not invent a contradiction.",
+              "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+              "evidence": [
+                {
+                  "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:0",
+                  "modality": "image",
+                  "kind": "model_inference",
+                  "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+                  "observation": "A cylindrical roller bearing with a split design, featuring a metallic outer ring and a series of ax",
+                  "locator": "bearing_cc0.jpg",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                    "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+                  ]
+                },
+                {
+                  "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:1",
+                  "modality": "image",
+                  "kind": "model_inference",
+                  "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+                  "observation": "The bearing has a metallic outer ring and a series of ax",
+                  "locator": "bearing_cc0.jpg",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                    "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+                  ]
+                },
+                {
+                  "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:2",
+                  "modality": "image",
+                  "kind": "model_inference",
+                  "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+                  "observation": "The bearing has a metallic outer ring and a series of ax",
+                  "locator": "bearing_cc0.jpg",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                    "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+                  ]
+                },
+                {
+                  "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:3",
+                  "modality": "image",
+                  "kind": "model_inference",
+                  "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+                  "observation": "The bearing has a metallic outer ring and a series of ax",
+                  "locator": "bearing_cc0.jpg",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                    "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+                  ]
+                },
+                {
+                  "id": "20f4d9f9979def09c1c055b1",
+                  "modality": "document",
+                  "kind": "document_guidance",
+                  "source_id": "664bad722cab47c299bc412ae2aea0b3",
+                  "observation": "# SIRE C-MAPSS demonstration model card\n\nProvenance: project-authored integration notes derived from the existing SIRE README and Phase A inference contracts. This is software documentation, not an equipment maintenance manual.\n\nC-MAPSS demonstration assets are simulated turbofan sensor histories. Remaining useful life (RUL) estimates use operating cycles. A cycle-to-calendar conversion is not available. These estimates are not certified maintenance limits and cannot establish a physical root cause.\n\nThe saved predictors require dataset-matched C-MAPSS histories with engine unit, cycle, three operating settings and twenty-one sensors. Fitted preprocessing is loaded from the original training artifacts. Generic vibration or vehicle CSV files are not compatible merely because they contain numeric readings.\n\nThe autoencoder anomaly detector is experimental. An anomaly score is not remaining useful life. A model's feature contributions describe its prediction, not proof of a failed component.\n\nPhotographs can support visible observations. They cannot prove internal damage or supply a sensor-based RUL estimate. A real component photograph and a NASA simulated engine are unrelated eviden",
+                  "locator": "sire_model_card.md / lines 1-11, chars 1-1200",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": []
+                },
+                {
+                  "id": "user:001954d6dfe34df59b1d771367650cac",
+                  "modality": "text",
+                  "kind": "user_claim",
+                  "source_id": "001954d6dfe34df59b1d771367650cac",
+                  "observation": "No damage is established. Consider lubrication problems and misalignment as possible mechanisms for a hypothetical user report of noise. Compare them, cite actual observations or guidance, and identify missing discriminating tests. Do not invent a contradiction.",
+                  "locator": null,
+                  "reliability": "low",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": []
+                },
+                {
+                  "id": "c13eb788b7cb21a9bf04eead",
+                  "modality": "document",
+                  "kind": "document_guidance",
+                  "source_id": "664bad722cab47c299bc412ae2aea0b3",
+                  "observation": "ce sources unless an independently validated relationship exists.",
+                  "locator": "sire_model_card.md / lines 1-11, chars 1201-1265",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": []
+                }
+              ],
+              "linked_asset": false
+            },
+            "hypotheses": [
+              {
+                "id": "lubrication_noise_mechanism",
+                "mechanism": "Lubrication problems leading to noise in roller bearings",
+                "assumptions": [
+                  "Lubrication problems can manifest as noise due to increased friction and partial contact between bearing components.",
+                  "Misalignment introduces dynamic loading imbalances that may cause periodic noise or vibration in roller bearings."
+                ],
+                "expected_signs": [
+                  {
+                    "predicate": "lubrication_level_below_threshold_in_operational_conditions",
+                    "expected_value": true
+                  },
+                  {
+                    "predicate": "vibration_spectrum_peak_at_1000_to_3000_rpm",
+                    "expected_value": true
+                  }
+                ],
+                "supporting_evidence_ids": [
+                  "20f4d9f9979def09c1c055b1"
+                ],
+                "contradicting_evidence_ids": [],
+                "missing_tests": [
+                  "Measurement of actual lubricant level or condition (e.g., oil viscosity, contamination) under operational load.",
+                  "Vibration analysis with frequency domain decomposition to identify high-frequency peaks associated with dry or inadequate lubrication."
+                ],
+                "status": "tentative",
+                "evidence_support": "low",
+                "ranking_score": 0.05,
+                "falsified_by": [],
+                "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+              },
+              {
+                "id": "misalignment_noise_mechanism",
+                "mechanism": "Misalignment leading to noise in roller bearings",
+                "assumptions": [
+                  "Misalignment causes uneven load distribution across bearing rollers, leading to asymmetric contact and noise.",
+                  "Misalignment is typically detectable via shaft alignment or runout measurements in operational systems."
+                ],
+                "expected_signs": [
+                  {
+                    "predicate": "measured_shaft_runout_exceeds_0.05_mm",
+                    "expected_value": true
+                  },
+                  {
+                    "predicate": "vibration_spectrum_peak_at_1500_to_4000_rpm",
+                    "expected_value": true
+                  }
+                ],
+                "supporting_evidence_ids": [
+                  "20f4d9f9979def09c1c055b1"
+                ],
+                "contradicting_evidence_ids": [],
+                "missing_tests": [
+                  "Direct measurement of shaft alignment or bearing housing runout using dial indicators or laser alignment tools.",
+                  "Comparison of vibration data across multiple sensor positions to detect asymmetry in dynamic response."
+                ],
+                "status": "tentative",
+                "evidence_support": "low",
+                "ranking_score": 0.05,
+                "falsified_by": [],
+                "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement."
+              }
+            ],
+            "tools": [
+              {
+                "tool": "propose_hypotheses",
+                "status": "complete",
+                "provider": "ollama",
+                "model": "qwen3:4b-instruct",
+                "elapsed_seconds": 115.45300000000134,
+                "source_ids": [
+                  "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:0",
+                  "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:1",
+                  "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:2",
+                  "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:3",
+                  "20f4d9f9979def09c1c055b1",
+                  "user:001954d6dfe34df59b1d771367650cac"
+                ]
+              },
+              {
+                "tool": "search_documents",
+                "status": "complete",
+                "provider": null,
+                "model": null,
+                "elapsed_seconds": 0.0,
+                "source_ids": [
+                  "20f4d9f9979def09c1c055b1",
+                  "c13eb788b7cb21a9bf04eead"
+                ]
+              },
+              {
+                "tool": "search_documents",
+                "status": "complete",
+                "provider": null,
+                "model": null,
+                "elapsed_seconds": 0.0,
+                "source_ids": [
+                  "20f4d9f9979def09c1c055b1"
+                ]
+              },
+              {
+                "tool": "propose_hypotheses",
+                "status": "complete",
+                "provider": "ollama",
+                "model": "qwen3:4b-instruct",
+                "elapsed_seconds": 94.26499999999942,
+                "source_ids": [
+                  "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:0",
+                  "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:1",
+                  "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:2",
+                  "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:3",
+                  "20f4d9f9979def09c1c055b1",
+                  "user:001954d6dfe34df59b1d771367650cac",
+                  "c13eb788b7cb21a9bf04eead"
+                ]
+              }
+            ],
+            "rounds": 2,
+            "unresolved": [
+              "No sensor or operational data is available to validate either lubrication or misalignment hypotheses.",
+              "The provided image evidence does not show the bearing in use or under load, and thus cannot support any internal or dynamic condition assessment.",
+              "The guidance document explicitly states that RUL estimates and anomaly scores are not proof of physical damage or root cause, and that photographs do not prove internal failure."
+            ],
+            "limitations": [
+              "Generated mechanisms and proposed evidence relationships remain unverified.",
+              "Rank scores are transparent heuristics, not probabilities; high support is not claimed.",
+              "Photographs cannot prove internal damage or estimate RUL; use qualified inspection.",
+              "A NASA demonstration prediction does not describe the physical photographed component."
+            ],
+            "id": "e7fea8ed131e4e3dbb799bed9c103121"
+          },
+          "elapsed_seconds": 209.73400000000038
+        },
+        "created_at": "2026-11-16T19:26:09.511441+00:00"
+      },
+      {
+        "id": "3cf2f5bc5a4a4c289f0a7186ed042ca4",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "role": "user",
+        "content": "Summarize this combined evidence in four short bullets: image observations, document guidance, parsed CSV, and saved sensor result. The bearing image and NASA FD002 simulation are unrelated. Do not infer a physical fault or lifespan.",
+        "status": "complete",
+        "metadata": {
+          "attachments": [
+            "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+            "664bad722cab47c299bc412ae2aea0b3",
+            "5824749c82e14e31b71585ede24cd8a5"
+          ],
+          "prediction_id": "33bea9c028624317a657d7a0f952d1d0"
+        },
+        "created_at": "2026-11-16T20:16:28.162019+00:00"
+      },
+      {
+        "id": "d3cf30544b934a2f98e8dbaacac351b1",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "role": "assistant",
+        "content": "- **Image evidence**: Photographs support visible observations but cannot prove internal damage or supply a sensor-based RUL estimate. No physical linkage exists between real component images and the NASA C-MAPSS simulation.\n\n- **Sensor data (CSV)**: The parsed CSV contains high-reliability sensor readings from the NASA C-MAPSS simulation (FD002 dataset), including 21 sensor values and operating settings across 258 cycles. However, the data is simulated and not directly transferable to real-world machinery.\n\n- **Model prediction**: A remaining useful life (RUL) estimate of 11.59 cycles is provided by a trained model (FD002-08_ensemble-s44), derived from simulated data. This is a model inference, not a proven failure or maintenance limit, and does not establish a physical root cause.\n\n- **Document guidance**: The model card explicitly states that C-MAPSS data is simulated, operating cycles are used (not calendar time), and RUL estimates are not certified maintenance limits. Anomaly scores or model predictions do not equate to proof of component failure. All inferences are software-based and not grounded in physical evidence.",
+        "status": "complete",
+        "metadata": {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "tools": [
+            {
+              "tool": "vision",
+              "status": "cached",
+              "provider": "ollama",
+              "model": "qwen3-vl:2b-instruct",
+              "elapsed_seconds": 0.0,
+              "source_ids": [
+                "7ab00ef7c9ec4b04bc1f54c9132aab7d"
+              ]
+            },
+            {
+              "tool": "search_documents",
+              "status": "complete",
+              "elapsed_seconds": 0.0,
+              "source_ids": [
+                "20f4d9f9979def09c1c055b1"
+              ]
+            }
+          ],
+          "evidence": [
+            {
+              "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:0",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+              "observation": "A cylindrical roller bearing with a split design, featuring a metallic outer ring and a series of ax",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+              ]
+            },
+            {
+              "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:1",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+              "observation": "The bearing has a metallic outer ring and a series of ax",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+              ]
+            },
+            {
+              "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:2",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+              "observation": "The bearing has a metallic outer ring and a series of ax",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+              ]
+            },
+            {
+              "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d:visual:3",
+              "modality": "image",
+              "kind": "model_inference",
+              "source_id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+              "observation": "The bearing has a metallic outer ring and a series of ax",
+              "locator": "bearing_cc0.jpg",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+                "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+              ]
+            },
+            {
+              "id": "5824749c82e14e31b71585ede24cd8a5:schema",
+              "modality": "csv",
+              "kind": "measurement",
+              "source_id": "5824749c82e14e31b71585ede24cd8a5",
+              "observation": "{\"rows\": 258, \"columns\": [\"unit\", \"cycle\", \"op1\", \"op2\", \"op3\", \"s1\", \"s2\", \"s3\", \"s4\", \"s5\", \"s6\", \"s7\", \"s8\", \"s9\", \"s10\", \"s11\", \"s12\", \"s13\", \"s14\", \"s15\", \"s16\", \"s17\", \"s18\", \"s19\", \"s20\", \"s21\"], \"preview\": [{\"unit\": 1.0, \"cycle\": 1.0, \"op1\": 9.9987, \"op2\": 0.2502, \"op3\": 100.0, \"s1\": 489.05, \"s2\": 605.03, \"s3\": 1497.17, \"s4\": 1304.99, \"s5\": 10.52, \"s6\": 15.49, \"s7\": 394.54, \"s8\": 2318.96, \"s9\": 8763.8, \"s10\": 1.26, \"s11\": 45.61, \"s12\": 371.69, \"s13\": 2388.18, \"s14\": 8114.1, \"s15\": 8.6476, \"s16\": 0.03, \"s17\": 369.0, \"s18\": 2319.0, \"s19\": 100.0, \"s20\": 28.42, \"s21\": 17.1551}, {\"unit\": 1.0, \"cycle\": 2.0, \"op1\": 20.0026, \"op2\": 0.7, \"op3\": 100.0, \"s1\": 491.19, \"s2\": 607.82, \"s3\": 1481.2, \"s4\": 1246.11, \"s5\": 9.35, \"s6\": 13.66, \"s7\": 334.36, \"s8\": 2323.95, \"s9\": 8713.21, \"s10\": 1.08, \"s11\": 44.26, \"s12\": 315.32, \"s13\": 2388.12, \"s14\": 8053.06, \"s15\": 9.2405, \"s16\": 0.02, \"s17\": 364.0, \"s18\": 2324.0, \"s19\": 100.0, \"s20\": 24.29, \"s21\": 14.8039}, {\"unit\": 1.0, \"cycle\": 3.0, \"op1\": 35.0045, \"op2\": 0.84, \"op3\": 100.0, \"s1\": 449.44, \"s2\": 556.0, \"s3\": 1359.08, \"s4\": 1128.36, \"s5\": 5.48, \"s6\": 8.0, \"s7\": 193.55, \"s8\": 2222.67, \"s9\": 8340.2, \"s10\": 1.02, \"s11\": 41.8, \"s12\": 183.04, \"s13\": 2387.75, \"s14\": 8053.04, \"s15\": 9.3472, \"s16\": 0.02, \"s17\": 333.0, \"s18\": 2223.0, \"s19\": 100.0, \"s20\": 14.98, \"s21\": 8.9125}, {\"unit\": 1.0, \"cycle\": 4.0, \"op1\": 42.0066, \"op2\": 0.841, \"op3\": 100.0, \"s1\": 445.0, \"s2\": 550.17, \"s3\": 1349.69, \"s4\": 1127.89, \"s5\": 3.91, \"s6\": 5.71, \"s7\": 138.74, \"s8\": 2211.58, \"s9\": 8313.85, \"s10\": 1.02, \"s11\": 42.21, \"s12\": 130.4, \"s13\": 2387.72, \"s14\": 8066.9, \"s15\": 9.3961, \"s16\": 0.02, \"s17\": 332.0, \"s18\": 2212.0, \"s19\": 100.0, \"s20\": 10.35, \"s21\": 6.4181}, {\"unit\": 1.0, \"cycle\": 5.0, \"op1\": 24.9985, \"op2\": 0.6213, \"op3\": 60.0, \"s1\": 462.54, \"s2\": 536.72, \"s3\": 1253.18, \"s4\": 1050.69, \"s5\": 7.05, \"s6\": 9.03, \"s7\": 175.75, \"s8\": 1915.1, \"s9\": 7997.13, \"s10\": 0.94, \"s11\": 36.76, \"s12\": 164.56, \"s13\": 2028.05, \"s14\": 7865.66, \"s15\": 10.8682, \"s16\": 0.02, \"s17\": 305.0, \"s18\": 1915.0, \"s19\": 84.93, \"s20\": 14.31, \"s21\": 8.574}], \"prediction_eligible\": true, \"declared_dataset\": \"FD002\", \"warnings\": []}",
+              "locator": "FD002_ENGINE001_SOURCE.csv",
+              "reliability": "high",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "Parsed CSV schema is not a validated transfer to a different machine domain."
+              ]
+            },
+            {
+              "id": "prediction:33bea9c028624317a657d7a0f952d1d0",
+              "modality": "sensor_model",
+              "kind": "model_inference",
+              "source_id": "33bea9c028624317a657d7a0f952d1d0",
+              "observation": "{\"id\": \"33bea9c028624317a657d7a0f952d1d0\", \"dataset\": \"FD002\", \"model_id\": \"fd002-08_ensemble-s44\", \"data_origin\": \"user_declared_cmapss\", \"last_cycle\": 258, \"rul_cycles\": 11.592229512416276, \"interval\": [5.343085043168889, 17.841373981663665], \"interval_method\": \"cross_fitted_split_conformal_member_spread\", \"provenance\": {\"source\": \"ml/artifacts/cmapss/model_registry.json\", \"artifact_dir\": \"artifacts/08_ensemble/outputs/FD002/seed_44\", \"version\": \"345197d727608fad3e7cd2c49f4fe7dc9d0c73a86696557deac75bbfab80590b\", \"seed\": 44, \"runtime\": \"cpu\", \"bundle_sha256\": \"3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37\"}, \"limitations\": [\"NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.\", \"A prediction is model inference, not proof of a failed component or a maintenance limit.\"]}",
+              "locator": null,
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": [
+                "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+                "A prediction is model inference, not proof of a failed component or a maintenance limit."
+              ]
+            },
+            {
+              "id": "20f4d9f9979def09c1c055b1",
+              "modality": "document",
+              "kind": "document_guidance",
+              "source_id": "664bad722cab47c299bc412ae2aea0b3",
+              "observation": "# SIRE C-MAPSS demonstration model card\n\nProvenance: project-authored integration notes derived from the existing SIRE README and Phase A inference contracts. This is software documentation, not an equipment maintenance manual.\n\nC-MAPSS demonstration assets are simulated turbofan sensor histories. Remaining useful life (RUL) estimates use operating cycles. A cycle-to-calendar conversion is not available. These estimates are not certified maintenance limits and cannot establish a physical root cause.\n\nThe saved predictors require dataset-matched C-MAPSS histories with engine unit, cycle, three operating settings and twenty-one sensors. Fitted preprocessing is loaded from the original training artifacts. Generic vibration or vehicle CSV files are not compatible merely because they contain numeric readings.\n\nThe autoencoder anomaly detector is experimental. An anomaly score is not remaining useful life. A model's feature contributions describe its prediction, not proof of a failed component.\n\nPhotographs can support visible observations. They cannot prove internal damage or supply a sensor-based RUL estimate. A real component photograph and a NASA simulated engine are unrelated eviden",
+              "locator": "sire_model_card.md / lines 1-11, chars 1-1200",
+              "reliability": "medium",
+              "asset_identity": null,
+              "predicate": null,
+              "value": null,
+              "limitations": []
+            }
+          ],
+          "attachments": [
+            "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+            "664bad722cab47c299bc412ae2aea0b3",
+            "5824749c82e14e31b71585ede24cd8a5"
+          ],
+          "elapsed_seconds": 113.6090000000022
+        },
+        "created_at": "2026-11-16T20:18:21.777066+00:00"
+      }
+    ],
+    "attachments": [
+      {
+        "id": "7ab00ef7c9ec4b04bc1f54c9132aab7d",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "name": "bearing_cc0.jpg",
+        "kind": "image",
+        "mime": "image/jpeg",
+        "sha256": "e81c7ed9fb211e4e229af133862216c5f9e476624baf014a5aa1d2d93804cee1",
+        "metadata": {
+          "retention": "Stored locally with conversation; delete conversation to remove.",
+          "vision_analysis": {
+            "provider": "ollama",
+            "model": "qwen3-vl:2b-instruct",
+            "component_guess": "A cylindrical roller bearing with a split design, featuring a metallic outer ring and a series of ax",
+            "visible_observations": [
+              "A cylindrical roller bearing with a split design, featuring a metallic outer ring and a series of ax",
+              "The bearing has a metallic outer ring and a series of ax",
+              "The bearing has a metallic outer ring and a series of ax",
+              "The bearing has a metallic outer ring and a series of ax"
+            ],
+            "possible_causes": [
+              "The bearing may have a split design with a metallic outer ring and a series of ax",
+              "The bearing may have a split design with a metallic outer ring and a series of ax"
+            ],
+            "missing_evidence": [
+              "The bearing is not in a state of operation or under load.",
+              "There is no visible evidence of wear, damage, or deformation on the bearing.",
+              "The bearing is not in a state of operation or under load."
+            ],
+            "limitations": [
+              "The image is a photograph of a bearing, but it does not show the bearing in use or under load.",
+              "The image is a photograph of a bearing, but it does not show the bearing in use or under load."
+            ],
+            "evidence_relationship": "Physical photo is not linked to a NASA simulation asset.",
+            "safety_notes": [
+              "Use qualified personnel and authorized inspection procedures."
+            ]
+          }
+        },
+        "created_at": "2026-11-16T19:20:51.464285+00:00"
+      },
+      {
+        "id": "664bad722cab47c299bc412ae2aea0b3",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "name": "sire_model_card.md",
+        "kind": "document",
+        "mime": "text/plain",
+        "sha256": "71ad2961c9f441bfa329793d3fd1510f875c658e9bf157bdb8850eee7f9c9ed2",
+        "metadata": {},
+        "created_at": "2026-11-16T19:22:08.799194+00:00"
+      },
+      {
+        "id": "5824749c82e14e31b71585ede24cd8a5",
+        "conversation_id": "ac1e45349fba45019783f3a9633378ba",
+        "name": "FD002_ENGINE001_SOURCE.csv",
+        "kind": "csv",
+        "mime": "text/csv",
+        "sha256": "13a7698b46b0267c1eb5a93ba3fbed5dd67709c3090b90830d670ff7fc8ae512",
+        "metadata": {
+          "rows": 258,
+          "columns": [
+            "unit",
+            "cycle",
+            "op1",
+            "op2",
+            "op3",
+            "s1",
+            "s2",
+            "s3",
+            "s4",
+            "s5",
+            "s6",
+            "s7",
+            "s8",
+            "s9",
+            "s10",
+            "s11",
+            "s12",
+            "s13",
+            "s14",
+            "s15",
+            "s16",
+            "s17",
+            "s18",
+            "s19",
+            "s20",
+            "s21"
+          ],
+          "prediction_eligible": true,
+          "preview": [
+            {
+              "unit": 1.0,
+              "cycle": 1.0,
+              "op1": 9.9987,
+              "op2": 0.2502,
+              "op3": 100.0,
+              "s1": 489.05,
+              "s2": 605.03,
+              "s3": 1497.17,
+              "s4": 1304.99,
+              "s5": 10.52,
+              "s6": 15.49,
+              "s7": 394.54,
+              "s8": 2318.96,
+              "s9": 8763.8,
+              "s10": 1.26,
+              "s11": 45.61,
+              "s12": 371.69,
+              "s13": 2388.18,
+              "s14": 8114.1,
+              "s15": 8.6476,
+              "s16": 0.03,
+              "s17": 369.0,
+              "s18": 2319.0,
+              "s19": 100.0,
+              "s20": 28.42,
+              "s21": 17.1551
+            },
+            {
+              "unit": 1.0,
+              "cycle": 2.0,
+              "op1": 20.0026,
+              "op2": 0.7,
+              "op3": 100.0,
+              "s1": 491.19,
+              "s2": 607.82,
+              "s3": 1481.2,
+              "s4": 1246.11,
+              "s5": 9.35,
+              "s6": 13.66,
+              "s7": 334.36,
+              "s8": 2323.95,
+              "s9": 8713.21,
+              "s10": 1.08,
+              "s11": 44.26,
+              "s12": 315.32,
+              "s13": 2388.12,
+              "s14": 8053.06,
+              "s15": 9.2405,
+              "s16": 0.02,
+              "s17": 364.0,
+              "s18": 2324.0,
+              "s19": 100.0,
+              "s20": 24.29,
+              "s21": 14.8039
+            },
+            {
+              "unit": 1.0,
+              "cycle": 3.0,
+              "op1": 35.0045,
+              "op2": 0.84,
+              "op3": 100.0,
+              "s1": 449.44,
+              "s2": 556.0,
+              "s3": 1359.08,
+              "s4": 1128.36,
+              "s5": 5.48,
+              "s6": 8.0,
+              "s7": 193.55,
+              "s8": 2222.67,
+              "s9": 8340.2,
+              "s10": 1.02,
+              "s11": 41.8,
+              "s12": 183.04,
+              "s13": 2387.75,
+              "s14": 8053.04,
+              "s15": 9.3472,
+              "s16": 0.02,
+              "s17": 333.0,
+              "s18": 2223.0,
+              "s19": 100.0,
+              "s20": 14.98,
+              "s21": 8.9125
+            },
+            {
+              "unit": 1.0,
+              "cycle": 4.0,
+              "op1": 42.0066,
+              "op2": 0.841,
+              "op3": 100.0,
+              "s1": 445.0,
+              "s2": 550.17,
+              "s3": 1349.69,
+              "s4": 1127.89,
+              "s5": 3.91,
+              "s6": 5.71,
+              "s7": 138.74,
+              "s8": 2211.58,
+              "s9": 8313.85,
+              "s10": 1.02,
+              "s11": 42.21,
+              "s12": 130.4,
+              "s13": 2387.72,
+              "s14": 8066.9,
+              "s15": 9.3961,
+              "s16": 0.02,
+              "s17": 332.0,
+              "s18": 2212.0,
+              "s19": 100.0,
+              "s20": 10.35,
+              "s21": 6.4181
+            },
+            {
+              "unit": 1.0,
+              "cycle": 5.0,
+              "op1": 24.9985,
+              "op2": 0.6213,
+              "op3": 60.0,
+              "s1": 462.54,
+              "s2": 536.72,
+              "s3": 1253.18,
+              "s4": 1050.69,
+              "s5": 7.05,
+              "s6": 9.03,
+              "s7": 175.75,
+              "s8": 1915.1,
+              "s9": 7997.13,
+              "s10": 0.94,
+              "s11": 36.76,
+              "s12": 164.56,
+              "s13": 2028.05,
+              "s14": 7865.66,
+              "s15": 10.8682,
+              "s16": 0.02,
+              "s17": 305.0,
+              "s18": 1915.0,
+              "s19": 84.93,
+              "s20": 14.31,
+              "s21": 8.574
+            }
+          ],
+          "warnings": [],
+          "declared_dataset": "FD002",
+          "compatible_cmapss": true
+        },
+        "created_at": "2026-11-16T20:16:17.790696+00:00"
+      }
+    ]
+  }
+}

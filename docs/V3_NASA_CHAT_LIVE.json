@@ -1,0 +1,804 @@
+{
+  "events": [
+    {
+      "type": "started",
+      "request_id": "3df0034383d2450ca22f98db9ed53bb7",
+      "user_message_id": "423f6973db7d42c392b23d3c3601a23f"
+    },
+    {
+      "type": "tool",
+      "tool": "prediction.run",
+      "status": "running"
+    },
+    {
+      "type": "tool",
+      "tool": "prediction.run",
+      "status": "complete",
+      "source_ids": [
+        "EV:9d36f2c434769e5cc9c85eebcaf6fd3ef6c7e0318f63af43f0b63f5834ef849d"
+      ]
+    },
+    {
+      "type": "evidence",
+      "evidence": [
+        {
+          "id": "prediction:c255ff3b8de34801b83038745daed8a8",
+          "modality": "sensor_model",
+          "kind": "model_inference",
+          "source_id": "c255ff3b8de34801b83038745daed8a8",
+          "observation": "{\"id\": \"c255ff3b8de34801b83038745daed8a8\", \"dataset\": \"FD003\", \"model_id\": \"fd003-08_ensemble-s42\", \"data_origin\": \"nasa_cmapss_simulation\", \"last_cycle\": 87, \"rul_cycles\": 114.49630975928234, \"interval\": [96.18562212280787, 132.8069973957568], \"interval_method\": \"cross_fitted_split_conformal_member_spread\", \"provenance\": {\"source\": \"ml/artifacts/cmapss/model_registry.json\", \"artifact_dir\": \"artifacts/08_ensemble/outputs/FD003/seed_42\", \"version\": \"c6b38471231b402575ff47c129e305ab4b6dc418eece51aee912d1162c5718f8\", \"seed\": 42, \"runtime\": \"cpu\", \"bundle_sha256\": \"3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37\"}, \"limitations\": [\"NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.\", \"A prediction is model inference, not proof of a failed component or a maintenance limit.\"]}",
+          "locator": null,
+          "reliability": "medium",
+          "asset_identity": "FD003-ENGINE-042",
+          "predicate": null,
+          "value": null,
+          "limitations": [
+            "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+            "A prediction is model inference, not proof of a failed component or a maintenance limit."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "delta",
+      "text": "**"
+    },
+    {
+      "type": "delta",
+      "text": "Measured"
+    },
+    {
+      "type": "delta",
+      "text": " Model"
+    },
+    {
+      "type": "delta",
+      "text": " Result"
+    },
+    {
+      "type": "delta",
+      "text": ":**"
+    },
+    {
+      "type": "delta",
+      "text": "  \n"
+    },
+    {
+      "type": "delta",
+      "text": "For"
+    },
+    {
+      "type": "delta",
+      "text": " FD"
+    },
+    {
+      "type": "delta",
+      "text": "0"
+    },
+    {
+      "type": "delta",
+      "text": "0"
+    },
+    {
+      "type": "delta",
+      "text": "3"
+    },
+    {
+      "type": "delta",
+      "text": " engine"
+    },
+    {
+      "type": "delta",
+      "text": " "
+    },
+    {
+      "type": "delta",
+      "text": "4"
+    },
+    {
+      "type": "delta",
+      "text": "2"
+    },
+    {
+      "type": "delta",
+      "text": ","
+    },
+    {
+      "type": "delta",
+      "text": " the"
+    },
+    {
+      "type": "delta",
+      "text": " model"
+    },
+    {
+      "type": "delta",
+      "text": " predicts"
+    },
+    {
+      "type": "delta",
+      "text": " a"
+    },
+    {
+      "type": "delta",
+      "text": " Remaining"
+    },
+    {
+      "type": "delta",
+      "text": " Useful"
+    },
+    {
+      "type": "delta",
+      "text": " Life"
+    },
+    {
+      "type": "delta",
+      "text": " ("
+    },
+    {
+      "type": "delta",
+      "text": "R"
+    },
+    {
+      "type": "delta",
+      "text": "UL"
+    },
+    {
+      "type": "delta",
+      "text": ")"
+    },
+    {
+      "type": "delta",
+      "text": " of"
+    },
+    {
+      "type": "delta",
+      "text": " **"
+    },
+    {
+      "type": "delta",
+      "text": "1"
+    },
+    {
+      "type": "delta",
+      "text": "1"
+    },
+    {
+      "type": "delta",
+      "text": "4"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "delta",
+      "text": "5"
+    },
+    {
+      "type": "delta",
+      "text": " cycles"
+    },
+    {
+      "type": "delta",
+      "text": "**"
+    },
+    {
+      "type": "delta",
+      "text": " ("
+    },
+    {
+      "type": "delta",
+      "text": "with"
+    },
+    {
+      "type": "delta",
+      "text": " a"
+    },
+    {
+      "type": "delta",
+      "text": " "
+    },
+    {
+      "type": "delta",
+      "text": "9"
+    },
+    {
+      "type": "delta",
+      "text": "5"
+    },
+    {
+      "type": "delta",
+      "text": "%"
+    },
+    {
+      "type": "delta",
+      "text": " confidence"
+    },
+    {
+      "type": "delta",
+      "text": " interval"
+    },
+    {
+      "type": "delta",
+      "text": " from"
+    },
+    {
+      "type": "delta",
+      "text": " "
+    },
+    {
+      "type": "delta",
+      "text": "9"
+    },
+    {
+      "type": "delta",
+      "text": "6"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "delta",
+      "text": "2"
+    },
+    {
+      "type": "delta",
+      "text": " to"
+    },
+    {
+      "type": "delta",
+      "text": " "
+    },
+    {
+      "type": "delta",
+      "text": "1"
+    },
+    {
+      "type": "delta",
+      "text": "3"
+    },
+    {
+      "type": "delta",
+      "text": "2"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "delta",
+      "text": "8"
+    },
+    {
+      "type": "delta",
+      "text": " cycles"
+    },
+    {
+      "type": "delta",
+      "text": "),"
+    },
+    {
+      "type": "delta",
+      "text": " based"
+    },
+    {
+      "type": "delta",
+      "text": " on"
+    },
+    {
+      "type": "delta",
+      "text": " the"
+    },
+    {
+      "type": "delta",
+      "text": " ensemble"
+    },
+    {
+      "type": "delta",
+      "text": " model"
+    },
+    {
+      "type": "delta",
+      "text": " `"
+    },
+    {
+      "type": "delta",
+      "text": "fd"
+    },
+    {
+      "type": "delta",
+      "text": "0"
+    },
+    {
+      "type": "delta",
+      "text": "0"
+    },
+    {
+      "type": "delta",
+      "text": "3"
+    },
+    {
+      "type": "delta",
+      "text": "-"
+    },
+    {
+      "type": "delta",
+      "text": "0"
+    },
+    {
+      "type": "delta",
+      "text": "8"
+    },
+    {
+      "type": "delta",
+      "text": "_"
+    },
+    {
+      "type": "delta",
+      "text": "ensemble"
+    },
+    {
+      "type": "delta",
+      "text": "-s"
+    },
+    {
+      "type": "delta",
+      "text": "4"
+    },
+    {
+      "type": "delta",
+      "text": "2"
+    },
+    {
+      "type": "delta",
+      "text": "`"
+    },
+    {
+      "type": "delta",
+      "text": " trained"
+    },
+    {
+      "type": "delta",
+      "text": " on"
+    },
+    {
+      "type": "delta",
+      "text": " NASA"
+    },
+    {
+      "type": "delta",
+      "text": " C"
+    },
+    {
+      "type": "delta",
+      "text": "-M"
+    },
+    {
+      "type": "delta",
+      "text": "AP"
+    },
+    {
+      "type": "delta",
+      "text": "SS"
+    },
+    {
+      "type": "delta",
+      "text": " simulation"
+    },
+    {
+      "type": "delta",
+      "text": " data"
+    },
+    {
+      "type": "delta",
+      "text": ".\n\n"
+    },
+    {
+      "type": "delta",
+      "text": "**"
+    },
+    {
+      "type": "delta",
+      "text": "Limit"
+    },
+    {
+      "type": "delta",
+      "text": "ations"
+    },
+    {
+      "type": "delta",
+      "text": " ("
+    },
+    {
+      "type": "delta",
+      "text": "brief"
+    },
+    {
+      "type": "delta",
+      "text": "ly"
+    },
+    {
+      "type": "delta",
+      "text": "):"
+    },
+    {
+      "type": "delta",
+      "text": "**"
+    },
+    {
+      "type": "delta",
+      "text": "  \n"
+    },
+    {
+      "type": "delta",
+      "text": "-"
+    },
+    {
+      "type": "delta",
+      "text": " The"
+    },
+    {
+      "type": "delta",
+      "text": " data"
+    },
+    {
+      "type": "delta",
+      "text": " is"
+    },
+    {
+      "type": "delta",
+      "text": " simulated"
+    },
+    {
+      "type": "delta",
+      "text": " ("
+    },
+    {
+      "type": "delta",
+      "text": "NASA"
+    },
+    {
+      "type": "delta",
+      "text": " C"
+    },
+    {
+      "type": "delta",
+      "text": "-M"
+    },
+    {
+      "type": "delta",
+      "text": "AP"
+    },
+    {
+      "type": "delta",
+      "text": "SS"
+    },
+    {
+      "type": "delta",
+      "text": "),"
+    },
+    {
+      "type": "delta",
+      "text": " representing"
+    },
+    {
+      "type": "delta",
+      "text": " operating"
+    },
+    {
+      "type": "delta",
+      "text": " cycles"
+    },
+    {
+      "type": "delta",
+      "text": ","
+    },
+    {
+      "type": "delta",
+      "text": " not"
+    },
+    {
+      "type": "delta",
+      "text": " real"
+    },
+    {
+      "type": "delta",
+      "text": "-world"
+    },
+    {
+      "type": "delta",
+      "text": " calendar"
+    },
+    {
+      "type": "delta",
+      "text": " time"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "delta",
+      "text": "  \n"
+    },
+    {
+      "type": "delta",
+      "text": "-"
+    },
+    {
+      "type": "delta",
+      "text": " The"
+    },
+    {
+      "type": "delta",
+      "text": " prediction"
+    },
+    {
+      "type": "delta",
+      "text": " is"
+    },
+    {
+      "type": "delta",
+      "text": " a"
+    },
+    {
+      "type": "delta",
+      "text": " model"
+    },
+    {
+      "type": "delta",
+      "text": " inference"
+    },
+    {
+      "type": "delta",
+      "text": " and"
+    },
+    {
+      "type": "delta",
+      "text": " does"
+    },
+    {
+      "type": "delta",
+      "text": " not"
+    },
+    {
+      "type": "delta",
+      "text": " constitute"
+    },
+    {
+      "type": "delta",
+      "text": " proof"
+    },
+    {
+      "type": "delta",
+      "text": " of"
+    },
+    {
+      "type": "delta",
+      "text": " component"
+    },
+    {
+      "type": "delta",
+      "text": " failure"
+    },
+    {
+      "type": "delta",
+      "text": " or"
+    },
+    {
+      "type": "delta",
+      "text": " a"
+    },
+    {
+      "type": "delta",
+      "text": " maintenance"
+    },
+    {
+      "type": "delta",
+      "text": " threshold"
+    },
+    {
+      "type": "delta",
+      "text": "."
+    },
+    {
+      "type": "delta",
+      "text": "  \n\n"
+    },
+    {
+      "type": "delta",
+      "text": "*"
+    },
+    {
+      "type": "delta",
+      "text": "Note"
+    },
+    {
+      "type": "delta",
+      "text": ":"
+    },
+    {
+      "type": "delta",
+      "text": " No"
+    },
+    {
+      "type": "delta",
+      "text": " physical"
+    },
+    {
+      "type": "delta",
+      "text": " or"
+    },
+    {
+      "type": "delta",
+      "text": " empirical"
+    },
+    {
+      "type": "delta",
+      "text": " linkage"
+    },
+    {
+      "type": "delta",
+      "text": " exists"
+    },
+    {
+      "type": "delta",
+      "text": " between"
+    },
+    {
+      "type": "delta",
+      "text": " this"
+    },
+    {
+      "type": "delta",
+      "text": " model"
+    },
+    {
+      "type": "delta",
+      "text": " result"
+    },
+    {
+      "type": "delta",
+      "text": " and"
+    },
+    {
+      "type": "delta",
+      "text": " actual"
+    },
+    {
+      "type": "delta",
+      "text": " engine"
+    },
+    {
+      "type": "delta",
+      "text": " components"
+    },
+    {
+      "type": "delta",
+      "text": " or"
+    },
+    {
+      "type": "delta",
+      "text": " photographs"
+    },
+    {
+      "type": "delta",
+      "text": ".*"
+    },
+    {
+      "type": "done",
+      "status": "complete",
+      "metadata": {
+        "provider": "ollama",
+        "model": "qwen3:4b-instruct",
+        "tools": [
+          {
+            "tool": "prediction.run",
+            "status": "complete",
+            "source_ids": [
+              "EV:9d36f2c434769e5cc9c85eebcaf6fd3ef6c7e0318f63af43f0b63f5834ef849d"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "id": "prediction:c255ff3b8de34801b83038745daed8a8",
+            "modality": "sensor_model",
+            "kind": "model_inference",
+            "source_id": "c255ff3b8de34801b83038745daed8a8",
+            "observation": "{\"id\": \"c255ff3b8de34801b83038745daed8a8\", \"dataset\": \"FD003\", \"model_id\": \"fd003-08_ensemble-s42\", \"data_origin\": \"nasa_cmapss_simulation\", \"last_cycle\": 87, \"rul_cycles\": 114.49630975928234, \"interval\": [96.18562212280787, 132.8069973957568], \"interval_method\": \"cross_fitted_split_conformal_member_spread\", \"provenance\": {\"source\": \"ml/artifacts/cmapss/model_registry.json\", \"artifact_dir\": \"artifacts/08_ensemble/outputs/FD003/seed_42\", \"version\": \"c6b38471231b402575ff47c129e305ab4b6dc418eece51aee912d1162c5718f8\", \"seed\": 42, \"runtime\": \"cpu\", \"bundle_sha256\": \"3cb0e2e9dfe9ff2b96c4f23495348d3145cd112217e2afecb8b4b68da3498c37\"}, \"limitations\": [\"NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.\", \"A prediction is model inference, not proof of a failed component or a maintenance limit.\"]}",
+            "locator": null,
+            "reliability": "medium",
+            "asset_identity": "FD003-ENGINE-042",
+            "predicate": null,
+            "value": null,
+            "limitations": [
+              "NASA C-MAPSS simulated turbofan data; operating cycles, not calendar time.",
+              "A prediction is model inference, not proof of a failed component or a maintenance limit."
+            ]
+          }
+        ],
+        "attachments": [],
+        "orchestration": {
+          "run_id": "a8fcc35a-1a9d-435e-889a-fdea537a133d",
+          "intent": "rul_prediction"
+        },
+        "elapsed_seconds": 37.78199999999924
+      }
+    }
+  ],
+  "elapsed_seconds": 37.78199999999924,
+  "trace": {
+    "id": "a8fcc35a-1a9d-435e-889a-fdea537a133d",
+    "plan": {
+      "id": "12299cb7-2cfe-44da-b93e-d72aae4dd041",
+      "intent": "rul_prediction",
+      "goals": [
+        "Run the explicitly requested NASA simulation model, then explain its actual output"
+      ],
+      "tools": [
+        {
+          "tool_id": "prediction.run",
+          "arguments": {
+            "sha256": "0208060d2f5bb2b979ca5ca423792c66c87c59929d0094baac475175fba9912c"
+          },
+          "depends_on": []
+        },
+        {
+          "tool_id": "llm.chat",
+          "arguments": {
+            "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+          },
+          "depends_on": []
+        }
+      ],
+      "evidence_ids": [],
+      "allowed_external_providers": [],
+      "deadline_seconds": 300.0,
+      "max_tool_calls": 12,
+      "fallback": "Return explicit partial/error status; never fabricate tool findings."
+    },
+    "started_at": "2026-11-16T22:22:23.088295+00:00",
+    "steps": [
+      {
+        "tool_id": "prediction.run",
+        "started_at": "2026-11-16T22:22:23.141297+00:00",
+        "input_evidence_ids": [],
+        "output_evidence_ids": [
+          "EV:9d36f2c434769e5cc9c85eebcaf6fd3ef6c7e0318f63af43f0b63f5834ef849d"
+        ],
+        "status": "ok",
+        "warnings": [],
+        "network": "local_only",
+        "arguments_sha256": "0208060d2f5bb2b979ca5ca423792c66c87c59929d0094baac475175fba9912c",
+        "ended_at": "2026-11-16T22:22:31.993682+00:00",
+        "elapsed_seconds": 8.8279999999977
+      },
+      {
+        "tool_id": "llm.chat",
+        "started_at": "2026-11-16T22:22:32.023680+00:00",
+        "input_evidence_ids": [],
+        "output_evidence_ids": [],
+        "status": "ok",
+        "warnings": [],
+        "network": "local_only",
+        "model_provenance": {
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct"
+        },
+        "ended_at": "2026-11-16T22:23:00.814054+00:00",
+        "elapsed_seconds": 28.78099999999904
+      }
+    ],
+    "status": "complete",
+    "network": "local_only",
+    "ended_at": "2026-11-16T22:23:00.820572+00:00",
+    "elapsed_seconds": 37.71900000000096
+  },
+  "quality_review": {
+    "status": "FAIL unsupported generated confidence language",
+    "finding": "Actual native RUL matched, but model introduced 95% confidence interval language absent from native provenance. Raw output retained. Prediction numeric/interval guard implemented after this run; fresh guarded rerun pending."
+  }
+}

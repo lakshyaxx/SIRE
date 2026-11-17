@@ -1,0 +1,93 @@
+{
+  "checks": {
+    "normal_chat": {
+      "status": "PASS",
+      "elapsed_seconds": 21.389999999999418,
+      "proof": "docs/V3_2_LIVE_INITIAL.json",
+      "scope": "Actual API/content/tool/model checks; browser interaction unverified."
+    },
+    "demo_A_predictive_maintenance": {
+      "status": "PASS",
+      "elapsed_seconds": 54.125,
+      "proof": "docs/V3_2_LIVE_INITIAL.json",
+      "scope": "Actual API/content/tool/model checks; browser interaction unverified."
+    },
+    "demo_C_reconstruction": {
+      "status": "PASS",
+      "elapsed_seconds": 3.2809999999954016,
+      "proof": "docs/V3_2_LIVE_INITIAL.json",
+      "scope": "Actual API/content/tool/model checks; browser interaction unverified."
+    },
+    "voice_same_chat_pipeline": {
+      "status": "PASS",
+      "elapsed_seconds": 146.04699999999866,
+      "proof": "docs/V3_2_LIVE_INITIAL.json",
+      "scope": "Actual API/content/tool/model checks; browser interaction unverified."
+    },
+    "bounded_video_actual_frames_and_vision": {
+      "status": "PASS",
+      "elapsed_seconds": 239.65600000000268,
+      "proof": "docs/V3_2_LIVE_SECOND.json",
+      "scope": "Actual decode/three VLM calls and corrected no-hypothesis routing; encoded licensed still, not a physical motion recording."
+    },
+    "demo_B_visual_investigation": {
+      "status": "PASS",
+      "elapsed_seconds": 86.10900000000402,
+      "proof": "docs/V3_2_LIVE_PHOTO_FINAL.json",
+      "scope": "Fresh Qwen hypothesis generation; exact cached actual VLM extraction explicitly reused; source-backed report exported. Not a fresh image inference."
+    },
+    "fresh_note_citations": {
+      "status": "PASS",
+      "elapsed_seconds": 21.25,
+      "proof": "docs/V3_2_LIVE_CITATIONS.json"
+    }
+  },
+  "prior_photo_failures": [
+    {
+      "proof": "docs/V3_2_LIVE_INITIAL.json",
+      "status": "FAIL",
+      "error": "",
+      "elapsed_seconds": 130.26599999999598
+    },
+    {
+      "proof": "docs/V3_2_LIVE_SECOND.json",
+      "status": "FAIL",
+      "error": "Actual chat incomplete: [{\"type\": \"error\", \"code\": \"llm_invalid_response\", \"message\": \"Local model failed or returned an invalid structured response.\"}, {\"type\": \"done\", \"status\": \"error\", \"metadata\": {\"provider\": \"ollama\", \"model\": \"qwen3:4b-instruct\", \"tools\": [{\"tool\": \"vision.inspect\", \"status\": \"complete\", \"provider\": \"ollama\", \"model\": \"qwen3-vl:2b-instruct\", \"model_digest\": \"afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e\", \"elapsed_seconds\": 42.46899999999732, \"source_ids\": [\"EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223\", \"EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4\", \"EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c\", \"EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72\"]}, {\"tool\": \"search_documents\", \"status\": \"complete\", \"elapsed_seconds\": 0.031000000002677552, \"source_ids\": [\"652625bf337de7da7e79b51c\"]}], \"evidence\": [{\"id\": \"EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223\", \"modality\": \"image\", \"kind\": \"model_inference\", \"source_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"origin_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"observation\": \"The bearing has a split design with a central ring and multiple rollers.\", \"locator\": \"licensed-bearing-demo.jpg\", \"reliability\": \"medium\", \"asset_identity\": null, \"predicate\": null, \"value\": null, \"limitations\": [\"The image is a static photograph and cannot establish the root cause of the noise.\", \"The absence of visible damage does not rule out internal issues such as wear or contamination.\", \"The lack of operational data makes it impossible to determine the exact cause of the intermittent noise.\"]}, {\"id\": \"EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4\", \"modality\": \"image\", \"kind\": \"model_inference\", \"source_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"origin_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"observation\": \"The rollers are arranged in a row and appear to be in good condition.\", \"locator\": \"licensed-bearing-demo.jpg\", \"reliability\": \"medium\", \"asset_identity\": null, \"predicate\": null, \"value\": null, \"limitations\": [\"The image is a static photograph and cannot establish the root cause of the noise.\", \"The absence of visible damage does not rule out internal issues such as wear or contamination.\", \"The lack of operational data makes it impossible to determine the exact cause of the intermittent noise.\"]}, {\"id\": \"EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c\", \"modality\": \"image\", \"kind\": \"model_inference\", \"source_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"origin_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"observation\": \"The outer ring is smooth and has a slight sheen, indicating it is likely made of steel or a similar material.\", \"locator\": \"licensed-bearing-demo.jpg\", \"reliability\": \"medium\", \"asset_identity\": null, \"predicate\": null, \"value\": null, \"limitations\": [\"The image is a static photograph and cannot establish the root cause of the noise.\", \"The absence of visible damage does not rule out internal issues such as wear or contamination.\", \"The lack of operational data makes it impossible to determine the exact cause of the intermittent noise.\"]}, {\"id\": \"EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72\", \"modality\": \"image\", \"kind\": \"model_inference\", \"source_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"origin_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"observation\": \"The bearing is not showing any visible signs of wear, damage, or deformation.\", \"locator\": \"licensed-bearing-demo.jpg\", \"reliability\": \"medium\", \"asset_identity\": null, \"predicate\": null, \"value\": null, \"limitations\": [\"The image is a static photograph and cannot establish the root cause of the noise.\", \"The absence of visible damage does not rule out internal issues such as wear or contamination.\", \"The lack of operational data makes it impossible to determine the exact cause of the intermittent noise.\"]}, {\"id\": \"652625bf337de7da7e79b51c\", \"modality\": \"document\", \"kind\": \"document_guidance\", \"source_id\": \"555b3d1f041547d5961b50e36b4dce60\", \"origin_id\": null, \"observation\": \"Project demonstration note: this is a licensed component photograph. No verified maintenance, lubrication or alignment measurements or independently verified asset identity have been supplied. A photo alone cannot establish internal damage or RUL.\", \"locator\": \"demonstration-limitations.txt / lines 1-1, chars 1-247\", \"reliability\": \"medium\", \"asset_identity\": null, \"predicate\": null, \"value\": null, \"limitations\": []}], \"attachments\": [\"9f2bcf14e8624c039f3e9f5e3050be24\", \"555b3d1f041547d5961b50e36b4dce60\"], \"orchestration\": {\"run_id\": \"1bed653c-0e65-4321-8a6b-05450ed31bb0\", \"intent\": \"incident_investigation\"}, \"error\": {\"code\": \"llm_invalid_response\", \"message\": \"Local model failed or returned an invalid structured response.\"}, \"elapsed_seconds\": 193.63999999999942}}]",
+      "elapsed_seconds": 193.85899999999674
+    }
+  ],
+  "interpretation": "Actual checks across successive revisions, not one all-pass batch. No physical accuracy, universal entailment, browser/mobile or microphone/speaker acceptance claim. Four FD defaults/comparison are fresh; the complete 168-route audit is preserved V3 evidence.",
+  "final_regression": {
+    "passed": 198,
+    "warnings": 2,
+    "seconds": 139.21,
+    "log": ".runtime/v3_2_final_tests.log",
+    "initial_failed_test_log": ".runtime/v3_2_final_first_tests.log",
+    "initial_failure": "New regression incorrectly expected original PNG MIME instead of existing normalized stored JPEG. Corrected assertion, then entire suite passed."
+  },
+  "build": {
+    "typescript": "PASS",
+    "modules": 639,
+    "vite_seconds": 9.53,
+    "js_bytes": 776102,
+    "advisory": "JS chunk exceeds 500kB; not a build failure."
+  },
+  "preservation": {
+    "protected_native_hashes": 813,
+    "all_existing_sqlite_tables_exact": 13,
+    "proof": "docs/V3_2_CUTOVER_STATE.json",
+    "old_bundle_hashes_proof": "docs/V3_2_PRESERVED_BUNDLES.json"
+  },
+  "package": {
+    "file_count": 1052,
+    "zip_bytes": 140260908,
+    "zip_sha256": "7137fd98e6ee6fd38a8d7adebc513cdca0d3a2b2e16ede147d6a0a479017093a"
+  },
+  "relocation_proof": "docs/V3_2_RELOCATION_VERIFICATION.json",
+  "acceptance_open": [
+    "Supported browser host unavailable: browser/mobile/keyboard/accessibility interactions unverified",
+    "Physical microphone capture/permission and speaker playback unverified",
+    "Clean-machine and other-OS installation unverified",
+    "General semantic entailment/deduplication and independent physical diagnostic accuracy not established"
+  ]
+}

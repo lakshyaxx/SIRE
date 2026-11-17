@@ -1,0 +1,265 @@
+{
+  "application_version": "4.5.0",
+  "main_url": "http://127.0.0.1:8000",
+  "release_status": "engineering_preview_incomplete_acceptance",
+  "loaded_source_sha256": "86e3151959b98874ca5efee79197d264639424ce7b612be1d3e0cd1a1f6d2096",
+  "backend": {
+    "passed": 275,
+    "failed": 0,
+    "warnings": 2,
+    "seconds": 164.84,
+    "proof": ".runtime/v45/full_regression_final.log",
+    "later_voice_schema_correction": {
+      "passed": 1,
+      "seconds": 2.03
+    }
+  },
+  "frontend": {
+    "passed": 10,
+    "failed": 0,
+    "test_duration_ms": 1376.9247,
+    "tsc": "pass",
+    "build": "pass",
+    "modules": 645,
+    "build_seconds": 18.74,
+    "js_bytes": 799347,
+    "size_warning": true
+  },
+  "ruff": "pass",
+  "black": {
+    "status": "pass",
+    "files_checked": 170
+  },
+  "frontend_client": {
+    "passed": 7,
+    "failed": 0,
+    "original_fixture_ids": [
+      "media/images/bearing_inspection_generated_01.jpg",
+      "documents/facility_maintenance_handbook.pdf",
+      "test_inputs/valid/telemetry_small.csv",
+      "documents/maintenance_work_order.docx",
+      "documents/sire_maintenance_workbook.xlsx"
+    ],
+    "attachment_ids": [
+      "1b57ca68674c42e7bb618a5323918f31",
+      "2b0f1983bb104891a99f783e307d33f5",
+      "0b446444a01c4db39e1222ca845fe27e",
+      "e11d4aafbadb429e9fca9ec632a5a49d",
+      "920c83d02d1149978f407b8c18fbc5c8"
+    ],
+    "proof": ".runtime/v45/client_photo_final/verification.json"
+  },
+  "network": {
+    "passed": 17,
+    "failed": 0,
+    "genuine_selected_native_routes": 12,
+    "proof": ".runtime/v45/network_acceptance/results.json"
+  },
+  "offline": {
+    "passed": 5,
+    "failed": 0,
+    "scope": "External DNS/connect denied in this dedicated Python process and Python children through inherited sitecustomize. Actual loopback Ollama remains allowed. OS-wide network disconnection and existing provider-service egress are not controlled or claimed.",
+    "proof": ".runtime/v45/offline_acceptance/results.json"
+  },
+  "citation_support": {
+    "scope": "Exact resolved-source excerpts in three targeted document responses; not general narrative/causal entailment",
+    "checked": 6,
+    "supported": 6,
+    "rate": 1.0,
+    "general_semantic_support_rate": null
+  },
+  "known_cause_top1": null,
+  "known_cause_top3": null,
+  "false_positive_rate": null,
+  "ground_truth_evaluation": "No evaluator-only material accessed; no private evaluator authorized/supplied for this release test",
+  "preservation": {
+    "native_integrity_files": 813,
+    "tables": [
+      {
+        "table": "attachments",
+        "rows_before": 8,
+        "rows_after": 8,
+        "equal": true
+      },
+      {
+        "table": "cases",
+        "rows_before": 5,
+        "rows_after": 5,
+        "equal": true
+      },
+      {
+        "table": "chunks",
+        "rows_before": 6,
+        "rows_after": 6,
+        "equal": true
+      },
+      {
+        "table": "conversations",
+        "rows_before": 12,
+        "rows_after": 12,
+        "equal": true
+      },
+      {
+        "table": "messages",
+        "rows_before": 50,
+        "rows_after": 50,
+        "equal": true
+      },
+      {
+        "table": "predictions",
+        "rows_before": 3,
+        "rows_after": 3,
+        "equal": true
+      },
+      {
+        "table": "schema_version",
+        "rows_before": 2,
+        "rows_after": 2,
+        "equal": true
+      },
+      {
+        "table": "v3_annotations",
+        "rows_before": 0,
+        "rows_after": 0,
+        "equal": true
+      },
+      {
+        "table": "v3_cases",
+        "rows_before": 2,
+        "rows_after": 2,
+        "equal": true
+      },
+      {
+        "table": "v3_evidence",
+        "rows_before": 65,
+        "rows_after": 65,
+        "equal": true
+      },
+      {
+        "table": "v3_reports",
+        "rows_before": 1,
+        "rows_after": 1,
+        "equal": true
+      },
+      {
+        "table": "v3_runs",
+        "rows_before": 9,
+        "rows_after": 9,
+        "equal": true
+      },
+      {
+        "table": "v3_sources",
+        "rows_before": 65,
+        "rows_after": 65,
+        "equal": true
+      }
+    ],
+    "stress_mismatches": [],
+    "bundles": [
+      {
+        "path": "output/sire_v2_local_runtime.zip",
+        "sha256": "18c9bb7c20af2ca43cf470d9594c72313a129011304521c07ca90bd50b5f3f24",
+        "equal": true
+      },
+      {
+        "path": "output/sire_v3_local_runtime.zip",
+        "sha256": "e7ea3c9f7e287a88118ddfe3c77697a530287c7ec6b13e09edda4719d5505ac8",
+        "equal": true
+      },
+      {
+        "path": "output/sire_v3_2_local_runtime.zip",
+        "sha256": "7137fd98e6ee6fd38a8d7adebc513cdca0d3a2b2e16ede147d6a0a479017093a",
+        "equal": true
+      }
+    ],
+    "additive_tables": [
+      "v45_jobs"
+    ],
+    "stress_files_checked": 7956,
+    "inherited_deleted_path_count": 2792,
+    "native_routes_retained": 168,
+    "elapsed_seconds": 19.813000000009197,
+    "status": "pass"
+  },
+  "startup": {
+    "scope": "Fresh Python process through actual FastAPI lifespan and health including native integrity/startup inference. ASGI transport, not browser/server bind time. Existing OS caches are not flushed; resident warm LLM latency is not measured.",
+    "runs": [
+      {
+        "label": "first_fresh_process",
+        "elapsed_seconds": 10.75,
+        "returncode": 0,
+        "health": {
+          "status": "ok",
+          "contract_version": "2.0",
+          "application_version": "4.5.0",
+          "loaded_source_sha256": "86e3151959b98874ca5efee79197d264639424ce7b612be1d3e0cd1a1f6d2096",
+          "ml_ready": true,
+          "ollama_ready": true,
+          "text_ready": true,
+          "vision_ready": true,
+          "models": [
+            "qwen3:4b-instruct",
+            "qwen3-vl:2b-instruct",
+            "qwen3-vl:2b",
+            "qwen3:4b"
+          ],
+          "mode": "local",
+          "hosted_providers": "disabled"
+        }
+      },
+      {
+        "label": "repeat_fresh_process_same_state",
+        "elapsed_seconds": 9.65700000000652,
+        "returncode": 0,
+        "health": {
+          "status": "ok",
+          "contract_version": "2.0",
+          "application_version": "4.5.0",
+          "loaded_source_sha256": "86e3151959b98874ca5efee79197d264639424ce7b612be1d3e0cd1a1f6d2096",
+          "ml_ready": true,
+          "ollama_ready": true,
+          "text_ready": true,
+          "vision_ready": true,
+          "models": [
+            "qwen3:4b-instruct",
+            "qwen3-vl:2b-instruct",
+            "qwen3-vl:2b",
+            "qwen3:4b"
+          ],
+          "mode": "local",
+          "hosted_providers": "disabled"
+        }
+      }
+    ]
+  },
+  "timings": {
+    "inprocess": {
+      "first_update_seconds": 0.04700000000593718,
+      "first_text_seconds": 11.01600000000326,
+      "elapsed_seconds": 13.343999999997322
+    },
+    "background_accepted_ms": 150.4976999999999,
+    "first_verified_facts_poll_upper_bound_ms": 1433.4277000000002,
+    "background_total_ms": 156584.12459999998
+  },
+  "observed_system_memory": {
+    "scope": "2s whole-system samples in final text probe, not exclusive application maxima",
+    "peak_ram_bytes": 14708330496,
+    "peak_gpu_mib": 311
+  },
+  "providers": 179,
+  "openapi": {
+    "paths": 58,
+    "schemas": 24,
+    "unresolved_local_refs": []
+  },
+  "unverified_or_open": [
+    "Physical browser picker/microphone/audible playback/barge-in",
+    "Voice speed target not met",
+    "Incomplete generated mechanism prose and general semantic relationships",
+    "Resident-warm-model/prefill/decode/CPU/per-model RSS measurements",
+    "Qwen speech/multilingual-noisy ASR",
+    "OS-wide offline and existing Ollama egress isolation",
+    "Clean-environment portability"
+  ]
+}

@@ -1,0 +1,3531 @@
+{
+  "timestamp_utc": "2026-11-17T08:57:46.828869+00:00",
+  "checks": {
+    "demo_B_visual_investigation": {
+      "status": "FAIL",
+      "error": "Actual chat incomplete: [{\"type\": \"error\", \"code\": \"llm_invalid_response\", \"message\": \"Local model failed or returned an invalid structured response.\"}, {\"type\": \"done\", \"status\": \"error\", \"metadata\": {\"provider\": \"ollama\", \"model\": \"qwen3:4b-instruct\", \"tools\": [{\"tool\": \"vision.inspect\", \"status\": \"complete\", \"provider\": \"ollama\", \"model\": \"qwen3-vl:2b-instruct\", \"model_digest\": \"afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e\", \"elapsed_seconds\": 42.46899999999732, \"source_ids\": [\"EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223\", \"EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4\", \"EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c\", \"EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72\"]}, {\"tool\": \"search_documents\", \"status\": \"complete\", \"elapsed_seconds\": 0.031000000002677552, \"source_ids\": [\"652625bf337de7da7e79b51c\"]}], \"evidence\": [{\"id\": \"EV:2c2ea034d424e42d80352ec60238e4c83ee30afec2f342c70ed92cab708e6223\", \"modality\": \"image\", \"kind\": \"model_inference\", \"source_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"origin_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"observation\": \"The bearing has a split design with a central ring and multiple rollers.\", \"locator\": \"licensed-bearing-demo.jpg\", \"reliability\": \"medium\", \"asset_identity\": null, \"predicate\": null, \"value\": null, \"limitations\": [\"The image is a static photograph and cannot establish the root cause of the noise.\", \"The absence of visible damage does not rule out internal issues such as wear or contamination.\", \"The lack of operational data makes it impossible to determine the exact cause of the intermittent noise.\"]}, {\"id\": \"EV:8c1b5775359850f18abdef158451e838144838d4811c8f35a3114d3791fc19a4\", \"modality\": \"image\", \"kind\": \"model_inference\", \"source_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"origin_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"observation\": \"The rollers are arranged in a row and appear to be in good condition.\", \"locator\": \"licensed-bearing-demo.jpg\", \"reliability\": \"medium\", \"asset_identity\": null, \"predicate\": null, \"value\": null, \"limitations\": [\"The image is a static photograph and cannot establish the root cause of the noise.\", \"The absence of visible damage does not rule out internal issues such as wear or contamination.\", \"The lack of operational data makes it impossible to determine the exact cause of the intermittent noise.\"]}, {\"id\": \"EV:86954aacd23534ee8a9a12be8025fb4d117fbb7e50ba97e56670f0323811225c\", \"modality\": \"image\", \"kind\": \"model_inference\", \"source_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"origin_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"observation\": \"The outer ring is smooth and has a slight sheen, indicating it is likely made of steel or a similar material.\", \"locator\": \"licensed-bearing-demo.jpg\", \"reliability\": \"medium\", \"asset_identity\": null, \"predicate\": null, \"value\": null, \"limitations\": [\"The image is a static photograph and cannot establish the root cause of the noise.\", \"The absence of visible damage does not rule out internal issues such as wear or contamination.\", \"The lack of operational data makes it impossible to determine the exact cause of the intermittent noise.\"]}, {\"id\": \"EV:90433d4b1048d1c74210865be99c2c8b186862436d165dc834f1d8ebcdf3dc72\", \"modality\": \"image\", \"kind\": \"model_inference\", \"source_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"origin_id\": \"9f2bcf14e8624c039f3e9f5e3050be24\", \"observation\": \"The bearing is not showing any visible signs of wear, damage, or deformation.\", \"locator\": \"licensed-bearing-demo.jpg\", \"reliability\": \"medium\", \"asset_identity\": null, \"predicate\": null, \"value\": null, \"limitations\": [\"The image is a static photograph and cannot establish the root cause of the noise.\", \"The absence of visible damage does not rule out internal issues such as wear or contamination.\", \"The lack of operational data makes it impossible to determine the exact cause of the intermittent noise.\"]}, {\"id\": \"652625bf337de7da7e79b51c\", \"modality\": \"document\", \"kind\": \"document_guidance\", \"source_id\": \"555b3d1f041547d5961b50e36b4dce60\", \"origin_id\": null, \"observation\": \"Project demonstration note: this is a licensed component photograph. No verified maintenance, lubrication or alignment measurements or independently verified asset identity have been supplied. A photo alone cannot establish internal damage or RUL.\", \"locator\": \"demonstration-limitations.txt / lines 1-1, chars 1-247\", \"reliability\": \"medium\", \"asset_identity\": null, \"predicate\": null, \"value\": null, \"limitations\": []}], \"attachments\": [\"9f2bcf14e8624c039f3e9f5e3050be24\", \"555b3d1f041547d5961b50e36b4dce60\"], \"orchestration\": {\"run_id\": \"1bed653c-0e65-4321-8a6b-05450ed31bb0\", \"intent\": \"incident_investigation\"}, \"error\": {\"code\": \"llm_invalid_response\", \"message\": \"Local model failed or returned an invalid structured response.\"}, \"elapsed_seconds\": 193.63999999999942}}]",
+      "elapsed_seconds": 193.85899999999674
+    },
+    "bounded_video_actual_frames_and_vision": {
+      "status": "PASS",
+      "result": {
+        "source_kind": "Clearly labeled encoded demonstration from licensed still, not a physical incident video.",
+        "decoded_metadata": {
+          "decoded_frames": 20,
+          "reported_frame_count": 20,
+          "reported_fps": 10.0,
+          "last_observed_decoder_timestamp_seconds": 1.9000000000000001,
+          "missing_timestamp_count": 0,
+          "sampling_policy": "Uniform target frame indices from reported count; returned timestamps are actual decoder positions, never inferred wall-clock time.",
+          "codec": "OpenCV 4.12.0 / LGPL FFmpeg",
+          "limitations": [
+            "Sampled still frames do not establish behavior between frames or a mechanical cause.",
+            "Video audio track is not transcribed; upload an audio recording separately.",
+            "Container and decoder timing metadata are unverified source metadata."
+          ],
+          "elapsed_seconds": 2.186999999998079,
+          "frames": [
+            {
+              "frame_number": 0,
+              "timestamp_seconds": 0.0,
+              "timestamp_method": "decoder_CAP_PROP_POS_MSEC",
+              "sha256": "b4c49dcec93b837929b2e360f8f107c199ca4ffabe89e4e1fa83e5c2a736399b",
+              "width": 320,
+              "height": 240,
+              "attachment_id": "f5a3b04bceab478195d05f9b9c3283c7",
+              "decoder_jpeg_sha256": "4de07094ab51059a4359c67d5cb7ceb969a6d2e42593b9772f9aeb0081a21f6f"
+            },
+            {
+              "frame_number": 10,
+              "timestamp_seconds": 1.0,
+              "timestamp_method": "decoder_CAP_PROP_POS_MSEC",
+              "sha256": "58dd468dfbac8a9a608447da1d099d1ad9659c213cdf22dda11b08a885193d4d",
+              "width": 320,
+              "height": 240,
+              "attachment_id": "be8e5b989fb040fdb960cae2c8f1080d",
+              "decoder_jpeg_sha256": "7dd7e4dc589a8a9eec5d363490815212550bf216933b33d463257def234761f4"
+            },
+            {
+              "frame_number": 19,
+              "timestamp_seconds": 1.9000000000000001,
+              "timestamp_method": "decoder_CAP_PROP_POS_MSEC",
+              "sha256": "5d3ee158b8c0154aa2351c21e604cbec099718aadbb7be446013d7575cb42935",
+              "width": 320,
+              "height": 240,
+              "attachment_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+              "decoder_jpeg_sha256": "8eae2b919cc08f10929b705ed697d1229c5a7e79e00a2b444a4b41d527fec460"
+            }
+          ]
+        },
+        "chat": {
+          "events": [
+            {
+              "type": "started",
+              "request_id": "c29e48036c97422f801b5a9e378a4a4e",
+              "user_message_id": "c3cf5f980a8d4f7f83e6442ba8207d92"
+            },
+            {
+              "type": "plan",
+              "run_id": "b419abae-b722-4c77-8892-74d326ccf99c",
+              "plan": {
+                "id": "e04803e7-ab9d-4851-9045-64a9e3ed611e",
+                "intent": "knowledge_query",
+                "goals": [
+                  "Answer using supplied evidence and actual local tools"
+                ],
+                "tools": [
+                  {
+                    "tool_id": "video.frames",
+                    "arguments": {
+                      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                    },
+                    "depends_on": []
+                  },
+                  {
+                    "tool_id": "vision.inspect",
+                    "arguments": {
+                      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                    },
+                    "depends_on": []
+                  },
+                  {
+                    "tool_id": "llm.chat",
+                    "arguments": {
+                      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                    },
+                    "depends_on": []
+                  }
+                ],
+                "evidence_ids": [],
+                "allowed_external_providers": [],
+                "deadline_seconds": 300.0,
+                "max_tool_calls": 12,
+                "fallback": "Return explicit partial/error status; never fabricate tool findings."
+              }
+            },
+            {
+              "type": "tool",
+              "tool": "vision.inspect",
+              "status": "running",
+              "source_id": "f5a3b04bceab478195d05f9b9c3283c7"
+            },
+            {
+              "type": "tool",
+              "tool": "vision.inspect",
+              "status": "complete",
+              "provider": "ollama",
+              "model": "qwen3-vl:2b-instruct",
+              "model_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+              "elapsed_seconds": 38.75,
+              "source_ids": [
+                "EV:2c9f9a34d3ee28eb81eb51666848404f2b50b20944537a774fdcc501086add3d",
+                "EV:987a8de24d2ee5b49316fceca63e1b5e86d61ed18dec5f665f778840d4329c9f",
+                "EV:7e95ac5e9235b2a25fac861b2e26846429a09a6c2efe4856c3e4a834cf2f3e4b",
+                "EV:05a4489a311e2bf6a769ad8e609f5b0b030e31dfae0aa6abc8a77d531834fd86"
+              ]
+            },
+            {
+              "type": "tool",
+              "tool": "vision.inspect",
+              "status": "running",
+              "source_id": "be8e5b989fb040fdb960cae2c8f1080d"
+            },
+            {
+              "type": "tool",
+              "tool": "vision.inspect",
+              "status": "complete",
+              "provider": "ollama",
+              "model": "qwen3-vl:2b-instruct",
+              "model_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+              "elapsed_seconds": 42.10899999999674,
+              "source_ids": [
+                "EV:23350b4a56aa3393c3900a2a0086c4e843200de9276b3d06c2b9c8be93c52ffe",
+                "EV:a2eaa11ca93852622605b927e932015748ad7b1213f5f3017cc5f9c6a37b2bf5",
+                "EV:b4cf57a147fc07d0543102fa60fcd0faf6d5b492ed4b80565305792f00c92c62",
+                "EV:8dd26b3b9a21ca917ab484027a8e833e7a53b2631df71006b112353a1889ee2e"
+              ]
+            },
+            {
+              "type": "tool",
+              "tool": "vision.inspect",
+              "status": "running",
+              "source_id": "35bb9f54fc81442c87daef1b12f0a7bc"
+            },
+            {
+              "type": "tool",
+              "tool": "vision.inspect",
+              "status": "complete",
+              "provider": "ollama",
+              "model": "qwen3-vl:2b-instruct",
+              "model_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+              "elapsed_seconds": 38.17199999999866,
+              "source_ids": [
+                "EV:316114da2759469b328f50d947b1e8f6368a9aeeb34cb2b5f7036d2599a10f99",
+                "EV:23a7a384f516b016c3505f2203c7f08c225064058a12b23a6bd28e932d82246a",
+                "EV:8f3281403913a138bfc3cebf06729b3c0e2ca769b41fbd89e7296364968f9174",
+                "EV:84c6707d8ed50c51663bf700eacb2066e3ab1a1225692566087762980e5a957d"
+              ]
+            },
+            {
+              "type": "evidence",
+              "evidence": [
+                {
+                  "id": "EV:2c9f9a34d3ee28eb81eb51666848404f2b50b20944537a774fdcc501086add3d",
+                  "modality": "video_frame",
+                  "kind": "model_inference",
+                  "source_id": "f5a3b04bceab478195d05f9b9c3283c7",
+                  "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                  "observation": "A cylindrical roller bearing with a central ring and multiple rollers.",
+                  "locator": "demo-clip-from-licensed-still.mp4: frame 0; decoder time 0.0 seconds",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a still photograph and does not show any motion or failure.",
+                    "The image quality is low and may not capture all details accurately.",
+                    "The image does not show the full context of the bearing's environment or installation."
+                  ]
+                },
+                {
+                  "id": "EV:987a8de24d2ee5b49316fceca63e1b5e86d61ed18dec5f665f778840d4329c9f",
+                  "modality": "video_frame",
+                  "kind": "model_inference",
+                  "source_id": "f5a3b04bceab478195d05f9b9c3283c7",
+                  "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                  "observation": "The rollers are arranged in a row and are visible through the central ring.",
+                  "locator": "demo-clip-from-licensed-still.mp4: frame 0; decoder time 0.0 seconds",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a still photograph and does not show any motion or failure.",
+                    "The image quality is low and may not capture all details accurately.",
+                    "The image does not show the full context of the bearing's environment or installation."
+                  ]
+                },
+                {
+                  "id": "EV:7e95ac5e9235b2a25fac861b2e26846429a09a6c2efe4856c3e4a834cf2f3e4b",
+                  "modality": "video_frame",
+                  "kind": "model_inference",
+                  "source_id": "f5a3b04bceab478195d05f9b9c3283c7",
+                  "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                  "observation": "The outer race is cylindrical and has a smooth surface.",
+                  "locator": "demo-clip-from-licensed-still.mp4: frame 0; decoder time 0.0 seconds",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a still photograph and does not show any motion or failure.",
+                    "The image quality is low and may not capture all details accurately.",
+                    "The image does not show the full context of the bearing's environment or installation."
+                  ]
+                },
+                {
+                  "id": "EV:05a4489a311e2bf6a769ad8e609f5b0b030e31dfae0aa6abc8a77d531834fd86",
+                  "modality": "video_frame",
+                  "kind": "model_inference",
+                  "source_id": "f5a3b04bceab478195d05f9b9c3283c7",
+                  "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                  "observation": "The bearing has a metallic finish with some visible surface reflections.",
+                  "locator": "demo-clip-from-licensed-still.mp4: frame 0; decoder time 0.0 seconds",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a still photograph and does not show any motion or failure.",
+                    "The image quality is low and may not capture all details accurately.",
+                    "The image does not show the full context of the bearing's environment or installation."
+                  ]
+                },
+                {
+                  "id": "EV:23350b4a56aa3393c3900a2a0086c4e843200de9276b3d06c2b9c8be93c52ffe",
+                  "modality": "video_frame",
+                  "kind": "model_inference",
+                  "source_id": "be8e5b989fb040fdb960cae2c8f1080d",
+                  "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                  "observation": "A cylindrical roller bearing with a segmented inner race and a series of rollers.",
+                  "locator": "demo-clip-from-licensed-still.mp4: frame 10; decoder time 1.0 seconds",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a still photograph and does not show any mechanical motion or failure.",
+                    "The image quality is not high enough to determine the exact condition of the bearing.",
+                    "The image does not show the bearing's full context or environment."
+                  ]
+                },
+                {
+                  "id": "EV:a2eaa11ca93852622605b927e932015748ad7b1213f5f3017cc5f9c6a37b2bf5",
+                  "modality": "video_frame",
+                  "kind": "model_inference",
+                  "source_id": "be8e5b989fb040fdb960cae2c8f1080d",
+                  "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                  "observation": "The bearing has a metallic finish with visible surface reflections.",
+                  "locator": "demo-clip-from-licensed-still.mp4: frame 10; decoder time 1.0 seconds",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a still photograph and does not show any mechanical motion or failure.",
+                    "The image quality is not high enough to determine the exact condition of the bearing.",
+                    "The image does not show the bearing's full context or environment."
+                  ]
+                },
+                {
+                  "id": "EV:b4cf57a147fc07d0543102fa60fcd0faf6d5b492ed4b80565305792f00c92c62",
+                  "modality": "video_frame",
+                  "kind": "model_inference",
+                  "source_id": "be8e5b989fb040fdb960cae2c8f1080d",
+                  "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                  "observation": "The rollers are arranged in a row within the inner race, and the outer ring is visible with a smooth, rounded edge.",
+                  "locator": "demo-clip-from-licensed-still.mp4: frame 10; decoder time 1.0 seconds",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a still photograph and does not show any mechanical motion or failure.",
+                    "The image quality is not high enough to determine the exact condition of the bearing.",
+                    "The image does not show the bearing's full context or environment."
+                  ]
+                },
+                {
+                  "id": "EV:8dd26b3b9a21ca917ab484027a8e833e7a53b2631df71006b112353a1889ee2e",
+                  "modality": "video_frame",
+                  "kind": "model_inference",
+                  "source_id": "be8e5b989fb040fdb960cae2c8f1080d",
+                  "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                  "observation": "The bearing appears to be a type of cylindrical roller bearing, possibly a roller bearing with a segmented inner race and a series of rollers.",
+                  "locator": "demo-clip-from-licensed-still.mp4: frame 10; decoder time 1.0 seconds",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a still photograph and does not show any mechanical motion or failure.",
+                    "The image quality is not high enough to determine the exact condition of the bearing.",
+                    "The image does not show the bearing's full context or environment."
+                  ]
+                },
+                {
+                  "id": "EV:316114da2759469b328f50d947b1e8f6368a9aeeb34cb2b5f7036d2599a10f99",
+                  "modality": "video_frame",
+                  "kind": "model_inference",
+                  "source_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+                  "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                  "observation": "A cylindrical roller bearing with a metallic finish, featuring a series of parallel rollers arranged in a row",
+                  "locator": "demo-clip-from-licensed-still.mp4: frame 19; decoder time 1.9000000000000001 seconds",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a still photograph and does not show any mechanical motion or failure",
+                    "The image does not show any signs of internal damage or wear"
+                  ]
+                },
+                {
+                  "id": "EV:23a7a384f516b016c3505f2203c7f08c225064058a12b23a6bd28e932d82246a",
+                  "modality": "video_frame",
+                  "kind": "model_inference",
+                  "source_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+                  "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                  "observation": "The bearing has a smooth outer ring and a series of rollers arranged in a row",
+                  "locator": "demo-clip-from-licensed-still.mp4: frame 19; decoder time 1.9000000000000001 seconds",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a still photograph and does not show any mechanical motion or failure",
+                    "The image does not show any signs of internal damage or wear"
+                  ]
+                },
+                {
+                  "id": "EV:8f3281403913a138bfc3cebf06729b3c0e2ca769b41fbd89e7296364968f9174",
+                  "modality": "video_frame",
+                  "kind": "model_inference",
+                  "source_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+                  "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                  "observation": "The rollers are arranged in a row with a metallic finish",
+                  "locator": "demo-clip-from-licensed-still.mp4: frame 19; decoder time 1.9000000000000001 seconds",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a still photograph and does not show any mechanical motion or failure",
+                    "The image does not show any signs of internal damage or wear"
+                  ]
+                },
+                {
+                  "id": "EV:84c6707d8ed50c51663bf700eacb2066e3ab1a1225692566087762980e5a957d",
+                  "modality": "video_frame",
+                  "kind": "model_inference",
+                  "source_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+                  "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                  "observation": "The bearing has a smooth outer ring and a series of rollers arranged in a row",
+                  "locator": "demo-clip-from-licensed-still.mp4: frame 19; decoder time 1.9000000000000001 seconds",
+                  "reliability": "medium",
+                  "asset_identity": null,
+                  "predicate": null,
+                  "value": null,
+                  "limitations": [
+                    "The image is a still photograph and does not show any mechanical motion or failure",
+                    "The image does not show any signs of internal damage or wear"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "delta",
+              "text": "The"
+            },
+            {
+              "type": "delta",
+              "text": " sampled"
+            },
+            {
+              "type": "delta",
+              "text": " frames"
+            },
+            {
+              "type": "delta",
+              "text": " depict"
+            },
+            {
+              "type": "delta",
+              "text": " a"
+            },
+            {
+              "type": "delta",
+              "text": " **"
+            },
+            {
+              "type": "delta",
+              "text": "c"
+            },
+            {
+              "type": "delta",
+              "text": "yl"
+            },
+            {
+              "type": "delta",
+              "text": "indrical"
+            },
+            {
+              "type": "delta",
+              "text": " roller"
+            },
+            {
+              "type": "delta",
+              "text": " bearing"
+            },
+            {
+              "type": "delta",
+              "text": "**,"
+            },
+            {
+              "type": "delta",
+              "text": " as"
+            },
+            {
+              "type": "delta",
+              "text": " inferred"
+            },
+            {
+              "type": "delta",
+              "text": " from"
+            },
+            {
+              "type": "delta",
+              "text": " the"
+            },
+            {
+              "type": "delta",
+              "text": " visual"
+            },
+            {
+              "type": "delta",
+              "text": " features"
+            },
+            {
+              "type": "delta",
+              "text": " in"
+            },
+            {
+              "type": "delta",
+              "text": " the"
+            },
+            {
+              "type": "delta",
+              "text": " still"
+            },
+            {
+              "type": "delta",
+              "text": " photograph"
+            },
+            {
+              "type": "delta",
+              "text": "-based"
+            },
+            {
+              "type": "delta",
+              "text": " demonstration"
+            },
+            {
+              "type": "delta",
+              "text": " clip"
+            },
+            {
+              "type": "delta",
+              "text": "."
+            },
+            {
+              "type": "delta",
+              "text": " Key"
+            },
+            {
+              "type": "delta",
+              "text": " visible"
+            },
+            {
+              "type": "delta",
+              "text": " features"
+            },
+            {
+              "type": "delta",
+              "text": " include"
+            },
+            {
+              "type": "delta",
+              "text": ":\n\n"
+            },
+            {
+              "type": "delta",
+              "text": "-"
+            },
+            {
+              "type": "delta",
+              "text": " **"
+            },
+            {
+              "type": "delta",
+              "text": "Central"
+            },
+            {
+              "type": "delta",
+              "text": " ring"
+            },
+            {
+              "type": "delta",
+              "text": " structure"
+            },
+            {
+              "type": "delta",
+              "text": "**:"
+            },
+            {
+              "type": "delta",
+              "text": " A"
+            },
+            {
+              "type": "delta",
+              "text": " cylindrical"
+            },
+            {
+              "type": "delta",
+              "text": " central"
+            },
+            {
+              "type": "delta",
+              "text": " ring"
+            },
+            {
+              "type": "delta",
+              "text": " ("
+            },
+            {
+              "type": "delta",
+              "text": "inner"
+            },
+            {
+              "type": "delta",
+              "text": " or"
+            },
+            {
+              "type": "delta",
+              "text": " outer"
+            },
+            {
+              "type": "delta",
+              "text": " race"
+            },
+            {
+              "type": "delta",
+              "text": ")"
+            },
+            {
+              "type": "delta",
+              "text": " is"
+            },
+            {
+              "type": "delta",
+              "text": " present"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " with"
+            },
+            {
+              "type": "delta",
+              "text": " a"
+            },
+            {
+              "type": "delta",
+              "text": " smooth"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " rounded"
+            },
+            {
+              "type": "delta",
+              "text": " surface"
+            },
+            {
+              "type": "delta",
+              "text": ".\n"
+            },
+            {
+              "type": "delta",
+              "text": "-"
+            },
+            {
+              "type": "delta",
+              "text": " **"
+            },
+            {
+              "type": "delta",
+              "text": "Roll"
+            },
+            {
+              "type": "delta",
+              "text": "ers"
+            },
+            {
+              "type": "delta",
+              "text": "**:"
+            },
+            {
+              "type": "delta",
+              "text": " Multiple"
+            },
+            {
+              "type": "delta",
+              "text": " rollers"
+            },
+            {
+              "type": "delta",
+              "text": " are"
+            },
+            {
+              "type": "delta",
+              "text": " arranged"
+            },
+            {
+              "type": "delta",
+              "text": " in"
+            },
+            {
+              "type": "delta",
+              "text": " a"
+            },
+            {
+              "type": "delta",
+              "text": " row"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " aligned"
+            },
+            {
+              "type": "delta",
+              "text": " within"
+            },
+            {
+              "type": "delta",
+              "text": " the"
+            },
+            {
+              "type": "delta",
+              "text": " central"
+            },
+            {
+              "type": "delta",
+              "text": " ring"
+            },
+            {
+              "type": "delta",
+              "text": " or"
+            },
+            {
+              "type": "delta",
+              "text": " inner"
+            },
+            {
+              "type": "delta",
+              "text": " race"
+            },
+            {
+              "type": "delta",
+              "text": "."
+            },
+            {
+              "type": "delta",
+              "text": " These"
+            },
+            {
+              "type": "delta",
+              "text": " rollers"
+            },
+            {
+              "type": "delta",
+              "text": " are"
+            },
+            {
+              "type": "delta",
+              "text": " parallel"
+            },
+            {
+              "type": "delta",
+              "text": " and"
+            },
+            {
+              "type": "delta",
+              "text": " symmetric"
+            },
+            {
+              "type": "delta",
+              "text": "ally"
+            },
+            {
+              "type": "delta",
+              "text": " spaced"
+            },
+            {
+              "type": "delta",
+              "text": ".\n"
+            },
+            {
+              "type": "delta",
+              "text": "-"
+            },
+            {
+              "type": "delta",
+              "text": " **"
+            },
+            {
+              "type": "delta",
+              "text": "Metal"
+            },
+            {
+              "type": "delta",
+              "text": "lic"
+            },
+            {
+              "type": "delta",
+              "text": " finish"
+            },
+            {
+              "type": "delta",
+              "text": "**:"
+            },
+            {
+              "type": "delta",
+              "text": " The"
+            },
+            {
+              "type": "delta",
+              "text": " bearing"
+            },
+            {
+              "type": "delta",
+              "text": " exhibits"
+            },
+            {
+              "type": "delta",
+              "text": " a"
+            },
+            {
+              "type": "delta",
+              "text": " metallic"
+            },
+            {
+              "type": "delta",
+              "text": " surface"
+            },
+            {
+              "type": "delta",
+              "text": " with"
+            },
+            {
+              "type": "delta",
+              "text": " visible"
+            },
+            {
+              "type": "delta",
+              "text": " reflections"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " indicating"
+            },
+            {
+              "type": "delta",
+              "text": " a"
+            },
+            {
+              "type": "delta",
+              "text": " polished"
+            },
+            {
+              "type": "delta",
+              "text": " or"
+            },
+            {
+              "type": "delta",
+              "text": " mach"
+            },
+            {
+              "type": "delta",
+              "text": "ined"
+            },
+            {
+              "type": "delta",
+              "text": " finish"
+            },
+            {
+              "type": "delta",
+              "text": ".\n"
+            },
+            {
+              "type": "delta",
+              "text": "-"
+            },
+            {
+              "type": "delta",
+              "text": " **"
+            },
+            {
+              "type": "delta",
+              "text": "Segment"
+            },
+            {
+              "type": "delta",
+              "text": "ed"
+            },
+            {
+              "type": "delta",
+              "text": " inner"
+            },
+            {
+              "type": "delta",
+              "text": " race"
+            },
+            {
+              "type": "delta",
+              "text": " ("
+            },
+            {
+              "type": "delta",
+              "text": "in"
+            },
+            {
+              "type": "delta",
+              "text": " one"
+            },
+            {
+              "type": "delta",
+              "text": " frame"
+            },
+            {
+              "type": "delta",
+              "text": ")**"
+            },
+            {
+              "type": "delta",
+              "text": ":"
+            },
+            {
+              "type": "delta",
+              "text": " One"
+            },
+            {
+              "type": "delta",
+              "text": " observation"
+            },
+            {
+              "type": "delta",
+              "text": " notes"
+            },
+            {
+              "type": "delta",
+              "text": " a"
+            },
+            {
+              "type": "delta",
+              "text": " segmented"
+            },
+            {
+              "type": "delta",
+              "text": " inner"
+            },
+            {
+              "type": "delta",
+              "text": " race"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " suggesting"
+            },
+            {
+              "type": "delta",
+              "text": " a"
+            },
+            {
+              "type": "delta",
+              "text": " design"
+            },
+            {
+              "type": "delta",
+              "text": " variant"
+            },
+            {
+              "type": "delta",
+              "text": " of"
+            },
+            {
+              "type": "delta",
+              "text": " cylindrical"
+            },
+            {
+              "type": "delta",
+              "text": " roller"
+            },
+            {
+              "type": "delta",
+              "text": " bearing"
+            },
+            {
+              "type": "delta",
+              "text": ".\n"
+            },
+            {
+              "type": "delta",
+              "text": "-"
+            },
+            {
+              "type": "delta",
+              "text": " **"
+            },
+            {
+              "type": "delta",
+              "text": "Smooth"
+            },
+            {
+              "type": "delta",
+              "text": " outer"
+            },
+            {
+              "type": "delta",
+              "text": " ring"
+            },
+            {
+              "type": "delta",
+              "text": "**:"
+            },
+            {
+              "type": "delta",
+              "text": " The"
+            },
+            {
+              "type": "delta",
+              "text": " outer"
+            },
+            {
+              "type": "delta",
+              "text": " race"
+            },
+            {
+              "type": "delta",
+              "text": " is"
+            },
+            {
+              "type": "delta",
+              "text": " described"
+            },
+            {
+              "type": "delta",
+              "text": " as"
+            },
+            {
+              "type": "delta",
+              "text": " having"
+            },
+            {
+              "type": "delta",
+              "text": " a"
+            },
+            {
+              "type": "delta",
+              "text": " smooth"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " rounded"
+            },
+            {
+              "type": "delta",
+              "text": " edge"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " consistent"
+            },
+            {
+              "type": "delta",
+              "text": " with"
+            },
+            {
+              "type": "delta",
+              "text": " standard"
+            },
+            {
+              "type": "delta",
+              "text": " bearing"
+            },
+            {
+              "type": "delta",
+              "text": " geometry"
+            },
+            {
+              "type": "delta",
+              "text": ".\n\n"
+            },
+            {
+              "type": "delta",
+              "text": "**"
+            },
+            {
+              "type": "delta",
+              "text": "Important"
+            },
+            {
+              "type": "delta",
+              "text": " limitations"
+            },
+            {
+              "type": "delta",
+              "text": " to"
+            },
+            {
+              "type": "delta",
+              "text": " note"
+            },
+            {
+              "type": "delta",
+              "text": "**"
+            },
+            {
+              "type": "delta",
+              "text": ":\n"
+            },
+            {
+              "type": "delta",
+              "text": "-"
+            },
+            {
+              "type": "delta",
+              "text": " The"
+            },
+            {
+              "type": "delta",
+              "text": " clip"
+            },
+            {
+              "type": "delta",
+              "text": " is"
+            },
+            {
+              "type": "delta",
+              "text": " derived"
+            },
+            {
+              "type": "delta",
+              "text": " from"
+            },
+            {
+              "type": "delta",
+              "text": " a"
+            },
+            {
+              "type": "delta",
+              "text": " **"
+            },
+            {
+              "type": "delta",
+              "text": "licensed"
+            },
+            {
+              "type": "delta",
+              "text": " still"
+            },
+            {
+              "type": "delta",
+              "text": " photograph"
+            },
+            {
+              "type": "delta",
+              "text": "**,"
+            },
+            {
+              "type": "delta",
+              "text": " not"
+            },
+            {
+              "type": "delta",
+              "text": " a"
+            },
+            {
+              "type": "delta",
+              "text": " video"
+            },
+            {
+              "type": "delta",
+              "text": " recording"
+            },
+            {
+              "type": "delta",
+              "text": " of"
+            },
+            {
+              "type": "delta",
+              "text": " real"
+            },
+            {
+              "type": "delta",
+              "text": " mechanical"
+            },
+            {
+              "type": "delta",
+              "text": " motion"
+            },
+            {
+              "type": "delta",
+              "text": " or"
+            },
+            {
+              "type": "delta",
+              "text": " operation"
+            },
+            {
+              "type": "delta",
+              "text": ".\n"
+            },
+            {
+              "type": "delta",
+              "text": "-"
+            },
+            {
+              "type": "delta",
+              "text": " There"
+            },
+            {
+              "type": "delta",
+              "text": " is"
+            },
+            {
+              "type": "delta",
+              "text": " **"
+            },
+            {
+              "type": "delta",
+              "text": "no"
+            },
+            {
+              "type": "delta",
+              "text": " evidence"
+            },
+            {
+              "type": "delta",
+              "text": " of"
+            },
+            {
+              "type": "delta",
+              "text": " mechanical"
+            },
+            {
+              "type": "delta",
+              "text": " motion"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " failure"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " or"
+            },
+            {
+              "type": "delta",
+              "text": " internal"
+            },
+            {
+              "type": "delta",
+              "text": " damage"
+            },
+            {
+              "type": "delta",
+              "text": "**"
+            },
+            {
+              "type": "delta",
+              "text": ".\n"
+            },
+            {
+              "type": "delta",
+              "text": "-"
+            },
+            {
+              "type": "delta",
+              "text": " Image"
+            },
+            {
+              "type": "delta",
+              "text": " quality"
+            },
+            {
+              "type": "delta",
+              "text": " is"
+            },
+            {
+              "type": "delta",
+              "text": " low"
+            },
+            {
+              "type": "delta",
+              "text": " and"
+            },
+            {
+              "type": "delta",
+              "text": " does"
+            },
+            {
+              "type": "delta",
+              "text": " not"
+            },
+            {
+              "type": "delta",
+              "text": " allow"
+            },
+            {
+              "type": "delta",
+              "text": " for"
+            },
+            {
+              "type": "delta",
+              "text": " precise"
+            },
+            {
+              "type": "delta",
+              "text": " assessment"
+            },
+            {
+              "type": "delta",
+              "text": " of"
+            },
+            {
+              "type": "delta",
+              "text": " wear"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " deformation"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " or"
+            },
+            {
+              "type": "delta",
+              "text": " condition"
+            },
+            {
+              "type": "delta",
+              "text": ".\n"
+            },
+            {
+              "type": "delta",
+              "text": "-"
+            },
+            {
+              "type": "delta",
+              "text": " The"
+            },
+            {
+              "type": "delta",
+              "text": " bearing"
+            },
+            {
+              "type": "delta",
+              "text": " is"
+            },
+            {
+              "type": "delta",
+              "text": " shown"
+            },
+            {
+              "type": "delta",
+              "text": " in"
+            },
+            {
+              "type": "delta",
+              "text": " isolation"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " with"
+            },
+            {
+              "type": "delta",
+              "text": " **"
+            },
+            {
+              "type": "delta",
+              "text": "no"
+            },
+            {
+              "type": "delta",
+              "text": " context"
+            },
+            {
+              "type": "delta",
+              "text": " of"
+            },
+            {
+              "type": "delta",
+              "text": " its"
+            },
+            {
+              "type": "delta",
+              "text": " installation"
+            },
+            {
+              "type": "delta",
+              "text": " or"
+            },
+            {
+              "type": "delta",
+              "text": " operational"
+            },
+            {
+              "type": "delta",
+              "text": " environment"
+            },
+            {
+              "type": "delta",
+              "text": "**"
+            },
+            {
+              "type": "delta",
+              "text": ".\n\n"
+            },
+            {
+              "type": "delta",
+              "text": "Thus"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " while"
+            },
+            {
+              "type": "delta",
+              "text": " the"
+            },
+            {
+              "type": "delta",
+              "text": " visible"
+            },
+            {
+              "type": "delta",
+              "text": " features"
+            },
+            {
+              "type": "delta",
+              "text": " confirm"
+            },
+            {
+              "type": "delta",
+              "text": " the"
+            },
+            {
+              "type": "delta",
+              "text": " presence"
+            },
+            {
+              "type": "delta",
+              "text": " of"
+            },
+            {
+              "type": "delta",
+              "text": " a"
+            },
+            {
+              "type": "delta",
+              "text": " cylindrical"
+            },
+            {
+              "type": "delta",
+              "text": " roller"
+            },
+            {
+              "type": "delta",
+              "text": " bearing"
+            },
+            {
+              "type": "delta",
+              "text": " with"
+            },
+            {
+              "type": "delta",
+              "text": " standard"
+            },
+            {
+              "type": "delta",
+              "text": " structural"
+            },
+            {
+              "type": "delta",
+              "text": " elements"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " **"
+            },
+            {
+              "type": "delta",
+              "text": "no"
+            },
+            {
+              "type": "delta",
+              "text": " real"
+            },
+            {
+              "type": "delta",
+              "text": "-time"
+            },
+            {
+              "type": "delta",
+              "text": " mechanical"
+            },
+            {
+              "type": "delta",
+              "text": " behavior"
+            },
+            {
+              "type": "delta",
+              "text": " or"
+            },
+            {
+              "type": "delta",
+              "text": " degradation"
+            },
+            {
+              "type": "delta",
+              "text": " indicators"
+            },
+            {
+              "type": "delta",
+              "text": " are"
+            },
+            {
+              "type": "delta",
+              "text": " present"
+            },
+            {
+              "type": "delta",
+              "text": " or"
+            },
+            {
+              "type": "delta",
+              "text": " observable"
+            },
+            {
+              "type": "delta",
+              "text": "**"
+            },
+            {
+              "type": "delta",
+              "text": " in"
+            },
+            {
+              "type": "delta",
+              "text": " this"
+            },
+            {
+              "type": "delta",
+              "text": " evidence"
+            },
+            {
+              "type": "delta",
+              "text": ".\n\n"
+            },
+            {
+              "type": "delta",
+              "text": ">"
+            },
+            {
+              "type": "delta",
+              "text": " \u26a0"
+            },
+            {
+              "type": "delta",
+              "text": "\ufe0f"
+            },
+            {
+              "type": "delta",
+              "text": " *"
+            },
+            {
+              "type": "delta",
+              "text": "Note"
+            },
+            {
+              "type": "delta",
+              "text": ":"
+            },
+            {
+              "type": "delta",
+              "text": " This"
+            },
+            {
+              "type": "delta",
+              "text": " analysis"
+            },
+            {
+              "type": "delta",
+              "text": " is"
+            },
+            {
+              "type": "delta",
+              "text": " based"
+            },
+            {
+              "type": "delta",
+              "text": " solely"
+            },
+            {
+              "type": "delta",
+              "text": " on"
+            },
+            {
+              "type": "delta",
+              "text": " model"
+            },
+            {
+              "type": "delta",
+              "text": "-in"
+            },
+            {
+              "type": "delta",
+              "text": "ferred"
+            },
+            {
+              "type": "delta",
+              "text": " observations"
+            },
+            {
+              "type": "delta",
+              "text": " from"
+            },
+            {
+              "type": "delta",
+              "text": " un"
+            },
+            {
+              "type": "delta",
+              "text": "trusted"
+            },
+            {
+              "type": "delta",
+              "text": " visual"
+            },
+            {
+              "type": "delta",
+              "text": " data"
+            },
+            {
+              "type": "delta",
+              "text": "."
+            },
+            {
+              "type": "delta",
+              "text": " No"
+            },
+            {
+              "type": "delta",
+              "text": " physical"
+            },
+            {
+              "type": "delta",
+              "text": " inspection"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " sensor"
+            },
+            {
+              "type": "delta",
+              "text": " data"
+            },
+            {
+              "type": "delta",
+              "text": ","
+            },
+            {
+              "type": "delta",
+              "text": " or"
+            },
+            {
+              "type": "delta",
+              "text": " operational"
+            },
+            {
+              "type": "delta",
+              "text": " history"
+            },
+            {
+              "type": "delta",
+              "text": " is"
+            },
+            {
+              "type": "delta",
+              "text": " available"
+            },
+            {
+              "type": "delta",
+              "text": "."
+            },
+            {
+              "type": "delta",
+              "text": " NASA"
+            },
+            {
+              "type": "delta",
+              "text": " C"
+            },
+            {
+              "type": "delta",
+              "text": "-M"
+            },
+            {
+              "type": "delta",
+              "text": "AP"
+            },
+            {
+              "type": "delta",
+              "text": "SS"
+            },
+            {
+              "type": "delta",
+              "text": " data"
+            },
+            {
+              "type": "delta",
+              "text": " and"
+            },
+            {
+              "type": "delta",
+              "text": " real"
+            },
+            {
+              "type": "delta",
+              "text": "-world"
+            },
+            {
+              "type": "delta",
+              "text": " component"
+            },
+            {
+              "type": "delta",
+              "text": " failure"
+            },
+            {
+              "type": "delta",
+              "text": " analysis"
+            },
+            {
+              "type": "delta",
+              "text": " are"
+            },
+            {
+              "type": "delta",
+              "text": " unrelated"
+            },
+            {
+              "type": "delta",
+              "text": " to"
+            },
+            {
+              "type": "delta",
+              "text": " this"
+            },
+            {
+              "type": "delta",
+              "text": " still"
+            },
+            {
+              "type": "delta",
+              "text": " image"
+            },
+            {
+              "type": "delta",
+              "text": ".*"
+            },
+            {
+              "type": "done",
+              "status": "complete",
+              "metadata": {
+                "provider": "ollama",
+                "model": "qwen3:4b-instruct",
+                "tools": [
+                  {
+                    "tool": "vision.inspect",
+                    "status": "complete",
+                    "provider": "ollama",
+                    "model": "qwen3-vl:2b-instruct",
+                    "model_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+                    "elapsed_seconds": 38.75,
+                    "source_ids": [
+                      "EV:2c9f9a34d3ee28eb81eb51666848404f2b50b20944537a774fdcc501086add3d",
+                      "EV:987a8de24d2ee5b49316fceca63e1b5e86d61ed18dec5f665f778840d4329c9f",
+                      "EV:7e95ac5e9235b2a25fac861b2e26846429a09a6c2efe4856c3e4a834cf2f3e4b",
+                      "EV:05a4489a311e2bf6a769ad8e609f5b0b030e31dfae0aa6abc8a77d531834fd86"
+                    ]
+                  },
+                  {
+                    "tool": "vision.inspect",
+                    "status": "complete",
+                    "provider": "ollama",
+                    "model": "qwen3-vl:2b-instruct",
+                    "model_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+                    "elapsed_seconds": 42.10899999999674,
+                    "source_ids": [
+                      "EV:23350b4a56aa3393c3900a2a0086c4e843200de9276b3d06c2b9c8be93c52ffe",
+                      "EV:a2eaa11ca93852622605b927e932015748ad7b1213f5f3017cc5f9c6a37b2bf5",
+                      "EV:b4cf57a147fc07d0543102fa60fcd0faf6d5b492ed4b80565305792f00c92c62",
+                      "EV:8dd26b3b9a21ca917ab484027a8e833e7a53b2631df71006b112353a1889ee2e"
+                    ]
+                  },
+                  {
+                    "tool": "vision.inspect",
+                    "status": "complete",
+                    "provider": "ollama",
+                    "model": "qwen3-vl:2b-instruct",
+                    "model_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+                    "elapsed_seconds": 38.17199999999866,
+                    "source_ids": [
+                      "EV:316114da2759469b328f50d947b1e8f6368a9aeeb34cb2b5f7036d2599a10f99",
+                      "EV:23a7a384f516b016c3505f2203c7f08c225064058a12b23a6bd28e932d82246a",
+                      "EV:8f3281403913a138bfc3cebf06729b3c0e2ca769b41fbd89e7296364968f9174",
+                      "EV:84c6707d8ed50c51663bf700eacb2066e3ab1a1225692566087762980e5a957d"
+                    ]
+                  }
+                ],
+                "evidence": [
+                  {
+                    "id": "EV:2c9f9a34d3ee28eb81eb51666848404f2b50b20944537a774fdcc501086add3d",
+                    "modality": "video_frame",
+                    "kind": "model_inference",
+                    "source_id": "f5a3b04bceab478195d05f9b9c3283c7",
+                    "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                    "observation": "A cylindrical roller bearing with a central ring and multiple rollers.",
+                    "locator": "demo-clip-from-licensed-still.mp4: frame 0; decoder time 0.0 seconds",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a still photograph and does not show any motion or failure.",
+                      "The image quality is low and may not capture all details accurately.",
+                      "The image does not show the full context of the bearing's environment or installation."
+                    ]
+                  },
+                  {
+                    "id": "EV:987a8de24d2ee5b49316fceca63e1b5e86d61ed18dec5f665f778840d4329c9f",
+                    "modality": "video_frame",
+                    "kind": "model_inference",
+                    "source_id": "f5a3b04bceab478195d05f9b9c3283c7",
+                    "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                    "observation": "The rollers are arranged in a row and are visible through the central ring.",
+                    "locator": "demo-clip-from-licensed-still.mp4: frame 0; decoder time 0.0 seconds",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a still photograph and does not show any motion or failure.",
+                      "The image quality is low and may not capture all details accurately.",
+                      "The image does not show the full context of the bearing's environment or installation."
+                    ]
+                  },
+                  {
+                    "id": "EV:7e95ac5e9235b2a25fac861b2e26846429a09a6c2efe4856c3e4a834cf2f3e4b",
+                    "modality": "video_frame",
+                    "kind": "model_inference",
+                    "source_id": "f5a3b04bceab478195d05f9b9c3283c7",
+                    "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                    "observation": "The outer race is cylindrical and has a smooth surface.",
+                    "locator": "demo-clip-from-licensed-still.mp4: frame 0; decoder time 0.0 seconds",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a still photograph and does not show any motion or failure.",
+                      "The image quality is low and may not capture all details accurately.",
+                      "The image does not show the full context of the bearing's environment or installation."
+                    ]
+                  },
+                  {
+                    "id": "EV:05a4489a311e2bf6a769ad8e609f5b0b030e31dfae0aa6abc8a77d531834fd86",
+                    "modality": "video_frame",
+                    "kind": "model_inference",
+                    "source_id": "f5a3b04bceab478195d05f9b9c3283c7",
+                    "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                    "observation": "The bearing has a metallic finish with some visible surface reflections.",
+                    "locator": "demo-clip-from-licensed-still.mp4: frame 0; decoder time 0.0 seconds",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a still photograph and does not show any motion or failure.",
+                      "The image quality is low and may not capture all details accurately.",
+                      "The image does not show the full context of the bearing's environment or installation."
+                    ]
+                  },
+                  {
+                    "id": "EV:23350b4a56aa3393c3900a2a0086c4e843200de9276b3d06c2b9c8be93c52ffe",
+                    "modality": "video_frame",
+                    "kind": "model_inference",
+                    "source_id": "be8e5b989fb040fdb960cae2c8f1080d",
+                    "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                    "observation": "A cylindrical roller bearing with a segmented inner race and a series of rollers.",
+                    "locator": "demo-clip-from-licensed-still.mp4: frame 10; decoder time 1.0 seconds",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a still photograph and does not show any mechanical motion or failure.",
+                      "The image quality is not high enough to determine the exact condition of the bearing.",
+                      "The image does not show the bearing's full context or environment."
+                    ]
+                  },
+                  {
+                    "id": "EV:a2eaa11ca93852622605b927e932015748ad7b1213f5f3017cc5f9c6a37b2bf5",
+                    "modality": "video_frame",
+                    "kind": "model_inference",
+                    "source_id": "be8e5b989fb040fdb960cae2c8f1080d",
+                    "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                    "observation": "The bearing has a metallic finish with visible surface reflections.",
+                    "locator": "demo-clip-from-licensed-still.mp4: frame 10; decoder time 1.0 seconds",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a still photograph and does not show any mechanical motion or failure.",
+                      "The image quality is not high enough to determine the exact condition of the bearing.",
+                      "The image does not show the bearing's full context or environment."
+                    ]
+                  },
+                  {
+                    "id": "EV:b4cf57a147fc07d0543102fa60fcd0faf6d5b492ed4b80565305792f00c92c62",
+                    "modality": "video_frame",
+                    "kind": "model_inference",
+                    "source_id": "be8e5b989fb040fdb960cae2c8f1080d",
+                    "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                    "observation": "The rollers are arranged in a row within the inner race, and the outer ring is visible with a smooth, rounded edge.",
+                    "locator": "demo-clip-from-licensed-still.mp4: frame 10; decoder time 1.0 seconds",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a still photograph and does not show any mechanical motion or failure.",
+                      "The image quality is not high enough to determine the exact condition of the bearing.",
+                      "The image does not show the bearing's full context or environment."
+                    ]
+                  },
+                  {
+                    "id": "EV:8dd26b3b9a21ca917ab484027a8e833e7a53b2631df71006b112353a1889ee2e",
+                    "modality": "video_frame",
+                    "kind": "model_inference",
+                    "source_id": "be8e5b989fb040fdb960cae2c8f1080d",
+                    "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                    "observation": "The bearing appears to be a type of cylindrical roller bearing, possibly a roller bearing with a segmented inner race and a series of rollers.",
+                    "locator": "demo-clip-from-licensed-still.mp4: frame 10; decoder time 1.0 seconds",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a still photograph and does not show any mechanical motion or failure.",
+                      "The image quality is not high enough to determine the exact condition of the bearing.",
+                      "The image does not show the bearing's full context or environment."
+                    ]
+                  },
+                  {
+                    "id": "EV:316114da2759469b328f50d947b1e8f6368a9aeeb34cb2b5f7036d2599a10f99",
+                    "modality": "video_frame",
+                    "kind": "model_inference",
+                    "source_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+                    "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                    "observation": "A cylindrical roller bearing with a metallic finish, featuring a series of parallel rollers arranged in a row",
+                    "locator": "demo-clip-from-licensed-still.mp4: frame 19; decoder time 1.9000000000000001 seconds",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a still photograph and does not show any mechanical motion or failure",
+                      "The image does not show any signs of internal damage or wear"
+                    ]
+                  },
+                  {
+                    "id": "EV:23a7a384f516b016c3505f2203c7f08c225064058a12b23a6bd28e932d82246a",
+                    "modality": "video_frame",
+                    "kind": "model_inference",
+                    "source_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+                    "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                    "observation": "The bearing has a smooth outer ring and a series of rollers arranged in a row",
+                    "locator": "demo-clip-from-licensed-still.mp4: frame 19; decoder time 1.9000000000000001 seconds",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a still photograph and does not show any mechanical motion or failure",
+                      "The image does not show any signs of internal damage or wear"
+                    ]
+                  },
+                  {
+                    "id": "EV:8f3281403913a138bfc3cebf06729b3c0e2ca769b41fbd89e7296364968f9174",
+                    "modality": "video_frame",
+                    "kind": "model_inference",
+                    "source_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+                    "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                    "observation": "The rollers are arranged in a row with a metallic finish",
+                    "locator": "demo-clip-from-licensed-still.mp4: frame 19; decoder time 1.9000000000000001 seconds",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a still photograph and does not show any mechanical motion or failure",
+                      "The image does not show any signs of internal damage or wear"
+                    ]
+                  },
+                  {
+                    "id": "EV:84c6707d8ed50c51663bf700eacb2066e3ab1a1225692566087762980e5a957d",
+                    "modality": "video_frame",
+                    "kind": "model_inference",
+                    "source_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+                    "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                    "observation": "The bearing has a smooth outer ring and a series of rollers arranged in a row",
+                    "locator": "demo-clip-from-licensed-still.mp4: frame 19; decoder time 1.9000000000000001 seconds",
+                    "reliability": "medium",
+                    "asset_identity": null,
+                    "predicate": null,
+                    "value": null,
+                    "limitations": [
+                      "The image is a still photograph and does not show any mechanical motion or failure",
+                      "The image does not show any signs of internal damage or wear"
+                    ]
+                  }
+                ],
+                "attachments": [
+                  "50b5882fb3eb4239b3addb6c3e521fc7"
+                ],
+                "orchestration": {
+                  "run_id": "b419abae-b722-4c77-8892-74d326ccf99c",
+                  "intent": "knowledge_query"
+                },
+                "elapsed_seconds": 235.5309999999954
+              }
+            }
+          ],
+          "elapsed_seconds": 235.57800000000134,
+          "conversation_id": "c177e71507124c8a897057f033b26967",
+          "metadata": {
+            "provider": "ollama",
+            "model": "qwen3:4b-instruct",
+            "tools": [
+              {
+                "tool": "vision.inspect",
+                "status": "complete",
+                "provider": "ollama",
+                "model": "qwen3-vl:2b-instruct",
+                "model_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+                "elapsed_seconds": 38.75,
+                "source_ids": [
+                  "EV:2c9f9a34d3ee28eb81eb51666848404f2b50b20944537a774fdcc501086add3d",
+                  "EV:987a8de24d2ee5b49316fceca63e1b5e86d61ed18dec5f665f778840d4329c9f",
+                  "EV:7e95ac5e9235b2a25fac861b2e26846429a09a6c2efe4856c3e4a834cf2f3e4b",
+                  "EV:05a4489a311e2bf6a769ad8e609f5b0b030e31dfae0aa6abc8a77d531834fd86"
+                ]
+              },
+              {
+                "tool": "vision.inspect",
+                "status": "complete",
+                "provider": "ollama",
+                "model": "qwen3-vl:2b-instruct",
+                "model_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+                "elapsed_seconds": 42.10899999999674,
+                "source_ids": [
+                  "EV:23350b4a56aa3393c3900a2a0086c4e843200de9276b3d06c2b9c8be93c52ffe",
+                  "EV:a2eaa11ca93852622605b927e932015748ad7b1213f5f3017cc5f9c6a37b2bf5",
+                  "EV:b4cf57a147fc07d0543102fa60fcd0faf6d5b492ed4b80565305792f00c92c62",
+                  "EV:8dd26b3b9a21ca917ab484027a8e833e7a53b2631df71006b112353a1889ee2e"
+                ]
+              },
+              {
+                "tool": "vision.inspect",
+                "status": "complete",
+                "provider": "ollama",
+                "model": "qwen3-vl:2b-instruct",
+                "model_digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+                "elapsed_seconds": 38.17199999999866,
+                "source_ids": [
+                  "EV:316114da2759469b328f50d947b1e8f6368a9aeeb34cb2b5f7036d2599a10f99",
+                  "EV:23a7a384f516b016c3505f2203c7f08c225064058a12b23a6bd28e932d82246a",
+                  "EV:8f3281403913a138bfc3cebf06729b3c0e2ca769b41fbd89e7296364968f9174",
+                  "EV:84c6707d8ed50c51663bf700eacb2066e3ab1a1225692566087762980e5a957d"
+                ]
+              }
+            ],
+            "evidence": [
+              {
+                "id": "EV:2c9f9a34d3ee28eb81eb51666848404f2b50b20944537a774fdcc501086add3d",
+                "modality": "video_frame",
+                "kind": "model_inference",
+                "source_id": "f5a3b04bceab478195d05f9b9c3283c7",
+                "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                "observation": "A cylindrical roller bearing with a central ring and multiple rollers.",
+                "locator": "demo-clip-from-licensed-still.mp4: frame 0; decoder time 0.0 seconds",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a still photograph and does not show any motion or failure.",
+                  "The image quality is low and may not capture all details accurately.",
+                  "The image does not show the full context of the bearing's environment or installation."
+                ]
+              },
+              {
+                "id": "EV:987a8de24d2ee5b49316fceca63e1b5e86d61ed18dec5f665f778840d4329c9f",
+                "modality": "video_frame",
+                "kind": "model_inference",
+                "source_id": "f5a3b04bceab478195d05f9b9c3283c7",
+                "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                "observation": "The rollers are arranged in a row and are visible through the central ring.",
+                "locator": "demo-clip-from-licensed-still.mp4: frame 0; decoder time 0.0 seconds",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a still photograph and does not show any motion or failure.",
+                  "The image quality is low and may not capture all details accurately.",
+                  "The image does not show the full context of the bearing's environment or installation."
+                ]
+              },
+              {
+                "id": "EV:7e95ac5e9235b2a25fac861b2e26846429a09a6c2efe4856c3e4a834cf2f3e4b",
+                "modality": "video_frame",
+                "kind": "model_inference",
+                "source_id": "f5a3b04bceab478195d05f9b9c3283c7",
+                "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                "observation": "The outer race is cylindrical and has a smooth surface.",
+                "locator": "demo-clip-from-licensed-still.mp4: frame 0; decoder time 0.0 seconds",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a still photograph and does not show any motion or failure.",
+                  "The image quality is low and may not capture all details accurately.",
+                  "The image does not show the full context of the bearing's environment or installation."
+                ]
+              },
+              {
+                "id": "EV:05a4489a311e2bf6a769ad8e609f5b0b030e31dfae0aa6abc8a77d531834fd86",
+                "modality": "video_frame",
+                "kind": "model_inference",
+                "source_id": "f5a3b04bceab478195d05f9b9c3283c7",
+                "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                "observation": "The bearing has a metallic finish with some visible surface reflections.",
+                "locator": "demo-clip-from-licensed-still.mp4: frame 0; decoder time 0.0 seconds",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a still photograph and does not show any motion or failure.",
+                  "The image quality is low and may not capture all details accurately.",
+                  "The image does not show the full context of the bearing's environment or installation."
+                ]
+              },
+              {
+                "id": "EV:23350b4a56aa3393c3900a2a0086c4e843200de9276b3d06c2b9c8be93c52ffe",
+                "modality": "video_frame",
+                "kind": "model_inference",
+                "source_id": "be8e5b989fb040fdb960cae2c8f1080d",
+                "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                "observation": "A cylindrical roller bearing with a segmented inner race and a series of rollers.",
+                "locator": "demo-clip-from-licensed-still.mp4: frame 10; decoder time 1.0 seconds",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a still photograph and does not show any mechanical motion or failure.",
+                  "The image quality is not high enough to determine the exact condition of the bearing.",
+                  "The image does not show the bearing's full context or environment."
+                ]
+              },
+              {
+                "id": "EV:a2eaa11ca93852622605b927e932015748ad7b1213f5f3017cc5f9c6a37b2bf5",
+                "modality": "video_frame",
+                "kind": "model_inference",
+                "source_id": "be8e5b989fb040fdb960cae2c8f1080d",
+                "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                "observation": "The bearing has a metallic finish with visible surface reflections.",
+                "locator": "demo-clip-from-licensed-still.mp4: frame 10; decoder time 1.0 seconds",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a still photograph and does not show any mechanical motion or failure.",
+                  "The image quality is not high enough to determine the exact condition of the bearing.",
+                  "The image does not show the bearing's full context or environment."
+                ]
+              },
+              {
+                "id": "EV:b4cf57a147fc07d0543102fa60fcd0faf6d5b492ed4b80565305792f00c92c62",
+                "modality": "video_frame",
+                "kind": "model_inference",
+                "source_id": "be8e5b989fb040fdb960cae2c8f1080d",
+                "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                "observation": "The rollers are arranged in a row within the inner race, and the outer ring is visible with a smooth, rounded edge.",
+                "locator": "demo-clip-from-licensed-still.mp4: frame 10; decoder time 1.0 seconds",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a still photograph and does not show any mechanical motion or failure.",
+                  "The image quality is not high enough to determine the exact condition of the bearing.",
+                  "The image does not show the bearing's full context or environment."
+                ]
+              },
+              {
+                "id": "EV:8dd26b3b9a21ca917ab484027a8e833e7a53b2631df71006b112353a1889ee2e",
+                "modality": "video_frame",
+                "kind": "model_inference",
+                "source_id": "be8e5b989fb040fdb960cae2c8f1080d",
+                "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                "observation": "The bearing appears to be a type of cylindrical roller bearing, possibly a roller bearing with a segmented inner race and a series of rollers.",
+                "locator": "demo-clip-from-licensed-still.mp4: frame 10; decoder time 1.0 seconds",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a still photograph and does not show any mechanical motion or failure.",
+                  "The image quality is not high enough to determine the exact condition of the bearing.",
+                  "The image does not show the bearing's full context or environment."
+                ]
+              },
+              {
+                "id": "EV:316114da2759469b328f50d947b1e8f6368a9aeeb34cb2b5f7036d2599a10f99",
+                "modality": "video_frame",
+                "kind": "model_inference",
+                "source_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+                "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                "observation": "A cylindrical roller bearing with a metallic finish, featuring a series of parallel rollers arranged in a row",
+                "locator": "demo-clip-from-licensed-still.mp4: frame 19; decoder time 1.9000000000000001 seconds",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a still photograph and does not show any mechanical motion or failure",
+                  "The image does not show any signs of internal damage or wear"
+                ]
+              },
+              {
+                "id": "EV:23a7a384f516b016c3505f2203c7f08c225064058a12b23a6bd28e932d82246a",
+                "modality": "video_frame",
+                "kind": "model_inference",
+                "source_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+                "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                "observation": "The bearing has a smooth outer ring and a series of rollers arranged in a row",
+                "locator": "demo-clip-from-licensed-still.mp4: frame 19; decoder time 1.9000000000000001 seconds",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a still photograph and does not show any mechanical motion or failure",
+                  "The image does not show any signs of internal damage or wear"
+                ]
+              },
+              {
+                "id": "EV:8f3281403913a138bfc3cebf06729b3c0e2ca769b41fbd89e7296364968f9174",
+                "modality": "video_frame",
+                "kind": "model_inference",
+                "source_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+                "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                "observation": "The rollers are arranged in a row with a metallic finish",
+                "locator": "demo-clip-from-licensed-still.mp4: frame 19; decoder time 1.9000000000000001 seconds",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a still photograph and does not show any mechanical motion or failure",
+                  "The image does not show any signs of internal damage or wear"
+                ]
+              },
+              {
+                "id": "EV:84c6707d8ed50c51663bf700eacb2066e3ab1a1225692566087762980e5a957d",
+                "modality": "video_frame",
+                "kind": "model_inference",
+                "source_id": "35bb9f54fc81442c87daef1b12f0a7bc",
+                "origin_id": "50b5882fb3eb4239b3addb6c3e521fc7",
+                "observation": "The bearing has a smooth outer ring and a series of rollers arranged in a row",
+                "locator": "demo-clip-from-licensed-still.mp4: frame 19; decoder time 1.9000000000000001 seconds",
+                "reliability": "medium",
+                "asset_identity": null,
+                "predicate": null,
+                "value": null,
+                "limitations": [
+                  "The image is a still photograph and does not show any mechanical motion or failure",
+                  "The image does not show any signs of internal damage or wear"
+                ]
+              }
+            ],
+            "attachments": [
+              "50b5882fb3eb4239b3addb6c3e521fc7"
+            ],
+            "orchestration": {
+              "run_id": "b419abae-b722-4c77-8892-74d326ccf99c",
+              "intent": "knowledge_query"
+            },
+            "elapsed_seconds": 235.5309999999954
+          },
+          "text": "The sampled frames depict a **cylindrical roller bearing**, as inferred from the visual features in the still photograph-based demonstration clip. Key visible features include:\n\n- **Central ring structure**: A cylindrical central ring (inner or outer race) is present, with a smooth, rounded surface.\n- **Rollers**: Multiple rollers are arranged in a row, aligned within the central ring or inner race. These rollers are parallel and symmetrically spaced.\n- **Metallic finish**: The bearing exhibits a metallic surface with visible reflections, indicating a polished or machined finish.\n- **Segmented inner race (in one frame)**: One observation notes a segmented inner race, suggesting a design variant of cylindrical roller bearing.\n- **Smooth outer ring**: The outer race is described as having a smooth, rounded edge, consistent with standard bearing geometry.\n\n**Important limitations to note**:\n- The clip is derived from a **licensed still photograph**, not a video recording of real mechanical motion or operation.\n- There is **no evidence of mechanical motion, failure, or internal damage**.\n- Image quality is low and does not allow for precise assessment of wear, deformation, or condition.\n- The bearing is shown in isolation, with **no context of its installation or operational environment**.\n\nThus, while the visible features confirm the presence of a cylindrical roller bearing with standard structural elements, **no real-time mechanical behavior or degradation indicators are present or observable** in this evidence.\n\n> \u26a0\ufe0f *Note: This analysis is based solely on model-inferred observations from untrusted visual data. No physical inspection, sensor data, or operational history is available. NASA C-MAPSS data and real-world component failure analysis are unrelated to this still image.*",
+          "trace": {
+            "id": "b419abae-b722-4c77-8892-74d326ccf99c",
+            "plan": {
+              "id": "e04803e7-ab9d-4851-9045-64a9e3ed611e",
+              "intent": "knowledge_query",
+              "goals": [
+                "Answer using supplied evidence and actual local tools"
+              ],
+              "tools": [
+                {
+                  "tool_id": "video.frames",
+                  "arguments": {
+                    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                  },
+                  "depends_on": []
+                },
+                {
+                  "tool_id": "vision.inspect",
+                  "arguments": {
+                    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                  },
+                  "depends_on": []
+                },
+                {
+                  "tool_id": "llm.chat",
+                  "arguments": {
+                    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                  },
+                  "depends_on": []
+                }
+              ],
+              "evidence_ids": [],
+              "allowed_external_providers": [],
+              "deadline_seconds": 300.0,
+              "max_tool_calls": 12,
+              "fallback": "Return explicit partial/error status; never fabricate tool findings."
+            },
+            "started_at": "2026-11-17T09:01:06.608542+00:00",
+            "steps": [
+              {
+                "tool_id": "vision.inspect",
+                "started_at": "2026-11-17T09:01:07.190409+00:00",
+                "input_evidence_ids": [],
+                "output_evidence_ids": [
+                  "EV:2c9f9a34d3ee28eb81eb51666848404f2b50b20944537a774fdcc501086add3d",
+                  "EV:987a8de24d2ee5b49316fceca63e1b5e86d61ed18dec5f665f778840d4329c9f",
+                  "EV:7e95ac5e9235b2a25fac861b2e26846429a09a6c2efe4856c3e4a834cf2f3e4b",
+                  "EV:05a4489a311e2bf6a769ad8e609f5b0b030e31dfae0aa6abc8a77d531834fd86"
+                ],
+                "status": "ok",
+                "warnings": [],
+                "network": "local_only",
+                "arguments_sha256": "50bd1dcf87f33fbfb2e8c4ab45c5445133d8a9269261956cce09ca8c543ecaf2",
+                "model_provenance": {
+                  "provider": "ollama",
+                  "model": "qwen3-vl:2b-instruct",
+                  "digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e"
+                },
+                "ended_at": "2026-11-17T09:01:45.396487+00:00",
+                "elapsed_seconds": 38.20300000000134
+              },
+              {
+                "tool_id": "vision.inspect",
+                "started_at": "2026-11-17T09:01:45.937420+00:00",
+                "input_evidence_ids": [],
+                "output_evidence_ids": [
+                  "EV:23350b4a56aa3393c3900a2a0086c4e843200de9276b3d06c2b9c8be93c52ffe",
+                  "EV:a2eaa11ca93852622605b927e932015748ad7b1213f5f3017cc5f9c6a37b2bf5",
+                  "EV:b4cf57a147fc07d0543102fa60fcd0faf6d5b492ed4b80565305792f00c92c62",
+                  "EV:8dd26b3b9a21ca917ab484027a8e833e7a53b2631df71006b112353a1889ee2e"
+                ],
+                "status": "ok",
+                "warnings": [],
+                "network": "local_only",
+                "arguments_sha256": "b18be61bc30fe9dc469ba1909347c8a455ae92a8bc30c362d4516a756a8ebb26",
+                "model_provenance": {
+                  "provider": "ollama",
+                  "model": "qwen3-vl:2b-instruct",
+                  "digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e"
+                },
+                "ended_at": "2026-11-17T09:02:27.499088+00:00",
+                "elapsed_seconds": 41.562000000005355
+              },
+              {
+                "tool_id": "vision.inspect",
+                "started_at": "2026-11-17T09:02:27.988692+00:00",
+                "input_evidence_ids": [],
+                "output_evidence_ids": [
+                  "EV:316114da2759469b328f50d947b1e8f6368a9aeeb34cb2b5f7036d2599a10f99",
+                  "EV:23a7a384f516b016c3505f2203c7f08c225064058a12b23a6bd28e932d82246a",
+                  "EV:8f3281403913a138bfc3cebf06729b3c0e2ca769b41fbd89e7296364968f9174",
+                  "EV:84c6707d8ed50c51663bf700eacb2066e3ab1a1225692566087762980e5a957d"
+                ],
+                "status": "ok",
+                "warnings": [],
+                "network": "local_only",
+                "arguments_sha256": "e53e54c63d849ed1181915a00f20e191cf1d003990d7d0c332b5fc8d78083eef",
+                "model_provenance": {
+                  "provider": "ollama",
+                  "model": "qwen3-vl:2b-instruct",
+                  "digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e"
+                },
+                "ended_at": "2026-11-17T09:03:05.667084+00:00",
+                "elapsed_seconds": 37.67199999999866
+              },
+              {
+                "tool_id": "llm.chat",
+                "started_at": "2026-11-17T09:03:05.701983+00:00",
+                "input_evidence_ids": [],
+                "output_evidence_ids": [],
+                "status": "ok",
+                "warnings": [],
+                "network": "local_only",
+                "model_provenance": {
+                  "provider": "ollama",
+                  "model": "qwen3:4b-instruct"
+                },
+                "ended_at": "2026-11-17T09:05:02.130457+00:00",
+                "elapsed_seconds": 116.4210000000021
+              }
+            ],
+            "status": "complete",
+            "network": "local_only",
+            "ended_at": "2026-11-17T09:05:02.139054+00:00",
+            "elapsed_seconds": 235.5309999999954
+          }
+        }
+      },
+      "elapsed_seconds": 239.65600000000268
+    }
+  },
+  "verification_scope": "Actual API/content/model/media checks; browser/microphone/speaker interaction not exercised.",
+  "health": {
+    "status": "ok",
+    "contract_version": "2.0",
+    "ml_ready": true,
+    "ollama_ready": true,
+    "text_ready": true,
+    "vision_ready": true,
+    "models": [
+      "qwen3:4b-instruct",
+      "qwen3-vl:2b-instruct",
+      "qwen3-vl:2b",
+      "qwen3:4b"
+    ],
+    "mode": "local",
+    "hosted_providers": "disabled"
+  },
+  "capabilities": {
+    "tools": [
+      {
+        "tool_id": "text.profile",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Bounded untrusted user text, never executable tool instructions.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "title": "TextInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "text"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "evidence.resolve",
+        "version": "1",
+        "input_schema": {
+          "description": "Opaque evidence ID; no arbitrary file or SQL input.",
+          "properties": {
+            "evidence_id": {
+              "maxLength": 100,
+              "title": "Evidence Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "evidence_id"
+          ],
+          "title": "ResolveInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "evidence_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "knowledge.retrieve",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Search only a selected existing conversation.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            },
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "conversation_id"
+          ],
+          "title": "SearchInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "text",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "prediction.run",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit NASA source; synthetic facility IDs cannot satisfy this schema/domain.",
+          "properties": {
+            "dataset": {
+              "pattern": "^FD00[1-4]$",
+              "title": "Dataset",
+              "type": "string"
+            },
+            "model_id": {
+              "title": "Model Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "dataset",
+            "model_id",
+            "asset_id"
+          ],
+          "title": "PredictionInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "nasa_cmapss"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 120.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "llm.chat",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Bounded untrusted user text, never executable tool instructions.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "title": "TextInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "text"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 150.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "ollama_ready": true,
+          "text_ready": true,
+          "vision_ready": true,
+          "models": [
+            "qwen3:4b-instruct",
+            "qwen3-vl:2b-instruct",
+            "qwen3-vl:2b",
+            "qwen3:4b"
+          ]
+        }
+      },
+      {
+        "tool_id": "temporal.summary",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "assets.relations",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "facility.investigate",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "events.timeline",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "case.report",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "An existing persisted facility case identity.",
+          "properties": {
+            "case_id": {
+              "title": "Case Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "case_id"
+          ],
+          "title": "CaseInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "case_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "case.similar",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "An existing persisted facility case identity.",
+          "properties": {
+            "case_id": {
+              "title": "Case Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "case_id"
+          ],
+          "title": "CaseInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "case_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "fleet.overview",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "FacilityInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "simulation.compare",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Explicit bounded toy intervention assumptions.",
+          "properties": {
+            "scenario_id": {
+              "title": "Scenario Id",
+              "type": "string"
+            },
+            "asset_id": {
+              "title": "Asset Id",
+              "type": "string"
+            },
+            "as_of": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "As Of"
+            },
+            "service_hour": {
+              "anyOf": [
+                {
+                  "maximum": 96,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Service Hour"
+            },
+            "load_factor": {
+              "anyOf": [
+                {
+                  "maximum": 1.2,
+                  "minimum": 0.5,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Load Factor"
+            }
+          },
+          "required": [
+            "scenario_id",
+            "asset_id"
+          ],
+          "title": "InterventionInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "sire_synthetic_scenario"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "vision.inspect",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "One validated attachment from the selected conversation.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            },
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            },
+            "attachment_id": {
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "conversation_id",
+            "attachment_id"
+          ],
+          "title": "ImageInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "image",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 150.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "prediction.saved_result",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "A saved inference identity, never client-invented results.",
+          "properties": {
+            "prediction_id": {
+              "title": "Prediction Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "prediction_id"
+          ],
+          "title": "SavedPredictionInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "prediction_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "hypotheses.investigate",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Search only a selected existing conversation.",
+          "properties": {
+            "text": {
+              "maxLength": 8000,
+              "minLength": 1,
+              "title": "Text",
+              "type": "string"
+            },
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "text",
+            "conversation_id"
+          ],
+          "title": "SearchInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "text",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 220.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "measurements.profile",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Existing source attachment constrained to one conversation.",
+          "properties": {
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            },
+            "attachment_id": {
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "conversation_id",
+            "attachment_id"
+          ],
+          "title": "AttachmentInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "csv",
+          "json",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "audio.transcript",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Existing source attachment constrained to one conversation.",
+          "properties": {
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            },
+            "attachment_id": {
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "conversation_id",
+            "attachment_id"
+          ],
+          "title": "AttachmentInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "audio",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "video.frames",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "Existing source attachment constrained to one conversation.",
+          "properties": {
+            "conversation_id": {
+              "title": "Conversation Id",
+              "type": "string"
+            },
+            "attachment_id": {
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "conversation_id",
+            "attachment_id"
+          ],
+          "title": "AttachmentInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "video",
+          "conversation_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      },
+      {
+        "tool_id": "evidence_case.report",
+        "version": "1",
+        "input_schema": {
+          "additionalProperties": false,
+          "description": "An existing persisted facility case identity.",
+          "properties": {
+            "case_id": {
+              "title": "Case Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "case_id"
+          ],
+          "title": "CaseInput",
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "data_permissions": [
+          "local_only"
+        ],
+        "supported_input_types": [
+          "case_id"
+        ],
+        "requires_gpu": false,
+        "estimated_cost": 0,
+        "timeout_s": 60.0,
+        "availability": "available",
+        "expected_latency": "unprofiled; measured per call",
+        "error_types": [
+          "unsupported",
+          "timeout",
+          "invalid_input"
+        ],
+        "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+        "health_check": {
+          "status": "bound_adapter"
+        }
+      }
+    ],
+    "privacy": "local_only",
+    "voice": {
+      "asr_ready": true,
+      "tts_ready": true,
+      "video_ready": true,
+      "asr_configured": true,
+      "tts_configured": true,
+      "network": "Local workers only; no hosted speech or browser cloud recognition.",
+      "hardware_interaction": "Browser microphone permission and speaker playback require user interaction; not probed here.",
+      "reason": "Readiness reflects configured files and successful worker probes; microphone/speaker interaction is separate.",
+      "asr_package_present": true,
+      "piper_package_present": false,
+      "ffmpeg_present": false
+    }
+  },
+  "voice_capabilities": {
+    "asr_ready": true,
+    "tts_ready": true,
+    "video_ready": true,
+    "asr_configured": true,
+    "tts_configured": true,
+    "network": "Local workers only; no hosted speech or browser cloud recognition.",
+    "hardware_interaction": "Browser microphone permission and speaker playback require user interaction; not probed here.",
+    "reason": "Readiness reflects configured files and successful worker probes; microphone/speaker interaction is separate.",
+    "asr_package_present": true,
+    "piper_package_present": false,
+    "ffmpeg_present": false
+  },
+  "status": "INCOMPLETE; actual failures retained"
+}

@@ -1,0 +1,86 @@
+{
+  "fd001-06_autoencoder-rul-legacy-s42": {
+    "unit": 1,
+    "step": 31,
+    "y_pred": 123.51736,
+    "source": "Phase_A_RUL_Training/CMAPSS/artifacts/06_autoencoder/outputs/FD001/seed_42/predictions_test.csv",
+    "source_sha256": "cff8d9c7002f40335c30152c5b4679ddf1c41585476f6f1cd7859683921775e4"
+  },
+  "fd001-06_autoencoder-rul-legacy-s43": {
+    "unit": 1,
+    "step": 31,
+    "y_pred": 121.66034,
+    "source": "Phase_A_RUL_Training/CMAPSS/artifacts/06_autoencoder/outputs/FD001/seed_43/predictions_test.csv",
+    "source_sha256": "a98f23285241e30d7c6b8d2c69d54854e6735668d79458ce29003a9a9ef98a9b"
+  },
+  "fd001-06_autoencoder-rul-legacy-s44": {
+    "unit": 1,
+    "step": 31,
+    "y_pred": 124.30325,
+    "source": "Phase_A_RUL_Training/CMAPSS/artifacts/06_autoencoder/outputs/FD001/seed_44/predictions_test.csv",
+    "source_sha256": "e0d43c0506f3d5063b35970484609b68f6b017cd94b180f9d8f9f5b00030da70"
+  },
+  "fd002-06_autoencoder-rul-legacy-s42": {
+    "unit": 1,
+    "step": 258,
+    "y_pred": 20.346739,
+    "source": "Phase_A_RUL_Training/CMAPSS/artifacts/06_autoencoder/outputs/FD002/seed_42/predictions_test.csv",
+    "source_sha256": "0613b4b035795313c5efb26929a23e00eb60edaeb12619f6bc19f31fd45704a2"
+  },
+  "fd002-06_autoencoder-rul-legacy-s43": {
+    "unit": 1,
+    "step": 258,
+    "y_pred": 22.646528,
+    "source": "Phase_A_RUL_Training/CMAPSS/artifacts/06_autoencoder/outputs/FD002/seed_43/predictions_test.csv",
+    "source_sha256": "4619aba61fb16221b5ea5b4708449e60a8690ef96f370b75d832fe6636ccb5a5"
+  },
+  "fd002-06_autoencoder-rul-legacy-s44": {
+    "unit": 1,
+    "step": 258,
+    "y_pred": 19.215412,
+    "source": "Phase_A_RUL_Training/CMAPSS/artifacts/06_autoencoder/outputs/FD002/seed_44/predictions_test.csv",
+    "source_sha256": "24728f843d4c7fedacd6231d40a2c1f71cbeedd86f6e2baf68e3f16e672bcbf1"
+  },
+  "fd003-06_autoencoder-rul-legacy-s42": {
+    "unit": 1,
+    "step": 233,
+    "y_pred": 44.618923,
+    "source": "Phase_A_RUL_Training/CMAPSS/artifacts/06_autoencoder/outputs/FD003/seed_42/predictions_test.csv",
+    "source_sha256": "567484d1ead38b6698c6406264b4107954a34db4c6a941e2280d1cbc970f8aab"
+  },
+  "fd003-06_autoencoder-rul-legacy-s43": {
+    "unit": 1,
+    "step": 233,
+    "y_pred": 43.455288,
+    "source": "Phase_A_RUL_Training/CMAPSS/artifacts/06_autoencoder/outputs/FD003/seed_43/predictions_test.csv",
+    "source_sha256": "4782ad731db2cf3efa428d9dc67b53a1091bd689e3cb26e3dfe04e9676ff7b7e"
+  },
+  "fd003-06_autoencoder-rul-legacy-s44": {
+    "unit": 1,
+    "step": 233,
+    "y_pred": 53.750477,
+    "source": "Phase_A_RUL_Training/CMAPSS/artifacts/06_autoencoder/outputs/FD003/seed_44/predictions_test.csv",
+    "source_sha256": "4038be14de22a089d93ed9156fe633a348ebccca9d933623f14fe085734468f1"
+  },
+  "fd004-06_autoencoder-rul-legacy-s42": {
+    "unit": 1,
+    "step": 230,
+    "y_pred": 34.30159,
+    "source": "Phase_A_RUL_Training/CMAPSS/artifacts/06_autoencoder/outputs/FD004/seed_42/predictions_test.csv",
+    "source_sha256": "8f4d9de9a434f5f536aeaa2d8684536bd948f8f53469ff3b2ee6672b20f21c26"
+  },
+  "fd004-06_autoencoder-rul-legacy-s43": {
+    "unit": 1,
+    "step": 230,
+    "y_pred": 35.278458,
+    "source": "Phase_A_RUL_Training/CMAPSS/artifacts/06_autoencoder/outputs/FD004/seed_43/predictions_test.csv",
+    "source_sha256": "a513eb69af6ad748e2a93d7239578f3662c1b15cc766b1da4947972cb40e2e99"
+  },
+  "fd004-06_autoencoder-rul-legacy-s44": {
+    "unit": 1,
+    "step": 230,
+    "y_pred": 32.174126,
+    "source": "Phase_A_RUL_Training/CMAPSS/artifacts/06_autoencoder/outputs/FD004/seed_44/predictions_test.csv",
+    "source_sha256": "c80bb12428d3a4a7b4351f46b0971fe1784f7c141013b444c263d269b593334b"
+  }
+}

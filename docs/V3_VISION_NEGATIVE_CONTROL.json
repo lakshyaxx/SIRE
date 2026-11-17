@@ -1,0 +1,30 @@
+{
+  "test_only": true,
+  "input": "uniform blue 128x128 PNG",
+  "input_sha256": "93e1ab1bd3e3980870a646e63252259ff54d84340805735ac6b7aa562b45e639",
+  "actual_result": {
+    "provider": "ollama",
+    "model": "qwen3-vl:2b-instruct",
+    "component_guess": "",
+    "visible_observations": [
+      "solid blue color",
+      "no visible shapes or features"
+    ],
+    "possible_causes": [
+      "image is completely blank or corrupted",
+      "no component is visible"
+    ],
+    "missing_evidence": [
+      "no component or physical feature is visible",
+      "no mechanical details are present"
+    ],
+    "limitations": [
+      "image is not a photograph of a component",
+      "no visual information about the component's state or condition is available"
+    ],
+    "evidence_relationship": "Physical photo is not linked to a NASA simulation asset.",
+    "safety_notes": [
+      "Use qualified personnel and authorized inspection procedures."
+    ]
+  }
+}

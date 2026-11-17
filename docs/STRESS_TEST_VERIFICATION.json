@@ -1,0 +1,69 @@
+{
+  "time_utc": "2026-11-17T13:41:11.966036+00:00",
+  "full_regression": {
+    "passed": 229,
+    "warnings": 2,
+    "seconds": 165.45
+  },
+  "cases": {
+    "recorded": 563,
+    "executed": 544,
+    "unrun": 19,
+    "missing_raw_trace_paths": []
+  },
+  "snapshot_checks": {
+    "original_supported": 7983,
+    "original_checked": 7983,
+    "additional_supported": 1173,
+    "additional_checked": 1173,
+    "total_supported": 9156,
+    "scope": "Exact snapshot arithmetic/source text, not generated answer-claim entailment."
+  },
+  "future_checks": {
+    "original": 8074,
+    "additional": 1173,
+    "violations": 0,
+    "availability_assumptions": "Corpus has no independent availability clock for all records. Same-time availability assumptions disclosed; closure content fenced at closed_at; lab analysis excluded."
+  },
+  "manual_claim_review": {
+    "supported": 4,
+    "checked": 9,
+    "rate": 0.4444444444444444,
+    "scope": "Small purposive agent visual/source review of explicitly selected claims after inference. Not representative, not private-label accuracy and not pooled with numeric-statistic checks.",
+    "review_path": ".runtime\\stress_lab\\manual_citation_review.jsonl",
+    "population_rate": null
+  },
+  "private_metrics": {
+    "top1": null,
+    "top3": null,
+    "false_positive_rate": null,
+    "reason": "External private archive and approved mapping unavailable; no private labels read."
+  },
+  "preservation": {
+    "native_files": 813,
+    "unchanged_production_tables": 13,
+    "production_health": 200,
+    "test_port_8002_listening": false,
+    "production_loaded_patches": false,
+    "public_hashes_verified": 85
+  },
+  "proofs": {
+    "first_pass": ".runtime/stress_lab/full/frozen_answers.jsonl",
+    "first_execution_inventory": ".runtime/stress_lab/full/assessment_answers.jsonl",
+    "derived_grades": ".runtime/stress_lab/full/derived_results.jsonl",
+    "real_saved_output_trace_index": ".runtime/stress_lab/saved_audit/saved_outputs.jsonl",
+    "supplemental_source_checks": ".runtime/stress_lab/saved_audit/summary.json",
+    "preservation": ".runtime/stress_lab/postflight.json",
+    "cancel_fix": ".runtime/stress_lab/cancel_after/verification.json",
+    "socket_disconnect": ".runtime/stress_lab/network_final/verification.json",
+    "outage_safe_alternative": ".runtime/stress_lab/outage_alternative/verification.json",
+    "tts_fix": ".runtime/stress_lab/full/tts_after/verification.json",
+    "nasa_domain_boundary": ".runtime/stress_lab/full/supplemental/verification.json",
+    "provider_inventory": ".runtime/stress_lab/provider_inventory_final.json",
+    "source_patch": ".runtime/stress_lab/source_changes.patch",
+    "pytest": ".runtime/stress_lab/final_source_tests.log",
+    "ruff": ".runtime/stress_lab/final_ruff.log",
+    "black": ".runtime/stress_lab/final_black.log",
+    "typescript": ".runtime/stress_lab/frontend_typecheck.log"
+  }
+}

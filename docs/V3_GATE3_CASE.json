@@ -1,0 +1,738 @@
+{
+  "id": "85581810-f4a2-45c7-9592-d80e8a4d6a43",
+  "parent_case_id": null,
+  "scenario_id": "5230d716-3ee7-5f40-92ff-178f46c5619d",
+  "asset_id": "COMP-201",
+  "as_of": "2026-11-15T00:00:00+00:00",
+  "created_at": "2026-11-16T21:35:40.318409+00:00",
+  "source_type": "sire_synthetic_scenario",
+  "confirmation_status": "simulation_unconfirmed",
+  "hypotheses": [
+    {
+      "id": "lubrication_loss",
+      "mechanism": "Lubrication supply deterioration",
+      "status": "supported",
+      "score": 15.0,
+      "support": [
+        "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a",
+        "EV:184627a9e159c72a5f791471b48febca7256b8a7f96bd87e65ce96e630bf67a3",
+        "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af",
+        "EV:6944068b1ae646828643281c6497265aec3146800e76698054ed8787216b0af7",
+        "EV:b95fe38c654656099df270ddd07430049e35bf7fde76e567585a770474f24b76"
+      ],
+      "contradictions": [],
+      "expected_observations": [
+        "LUBE-501/oil_pressure down",
+        "*/vibration up",
+        "*/bearing_temp up",
+        "*/discharge_temp up"
+      ],
+      "missing_measurements": [],
+      "next_checks": [
+        "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+      ],
+      "provenance": "sire-facility-rules-1",
+      "support_band": "moderate",
+      "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+    },
+    {
+      "id": "filter_restriction",
+      "mechanism": "Oil-filter restriction as a possible contributor",
+      "status": "supported",
+      "score": 6.0,
+      "support": [
+        "EV:eb41a55e9383af005976e9fb8580f61e3556ba1d4af6394832b4ddb47e548e1e",
+        "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a"
+      ],
+      "contradictions": [],
+      "expected_observations": [
+        "LUBE-501/filter_dp up",
+        "LUBE-501/oil_pressure down"
+      ],
+      "missing_measurements": [],
+      "next_checks": [
+        "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+      ],
+      "provenance": "sire-facility-rules-1",
+      "support_band": "moderate",
+      "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+    },
+    {
+      "id": "misalignment",
+      "mechanism": "Mechanical alignment problem",
+      "status": "supported",
+      "score": 4.0,
+      "support": [
+        "EV:184627a9e159c72a5f791471b48febca7256b8a7f96bd87e65ce96e630bf67a3",
+        "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af"
+      ],
+      "contradictions": [
+        "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a"
+      ],
+      "expected_observations": [
+        "*/vibration up"
+      ],
+      "missing_measurements": [],
+      "next_checks": [
+        "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+      ],
+      "provenance": "sire-facility-rules-1",
+      "support_band": "moderate",
+      "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+    },
+    {
+      "id": "cavitation",
+      "mechanism": "Process starvation / cavitation",
+      "status": "active",
+      "score": 3.0,
+      "support": [
+        "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af"
+      ],
+      "contradictions": [],
+      "expected_observations": [
+        "PUMP-101/flow down",
+        "COMP-201/suction_pressure down",
+        "PUMP-101/vibration up"
+      ],
+      "missing_measurements": [],
+      "next_checks": [
+        "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+      ],
+      "provenance": "sire-facility-rules-1",
+      "support_band": "low",
+      "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+    },
+    {
+      "id": "cooling_degradation",
+      "mechanism": "Cooling supply deterioration",
+      "status": "active",
+      "score": 3.0,
+      "support": [
+        "EV:b95fe38c654656099df270ddd07430049e35bf7fde76e567585a770474f24b76"
+      ],
+      "contradictions": [],
+      "expected_observations": [
+        "HEAT-601/coolant_flow down",
+        "*/winding_temp up",
+        "*/discharge_temp up"
+      ],
+      "missing_measurements": [],
+      "next_checks": [
+        "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+      ],
+      "provenance": "sire-facility-rules-1",
+      "support_band": "low",
+      "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+    },
+    {
+      "id": "deferred_service",
+      "mechanism": "Deferred inspection as a contextual contributor",
+      "status": "active",
+      "score": 3.0,
+      "support": [
+        "EV:671cfe07ea559adc15886858cf201ce5010811d24911b624b0593f219250cadb"
+      ],
+      "contradictions": [],
+      "expected_observations": [],
+      "missing_measurements": [],
+      "next_checks": [
+        "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+      ],
+      "provenance": "sire-facility-rules-1",
+      "support_band": "low",
+      "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+    },
+    {
+      "id": "overload",
+      "mechanism": "Elevated electrical/process load",
+      "status": "inconclusive",
+      "score": 0.0,
+      "support": [],
+      "contradictions": [],
+      "expected_observations": [
+        "MOTOR-401/load up",
+        "MOTOR-401/current up",
+        "MOTOR-401/winding_temp up"
+      ],
+      "missing_measurements": [],
+      "next_checks": [
+        "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+      ],
+      "provenance": "sire-facility-rules-1",
+      "support_band": "low",
+      "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+    },
+    {
+      "id": "pressure_control",
+      "mechanism": "Pressure-control actuator mismatch",
+      "status": "inconclusive",
+      "score": 0.0,
+      "support": [],
+      "contradictions": [],
+      "expected_observations": [
+        "VALVE-301/position_error up"
+      ],
+      "missing_measurements": [],
+      "next_checks": [
+        "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+      ],
+      "provenance": "sire-facility-rules-1",
+      "support_band": "low",
+      "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+    },
+    {
+      "id": "sensor_fault",
+      "mechanism": "Temperature sensor disagreement",
+      "status": "inconclusive",
+      "score": -0.25,
+      "support": [],
+      "contradictions": [],
+      "expected_observations": [],
+      "missing_measurements": [
+        "Independent redundant measurement disagreement"
+      ],
+      "next_checks": [
+        "Qualified inspection or independent measurement of the proposed mechanism; never operate equipment automatically."
+      ],
+      "provenance": "sire-facility-rules-1",
+      "support_band": "low",
+      "limitations": "Rule-based consistency ranking, not probability or proof; stable channels only weaken, never absolutely reject."
+    }
+  ],
+  "evidence_ids": [
+    "EV:df3bc80712f3485a614213760aa2ea077729c853c9da8fe0c55d167d2e619605",
+    "EV:b95fe38c654656099df270ddd07430049e35bf7fde76e567585a770474f24b76",
+    "EV:fe2c33caf5179d164e440c1ac01a2431f40079da473db57f16c096dfae810ca9",
+    "EV:42b837307a3c202e11ecd808ce5ba22a13a1086c7fd10997926925bbadea5137",
+    "EV:d73314e9d08fb91217be0bd4d6de1da594d69ace6e8b86554c7485d292dbbdf5",
+    "EV:184627a9e159c72a5f791471b48febca7256b8a7f96bd87e65ce96e630bf67a3",
+    "EV:777a20abfdf323c092d84c0fb958a3db328bed43a6008439690953f2d69400c6",
+    "EV:d628137f2a4b637dec20fc131c896e6dc7f7353ad97592e30e4a61cb1fdf2218",
+    "EV:34ca57bf3d65cee85fc17b640d9ed3e530184e3a4d26abbe76b282ed1c1467af",
+    "EV:eb41a55e9383af005976e9fb8580f61e3556ba1d4af6394832b4ddb47e548e1e",
+    "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a",
+    "EV:1c4c92f711dc821360ae5bc7a117cb96186677fcfebb1ddf2e248ffe9013da17",
+    "EV:ebf8df01a5500c053820154f4536dab2d4bce940029213a8e2f58fd1eeaf99bb",
+    "EV:c019966ebc90ef6aaaeafa6c2b3048d17b55902f1ee6516a7b61c93c0900e227",
+    "EV:df0a80082dfc0e3d171b0740b1ee5fe292067409b84366a8b7aa97c54dff8274",
+    "EV:f0d45b3c35d30b0fbb8d9867f4ce9f55c8593bedf28a021381f4e08639d365df",
+    "EV:6944068b1ae646828643281c6497265aec3146800e76698054ed8787216b0af7",
+    "EV:2d7c0e80262937c7cfa116e5666ac942f703a0750d6a7ff6391fed3c4947895a",
+    "EV:3a7aac20aa47a950e99ef11a146f0e5aa74d127fe2be337f2a1845c0a22383d4",
+    "EV:2b80b3a4687a35f5bce7388f9aaab2985a2ff8f1f66e85984de5325b91bcef7c",
+    "EV:1838dae970ef94a0edebd0de9db095efc07fd1b531ebb86efcf94fd2502d836e",
+    "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af",
+    "EV:174a9170df5b378890bac9ce405cb58e3e3155ba911b668d9ee1d76ee3152efc",
+    "EV:bde828724696f8acf7a6e8ea93f97303775ac07432139fee7023b53e5ea3f742",
+    "EV:f15bff6bf9a1754d6f1b6042b7d05fefc6e1abbf7c985c8d68ce047c70c72a4a",
+    "EV:d4e963beb3a9b2815c1036303a6ab7bc833b90441038bbb48dc78790dad8c09c",
+    "EV:b29037e7e2b3ad33e08dcd25e84dc1119f75272af06cef70a986a3f57b1ac11a",
+    "EV:871fa9ef19f806adc3bdfbb6f6caaab4447ea9221f6129e84bff2251dc9c61bf",
+    "EV:02877739609337e22aee7328c55d03627e8b32fd2ec8cdeb16e5ee70220d76b8",
+    "EV:06813101222bb23945b15fea698404b065003acd615a8725980179abba852d47",
+    "EV:671cfe07ea559adc15886858cf201ce5010811d24911b624b0593f219250cadb"
+  ],
+  "summaries": [
+    {
+      "asset_id": "COMP-201",
+      "as_of": "2026-11-15T00:00:00+00:00",
+      "channels": {
+        "discharge_pressure": {
+          "baseline_mean": 9.00101175,
+          "recent_mean": 8.9767835,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.024228250000000173,
+          "unit": "bar",
+          "evidence_id": "EV:df3bc80712f3485a614213760aa2ea077729c853c9da8fe0c55d167d2e619605"
+        },
+        "discharge_temp": {
+          "baseline_mean": 84.95544608333333,
+          "recent_mean": 100.47907483333333,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": 15.52362875,
+          "unit": "degC",
+          "evidence_id": "EV:b95fe38c654656099df270ddd07430049e35bf7fde76e567585a770474f24b76"
+        },
+        "lube_demand": {
+          "baseline_mean": 12.0087885,
+          "recent_mean": 11.960869333333333,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.04791916666666651,
+          "unit": "L/min",
+          "evidence_id": "EV:fe2c33caf5179d164e440c1ac01a2431f40079da473db57f16c096dfae810ca9"
+        },
+        "speed": {
+          "baseline_mean": 3599.2076905416666,
+          "recent_mean": 3592.716788333333,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -6.490902208333409,
+          "unit": "rpm",
+          "evidence_id": "EV:42b837307a3c202e11ecd808ce5ba22a13a1086c7fd10997926925bbadea5137"
+        },
+        "suction_pressure": {
+          "baseline_mean": 3.798576125,
+          "recent_mean": 3.7833491666666665,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.015226958333333318,
+          "unit": "bar",
+          "evidence_id": "EV:d73314e9d08fb91217be0bd4d6de1da594d69ace6e8b86554c7485d292dbbdf5"
+        },
+        "vibration": {
+          "baseline_mean": 1.903079,
+          "recent_mean": 3.8459426666666667,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": 1.9428636666666668,
+          "unit": "mm/s RMS",
+          "evidence_id": "EV:184627a9e159c72a5f791471b48febca7256b8a7f96bd87e65ce96e630bf67a3"
+        }
+      },
+      "evidence_ids": [
+        "EV:df3bc80712f3485a614213760aa2ea077729c853c9da8fe0c55d167d2e619605",
+        "EV:b95fe38c654656099df270ddd07430049e35bf7fde76e567585a770474f24b76",
+        "EV:fe2c33caf5179d164e440c1ac01a2431f40079da473db57f16c096dfae810ca9",
+        "EV:42b837307a3c202e11ecd808ce5ba22a13a1086c7fd10997926925bbadea5137",
+        "EV:d73314e9d08fb91217be0bd4d6de1da594d69ace6e8b86554c7485d292dbbdf5",
+        "EV:184627a9e159c72a5f791471b48febca7256b8a7f96bd87e65ce96e630bf67a3"
+      ],
+      "method": "first 24 visible samples vs latest 6; minimum 30 total/6 baseline/4 recent valid samples",
+      "limitations": [
+        "Trend differences do not prove physical causes.",
+        "Baseline uses visible prefix only; no future normalization."
+      ]
+    },
+    {
+      "asset_id": "HEAT-601",
+      "as_of": "2026-11-15T00:00:00+00:00",
+      "channels": {
+        "coolant_flow": {
+          "baseline_mean": 22.004829208333334,
+          "recent_mean": 21.870908333333333,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.13392087500000116,
+          "unit": "L/min",
+          "evidence_id": "EV:777a20abfdf323c092d84c0fb958a3db328bed43a6008439690953f2d69400c6"
+        },
+        "coolant_temp": {
+          "baseline_mean": 24.012154541666668,
+          "recent_mean": 23.917318333333334,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.09483620833333362,
+          "unit": "degC",
+          "evidence_id": "EV:d628137f2a4b637dec20fc131c896e6dc7f7353ad97592e30e4a61cb1fdf2218"
+        }
+      },
+      "evidence_ids": [
+        "EV:777a20abfdf323c092d84c0fb958a3db328bed43a6008439690953f2d69400c6",
+        "EV:d628137f2a4b637dec20fc131c896e6dc7f7353ad97592e30e4a61cb1fdf2218"
+      ],
+      "method": "first 24 visible samples vs latest 6; minimum 30 total/6 baseline/4 recent valid samples",
+      "limitations": [
+        "Trend differences do not prove physical causes.",
+        "Baseline uses visible prefix only; no future normalization."
+      ]
+    },
+    {
+      "asset_id": "LUBE-501",
+      "as_of": "2026-11-15T00:00:00+00:00",
+      "channels": {
+        "circulation_status": {
+          "baseline_mean": 1.0,
+          "recent_mean": 1.0,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": 0.0,
+          "unit": "boolean",
+          "evidence_id": "EV:34ca57bf3d65cee85fc17b640d9ed3e530184e3a4d26abbe76b282ed1c1467af"
+        },
+        "filter_dp": {
+          "baseline_mean": 0.29843870833333336,
+          "recent_mean": 1.2249321666666666,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": 0.9264934583333333,
+          "unit": "bar",
+          "evidence_id": "EV:eb41a55e9383af005976e9fb8580f61e3556ba1d4af6394832b4ddb47e548e1e"
+        },
+        "oil_pressure": {
+          "baseline_mean": 4.601602583333333,
+          "recent_mean": 3.072094,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -1.5295085833333335,
+          "unit": "bar",
+          "evidence_id": "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a"
+        },
+        "oil_temp": {
+          "baseline_mean": 48.02677020833333,
+          "recent_mean": 54.335077999999996,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": 6.308307791666664,
+          "unit": "degC",
+          "evidence_id": "EV:1c4c92f711dc821360ae5bc7a117cb96186677fcfebb1ddf2e248ffe9013da17"
+        }
+      },
+      "evidence_ids": [
+        "EV:34ca57bf3d65cee85fc17b640d9ed3e530184e3a4d26abbe76b282ed1c1467af",
+        "EV:eb41a55e9383af005976e9fb8580f61e3556ba1d4af6394832b4ddb47e548e1e",
+        "EV:9ae809e98874b06f4b578034e4e6a657e9778fdeeb310ebd98e114f89b04f35a",
+        "EV:1c4c92f711dc821360ae5bc7a117cb96186677fcfebb1ddf2e248ffe9013da17"
+      ],
+      "method": "first 24 visible samples vs latest 6; minimum 30 total/6 baseline/4 recent valid samples",
+      "limitations": [
+        "Trend differences do not prove physical causes.",
+        "Baseline uses visible prefix only; no future normalization."
+      ]
+    },
+    {
+      "asset_id": "MOTOR-401",
+      "as_of": "2026-11-15T00:00:00+00:00",
+      "channels": {
+        "current": {
+          "baseline_mean": 38.05010975,
+          "recent_mean": 37.837157,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.21295274999999947,
+          "unit": "A",
+          "evidence_id": "EV:ebf8df01a5500c053820154f4536dab2d4bce940029213a8e2f58fd1eeaf99bb"
+        },
+        "load": {
+          "baseline_mean": 60.95366,
+          "recent_mean": 60.668879000000004,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.2847809999999953,
+          "unit": "%",
+          "evidence_id": "EV:c019966ebc90ef6aaaeafa6c2b3048d17b55902f1ee6516a7b61c93c0900e227"
+        },
+        "vibration": {
+          "baseline_mean": 1.2964063333333333,
+          "recent_mean": 1.2940443333333334,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.0023619999999999752,
+          "unit": "mm/s RMS",
+          "evidence_id": "EV:df0a80082dfc0e3d171b0740b1ee5fe292067409b84366a8b7aa97c54dff8274"
+        },
+        "winding_temp": {
+          "baseline_mean": 71.97337579166667,
+          "recent_mean": 71.816901,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.15647479166666756,
+          "unit": "degC",
+          "evidence_id": "EV:f0d45b3c35d30b0fbb8d9867f4ce9f55c8593bedf28a021381f4e08639d365df"
+        }
+      },
+      "evidence_ids": [
+        "EV:ebf8df01a5500c053820154f4536dab2d4bce940029213a8e2f58fd1eeaf99bb",
+        "EV:c019966ebc90ef6aaaeafa6c2b3048d17b55902f1ee6516a7b61c93c0900e227",
+        "EV:df0a80082dfc0e3d171b0740b1ee5fe292067409b84366a8b7aa97c54dff8274",
+        "EV:f0d45b3c35d30b0fbb8d9867f4ce9f55c8593bedf28a021381f4e08639d365df"
+      ],
+      "method": "first 24 visible samples vs latest 6; minimum 30 total/6 baseline/4 recent valid samples",
+      "limitations": [
+        "Trend differences do not prove physical causes.",
+        "Baseline uses visible prefix only; no future normalization."
+      ]
+    },
+    {
+      "asset_id": "PUMP-101",
+      "as_of": "2026-11-15T00:00:00+00:00",
+      "channels": {
+        "bearing_temp": {
+          "baseline_mean": 66.00012041666666,
+          "recent_mean": 81.34816016666667,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": 15.348039750000012,
+          "unit": "degC",
+          "evidence_id": "EV:6944068b1ae646828643281c6497265aec3146800e76698054ed8787216b0af7"
+        },
+        "differential_pressure": {
+          "baseline_mean": 4.003645625,
+          "recent_mean": 3.9853503333333333,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.018295291666666547,
+          "unit": "bar",
+          "evidence_id": "EV:2d7c0e80262937c7cfa116e5666ac942f703a0750d6a7ff6391fed3c4947895a"
+        },
+        "flow": {
+          "baseline_mean": 85.06995775,
+          "recent_mean": 84.74805516666666,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.32190258333334043,
+          "unit": "m3/h",
+          "evidence_id": "EV:3a7aac20aa47a950e99ef11a146f0e5aa74d127fe2be337f2a1845c0a22383d4"
+        },
+        "speed": {
+          "baseline_mean": 2896.5806212083335,
+          "recent_mean": 2891.8430695,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -4.737551708333285,
+          "unit": "rpm",
+          "evidence_id": "EV:2b80b3a4687a35f5bce7388f9aaab2985a2ff8f1f66e85984de5325b91bcef7c"
+        },
+        "temperature_backup": {
+          "baseline_mean": 66.04458137499999,
+          "recent_mean": 81.64572166666667,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": 15.601140291666681,
+          "unit": "degC",
+          "evidence_id": "EV:1838dae970ef94a0edebd0de9db095efc07fd1b531ebb86efcf94fd2502d836e"
+        },
+        "vibration": {
+          "baseline_mean": 1.6014575416666668,
+          "recent_mean": 3.5508146666666667,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": 1.949357125,
+          "unit": "mm/s RMS",
+          "evidence_id": "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af"
+        }
+      },
+      "evidence_ids": [
+        "EV:6944068b1ae646828643281c6497265aec3146800e76698054ed8787216b0af7",
+        "EV:2d7c0e80262937c7cfa116e5666ac942f703a0750d6a7ff6391fed3c4947895a",
+        "EV:3a7aac20aa47a950e99ef11a146f0e5aa74d127fe2be337f2a1845c0a22383d4",
+        "EV:2b80b3a4687a35f5bce7388f9aaab2985a2ff8f1f66e85984de5325b91bcef7c",
+        "EV:1838dae970ef94a0edebd0de9db095efc07fd1b531ebb86efcf94fd2502d836e",
+        "EV:80e04c7c6114c2f3ecc681320a3f367d807fcf0f297c23d686dc5da6c495b7af"
+      ],
+      "method": "first 24 visible samples vs latest 6; minimum 30 total/6 baseline/4 recent valid samples",
+      "limitations": [
+        "Trend differences do not prove physical causes.",
+        "Baseline uses visible prefix only; no future normalization."
+      ]
+    },
+    {
+      "asset_id": "VALVE-301",
+      "as_of": "2026-11-15T00:00:00+00:00",
+      "channels": {
+        "actuator_status": {
+          "baseline_mean": 1.0,
+          "recent_mean": 1.0,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": 0.0,
+          "unit": "boolean",
+          "evidence_id": "EV:174a9170df5b378890bac9ce405cb58e3e3155ba911b668d9ee1d76ee3152efc"
+        },
+        "downstream_pressure": {
+          "baseline_mean": 4.002289333333334,
+          "recent_mean": 3.9885391666666665,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.013750166666667063,
+          "unit": "bar",
+          "evidence_id": "EV:bde828724696f8acf7a6e8ea93f97303775ac07432139fee7023b53e5ea3f742"
+        },
+        "position": {
+          "baseline_mean": 55.032127458333335,
+          "recent_mean": 55.02442633333334,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.007701124999996978,
+          "unit": "%",
+          "evidence_id": "EV:f15bff6bf9a1754d6f1b6042b7d05fefc6e1abbf7c985c8d68ce047c70c72a4a"
+        },
+        "position_error": {
+          "baseline_mean": 0.497394875,
+          "recent_mean": 0.48828283333333333,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.009112041666666681,
+          "unit": "%",
+          "evidence_id": "EV:d4e963beb3a9b2815c1036303a6ab7bc833b90441038bbb48dc78790dad8c09c"
+        },
+        "set_point": {
+          "baseline_mean": 55.05913625,
+          "recent_mean": 54.788184,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.27095225000000056,
+          "unit": "%",
+          "evidence_id": "EV:b29037e7e2b3ad33e08dcd25e84dc1119f75272af06cef70a986a3f57b1ac11a"
+        },
+        "upstream_pressure": {
+          "baseline_mean": 8.996592416666667,
+          "recent_mean": 8.943968,
+          "count": 73,
+          "valid_count": 73,
+          "missing_count": 0,
+          "available": true,
+          "delta": -0.05262441666666717,
+          "unit": "bar",
+          "evidence_id": "EV:871fa9ef19f806adc3bdfbb6f6caaab4447ea9221f6129e84bff2251dc9c61bf"
+        }
+      },
+      "evidence_ids": [
+        "EV:174a9170df5b378890bac9ce405cb58e3e3155ba911b668d9ee1d76ee3152efc",
+        "EV:bde828724696f8acf7a6e8ea93f97303775ac07432139fee7023b53e5ea3f742",
+        "EV:f15bff6bf9a1754d6f1b6042b7d05fefc6e1abbf7c985c8d68ce047c70c72a4a",
+        "EV:d4e963beb3a9b2815c1036303a6ab7bc833b90441038bbb48dc78790dad8c09c",
+        "EV:b29037e7e2b3ad33e08dcd25e84dc1119f75272af06cef70a986a3f57b1ac11a",
+        "EV:871fa9ef19f806adc3bdfbb6f6caaab4447ea9221f6129e84bff2251dc9c61bf"
+      ],
+      "method": "first 24 visible samples vs latest 6; minimum 30 total/6 baseline/4 recent valid samples",
+      "limitations": [
+        "Trend differences do not prove physical causes.",
+        "Baseline uses visible prefix only; no future normalization."
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "id": 1,
+      "scenario_id": "5230d716-3ee7-5f40-92ff-178f46c5619d",
+      "asset_id": "COMP-201",
+      "observed_at": "2026-11-12T10:00:00+00:00",
+      "available_at": "2026-11-12T10:00:00+00:00",
+      "event_type": "operator_note",
+      "text": "Routine walk-around completed; no intrusive inspection recorded.",
+      "source_type": "sire_synthetic_scenario",
+      "evidence_id": "EV:02877739609337e22aee7328c55d03627e8b32fd2ec8cdeb16e5ee70220d76b8"
+    },
+    {
+      "id": 2,
+      "scenario_id": "5230d716-3ee7-5f40-92ff-178f46c5619d",
+      "asset_id": "VALVE-301",
+      "observed_at": "2026-11-12T20:00:00+00:00",
+      "available_at": "2026-11-12T21:00:00+00:00",
+      "event_type": "work_order",
+      "text": "Identification plate replacement recorded; no process adjustment.",
+      "source_type": "sire_synthetic_scenario",
+      "evidence_id": "EV:06813101222bb23945b15fea698404b065003acd615a8725980179abba852d47"
+    },
+    {
+      "id": 4,
+      "scenario_id": "5230d716-3ee7-5f40-92ff-178f46c5619d",
+      "asset_id": "LUBE-501",
+      "observed_at": "2026-11-13T01:00:00+00:00",
+      "available_at": "2026-11-13T04:00:00+00:00",
+      "event_type": "service_deferred",
+      "text": "Scheduled lubrication/filter inspection deferred pending parts; completion not recorded.",
+      "source_type": "sire_synthetic_scenario",
+      "evidence_id": "EV:671cfe07ea559adc15886858cf201ce5010811d24911b624b0593f219250cadb"
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "state_sha256": "0aa49cb5b010f2e94f2e60b5ec097ce3288282cbf5fa0066988415e801eeff7f",
+      "evidence_count": 7,
+      "hypothesis_ids": [
+        "lubrication_loss",
+        "misalignment",
+        "cooling_degradation",
+        "deferred_service",
+        "pressure_control",
+        "sensor_fault",
+        "cavitation",
+        "filter_restriction",
+        "overload"
+      ],
+      "novel": true
+    },
+    {
+      "round": 2,
+      "state_sha256": "1f3b6cb3d122b35f129a5a5069294ccc537d5da469ff9745ec119ef1bd945ff4",
+      "evidence_count": 31,
+      "hypothesis_ids": [
+        "lubrication_loss",
+        "filter_restriction",
+        "misalignment",
+        "cavitation",
+        "cooling_degradation",
+        "deferred_service",
+        "overload",
+        "pressure_control",
+        "sensor_fault"
+      ],
+      "novel": true
+    }
+  ],
+  "stop_reason": "evidence_exhausted",
+  "conclusion": "Several evidence-consistent mechanisms remain; qualified review is needed.",
+  "abstained": false,
+  "possible_contributors": [
+    "lubrication_loss",
+    "filter_restriction",
+    "misalignment"
+  ],
+  "run_id": "29862dab-ad88-4356-9610-fc09ca5b25a3",
+  "elapsed_seconds": 0.48400000000037835,
+  "limitations": [
+    "Synthetic toy facility, not a validated physical model.",
+    "Evidence ordering/graph dependence does not prove causality.",
+    "This rule engine does not read evaluator ground truth or use C-MAPSS models.",
+    "No automatic actions on real equipment."
+  ]
+}

@@ -1,0 +1,37 @@
+artifacts:
+- name: sherpa-onnx-whisper-tiny.en.tar.bz2
+  url: https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.en.tar.bz2
+  sha256: 2bd6cf965c8bb3e068ef9fa2191387ee63a9dfa2a4e37582a8109641c20005dd
+  bytes: 118071777
+  upstream_digest_available: false
+  kind: archive
+  directory: whisper-tiny-en
+  allowed_files:
+  - tiny.en-encoder.int8.onnx
+  - tiny.en-decoder.int8.onnx
+  - tiny.en-tokens.txt
+  - 0.wav
+  - 1.wav
+  - 8k.wav
+- name: kokoro-int8-en-v0_19.tar.bz2
+  url: https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-int8-en-v0_19.tar.bz2
+  sha256: c9f0dd393615805b0bab050c340834d5e684e732aec91c0e860cd30e982c08bd
+  bytes: 103248205
+  upstream_digest_available: true
+  kind: archive
+  directory: kokoro-en
+  allowed_files:
+  - model.int8.onnx
+  - voices.bin
+  - tokens.txt
+  - LICENSE
+  - README.md
+- name: lexicon-en-us.txt
+  url: https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/lexicon-en-us.txt
+  sha256: 8b67ae549a465eee78f92ecb74644ad90c3c58ce65f19c68baf85878a10ef73a
+  bytes: 6305773
+  upstream_digest_available: true
+  kind: file
+  directory: kokoro-en
+  allowed_files:
+  - lexicon-en-us.txt

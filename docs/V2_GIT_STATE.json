@@ -1,0 +1,9 @@
+{
+  "branch": "main",
+  "status_counts": {
+    " M": 4,
+    " D": 2792,
+    "??": 137
+  },
+  "note": "Preserved prior work plus reversible layout migration; no reset, clean, commit or push."
+}

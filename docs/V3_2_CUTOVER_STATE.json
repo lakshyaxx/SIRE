@@ -1,0 +1,114 @@
+{
+  "backup": ".runtime\\v3_2_backups\\state_at_cutover_20261117T093752.sqlite3",
+  "before": {
+    "attachments": {
+      "rows": 5,
+      "sha256": "9d997bdca4827365174bbb2914ccde8cdbb2f80cd24ff242956c81a3c907963a"
+    },
+    "cases": {
+      "rows": 4,
+      "sha256": "6817a734eb25605d65bbf85284acce093880ca12375e5c36a7163958654d5e4c"
+    },
+    "chunks": {
+      "rows": 4,
+      "sha256": "028db85970f236d58d68703cd8e2348d41b77bab98af6804132c7f186fc7b72b"
+    },
+    "conversations": {
+      "rows": 6,
+      "sha256": "e3620696752df647d0f71b76e7ec553994e97dba729096843d7000661161f4c8"
+    },
+    "messages": {
+      "rows": 40,
+      "sha256": "e52247f3854c5b1917c9a8874d3fed847acc02fc01c07b9ab1a636c4df7ad80b"
+    },
+    "predictions": {
+      "rows": 3,
+      "sha256": "77f712bb724d09250c0e89dcaa67bb380e1dd1f30b7f4458b1471d2aab994eb0"
+    },
+    "schema_version": {
+      "rows": 2,
+      "sha256": "7d255a37384ee8cfd0341307d20f46f255a157b4cea685a10d16048a50d8d1a6"
+    },
+    "v3_annotations": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "v3_cases": {
+      "rows": 2,
+      "sha256": "490a807e30906af17a4ab155c5f83975de5721c577c5b7daced57cfd8a97547e"
+    },
+    "v3_evidence": {
+      "rows": 59,
+      "sha256": "3bf27fc80de5e4b5a52f73727ed46725b6bf44cdc240654f7b471e108cc7a1f7"
+    },
+    "v3_reports": {
+      "rows": 1,
+      "sha256": "c4d905c8cf0643ee5879fd9b70ba1a96f3183276ed999ec46d81a33caedd9cd2"
+    },
+    "v3_runs": {
+      "rows": 4,
+      "sha256": "734a092909661e27e0777ea7700bfbc2616f85f1b60229f09a85db088bfdd860"
+    },
+    "v3_sources": {
+      "rows": 59,
+      "sha256": "9b895b158c6cbaedb8cf1f02ae37471578ea345bb5a7c7248c5909ee266b737e"
+    }
+  },
+  "captured_utc": "2026-11-17T09:37:52.361572+00:00",
+  "after": {
+    "attachments": {
+      "rows": 5,
+      "sha256": "9d997bdca4827365174bbb2914ccde8cdbb2f80cd24ff242956c81a3c907963a"
+    },
+    "cases": {
+      "rows": 4,
+      "sha256": "6817a734eb25605d65bbf85284acce093880ca12375e5c36a7163958654d5e4c"
+    },
+    "chunks": {
+      "rows": 4,
+      "sha256": "028db85970f236d58d68703cd8e2348d41b77bab98af6804132c7f186fc7b72b"
+    },
+    "conversations": {
+      "rows": 6,
+      "sha256": "e3620696752df647d0f71b76e7ec553994e97dba729096843d7000661161f4c8"
+    },
+    "messages": {
+      "rows": 40,
+      "sha256": "e52247f3854c5b1917c9a8874d3fed847acc02fc01c07b9ab1a636c4df7ad80b"
+    },
+    "predictions": {
+      "rows": 3,
+      "sha256": "77f712bb724d09250c0e89dcaa67bb380e1dd1f30b7f4458b1471d2aab994eb0"
+    },
+    "schema_version": {
+      "rows": 2,
+      "sha256": "7d255a37384ee8cfd0341307d20f46f255a157b4cea685a10d16048a50d8d1a6"
+    },
+    "v3_annotations": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "v3_cases": {
+      "rows": 2,
+      "sha256": "490a807e30906af17a4ab155c5f83975de5721c577c5b7daced57cfd8a97547e"
+    },
+    "v3_evidence": {
+      "rows": 59,
+      "sha256": "3bf27fc80de5e4b5a52f73727ed46725b6bf44cdc240654f7b471e108cc7a1f7"
+    },
+    "v3_reports": {
+      "rows": 1,
+      "sha256": "c4d905c8cf0643ee5879fd9b70ba1a96f3183276ed999ec46d81a33caedd9cd2"
+    },
+    "v3_runs": {
+      "rows": 4,
+      "sha256": "734a092909661e27e0777ea7700bfbc2616f85f1b60229f09a85db088bfdd860"
+    },
+    "v3_sources": {
+      "rows": 59,
+      "sha256": "9b895b158c6cbaedb8cf1f02ae37471578ea345bb5a7c7248c5909ee266b737e"
+    }
+  },
+  "all_existing_tables_exactly_preserved": true,
+  "checked_utc": "2026-11-17T09:38:31.461319+00:00"
+}

@@ -1,0 +1,68 @@
+contract_version: '2.0'
+legacy_track: ml/artifacts/cmapss
+manifest: ml/registry/catalog.json
+worker_timeout_seconds: 120
+max_upload_bytes: 10000000
+max_conversation_attachment_bytes: 100000000
+max_history_rows: 10000
+upload_retention_seconds: 1800
+max_uploads: 10
+cors_origins:
+  - http://localhost:5173
+  - http://127.0.0.1:5173
+ollama_base_url: http://127.0.0.1:11434
+text_model: qwen3:4b-instruct
+vision_model: qwen3-vl:2b-instruct
+llm_timeout_seconds: 150
+max_output_tokens: 1200
+conversation_output_tokens: 384
+voice_output_tokens: 180
+context_length: 4096
+vision_context_length: 4096
+vision_max_output_tokens: 1600
+vision_timeout_seconds: 150
+temperature: 0
+seed: 42
+ollama_keep_alive_seconds: 120
+
+investigation_max_rounds: 2
+investigation_max_candidates: 2
+investigation_output_tokens: 650
+investigation_budget_seconds: 220
+chat_budget_seconds: 300
+background_investigation_limit: 1
+background_job_event_limit: 256
+model_queue_limit: 8
+model_queue_wait_seconds: 180
+
+max_import_files: 100
+max_import_bytes: 250000000
+
+max_visual_calls_per_turn: 3
+
+model_context_characters: 5000
+measurement_channel_aliases:
+  flow: [flow rate]
+  ambient_temp: [ambient temperature, ambient temperature delta]
+  upstream_pressure: [suction pressure, upstream pressure]
+  downstream_pressure: [discharge pressure, downstream pressure]
+  bearing_temp: [bearing temperature]
+  oil_pressure: [oil pressure]
+  current: [motor current]
+  speed: [shaft speed]
+  position: [valve position]
+
+# Explicit header-unit contract; these uploaded channels never become NASA inputs.
+measurement_wide_fields:
+  vibration_mm_s: {channel: vibration, unit: mm/s RMS}
+  bearing_temp_c: {channel: bearing_temp, unit: degC}
+  motor_current_a: {channel: current, unit: A}
+  oil_pressure_bar: {channel: oil_pressure, unit: bar}
+  flow_m3_h: {channel: flow, unit: m3/h}
+  upstream_pressure_bar: {channel: upstream_pressure, unit: bar}
+  downstream_pressure_bar: {channel: downstream_pressure, unit: bar}
+  valve_position_pct: {channel: position, unit: percent}
+  acoustic_db: {channel: acoustic, unit: dB}
+  ambient_temp_c: {channel: ambient_temp, unit: degC}
+  shaft_speed_rpm: {channel: speed, unit: rpm}
+  filter_dp_bar: {channel: filter_dp, unit: bar}

@@ -1,0 +1,32 @@
+# V3 five-moment review
+
+Start `.\scripts\dev.ps1`, open http://127.0.0.1:8000. Settings should show the actual installed instruct tags. Source labels must remain visible. CPU text/vision latency varies; use saved verification transcripts as labeled historical artifacts if a provider is unavailable, never as live model output.
+
+1. **Actual software planning:** new normal chat, ask a short engineering question; expand the actual operational trace. It records tools/status/timing, not private model thoughts. Explicitly type `Predict FD003 engine 42` and verify prediction.run precedes llm.chat. Exact native figures appear independently of model narration. Unsupported numeric/confidence commentary must be visibly withheld.
+2. **Before failure:** Engineer workspace, select a SIMULATED trial and asset. Set T-48h, T-24h and T-12h, or drag the cutoff. Inspect raw unit-labeled sensor rows, available logs and the directed dependency graph. A late-entered log must not appear before its availability time. Play/Pause only changes the queried replay cutoff; it is not a live facility connection.
+3. **Competing mechanisms:** investigate visible evidence. Expand support/conflicts/missing checks; click exact source IDs. Compare lubrication, load, alignment and sensor explanations. Empty conflicts/missing evidence must remain honest. Inspect stop reason, scope and actual trace. No exact confidence probability or guaranteed physical cause.
+4. **Memory / what-if / report:** save a human review note (explicitly unverified), inspect prior provisional cases and overlap/differences. Run the SIMULATED service-at-hour-48 intervention and compare actual regenerated trajectories up to the cutoff. Prepare/download a genuine Markdown/PDF report with case/report IDs, UTC time, source hashes and review status. Same unchanged snapshot should reproduce.
+5. **Visitor and NASA research:** upload the licensed demo bearing image and ask about visible features. Generic industrial uploads may be parsed but must not yield NASA RUL. Separately choose each FD001-FD004 dataset/model/engine in Predictions; inspect actual source/model/version/seed, cycles and native interval method. The photo and simulated turbofan are unrelated. Microphone/audio playback is unavailable until a verified local speech adapter/model is installed; type the question instead.
+
+Manual browser checklist (currently **BLOCKED/unverified**): desktop and 375px layout, all sidebar/deep links, source drilldown, Enter/Shift+Enter, focus, composer scrolling, upload success/error/partial batch, restart history, streaming stop, replay slider/playback, case cancellation, review saving, actual PDF download, missing-model/provider states and supported file/camera picker. Voice/microphone permission and playback cannot be marked passed without working runtime/browser interaction.
+
+Supported browser host was unavailable during V3. Earlier native browser URL-policy validation also blocked control; no bypass was attempted. HTTP 200, TypeScript/build and parser tests are not UI QA. Do not declare showcase-ready until a person observes these actions. Saved artifacts: V3_GATE1_LIVE.json, V3_LIVE_SMOKE.json, V3_VISION_NEGATIVE_CONTROL.json, EVALUATION_REPORT.md and output/v3 reports. The first NASA chat quality failure remains retained; consult V3_PROGRESS.md for the guarded retry. No video/audio recording was fabricated.
+
+---
+
+# Local demonstration and manual review
+
+Run `.\scripts\dev.ps1`, open http://127.0.0.1:8000, check configured instruct models in Settings. CPU replies can take tens of seconds; the recorded two-round case took about 210 seconds. This is prototype review, not a validated maintenance decision.
+
+1. New chat: send `Hi! Briefly explain what you can help with.` Actual text must stream without choosing an asset. Test Enter/Shift+Enter, rename/reopen/reload, stop/restart, and retained history.
+2. Attach `data/demo/bearing_cc0.jpg`, ask for visible features/limitations. It is licensed demo media, not a proven failed component. Check model-derived observations and no invented lifespan. Try camera/file picker and pending-attachment removal.
+3. Attach `data/knowledge/sire_model_card.md`. Ask which units the model uses and why photos cannot provide RUL. Expand source cards and compare exact line excerpts. This is a project model card, not a mechanical manual.
+4. Turn on Investigate, report a symptom such as noise and ask for competing mechanisms/missing inspections. Expand support, conflicts, assumptions and expected signs. Empty conflicts are correct when none are established; the real recorded case had two tentative hypotheses/seven valid source IDs and no reliable rejection.
+5. Predictions: choose FD001, FD002, FD003, FD004 in turn, a source engine and ready saved model. Check chart/source changes, actual output/cycles, model/version/seed/window warnings. Compare compatible models on the same history. Anomaly score must remain separate from RUL. Inspect interval method labels.
+6. `Discuss in chat` must attach the exact saved prediction ID. Unrelated NASA simulation and bearing photo remain separate. A generic industrial CSV may be previewed but its RUL is refused. Compatible 26-column single-engine CSV additionally needs explicit dataset/domain confirmation; no demo fallback.
+7. Press Stop during real text generation, reopen and verify cancelled status/partial text. Delete only a disposable verification chat with confirmation. Stop provider and verify an honest unavailable error, with no canned answer.
+8. Visit Models, Knowledge, Investigations, Settings; expand coverage and exact saved-run metrics or missing-metrics notice. Manually check focus, keyboard navigation, 375px viewport overflow, collapsed sidebar, scrolling composer, markdown/code/tables, upload errors and photo picker. Camera behavior depends on browser/secure context.
+
+Browser/mobile visual result: **BLOCKED**, not PASS. In-app host unavailable; prior native URL validation prevented control. No screenshots, keyboard/tap success or accessibility conformance are claimed. HTTP/TypeScript/build checks do not replace these steps. Do not declare showcase-ready until a person observes them.
+
+Actual provider transcripts: V2_LIVE_EVIDENCE.json. Explicit prediction/cancel trace: V2_TRANSPORT_EVIDENCE.json. `scripts/smoke_v2.py` and `scripts/smoke_transport.py` call real models against a running service and create clearly titled verification chats.

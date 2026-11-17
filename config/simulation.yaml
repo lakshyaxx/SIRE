@@ -1,0 +1,24 @@
+version: sire-facility-1
+seed: 42
+hours: 96
+sample_hours: 1
+baseline_hours: 24
+max_graph_depth: 2
+max_investigation_rounds: 4
+max_tool_calls: 16
+deadline_seconds: 60
+trend_thresholds:
+  oil_pressure: -0.8
+  filter_dp: 0.7
+  vibration: 1.2
+  bearing_temp: 10
+  discharge_temp: 12
+  winding_temp: 12
+  load: 12
+  current: 8
+  suction_pressure: -0.7
+  flow: -10
+  coolant_flow: -5
+  position_error: 12
+
+max_analysis_rows: 200000

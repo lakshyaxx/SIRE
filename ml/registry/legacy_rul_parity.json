@@ -1,0 +1,19 @@
+{
+  "comparison": "Archived CSV predictions versus current native CPU inference, source engine 1",
+  "absolute_differences": {
+    "fd001-06_autoencoder-rul-legacy-s42": 3.187046047514741e-06,
+    "fd001-06_autoencoder-rul-legacy-s43": 3.1479263356004594e-06,
+    "fd001-06_autoencoder-rul-legacy-s44": 1.5048980657184075e-06,
+    "fd002-06_autoencoder-rul-legacy-s42": 6.01924895704542e-07,
+    "fd002-06_autoencoder-rul-legacy-s43": 7.187959671028921e-06,
+    "fd002-06_autoencoder-rul-legacy-s44": 4.3791580139895814e-07,
+    "fd003-06_autoencoder-rul-legacy-s42": 0.0017175758857703727,
+    "fd003-06_autoencoder-rul-legacy-s43": 0.0007266174678832726,
+    "fd003-06_autoencoder-rul-legacy-s44": 0.0017129023094142326,
+    "fd004-06_autoencoder-rul-legacy-s42": 1.7443657185367556e-07,
+    "fd004-06_autoencoder-rul-legacy-s43": 3.8735313410143135e-06,
+    "fd004-06_autoencoder-rul-legacy-s44": 3.039049147446349e-06
+  },
+  "tolerance": 0.0001,
+  "pass": false
+}

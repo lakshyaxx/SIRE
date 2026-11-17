@@ -1,0 +1,40 @@
+{
+  "production": "http://127.0.0.1:8000",
+  "openapi_version": "3.2.0",
+  "health": {
+    "status": "ok",
+    "contract_version": "2.0",
+    "ml_ready": true,
+    "ollama_ready": true,
+    "text_ready": true,
+    "vision_ready": true,
+    "models": [
+      "qwen3:4b-instruct",
+      "qwen3-vl:2b-instruct",
+      "qwen3-vl:2b",
+      "qwen3:4b"
+    ],
+    "mode": "local",
+    "hosted_providers": "disabled"
+  },
+  "listener_state": {
+    "production_listening": true,
+    "qa_listening": false,
+    "old_qa_process_present": false,
+    "listeners": [
+      {
+        "LocalAddress": "127.0.0.1",
+        "LocalPort": 8000,
+        "OwningProcess": 43976
+      }
+    ]
+  },
+  "runtime_bundle": "output/sire_v3_2_local_runtime.zip",
+  "scope": "Final read-only running-service and native listener/process checks. QA HTTP probe timed out rather than returning connection refused; stopped status is established by native process/listener inspection. Existing user rows were checked exactly at cutover; later user activity is permitted.",
+  "git_aggregate": {
+    "modified_records": 4,
+    "deleted_records": 2792,
+    "untracked_files": 246,
+    "other_records": 0
+  }
+}
