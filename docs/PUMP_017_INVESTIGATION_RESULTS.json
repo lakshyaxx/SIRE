@@ -1,0 +1,158 @@
+{
+  "application_version": "4.8.1",
+  "original_job_id": "a9923c9f3cb342dcaf3b036ce638986b",
+  "root_cause": "Negated RUL exclusion matched a global affirmative-calculation guard after correct incident routing.",
+  "original_executed_tools": 0,
+  "original_request_hash_verified": true,
+  "backend": {
+    "passed": 370,
+    "warnings": 1,
+    "seconds": 158.32
+  },
+  "frontend": {
+    "passed": 26,
+    "failed": 0,
+    "milliseconds": 7479.47
+  },
+  "stored_source_replay": {
+    "job_id": "4e64cd224abb49ec9429c55aa9855f3a",
+    "status": "complete",
+    "seconds": 13.437278700002935,
+    "image_inference": "exact saved QA result reused"
+  },
+  "fresh_browser": {
+    "job_id": "2c99d53fe4aa4244b63f0bad5746a223",
+    "case_id": "333db52fcf2242c98f3cf1f61a3abc50",
+    "conversation_id": "e68b47ad23b34468bc084a60bd61731e",
+    "attachment_ids": [
+      "a29c53d04a7e4ba687dacbf738bc480c",
+      "b1abc8a97476433f91215f9927b07585",
+      "10fdde19f99246e7a3e7f77eef5c4289"
+    ],
+    "elapsed_seconds": 31.75,
+    "document_observation_count": 3,
+    "visual_observation_count": 4,
+    "contradictory_reference_count": 0,
+    "statistics": [
+      {
+        "channel": "bearing_temp",
+        "count": 24,
+        "baseline_mean": 64.25416666666666,
+        "recent_mean": 73.31666666666666,
+        "delta": 9.0625,
+        "unit": "degC",
+        "evidence_id": "EV:ddd1f6a5315d6f678c40f9b6b453cafcc0df77dd63486ddeb8d345b9202bdbfc",
+        "first": 57.0,
+        "last": 76.5
+      },
+      {
+        "channel": "current",
+        "count": 24,
+        "baseline_mean": 11.370833333333334,
+        "recent_mean": 11.733333333333334,
+        "delta": 0.3625000000000007,
+        "unit": "A",
+        "evidence_id": "EV:3351bdd926f1417ba8fd40d9a64952d0ff422a6c8ac4e7fcf1b7ee46c19c1e3b",
+        "first": 11.0,
+        "last": 11.8
+      },
+      {
+        "channel": "downstream_pressure",
+        "count": 24,
+        "baseline_mean": 4.80875,
+        "recent_mean": 4.6899999999999995,
+        "delta": -0.11875000000000036,
+        "unit": "bar",
+        "evidence_id": "EV:8d11568c6b16fd6996f81071d0eeaf14398bca2e20e25e6de7dec8c5db0690a1",
+        "first": 4.91,
+        "last": 4.64
+      },
+      {
+        "channel": "flow",
+        "count": 24,
+        "baseline_mean": 46.833333333333336,
+        "recent_mean": 44.46666666666667,
+        "delta": -2.366666666666667,
+        "unit": "m3/h",
+        "evidence_id": "EV:4eecbb60a3f3e23b67017ea44887fb1b9828671c8d024deaba159bdcabdf7b20",
+        "first": 48.8,
+        "last": 43.7
+      },
+      {
+        "channel": "speed",
+        "count": 24,
+        "baseline_mean": 1479.9583333333333,
+        "recent_mean": 1480.0,
+        "delta": 0.04166666666674246,
+        "unit": "rpm",
+        "evidence_id": "EV:60b3ee58c05ae8aeaacea6d2ece01dc4f193ec9c4779c7f326213e017e5908aa",
+        "first": 1480.0,
+        "last": 1480.0
+      },
+      {
+        "channel": "upstream_pressure",
+        "count": 24,
+        "baseline_mean": 1.7879166666666666,
+        "recent_mean": 1.7883333333333333,
+        "delta": 0.0004166666666667318,
+        "unit": "bar",
+        "evidence_id": "EV:e99ef03640c16bec86eb1171becbafc5ec24d9d9aafcd4c839ca6503790b8226",
+        "first": 1.79,
+        "last": 1.78
+      },
+      {
+        "channel": "vibration",
+        "count": 24,
+        "baseline_mean": 3.23875,
+        "recent_mean": 4.585,
+        "delta": 1.34625,
+        "unit": "mm/s RMS",
+        "evidence_id": "EV:b6d349b948f72537a895e22fe6bc5cc1273bc5ddcaf35cf50642b4aed2e7f51c",
+        "first": 2.12,
+        "last": 5.18
+      }
+    ]
+  },
+  "source_references_resolved": 16,
+  "hypotheses_count": 2,
+  "hypotheses_status": [
+    "tentative",
+    "tentative"
+  ],
+  "production_restart": "passed",
+  "loaded_source_sha256": "e4517566deee656d3a09db303a1037c14c01e0e1c0b58b6dc6bf74fcb1e79d87",
+  "production_browser": {
+    "historical_error_visible": true,
+    "requested_identity_visible": true,
+    "historical_error_not_spoken": true,
+    "all_sources_visible": true,
+    "new_intake_ready": true,
+    "url": "http://127.0.0.1:8000/investigations/new"
+  },
+  "native_files_verified": 813,
+  "frozen_files_verified": 7956,
+  "production_tables_unchanged": 15,
+  "original_record_preserved": true,
+  "original_png_reupload_verified": false,
+  "image_scope": "Exact recovered application-normalized image was the fresh upload input; original PNG pre-normalization bytes were not available.",
+  "causal_physical_accuracy": "unverified",
+  "private_proof": ".runtime/pump_failure_20261119_025319",
+  "proof_sha256": {
+    "original.json": "875beffb38bde336c0e47cba29f11ce75ec19bd745c5e82a93f8bfee8cec9056",
+    "original_execution_trace.json": "62a287ab4de58ab14a06385b3f36b7b87db17b13b7daf3a9278983e17141c7f6",
+    "reproduction_before.json": "8929a85bf7c155d18b1f7030bc5b6af8f142a8bc401e5926863725e82771780a",
+    "legacy_parser_failure.json": "f76e8396ca684613f76c1b6098b03644cbd69535d20e703efbdb2b03dd4c614c",
+    "proposal_context_failure.json": "b03dda3d91ab7f8887a1f07b356b6759499a2058fff9ed1eea9ec5635d0299e2",
+    "raw_proposal_before.json": "b6d5932297d25ec89e3ffae8e3985f65b9b6df713f3948691bfcba5e22eb4bbe",
+    "raw_http_invalid_proposal.json": "04548082d50bd24d7409f9595b5522103d53447a6ad4908a78ba67cc4a5f5a7c",
+    "replay_after.json": "26390c896d65773d8ac016b6ef878710c018e63675671ae818d6f54972707a08",
+    "browser_acceptance.json": "fdce1a9b945981c6c555494127799b2b799d95e19530d01b3fe2f288ffdb968c",
+    "preservation.json": "c3d1fbe931edb0f1fb170606a7f249a0160a4c6f86ab003eb4e9ff4859e5a50a",
+    "restart.json": "f8994334e3a145a2c3048c4f8ea1d8e7c1cec2cbf69ffcd424f9e3777f4c91aa",
+    "production-browser.json": "f5335425fcb521012474472cdec46041bee614c1a2bf96aeb5f5936e04c554fd",
+    "release_full_tests.log": "09a0790dd837b52909afde45d7364752346ba103d431dcd8db2189b8749f7189",
+    "frontend_tests_final.log": "c8000a2d3b6a43d32d97b6f3f129f493169563916f31c096be84f1c1f3025f58",
+    "production_build.log": "9af832903e198a645ca3ddea15f7d7387507225385cedb7cbf5c4b804d735c54",
+    "pump-success.jpg": "fffa5fa35e6c02216ec7f36225d304deaaac9b49b38cc633d2870a50c74af4ac"
+  }
+}

@@ -70,7 +70,9 @@ class Verification(BaseModel):
     status: VerificationStatus
     reason: str
     source_value: float | None = None
-    scope: str = "Source agreement only; source authenticity, physical cause and calibrated confidence remain unverified."
+    scope: str = (
+        "Source agreement only; source authenticity, physical cause and calibrated confidence remain unverified."
+    )
 
 
 def verify_claim(claim: Claim, ledger: Ledger) -> Verification:
@@ -232,11 +234,15 @@ def verify_claim(claim: Claim, ledger: Ledger) -> Verification:
             window = (
                 baseline
                 if claim.statistic == "baseline_mean"
-                else recent
-                if claim.statistic == "recent_mean"
-                else rows
-                if claim.statistic == "count"
-                else [baseline[0], recent[-1]]
+                else (
+                    recent
+                    if claim.statistic == "recent_mean"
+                    else (
+                        rows
+                        if claim.statistic == "count"
+                        else [baseline[0], recent[-1]]
+                    )
+                )
             )
             if claim.window_start is not None and utc(
                 claim.window_start.isoformat()

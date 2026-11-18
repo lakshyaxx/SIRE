@@ -9,8 +9,42 @@ if TYPE_CHECKING:
     from app.orchestration.runtime import Plan
 
 
+def _prediction_clauses(content: str) -> list[str]:
+    """Keep affirmative prediction clauses; negation scopes coordinated verb lists."""
+    clauses = re.split(r"[.!?;\n]+|\b(?:but|however)\b", content, flags=re.I)
+    result = []
+    for clause in clauses:
+        clause = re.sub(r"^\s*without\b[^,]+,\s*", "", clause, flags=re.I)
+        action = re.search(
+            r"\b(?:predict|prediction|estimate|calculate|compute|rul|remaining\s+(?:useful\s+)?life)\b",
+            clause,
+            re.I,
+        )
+        if action and not re.search(
+            r"\b(?:do not|must not|should not|not to|never|avoid|cannot|can't|don't|doesn't|shouldn't|mustn't|no need to)\b|"
+            r"\bwithout\s+(?:predicting|estimating|calculating|computing)\b|\b(?:no|not|without)\s+(?:\w+\s+){0,2}$",
+            clause[: action.start()],
+            re.I,
+        ):
+            result.append(clause)
+    return result
+
+
+def rul_requested(content: str) -> bool:
+    """Require an affirmative calculation request, not an exclusion or mere RUL mention."""
+    return any(
+        re.search(
+            r"\b(?:predict|estimate|calculate|compute)\b.{0,160}\b(?:rul|remaining\s+useful\s+life)\b",
+            clause,
+            re.I,
+        )
+        for clause in _prediction_clauses(content)
+    )
+
+
 def nasa_command(content: str) -> dict | None:
     """Recognize explicit prediction commands only when both NASA subset and engine are named."""
+    content = " ".join(_prediction_clauses(content))
     if not re.search(
         r"\b(?:predict|prediction|estimate|calculate|rul|remaining\s+(?:useful\s+)?life)\b",
         content,

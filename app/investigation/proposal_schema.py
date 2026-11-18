@@ -30,10 +30,21 @@ def for_case(
     concise_fields = {}
     short = Annotated[str, StringConstraints(max_length=120)]
     if concise:
+        concise_sign = create_model(
+            "SourceConstrainedExpectedSign",
+            __base__=ExpectedSign,
+            predicate=(str, Field(max_length=120, pattern=r'^[^"\\\[\]\r\n]{0,120}$')),
+        )
+        short = Annotated[
+            str, StringConstraints(max_length=120, pattern=r'^[^"\\\[\]\r\n]{0,120}$')
+        ]
         concise_fields = {
-            "mechanism": (str, Field(max_length=160)),
+            "mechanism": (
+                str,
+                Field(max_length=240, pattern=r'^[^"\\\[\]\r\n]{0,240}$'),
+            ),
             "assumptions": (list[short], Field(max_length=2)),
-            "expected_signs": (list[ExpectedSign], Field(max_length=1)),
+            "expected_signs": (list[concise_sign], Field(max_length=1)),
             "missing_tests": (list[short], Field(max_length=2)),
         }
         limit = min(limit, 6)

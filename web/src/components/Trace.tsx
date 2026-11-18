@@ -1,9 +1,134 @@
-import type { Meta, Investigation } from '../lib/api';
+import type { Meta, Investigation } from "../lib/api";
 
-export function CaseReport({report}: {report: Investigation}) {
-  return <section className="case-report"><div className="section-label">Competing explanations · {report.rounds} investigation round{report.rounds === 1 ? '' : 's'}</div>{report.hypotheses.map(h => <article key={h.id} className="hypothesis"><div className="hypothesis-title"><strong>{h.mechanism}</strong><span className={`tag ${h.status}`}>{h.status}</span></div><p>Evidence support: {h.evidence_support}. Ranking score {h.ranking_score} is a rule-based ordering, not a probability.</p><details><summary>Support, contradictions & assumptions</summary><p>Proposed support: {h.supporting_evidence_ids.join(', ') || 'No supplied support'}</p><p>Proposed conflicts: {h.contradicting_evidence_ids.join(', ') || 'No contradiction established; absence is not exclusion'}</p><p>Excluded unrelated sensor evidence: {h.excluded_as_unlinked?.join(', ') || 'None'}</p><p>Measured falsification: {h.falsified_by.join(', ') || 'None'}</p><p>Expected signs: {h.expected_signs.map(s=>`${s.predicate}: ${s.expected_value}`).join('; ') || 'None specified'}</p><p>Assumptions: {h.assumptions.join('; ') || 'None stated'}</p></details><h4>Next checks</h4><ul>{h.missing_tests.map((x,i)=><li key={i}>{x}</li>)}</ul></article>)}<h4>Unresolved</h4><ul>{report.unresolved.map((x,i)=><li key={i}>{x}</li>)}</ul><div className="limit-note">{report.limitations.map((x,i)=><p key={i}>{x}</p>)}</div></section>;
+export function CaseReport({ report }: { report: Investigation }) {
+  return (
+    <section className="case-report">
+      <div className="section-label">
+        Competing explanations · {report.rounds} investigation round
+        {report.rounds === 1 ? "" : "s"}
+      </div>
+      {report.hypotheses.map((h) => (
+        <article key={h.id} className="hypothesis">
+          <div className="hypothesis-title">
+            <strong>{h.mechanism}</strong>
+            <span className={`tag ${h.status}`}>{h.status}</span>
+          </div>
+          <p>
+            Evidence support: {h.evidence_support}. Ranking score{" "}
+            {h.ranking_score} is a rule-based ordering, not a probability.
+          </p>
+          <details>
+            <summary>Support, contradictions & assumptions</summary>
+            <p>
+              Proposed support:{" "}
+              {h.supporting_evidence_ids.join(", ") || "No supplied support"}
+            </p>
+            <p>
+              Proposed conflicts:{" "}
+              {h.contradicting_evidence_ids.join(", ") ||
+                "No contradiction established; absence is not exclusion"}
+            </p>
+            <p>
+              Excluded unrelated sensor evidence:{" "}
+              {h.excluded_as_unlinked?.join(", ") || "None"}
+            </p>
+            <p>Measured falsification: {h.falsified_by.join(", ") || "None"}</p>
+            <p>
+              Expected signs:{" "}
+              {h.expected_signs
+                .map((s) => `${s.predicate}: ${s.expected_value}`)
+                .join("; ") || "None specified"}
+            </p>
+            <p>Assumptions: {h.assumptions.join("; ") || "None stated"}</p>
+          </details>
+          <h4>Next checks</h4>
+          <ul>
+            {h.missing_tests.map((x, i) => (
+              <li key={i}>{x}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+      <h4>Unresolved</h4>
+      <ul>
+        {report.unresolved.map((x, i) => (
+          <li key={i}>{x}</li>
+        ))}
+      </ul>
+      <div className="limit-note">
+        {report.limitations.map((x, i) => (
+          <p key={i}>{x}</p>
+        ))}
+      </div>
+    </section>
+  );
 }
 
-export function Trace({meta}: {meta: Meta}) {
-  return <>{meta.investigation && <CaseReport report={meta.investigation}/>}<details className="trace"><summary>Sources & engineering trace{meta.tools?.length ? ` · ${meta.tools.length} tool events` : ''}</summary><p>{meta.orchestration&&<a href={`/api/v1/runs/${meta.orchestration.run_id}/trace`} target="_blank" rel="noreferrer">Actual operational trace: {meta.orchestration.intent.replaceAll('_',' ')}</a>}</p><p className="muted">{meta.provider ?? 'local'} · {meta.model ?? 'structured investigation'}{meta.elapsed_seconds !== undefined ? ` · ${meta.elapsed_seconds.toFixed(1)} s` : ''}</p>{meta.tools?.map((t,i)=><p key={i} className="tool-line">{t.tool} <span>{t.status}{t.elapsed_seconds !== undefined ? ` · ${t.elapsed_seconds.toFixed(1)} s` : ''}</span></p>)}{meta.evidence?.map(e=><article className="evidence" key={e.id}><div className="section-label">{e.kind.replaceAll('_',' ')} · {e.modality}</div><strong>{e.locator ?? e.source_id}</strong><blockquote>{e.observation}</blockquote><small>Evidence ID: <a href={`/api/v1/evidence/${encodeURIComponent(e.id)}`} target="_blank" rel="noreferrer">{e.id}</a> · source {e.source_id}</small></article>)}{!meta.evidence?.length && <p>No external evidence was supplied for this conversational reply.</p>}</details></>;
+export function Trace({ meta }: { meta: Meta }) {
+  return (
+    <>
+      {meta.investigation && <CaseReport report={meta.investigation} />}
+      <details className="trace">
+        <summary>
+          Sources & engineering trace
+          {meta.tools?.length ? ` · ${meta.tools.length} tool events` : ""}
+        </summary>
+        <p>
+          {meta.orchestration && (
+            <a
+              href={`/api/v1/runs/${meta.orchestration.run_id}/trace`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Actual operational trace:{" "}
+              {meta.orchestration.intent.replaceAll("_", " ")}
+            </a>
+          )}
+        </p>
+        <p className="muted">
+          {meta.provider ?? "local"} ·{" "}
+          {meta.model ?? "structured investigation"}
+          {meta.elapsed_seconds !== undefined
+            ? ` · ${meta.elapsed_seconds.toFixed(1)} s`
+            : ""}
+        </p>
+        {meta.tools?.map((t, i) => (
+          <p key={i} className="tool-line">
+            {t.tool}{" "}
+            <span>
+              {t.status}
+              {t.elapsed_seconds !== undefined
+                ? ` · ${t.elapsed_seconds.toFixed(1)} s`
+                : ""}
+            </span>
+          </p>
+        ))}
+        {meta.evidence?.map((e) => (
+          <article className="evidence" key={e.id}>
+            <div className="section-label">
+              {e.kind.replaceAll("_", " ")} · {e.modality}
+            </div>
+            <strong>{e.locator ?? e.source_id}</strong>
+            <blockquote>{e.observation}</blockquote>
+            <small>
+              Evidence ID:{" "}
+              <a
+                href={`/api/v1/evidence/${encodeURIComponent(e.id)}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {e.id}
+              </a>{" "}
+              · source {e.source_id}
+            </small>
+          </article>
+        ))}
+        {!meta.evidence?.length && (
+          <p>
+            No external evidence was supplied for this conversational reply.
+          </p>
+        )}
+      </details>
+    </>
+  );
 }

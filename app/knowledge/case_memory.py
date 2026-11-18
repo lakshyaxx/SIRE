@@ -37,11 +37,15 @@ def _comparison_details(selected: dict, other: dict) -> dict:
     overlapping = [
         {
             "channel": channel,
-            "direction": "increasing"
-            if direction(selected_readings[channel]["delta"]) > 0
-            else "decreasing"
-            if direction(selected_readings[channel]["delta"]) < 0
-            else "stable",
+            "direction": (
+                "increasing"
+                if direction(selected_readings[channel]["delta"]) > 0
+                else (
+                    "decreasing"
+                    if direction(selected_readings[channel]["delta"]) < 0
+                    else "stable"
+                )
+            ),
         }
         for channel in common
         if isinstance(selected_readings[channel]["delta"], (int, float))

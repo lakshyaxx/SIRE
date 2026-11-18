@@ -1,0 +1,561 @@
+{
+  "application_version": "4.8.0",
+  "api_contract": "2.0",
+  "backend": {
+    "passed": 346,
+    "warnings": 1,
+    "seconds": 157.95
+  },
+  "frontend": {
+    "passed": 24,
+    "failed": 0,
+    "milliseconds": 3313.3591
+  },
+  "network_cases": [
+    {
+      "name": "text_cold",
+      "status": "passed",
+      "seconds": 5.9188723000042955
+    },
+    {
+      "name": "text_warm",
+      "status": "passed",
+      "seconds": 1.0307382000028156
+    },
+    {
+      "name": "greeting",
+      "status": "passed",
+      "seconds": 0.06935269999667071
+    },
+    {
+      "name": "capabilities",
+      "status": "passed",
+      "seconds": 0.09281919999921229
+    },
+    {
+      "name": "pdf",
+      "status": "passed",
+      "seconds": 0.1977882999999565
+    },
+    {
+      "name": "csv",
+      "status": "passed",
+      "seconds": 0.5388390000007348
+    },
+    {
+      "name": "xlsx",
+      "status": "passed",
+      "seconds": 2.640362499994808
+    },
+    {
+      "name": "docx",
+      "status": "passed",
+      "seconds": 0.5369540999963647
+    },
+    {
+      "name": "retrieval_first",
+      "status": "passed",
+      "seconds": 2.054096699997899
+    },
+    {
+      "name": "retrieval_repeat",
+      "status": "passed",
+      "seconds": 0.33453110000118613
+    },
+    {
+      "name": "asr_short",
+      "status": "passed",
+      "seconds": 0.10906480000267038
+    },
+    {
+      "name": "asr_technical_base",
+      "status": "passed",
+      "seconds": 0.10689840000122786
+    },
+    {
+      "name": "asr_technical_tiny",
+      "status": "passed",
+      "seconds": 0.09839759999886155
+    },
+    {
+      "name": "tts_0",
+      "status": "passed",
+      "seconds": 8.776785900001414
+    },
+    {
+      "name": "tts_1",
+      "status": "passed",
+      "seconds": 5.721433300001081
+    },
+    {
+      "name": "tts_2",
+      "status": "passed",
+      "seconds": 11.059158200005186
+    },
+    {
+      "name": "tts_3",
+      "status": "passed",
+      "seconds": 27.522489800001495
+    },
+    {
+      "name": "image",
+      "status": "passed",
+      "seconds": 10.494124299999385
+    },
+    {
+      "name": "vision_to_text",
+      "status": "passed",
+      "seconds": 6.9712042000028305
+    },
+    {
+      "name": "video",
+      "status": "passed",
+      "seconds": 17.986948999998276
+    },
+    {
+      "name": "rul_low_latency",
+      "status": "passed",
+      "seconds": 5.833469599994714
+    },
+    {
+      "name": "rul_advanced",
+      "status": "passed",
+      "seconds": 12.878109299999778
+    },
+    {
+      "name": "rul_deep",
+      "status": "passed",
+      "seconds": 9.371607900000527
+    },
+    {
+      "name": "deep",
+      "status": "passed",
+      "seconds": 24.694162899999355
+    }
+  ],
+  "native_routes": [
+    {
+      "dataset": "FD001",
+      "role": "low_latency",
+      "model_id": "fd001-01_lightgbm-s42",
+      "status": "passed",
+      "seconds": 5.914701900001091
+    },
+    {
+      "dataset": "FD001",
+      "role": "advanced",
+      "model_id": "fd001-08_ensemble-s42",
+      "status": "passed",
+      "seconds": 13.4163258999979
+    },
+    {
+      "dataset": "FD001",
+      "role": "deep",
+      "model_id": "fd001-03_bilstm_attention-s42",
+      "status": "passed",
+      "seconds": 10.542314799997257
+    },
+    {
+      "dataset": "FD002",
+      "role": "low_latency",
+      "model_id": "fd002-01_lightgbm-original-s42",
+      "status": "passed",
+      "seconds": 5.307293799996842
+    },
+    {
+      "dataset": "FD002",
+      "role": "advanced",
+      "model_id": "fd002-08_ensemble-s44",
+      "status": "passed",
+      "seconds": 11.327553600000101
+    },
+    {
+      "dataset": "FD002",
+      "role": "deep",
+      "model_id": "fd002-03_bilstm_attention-s42",
+      "status": "passed",
+      "seconds": 9.396254699997371
+    },
+    {
+      "dataset": "FD003",
+      "role": "low_latency",
+      "model_id": "fd003-01_lightgbm-original-s42",
+      "status": "passed",
+      "seconds": 4.400926499998604
+    },
+    {
+      "dataset": "FD003",
+      "role": "advanced",
+      "model_id": "fd003-08_ensemble-s42",
+      "status": "passed",
+      "seconds": 9.652970999995887
+    },
+    {
+      "dataset": "FD003",
+      "role": "deep",
+      "model_id": "fd003-03_bilstm_attention-s42",
+      "status": "passed",
+      "seconds": 8.549743700001272
+    },
+    {
+      "dataset": "FD004",
+      "role": "low_latency",
+      "model_id": "fd004-01_lightgbm-original-s42",
+      "status": "passed",
+      "seconds": 4.873877099998936
+    },
+    {
+      "dataset": "FD004",
+      "role": "advanced",
+      "model_id": "fd004-08_ensemble-s42",
+      "status": "passed",
+      "seconds": 10.850108300001011
+    },
+    {
+      "dataset": "FD004",
+      "role": "deep",
+      "model_id": "fd004-03_bilstm_attention-s42",
+      "status": "passed",
+      "seconds": 9.12349009999889
+    }
+  ],
+  "offline_checks": [
+    {
+      "name": "external_dns_denied",
+      "status": "passed",
+      "seconds": 2.9300004825927317e-05
+    },
+    {
+      "name": "actual_local_qwen",
+      "status": "passed",
+      "seconds": 5.137095499994757
+    },
+    {
+      "name": "actual_local_embeddings",
+      "status": "passed",
+      "seconds": 1.3949365000007674
+    },
+    {
+      "name": "actual_local_speech",
+      "status": "passed",
+      "seconds": 10.135185300001467
+    },
+    {
+      "name": "actual_local_asr",
+      "status": "passed",
+      "seconds": 2.255950300001132
+    },
+    {
+      "name": "actual_saved_native",
+      "status": "passed",
+      "seconds": 6.2760571999970125
+    },
+    {
+      "name": "actual_refused_loopback",
+      "status": "passed",
+      "seconds": 2.4966595000005327
+    }
+  ],
+  "browser_checks": [
+    {
+      "name": "backend_outage",
+      "result": "passed",
+      "observed": "Refresh checks displayed Disconnected / Not connected / Failed to fetch after verified idle QA shutdown."
+    },
+    {
+      "name": "missing_configured_model",
+      "result": "passed",
+      "conversation_id": "756924a666714d63aa8ad07832b5eb2a",
+      "observed": "Configured model unavailable; actual submitted general question returned Selected local model is not installed without a fabricated reply."
+    },
+    {
+      "name": "saved_case_restart_details_trace_export",
+      "result": "passed",
+      "job_id": "1f3025a015d34d95b74c99f812267a07",
+      "observed": "Persisted report displayed human-readable source values, complete stage, expanded hypothesis support/contradictions, actual execution trace and downloaded PDF."
+    },
+    {
+      "name": "canonical_csv_source",
+      "result": "passed",
+      "observed": "Clicked actual evidence reference; library resolved original telemetry CSV and exact source record."
+    },
+    {
+      "name": "fd001_browser_prediction_and_comparison",
+      "result": "passed",
+      "observed": "Actual saved-model inference on FD001-ENGINE-001 plus two selected saved predictors, operating cycles and provenance shown."
+    },
+    {
+      "name": "fd004_browser_dataset_change",
+      "result": "passed",
+      "observed": "Dataset selection cleared prior results; FD004-ENGINE-001 returned actual FD004 prediction and provenance."
+    },
+    {
+      "name": "scenario_what_if",
+      "result": "passed",
+      "observed": "Actual same-seed fenced scenario trajectories, hashes, limitations and evidence ID returned."
+    },
+    {
+      "name": "cancel_running_job",
+      "result": "observed_terminal",
+      "job_id": "8bc8acb0f6114f55b7fae5f388e00dac",
+      "observed": "cancelled"
+    },
+    {
+      "name": "responsive_layouts",
+      "result": "passed",
+      "observed": "1366 and 1920 desktop plus 390 phone and 768 tablet checked. No horizontal document overflow measured. 1366 sidebar footer bottom 760.9999847412109 within 768. Phone menu opens and navigates."
+    },
+    {
+      "name": "physical_voice",
+      "result": "unverified",
+      "observed": "Local live/session controls rendered; physical microphone permission, acoustic playback, genuine interruption and noise acceptance were not exercised."
+    },
+    {
+      "name": "greeting_general_and_manifest",
+      "result": "passed",
+      "conversation_id": "166048f4df594acc97869cbba61bd6d6",
+      "observed": "Earlier browser greeting, source-backed SIRE description and real general Qwen follow-up completed with shared history."
+    },
+    {
+      "name": "first_upload_after_new_conversation_fix",
+      "result": "passed",
+      "conversation_id": "f0623c7ae05a484f98f4a1ac49d51a1a",
+      "attachment_id": "89238a230a6a4050874e3137069d96b5",
+      "observed": "Real generated-image upload persisted through URL transition; VLM/text completed; Inspector showed exact unverified model provenance."
+    },
+    {
+      "name": "three_file_browser_investigation",
+      "result": "passed",
+      "conversation_id": "e868802ceabc44df8567881ecb9b7789",
+      "job_id": "1f3025a015d34d95b74c99f812267a07",
+      "observed": "PDF/CSV/XLSX selected through browser chooser, ingested and investigated; real report remained after restart."
+    },
+    {
+      "name": "case_history",
+      "result": "passed",
+      "observed": "Actual completed and cancelled QA jobs displayed with source counts and links."
+    },
+    {
+      "name": "production_final_render",
+      "result": "passed",
+      "observed": "Read-only final check on normal port8000: integrated Assistant, ready backend, message composer and loaded local branding; no QA message submitted."
+    }
+  ],
+  "native_files_verified": 813,
+  "frozen_files_verified": 7956,
+  "production_tables_equal_before_cutover": true,
+  "cutover": {
+    "base_url": "http://127.0.0.1:8000",
+    "database_tables": {
+      "schema_version": {
+        "before": 2,
+        "after": 2,
+        "equal": true
+      },
+      "conversations": {
+        "before": 18,
+        "after": 18,
+        "equal": true
+      },
+      "messages": {
+        "before": 98,
+        "after": 98,
+        "equal": true
+      },
+      "attachments": {
+        "before": 28,
+        "after": 28,
+        "equal": true
+      },
+      "chunks": {
+        "before": 15,
+        "after": 15,
+        "equal": true
+      },
+      "cases": {
+        "before": 6,
+        "after": 6,
+        "equal": true
+      },
+      "predictions": {
+        "before": 3,
+        "after": 3,
+        "equal": true
+      },
+      "v3_sources": {
+        "before": 131,
+        "after": 131,
+        "equal": true
+      },
+      "v3_evidence": {
+        "before": 138,
+        "after": 138,
+        "equal": true
+      },
+      "v3_runs": {
+        "before": 34,
+        "after": 34,
+        "equal": true
+      },
+      "v3_cases": {
+        "before": 3,
+        "after": 3,
+        "equal": true
+      },
+      "v3_reports": {
+        "before": 1,
+        "after": 1,
+        "equal": true
+      },
+      "v3_annotations": {
+        "before": 0,
+        "after": 0,
+        "equal": true
+      },
+      "v45_jobs": {
+        "before": 1,
+        "after": 1,
+        "equal": true
+      },
+      "v45_voice_sessions": {
+        "before": 3,
+        "after": 3,
+        "equal": true
+      }
+    },
+    "static_files": [
+      {
+        "url": "/brand/circuit-s.svg",
+        "bytes": 550,
+        "sha256": "ebfa78944be5230c77892df777411ff2c6aa6b3036382efd2282316e21fd84a6",
+        "content_type": "image/svg+xml"
+      },
+      {
+        "url": "/static/index-B5iynOzo.js",
+        "bytes": 537944,
+        "sha256": "c3ee0af8f9d37a02bbfb2ac382f33aadd96dd146b1ccd0157a2fbb4cf96ae460",
+        "content_type": "application/javascript"
+      },
+      {
+        "url": "/static/index-BDsX18CA.css",
+        "bytes": 66694,
+        "sha256": "9a33147974583c34dfdab40ea978c1217aae8f77a6ee216ce5c03fd63372dd46",
+        "content_type": "text/css; charset=utf-8"
+      },
+      {
+        "url": "/brand/sire-wordmark.svg",
+        "bytes": 367,
+        "sha256": "9efb353eb7542790f683ce455986271c6b0b26b5075cda6147e2a524e094572b",
+        "content_type": "image/svg+xml"
+      }
+    ],
+    "health": {
+      "status": "ok",
+      "contract_version": "2.0",
+      "application_version": "4.8.0",
+      "loaded_source_sha256": "422e5e7f3aaf97cf07941cbdb3adde09dfe7d73df1e211f1b1e5be69cd0b00da",
+      "ml_ready": true,
+      "ollama_ready": true,
+      "text_ready": true,
+      "vision_ready": true,
+      "models": [
+        "qwen3:4b-instruct",
+        "qwen3-vl:2b-instruct",
+        "qwen3-vl:2b",
+        "qwen3:4b"
+      ],
+      "mode": "local",
+      "hosted_providers": "disabled"
+    },
+    "config": {
+      "application_version": "4.8.0",
+      "checked_at": "2026-11-18T20:58:02.780183+00:00",
+      "upload_extensions": [
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".webp",
+        ".pdf",
+        ".txt",
+        ".md",
+        ".json",
+        ".docx",
+        ".xlsx",
+        ".csv",
+        ".wav",
+        ".flac",
+        ".ogg",
+        ".mp3",
+        ".mp4",
+        ".mov",
+        ".avi",
+        ".webm",
+        ".mkv"
+      ],
+      "max_upload_bytes": 10000000,
+      "max_message_attachments": 6,
+      "max_message_images": 3,
+      "report_formats": [
+        "pdf",
+        "markdown"
+      ]
+    },
+    "runtime": {
+      "scheduler": {
+        "heavy_slots": 1,
+        "scope": "OS file lock across cooperating SIRE processes; queue/metrics per worker",
+        "active": [],
+        "waiting": [],
+        "recent": [
+          {
+            "id": "edb37e10d1ae4f19813d6d2790162f97",
+            "capability": "native_rul",
+            "model": "fd001-01_lightgbm-s42",
+            "priority": 5,
+            "queued_at_monotonic": 52644.859,
+            "started_at_monotonic": 52644.859,
+            "queue_seconds": 0.0,
+            "ended_at_monotonic": 52650.906,
+            "total_seconds": 6.047000000005937
+          }
+        ]
+      },
+      "owned_cpu_workers": [
+        {
+          "module": "app.media.worker",
+          "process_id": null,
+          "active": false,
+          "requests": 0,
+          "idle_limit_seconds": 90,
+          "hardware": "cpu",
+          "memory_bytes": null
+        }
+      ],
+      "ollama_residency": {
+        "models": []
+      },
+      "residency_policy": "keep_alive=120s; one heavy operation across cooperating local workers; launcher limits Ollama to one loaded model"
+    },
+    "status": "passed"
+  },
+  "unverified": [
+    "Physical microphone/speaker/autoplay onset/barge-in/noise",
+    "Semantic/physical cause validity",
+    "Broad cross-browser/accessibility matrix"
+  ],
+  "private_proof": ".runtime/frontend_integration_20261119_005543",
+  "proof_hashes": {
+    "baseline.json": "a4632d8411f4fc887d11549e18f9f00442f5c5f4f4e99ba40ebaea48a516673a",
+    "backend_final.log": "657a84cc82b182b54ae97e923193975d840cf5061189dcf1a0849780e2373287",
+    "frontend_tests.log": "457c2803f8910b7418c8619d27e2960f0797547b3272d18c7e98b62277d9e585",
+    "frontend_build.log": "7c14bb03dce67bd564c5e7c33043103630458bdc6209e876866fb8c4e001f12e",
+    "network/results.json": "eae9b1a9ab7ef93b96b6d185c23a5b9f9411c12e1d5e9b43ed7bca4e30122eab",
+    "native_routes.json": "817c6455e37b41fce8dc05a12401d26268a9bc92b4cb527aa6e50bccb5e73978",
+    "offline/results.json": "64650885ebc9e7defd105769da4cdcf7c2331c60cc6e58ca835b2511a641e411",
+    "final_preservation.json": "0228df7255c70cf69f36ce3eccadcc6b931de125b4f7c5ca35d65d512e3c6b44",
+    "retirement.json": "f65fc2ed428d6f3a54ef834cd40d03081997003ddef1a66b3021e13093e3ba60",
+    "browser_checks.json": "e8f87c483ad675ba87cc338a5c8e52ce8a92435e9d309d6d1730e8ed0cd47291",
+    "cutover.json": "415fd23ea0fc4f1be82f344f5db76549d167c17d6b6ed1e308da2ae38f3b9bd7",
+    "sire-final.jpg": "cc4724ba7e22afe68fa4e429175020de4ad77c9fafaf15103bd645076cc5e2c6"
+  }
+}

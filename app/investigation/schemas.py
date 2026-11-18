@@ -31,6 +31,9 @@ class Case(BaseModel):
     linked_asset: bool = False
     parent_case_id: str | None = None
     asset_id: str | None = Field(default=None, max_length=100)
+    asset_identity_source: (
+        Literal["user_question", "source_declared_unverified"] | None
+    ) = None
     as_of: str | None = Field(default=None, max_length=50)
 
     @field_validator("as_of")

@@ -1,3 +1,23 @@
+# Current release fix — SIRE4.8.1
+
+The reproduced pump investigation failure is repaired and SIRE is running on http://127.0.0.1:8000. Final regression:370 backend tests,26 frontend tests; normal build/Ruff/Black/pip passed. All813 native files,7956 frozen files and15 production tables remain unchanged. Exact stored-source replay and fresh browser rerun passed; original pre-normalization PNG reupload remains unverified because those bytes were unavailable. Details and precise limits: [pump release report](docs/PUMP_017_INVESTIGATION_FIX.md). The original failed job remains an unchanged historical record; submit a new investigation to run the fixed code.
+
+Prior checkpoint below is retained as historical evidence.
+
+---
+
+# Current application checkpoint — 2026-11-19
+
+SIRE **4.8.0** now serves the integrated Figma interface locally at **http://127.0.0.1:8000** using the existing backend, models, history and normal launcher. Start `.\scripts\dev.ps1` from this repository (or `.venv/Scripts/python.exe scripts/dev.py`). The canonical frontend is `web/`; the old delivered export is recoverably archived, not required to run the app.
+
+Verified: **346 backend tests**, **24 frontend tests**, **24 real network cases**, **12 selected FD001–FD004 native routes** and **7 offline-process checks** passed. Final audits match all **813 native hashes**, **7,956 frozen files** and **15 production tables** exactly, including after restart. Actual browser chat/upload/investigation/source/trace/PDF, prediction/comparison, cancel/restart and responsive checks passed within their documented scopes.
+
+Physical microphone/speaker/autoplay/barge-in and broad diagnostic semantic validity remain unverified. Generated auxiliary strings can truncate, and CPU speech/deep inference remains slower than greetings. This is a local prototype, not a qualified industrial diagnosis system. No training, model downloads, public deployment or Git publication occurred.
+
+Read [final integration](docs/FINAL_FRONTEND_INTEGRATION.md), [measured verification](docs/FRONTEND_TEST_RESULTS.md), [machine-readable results](docs/FRONTEND_INTEGRATION_RESULTS.json) and [readiness and remaining acceptance](docs/FINAL_APPLICATION_READINESS.md). Older V3.2/V3/V2 checkpoints below are historical.
+
+---
+
 # SIRE V3.2 investigation workspace
 
 V3.2 is running locally at **http://127.0.0.1:8000**. It connects incident context, sensor history/replay, evidence and competing hypotheses, retrospective case memory, fleet/what-if, actual NASA model comparison, execution traces and real PDF/Markdown exports to the existing chat. Local English speech and bounded audio/video ingestion are implemented with isolated open-source workers.

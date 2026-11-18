@@ -98,6 +98,12 @@ def check_absence(
             lowered,
         )
         present = []
+        broad_absence = re.search(
+            r"\bno\s+(?:(?:quantitative|sensor|telemetry)\s+)*(?:data|measurements|readings)\s+"
+            r"(?:(?:from|in)\s+(?:the\s+)?csv\s+)?(?:is|are)\s+(?:available|provided|recorded)"
+            r"(?:\s+for\s+analysis)?(?:[,.]|$)",
+            lowered,
+        )
         if absent and measurement and selected_asset:
             for row in available:
                 aliases = [
@@ -106,9 +112,12 @@ def check_absence(
                         row["channel"], []
                     ),
                 ]
-                if row["asset_id"] == selected_asset and any(
-                    re.search(r"\b" + re.escape(alias) + r"\b", lowered)
-                    for alias in aliases
+                if row["asset_id"] == selected_asset and (
+                    broad_absence
+                    or any(
+                        re.search(r"\b" + re.escape(alias) + r"\b", lowered)
+                        for alias in aliases
+                    )
                 ):
                     present.append(row)
         if present:

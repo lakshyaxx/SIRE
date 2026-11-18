@@ -1,3 +1,19 @@
+# Current checkpoint — PUMP-017 fix,4.8.1
+
+The reproduced pump investigation failure is repaired and SIRE is running on http://127.0.0.1:8000. Final regression:370 backend tests,26 frontend tests; normal build/Ruff/Black/pip passed. All813 native files,7956 frozen files and15 production tables remain unchanged. Exact stored-source replay and fresh browser rerun passed; original pre-normalization PNG reupload remains unverified because those bytes were unavailable. Details and precise limits: [pump release report](docs/PUMP_017_INVESTIGATION_FIX.md). The original failed job remains an unchanged historical record; submit a new investigation to run the fixed code.
+
+Prior checkpoint below is retained as historical evidence.
+
+---
+
+# Current checkpoint — final frontend integration, 2026-11-19
+
+Application4.8.0 served by the normal local launcher on8000. Canonical web/ now contains the delivered Figma design around real retained chat, upload, investigation, source, trace, voice and native prediction controllers. Full suite346passed/157.95s; frontend24passed/3313.3591ms; real network24/24; selected native12/12; offline-process7/7. Final preservation813 native hashes/7956 frozen files/all15 production tables exact; production restart/static bytes/source identity verified. QA8001 stopped; no QA fixtures copied into production. Physical voice and causal semantic accuracy remain unverified; auxiliary model strings can truncate. See docs/FINAL_FRONTEND_INTEGRATION.md, FRONTEND_TEST_RESULTS.md, FRONTEND_INTEGRATION_RESULTS.json and FINAL_APPLICATION_READINESS.md for measured scopes and remaining acceptance.
+
+Earlier checkpoints below are historical and preserved.
+
+---
+
 ## Phase 3 performance/stability checkpoint — 2026-11-18
 
 SIRE4.7.0 runs at http://127.0.0.1:8000. Bounded CPU worker reuse, honest cache/lifecycle metadata, owned-child cancellation, saved recall/audio retrieval fixes and hypothesis completeness/absence checks delivered. Fresh26character speech12.180→5.667s;218character speech33.830→27.358s; repeat semantic query1.697→0.325s. Actual Qwen text and vision100%GPU offload. Backend334passed/1warning/147.73s; frontend13passed; build/static/pip checks pass. All813native/7956frozenfiles,51runtimefiles,20Ollamablobs and original production rows preserved;15tables exactly match immediate cutover backup. Earlier live user additions retained, not restored/deleted. Local checkpointa635f1055c571e0d5a5bec12afc6439f3be2905c, no push. Engineering release verified; full acceptance remains conditional on diagnostic semantic review and physical voice/browser tests. Long new speech, technical ASR and generated fragments remain open. [Release readiness](docs/PHASE3_RELEASE_READINESS.md), [results](docs/PHASE3_RESULTS.json), [Phase4handoff](docs/PHASE4_BACKEND_HANDOFF.md). Earlier checkpoints remain historical.

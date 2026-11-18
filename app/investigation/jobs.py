@@ -2,6 +2,8 @@
 
 import asyncio
 import uuid
+import logging
+import re
 from typing import Literal
 from pydantic import BaseModel, Field
 from app.chat.service import ChatService
@@ -16,6 +18,7 @@ JobStatus = Literal[
     "queued", "running", "complete", "partial", "error", "cancelled", "interrupted"
 ]
 TERMINAL = {"complete", "partial", "error", "cancelled", "interrupted"}
+LOGGER = logging.getLogger(__name__)
 
 
 class InvestigationJob(BaseModel):
@@ -33,6 +36,7 @@ class InvestigationJob(BaseModel):
     run_id: str | None = None
     assistant_message_id: str | None = None
     error: dict | None = None
+    request: dict = Field(default_factory=dict)
 
 
 class InvestigationJobs:
@@ -95,6 +99,14 @@ class InvestigationJobs:
         self.store.conversation(cid)
         for identifier in request["attachment_ids"]:
             self.store.attachment(identifier, cid)
+        if not request["attachment_ids"] and re.search(
+            r"\battached\b", request["content"], re.I
+        ):
+            raise SireError(
+                "attachments_required",
+                "This request refers to attached evidence, but no attachment IDs were submitted. Select the files and retry.",
+                422,
+            )
         signature = digest(request)
         prior = self.store.rows(
             "SELECT id,body_sha256,conversation_id FROM v45_jobs WHERE request_id=?",
@@ -129,6 +141,7 @@ class InvestigationJobs:
             request_id=request["request_id"],
             created_at=now(),
             updated_at=now(),
+            request=dict(request),
         )
         with self.store.connection() as db:
             db.execute(
@@ -169,14 +182,27 @@ class InvestigationJobs:
                 job.error = {
                     "code": "incomplete_event_stream",
                     "message": "The investigation ended without a terminal event; no completion is inferred.",
+                    "stage": "job_worker",
                 }
         except asyncio.CancelledError:
             job.status = "cancelled"
         except Exception as exc:
+            LOGGER.error(
+                "Investigation worker failed job=%s type=%s", job.id, type(exc).__name__
+            )
             job.status = "error"
             job.error = {
                 "code": getattr(exc, "code", "investigation_failed"),
-                "message": "The investigation failed. Completed evidence and partial messages are retained.",
+                "message": (
+                    exc.message
+                    if isinstance(exc, SireError)
+                    else f"The background investigation worker failed ({type(exc).__name__}). Completed evidence and partial messages are retained."
+                ),
+                "stage": (
+                    "request_validation"
+                    if isinstance(exc, SireError) and not job.run_id
+                    else "job_worker"
+                ),
             }
         finally:
             self._save(job)

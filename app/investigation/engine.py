@@ -126,9 +126,7 @@ def rank_hypotheses(case: Case, hypotheses: list[Hypothesis]) -> list[dict]:
         status = (
             "rejected"
             if falsified
-            else "weakened"
-            if reliable_conflicts
-            else "tentative"
+            else "weakened" if reliable_conflicts else "tentative"
         )
         band = (
             "moderate"
@@ -300,11 +298,23 @@ async def investigate(
             case.question,
             max(
                 2000,
-                SETTINGS.get("model_context_characters", 5000)
+                SETTINGS.get(
+                    "investigation_context_characters",
+                    SETTINGS.get("model_context_characters", 5000),
+                )
                 - len(json.dumps(inventory_context)),
             ),
+            observation_characters=SETTINGS.get("model_source_excerpt_characters", 500),
         )
         model_context["available_measurements"] = inventory_context
+        model_context["requested_asset"] = {
+            "id": case.asset_id,
+            "origin": case.asset_identity_source,
+            "verification": "unverified",
+        }
+        model_context["citation_placement"] = (
+            "Put exact supplied source aliases only in supporting_evidence_ids and contradicting_evidence_ids. Write complete short prose without inline citations or invented thresholds. Availability inventory is not a substitute for cited observations."
+        )
         reverse_references = {
             identifier: alias for alias, identifier in references.items()
         }

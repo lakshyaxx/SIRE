@@ -7,6 +7,20 @@ from app.core.errors import SireError
 from app.investigation.schemas import EvidenceItem
 
 
+def _measurement_relevance(item: EvidenceItem, question: str) -> int:
+    """Prioritize channels explicitly mentioned in the request, preserving request order."""
+    try:
+        channel = json.loads(item.observation).get("channel", "")
+    except (ValueError, AttributeError):
+        return len(question)
+    positions = [
+        match.start()
+        for word in re.findall(r"\w{4,}", str(channel).replace("_", " "))
+        for match in re.finditer(r"\b" + re.escape(word) + r"\b", question, re.I)
+    ]
+    return min(positions, default=len(question))
+
+
 def compact(
     evidence: list[EvidenceItem],
     question: str,
@@ -17,9 +31,16 @@ def compact(
     """Keep actual excerpts/source grouping while replacing long opaque IDs only inside model input."""
     sources, mapping, groups, limits = [], {}, {}, []
     excerpted = []
+    question_limit = min(3000, max(0, budget // 5))
+    question_excerpt = question[:question_limit]
     buckets: dict[str, list[EvidenceItem]] = OrderedDict()
     for item in evidence:
+        if item.kind == "user_claim" and item.observation == question:
+            continue  # The untrusted question is already supplied; do not duplicate its budget.
         buckets.setdefault(item.origin_id or item.source_id, []).append(item)
+    for bucket in buckets.values():
+        if bucket[0].modality == "uploaded_measurements":
+            bucket.sort(key=lambda item: _measurement_relevance(item, question))
     # One source's many channels must not crowd out a selected image or document.
     # Keep a short second document account beside the first before filling
     # remaining space with more channels from one measurement origin.
@@ -58,7 +79,7 @@ def compact(
                 source[key] = value
         if (
             len(json.dumps(sources + [source], ensure_ascii=False))
-            + min(len(question), 3000)
+            + len(question_excerpt)
             > budget - 1000
         ):
             continue
@@ -68,7 +89,7 @@ def compact(
             excerpted.append(alias)
         limits.extend(item.limitations)
     return {
-        "question": question[:3000],
+        "question": question_excerpt,
         "untrusted_evidence": sources,
         "source_limitations": list(dict.fromkeys(limits))[:8],
         "citation_format": (
@@ -80,7 +101,7 @@ def compact(
             "provided_sources": len(sources),
             "omitted_sources": len(evidence) - len(sources),
             "excerpted_sources": excerpted,
-            "question_excerpted": len(question) > 3000,
+            "question_excerpted": len(question) > len(question_excerpt),
         },
     }, mapping
 
@@ -123,5 +144,11 @@ def restore_text(
             )
         return ", ".join("[" + reference.upper() + "]" for reference in references)
 
+    text = re.sub(
+        r"\b((?:as per|source|evidence|see|from)\s+)(E\d+)\b",
+        lambda match: match.group(1) + "[" + match.group(2) + "]",
+        text,
+        flags=re.I,
+    )
     text = re.sub(r"\[([^\]]*\bE\d+\b[^\]]*)\]", separate, text, flags=re.I)
     return re.sub(r"\[(E\d+)\]", expand, text, flags=re.I)

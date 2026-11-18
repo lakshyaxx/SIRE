@@ -179,10 +179,13 @@ def create_app(
         await asyncio.to_thread(close_workers)
 
     application = FastAPI(
-        title="SIRE chat and prediction API", version="4.7.0", lifespan=lifespan
+        title="SIRE chat and prediction API", version="4.8.1", lifespan=lifespan
     )
     application.state.runtime_identity = source_identity(config.ROOT, config.WEB_DIST)
     application.include_router(intelligence_router)
+    from app.api.frontend import router as frontend_router
+
+    application.include_router(frontend_router)
     application.include_router(specialist_router)
     application.include_router(voice_session_router)
     application.add_middleware(
@@ -365,8 +368,15 @@ def create_app(
             )
         return FileResponse(
             item["path"],
-            media_type="application/octet-stream",
+            media_type=(
+                item["mime"]
+                if item["kind"] in {"audio", "video"}
+                else "application/octet-stream"
+            ),
             filename=item["name"],
+            content_disposition_type=(
+                "inline" if item["kind"] in {"audio", "video"} else "attachment"
+            ),
             headers={"X-Content-Type-Options": "nosniff"},
         )
 
@@ -652,13 +662,19 @@ def create_app(
         application.mount(
             "/static", StaticFiles(directory=static / "static"), name="static"
         )
+    if (static / "brand").is_dir():
+        application.mount(
+            "/brand", StaticFiles(directory=static / "brand"), name="brand"
+        )
 
     @application.get("/{path:path}", include_in_schema=False)
     def spa(path: str) -> Response:
         """Support actual browser routes while refusing unknown API paths."""
         if path.startswith("api/") or not (static / "index.html").is_file():
             raise SireError("not_found", "Route not found.", 404)
-        return FileResponse(static / "index.html")
+        return FileResponse(
+            static / "index.html", headers={"Cache-Control": "no-cache"}
+        )
 
     return application
 

@@ -18,8 +18,11 @@ test('one idle audio component cannot unguard another active player',()=>{
 });
 test('live VAD candidate cannot invoke cancellation; input provenance is explicit',()=>{
  const voice=readFileSync(new URL('../src/features/chat/VoiceSession.tsx',import.meta.url),'utf8');
- const candidate=voice.slice(voice.indexOf("if(message.type==='speech_started'"),voice.indexOf("if(message.type==='transcribing'"));
+ const ast=ts.createSourceFile('VoiceSession.tsx',voice,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
+ let candidate;
+ function visit(node){if(ts.isIfStatement(node)&&node.expression.getText(ast).includes('speech_started'))candidate=node.thenStatement.getText(ast);ts.forEachChild(node,visit);}
+ visit(ast);assert.ok(candidate,'The real speech-started branch must exist');
  assert(!candidate.includes('onSpeech()'));assert(!candidate.includes('stop-speech'));
  assert(voice.includes('gate.current.blocked(performance.now())'));assert(voice.includes('Interrupt and speak'));
- const chat=readFileSync(new URL('../src/features/chat/Chat.tsx',import.meta.url),'utf8');assert(chat.includes('input_audio_id:inputAudio'));assert(chat.includes("stop('voice_user_interrupt')"));
+ const chat=readFileSync(new URL('../src/features/chat/Chat.tsx',import.meta.url),'utf8');assert.match(chat,/input_audio_id\s*:\s*inputAudio/);assert.match(chat,/stop\(["']voice_user_interrupt["']\)/);
 });

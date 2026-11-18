@@ -110,7 +110,11 @@ def parse(content: bytes, suffix: str) -> list[dict] | None:
                     "unit": unit,
                     "source_row": row.get("source_row", number),
                     "source_field": row.get("source_field", "value"),
-                    "quality": str(row.get("quality", "good")).casefold(),
+                    "quality": SETTINGS.get("measurement_quality_aliases", {}).get(
+                        str(row.get("quality", "good")).strip().casefold(),
+                        str(row.get("quality", "good")).strip().casefold(),
+                    ),
+                    "source_quality": str(row.get("quality", "good")),
                     "synthetic": row.get("synthetic", False),
                     "association": "user_declared_unverified",
                 }

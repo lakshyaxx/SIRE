@@ -6,6 +6,84 @@ from app.core.errors import SireError
 from app.investigation.schemas import EvidenceItem
 from app.investigation.proposal_schema import for_case, expand
 from app.investigation.schemas import Case
+from pydantic import ValidationError
+
+
+def test_long_question_retains_document_image_and_relevant_sensor_context():
+    rows = [
+        EvidenceItem(
+            id=f"unit-{n}",
+            source_id="unit-csv",
+            kind="measurement",
+            modality="uploaded_measurements",
+            observation="Unit unrelated channel " + str(n) + " " + ("detail " * 100),
+        )
+        for n in range(7)
+    ]
+    rows.append(
+        EvidenceItem(
+            id="unit-vibration",
+            source_id="unit-csv",
+            kind="measurement",
+            modality="uploaded_measurements",
+            observation='{"channel":"vibration","value":2}',
+        )
+    )
+    rows.extend(
+        [
+            EvidenceItem(
+                id="unit-image",
+                source_id="unit-image",
+                kind="model_inference",
+                modality="image",
+                observation="Unit unverified visible observation",
+            ),
+            EvidenceItem(
+                id="unit-pdf",
+                source_id="unit-pdf",
+                kind="document_guidance",
+                modality="document",
+                observation="Unit actual maintenance passage "
+                + ("service record " * 80),
+            ),
+        ]
+    )
+    question = (
+        "Investigate vibration using the CSV, maintenance PDF and inspection image. "
+        + ("Long user context " * 90)
+    )
+    context, refs = compact(rows, question, 5886, observation_characters=500)
+    assert {"unit-vibration", "unit-image", "unit-pdf"} <= set(refs.values())
+    assert (
+        context["selection"]["question_excerpted"]
+        and context["selection"]["excerpted_sources"]
+    )
+
+
+def test_concise_proposals_keep_citations_in_typed_reference_fields():
+    case = Case(question="Unit case", conversation_id="unit-cid", evidence=[])
+    schema = for_case(case, {"E1": "unit-real-source"}, concise=True)
+    value = {
+        "hypotheses": [
+            {
+                "id": "unit-h",
+                "mechanism": "Unit possible cause",
+                "assumptions": [],
+                "expected_signs": [],
+                "supporting_evidence_ids": ["E1"],
+                "contradicting_evidence_ids": [],
+                "missing_tests": ["Unit independent inspection"],
+            }
+        ],
+        "follow_up_queries": [],
+        "unresolved": [],
+    }
+    assert expand(schema.model_validate(value), {"E1": "unit-real-source"}).hypotheses[
+        0
+    ].supporting_evidence_ids == ["unit-real-source"]
+    value["hypotheses"][0]["missing_tests"] = ["Unit unsupported reference [E99]"]
+    with pytest.raises(ValidationError):
+        schema.model_validate(value)
 
 
 def test_short_source_aliases_roundtrip_to_exact_canonical_records():
@@ -27,6 +105,10 @@ def test_short_source_aliases_roundtrip_to_exact_canonical_records():
         "[" + identifier + "]"
     )
     assert restore_text("Sources [E1, E1]", mapping).count(identifier) == 2
+    assert identifier in restore_text("Assumption as per E1", mapping)
+    assert restore_text("Insulation class E1", mapping) == "Insulation class E1"
+    with pytest.raises(SireError, match="unknown"):
+        restore_text("Claim from E99", mapping)
     with pytest.raises(SireError, match="unknown"):
         restore_text("Claim [E99]", mapping)
     schema = for_case(

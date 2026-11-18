@@ -1,24 +1,17 @@
-import { useEffect, useState } from 'react';
-import { createRoot } from 'react-dom/client';
-import { api, type Conversation, type ProviderState } from './lib/api';
-import { Chat } from './features/chat/Chat';
-import { Predictions } from './features/predictions/Predictions';
-import { Models } from './features/models/Models';
-import { Knowledge } from './features/knowledge/Knowledge';
-import { Settings } from './features/settings/Settings';
-import { Cases } from './features/investigations/Cases';
-import { Engineer } from './features/engineer/Engineer';
-import './styles/app.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "@fontsource/inter/latin-400.css";
+import "@fontsource/inter/latin-500.css";
+import "@fontsource/inter/latin-600.css";
+import "@fontsource/inter/latin-700.css";
+import "@fontsource/ibm-plex-mono/latin-400.css";
+import "@fontsource/ibm-plex-mono/latin-500.css";
+import "@fontsource/ibm-plex-mono/latin-600.css";
+import App from "./App";
+import "./index.css";
 
-function App(){const [collapsed,setCollapsed]=useState(false);const [path,setPath]=useState(location.pathname);const [conversations,setConversations]=useState<Conversation[]>([]);const [provider,setProvider]=useState<ProviderState|null>(null);const [model,setModel]=useState('');const [sidebar,setSidebar]=useState(false);const [search,setSearch]=useState('');const [busy,setBusy]=useState(false);const [error,setError]=useState('');
-  function navigate(next:string){history.pushState({},'',next);setPath(location.pathname);setSidebar(false);}
-  function refresh(){api<{conversations:Conversation[]}>('/conversations').then(d=>setConversations(d.conversations)).catch(e=>setError(e.message));}
-  function readiness(){api<ProviderState>('/providers').then(d=>{setProvider(d);setModel(previous=>previous||d.configured_text);}).catch(e=>setError(e.message));}
-  useEffect(()=>{refresh();readiness();function pop(){setPath(location.pathname);}addEventListener('popstate',pop);return()=>removeEventListener('popstate',pop);},[]);
-  const cid=path.match(/^\/chat\/([^/]+)$/)?.[1]??null;const page=path==='/engineer'?'Engineer':path.startsWith('/predictions')||path==='/assets'?'Predictions':path==='/models'?'Models':path==='/knowledge'?'Knowledge':path==='/settings'?'Settings':path==='/investigations'?'Investigations':'Chat';
-  const prediction=new URLSearchParams(location.search).get('prediction');
-  async function rename(c:Conversation){const title=prompt('Rename conversation',c.title);if(title?.trim()){await api(`/conversations/${c.id}`,{title:title.trim()},'PATCH');refresh();}}
-  async function remove(c:Conversation){if(!confirm(`Delete “${c.title}” and its locally stored attachments? This cannot be undone in the app.`))return;await api(`/conversations/${c.id}?confirm=true`,undefined,'DELETE');if(cid===c.id)navigate('/chat');refresh();}
-  return <div className={`app-shell ${collapsed?'navigation-collapsed':''}`}>{sidebar&&<button className="sidebar-shade" aria-label="Close navigation" onClick={()=>setSidebar(false)}/>}<aside className={`sidebar ${sidebar?'open':''}`}><button className="brand" onClick={()=>navigate('/chat')} disabled={busy}><span className="brand-icon">S</span>SIRE<span className="local-label">LOCAL</span></button><button className="new-chat" disabled={busy} onClick={()=>navigate('/chat')}>＋ New chat</button><nav aria-label="Workspace"><button disabled={busy} className={page==='Chat'?'active':''} onClick={()=>navigate('/chat')}><span>◇</span> Chat</button>{[['Engineer','/engineer','?'],['Investigations','/investigations','◫'],['Predictions','/predictions','▦'],['Models','/models','◧'],['Knowledge','/knowledge','▤'],['Settings','/settings','⚙']].map(([label,route,icon])=><button key={route} disabled={busy} className={page===label?'active':''} onClick={()=>navigate(route)}><span>{icon}</span>{label}</button>)}</nav><div className="chat-history"><div className="history-heading">Your conversations</div><input aria-label="Search conversations" className="history-search" placeholder="Search chats" value={search} onChange={e=>setSearch(e.target.value)}/>{conversations.filter(c=>c.title.toLowerCase().includes(search.toLowerCase())).map(c=><div className={`history-row ${c.id===cid?'current':''}`} key={c.id}><button className="history-title" disabled={busy} onClick={()=>navigate(`/chat/${c.id}`)}>{c.title}</button><button className="history-action" disabled={busy} aria-label={`Rename ${c.title}`} onClick={()=>rename(c).catch(e=>setError(e.message))}>✎</button><button className="history-action" disabled={busy} aria-label={`Delete ${c.title}`} onClick={()=>remove(c).catch(e=>setError(e.message))}>×</button></div>)}</div><div className="sidebar-foot"><span className={`status-dot ${provider?.health.ollama_ready?'online':''}`}/>{provider?.health.ollama_ready?'Local Ollama connected':'Local provider unavailable'}<small>Evidence-led decision support</small></div></aside><main className="app-main"><header className="topbar"><button className="desktop-menu icon-button" aria-label="Toggle sidebar" aria-expanded={!collapsed} onClick={()=>setCollapsed(!collapsed)}>Menu</button><button className="mobile-menu icon-button" aria-label="Toggle navigation" aria-expanded={sidebar} onClick={()=>setSidebar(!sidebar)}>☰</button><div className="topbar-title">{page==='Chat'?(conversations.find(c=>c.id===cid)?.title??'New conversation'):page}</div><div className="topbar-right">{page==='Chat'&&<select aria-label="Conversation model" value={model} disabled={busy} onChange={e=>setModel(e.target.value)}>{!provider?.models.length&&<option value={model}>{model||'No model available'}</option>}{provider?.models.filter(m=>(m.capabilities?.includes('completion')??true) && (!(m.capabilities?.includes('thinking')) || m.name===provider.configured_text)).map(m=><option key={m.name}>{m.name}</option>)}</select>}<span className="local-pill">Local</span></div></header>{error&&<div role="alert" className="global-error error">{error}<button onClick={()=>setError('')}>×</button></div>}{page==='Engineer'?<Engineer navigate={navigate}/>:page==='Chat'?<Chat id={cid} model={model} predictionId={prediction} navigate={navigate} refresh={refresh} setBusy={setBusy}/>:page==='Predictions'?<Predictions discuss={id=>navigate(`/chat?prediction=${id}`)}/>:page==='Models'?<Models/>:page==='Knowledge'?<Knowledge conversations={conversations} refresh={refresh}/>:page==='Settings'?<Settings state={provider} refresh={readiness}/>:<Cases navigate={navigate}/>}</main></div>;
-}
-createRoot(document.getElementById('root')!).render(<App/>);
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);

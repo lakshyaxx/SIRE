@@ -28,7 +28,7 @@ ollama_keep_alive_seconds: 120
 
 investigation_max_rounds: 2
 investigation_max_candidates: 2
-investigation_output_tokens: 650
+investigation_output_tokens: 1200
 investigation_budget_seconds: 220
 chat_budget_seconds: 300
 background_investigation_limit: 1
@@ -42,6 +42,7 @@ max_import_bytes: 250000000
 max_visual_calls_per_turn: 3
 
 model_context_characters: 5000
+investigation_context_characters: 7000
 model_source_excerpt_characters: 500
 measurement_channel_aliases:
   flow: [flow rate]
@@ -57,14 +58,21 @@ measurement_channel_aliases:
 # Explicit header-unit contract; these uploaded channels never become NASA inputs.
 measurement_wide_fields:
   vibration_mm_s: {channel: vibration, unit: mm/s RMS}
+  vibration_mm_s_rms: {channel: vibration, unit: mm/s RMS}
   bearing_temp_c: {channel: bearing_temp, unit: degC}
   motor_current_a: {channel: current, unit: A}
   oil_pressure_bar: {channel: oil_pressure, unit: bar}
   flow_m3_h: {channel: flow, unit: m3/h}
   upstream_pressure_bar: {channel: upstream_pressure, unit: bar}
   downstream_pressure_bar: {channel: downstream_pressure, unit: bar}
+  suction_pressure_bar: {channel: upstream_pressure, unit: bar}
+  discharge_pressure_bar: {channel: downstream_pressure, unit: bar}
   valve_position_pct: {channel: position, unit: percent}
   acoustic_db: {channel: acoustic, unit: dB}
   ambient_temp_c: {channel: ambient_temp, unit: degC}
   shaft_speed_rpm: {channel: speed, unit: rpm}
+  speed_rpm: {channel: speed, unit: rpm}
   filter_dp_bar: {channel: filter_dp, unit: bar}
+
+# Only explicit source quality labels accepted; unknown/bad flags stay excluded.
+measurement_quality_aliases: {ok: good}
