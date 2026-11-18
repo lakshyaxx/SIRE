@@ -256,6 +256,13 @@ class WorkerProcess:
                 self.timer = None
             process, self.process = self.process, None
             if process:
+                if not self.active and process.stdin and process.poll() is None:
+                    # Idle workers already exit on pipe EOF, including on Windows.
+                    try:
+                        process.stdin.close()
+                        process.wait(timeout=0.25)
+                    except (OSError, subprocess.TimeoutExpired):
+                        pass
                 terminate_owned(process)
                 for stream in [process.stdin, process.stdout]:
                     if stream:

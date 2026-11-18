@@ -3,13 +3,17 @@
 import importlib.util
 import json
 import math
+import os
 import sys
+from contextlib import redirect_stdout
+from functools import lru_cache
 from typing import Any
 
 import pandas as pd
 
-from app.core.config import TRACK
-from app.prediction.hub import entry, verify_integrity
+from app.core.config import ROOT, TRACK
+from app.core.worker_pool import serve
+from app.prediction.hub import catalog_fingerprint, entry, verify_integrity
 
 
 def validate_output(
@@ -41,8 +45,7 @@ def validate_output(
                 raise ValueError("Invalid saved prediction interval")
 
 
-def legacy_predict(model_id: str, history: pd.DataFrame) -> dict[str, Any]:
-    """Load the exact registered module and call its original inference contract."""
+def _load_predictor(model_id: str) -> tuple[dict[str, Any], Any]:
     selected = entry(model_id)
     path = TRACK / selected["predict_module"]
     spec = importlib.util.spec_from_file_location("sire_isolated_predictor", path)
@@ -81,7 +84,13 @@ def legacy_predict(model_id: str, history: pd.DataFrame) -> dict[str, Any]:
             TRACK / selected["artifact_dir"] / "model.txt",
             TRACK / "artifacts/common" / dataset / "preprocessor.joblib",
         )
-    predictor = module.load_model(selected["dataset"], selected["seed"])
+    return selected, module.load_model(selected["dataset"], selected["seed"])
+
+
+def _predict(
+    loaded: tuple[dict[str, Any], Any], history: pd.DataFrame
+) -> dict[str, Any]:
+    selected, predictor = loaded
     output = (
         predictor.score(history)
         if selected["task"] == "anomaly"
@@ -89,6 +98,30 @@ def legacy_predict(model_id: str, history: pd.DataFrame) -> dict[str, Any]:
     )
     validate_output(output, selected, history)
     return output
+
+
+def legacy_predict(model_id: str, history: pd.DataFrame) -> dict[str, Any]:
+    """Load the exact registered module and call its original inference contract."""
+    return _predict(_load_predictor(model_id), history)
+
+
+def _serve_resident() -> None:
+    os.environ["MPLCONFIGDIR"] = str(ROOT / ".runtime/matplotlib")
+    load = lru_cache(maxsize=1)(_load_predictor)
+
+    def handle(payload: dict) -> dict:
+        with redirect_stdout(sys.stderr):
+            if payload["catalog_fingerprint"] != catalog_fingerprint():
+                raise ValueError("Native model registry changed during request")
+            verify_integrity()
+            output = _predict(
+                load(payload["model_id"]), pd.DataFrame(payload["history"])
+            )
+            if payload["catalog_fingerprint"] != catalog_fingerprint():
+                raise ValueError("Native model registry changed during inference")
+        return {"output": output}
+
+    serve(handle)
 
 
 def main() -> None:
@@ -100,4 +133,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    if sys.argv[1:] == ["--resident"]:
+        _serve_resident()
+    else:
+        main()

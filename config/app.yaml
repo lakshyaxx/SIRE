@@ -2,6 +2,7 @@ contract_version: '2.0'
 legacy_track: ml/artifacts/cmapss
 manifest: ml/registry/catalog.json
 worker_timeout_seconds: 120
+prediction_worker_idle_seconds: 60
 max_upload_bytes: 10000000
 max_conversation_attachment_bytes: 100000000
 max_history_rows: 10000

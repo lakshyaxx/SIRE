@@ -1,3 +1,25 @@
+## RUL latency verification pending — 2026-11-19
+
+The scoped LightGBM runtime can reuse one CPU predictor for consecutive
+requests. Every request still checks the preserved artifact hashes and runs
+fresh inference. The worker evicts after 60 idle seconds, and the existing
+one-shot path remains the default while native parity is pending.
+
+With the private runtime restored, run
+`\.\.venv\Scripts\python.exe scripts/benchmark_warm_prediction.py` in an
+isolated session. It compares exact outputs across distinct NASA histories and
+reports individual wall times, including the first resident call. To trial the
+path in the local app, set `$env:SIRE_WARM_PREDICTION = '1'` before starting it.
+Remove the variable before the next launch to return to one-shot execution.
+
+Focused worker and inference adapter checks passed (6 passed, 1 deselected in
+13.71s). The optional speech test requires local media assets absent here. The
+FD001 benchmark stopped at the artifact integrity preflight because
+`ml/artifacts/cmapss` is missing from this checkout. Native parity and the latency
+gain remain unmeasured.
+
+---
+
 ## Phase 3 performance/stability checkpoint — 2026-11-18
 
 SIRE4.7.0 runs at http://127.0.0.1:8000. Bounded CPU worker reuse, honest cache/lifecycle metadata, owned-child cancellation, saved recall/audio retrieval fixes and hypothesis completeness/absence checks delivered. Fresh26character speech12.180→5.667s;218character speech33.830→27.358s; repeat semantic query1.697→0.325s. Actual Qwen text and vision100%GPU offload. Backend334passed/1warning/147.73s; frontend13passed; build/static/pip checks pass. All813native/7956frozenfiles,51runtimefiles,20Ollamablobs and original production rows preserved;15tables exactly match immediate cutover backup. Earlier live user additions retained, not restored/deleted. Local checkpointa635f1055c571e0d5a5bec12afc6439f3be2905c, no push. Engineering release verified; full acceptance remains conditional on diagnostic semantic review and physical voice/browser tests. Long new speech, technical ASR and generated fragments remain open. [Release readiness](docs/PHASE3_RELEASE_READINESS.md), [results](docs/PHASE3_RESULTS.json), [Phase4handoff](docs/PHASE4_BACKEND_HANDOFF.md). Earlier checkpoints remain historical.

@@ -16,11 +16,19 @@ import pandas as pd
 from app.core.config import MANIFEST, ROOT, SETTINGS
 from app.core.errors import SireError
 from app.providers.resources import SCHEDULER
-from app.core.worker_pool import terminate_owned
+from app.core.worker_pool import WorkerProcess, terminate_owned
 from app.prediction.telemetry import validate_history
 
 LOGGER = logging.getLogger(__name__)
 INFERENCE_LOCK = BoundedSemaphore(1)
+WARM_WORKER = WorkerProcess(
+    "app.prediction.worker", SETTINGS["prediction_worker_idle_seconds"]
+)
+
+
+def catalog_fingerprint() -> str:
+    """Identify the exact registry bytes used to select the resident predictor."""
+    return hashlib.sha256(MANIFEST.read_bytes()).hexdigest()
 
 
 def manifest() -> dict[str, Any]:
@@ -111,6 +119,39 @@ def predict(
                     "Native inference cancelled before execution.",
                     409,
                 )
+            payload = {"model_id": model_id, "history": history.to_dict("records")}
+            if (
+                os.getenv("SIRE_WARM_PREDICTION") == "1"
+                and selected["family"] == "01_lightgbm"
+                and selected["variant"] in {"original", "tuned"}
+                and task == "rul"
+            ):
+                fingerprint = catalog_fingerprint()
+                try:
+                    response = WARM_WORKER.execute(
+                        {**payload, "catalog_fingerprint": fingerprint},
+                        cancel_event,
+                        SETTINGS["worker_timeout_seconds"],
+                        f"{model_id}:{fingerprint}",
+                    )
+                except SireError as exc:
+                    if exc.code == "resident_cancelled":
+                        raise SireError(
+                            "inference_cancelled", "Native inference cancelled.", 409
+                        ) from exc
+                    if exc.code == "resident_timeout":
+                        raise SireError(
+                            "inference_timeout", "Prediction exceeded its timeout.", 503
+                        ) from exc
+                    LOGGER.warning(
+                        "Resident prediction failed for %s: %s", model_id, exc.code
+                    )
+                    raise SireError(
+                        "model_unavailable", "Saved predictor could not run.", 503
+                    ) from exc
+                return response["output"]
+            # Release the previous model before loading any isolated predictor.
+            WARM_WORKER.close()
             env = dict(
                 os.environ,
                 PYTHONDONTWRITEBYTECODE="1",
@@ -126,11 +167,7 @@ def predict(
             input_directory = ROOT / ".runtime/inference_inputs"
             input_directory.mkdir(parents=True, exist_ok=True)
             input_stream = tempfile.TemporaryFile(mode="w+b", dir=input_directory)
-            input_stream.write(
-                json.dumps(
-                    {"model_id": model_id, "history": history.to_dict("records")}
-                ).encode("utf-8")
-            )
+            input_stream.write(json.dumps(payload).encode("utf-8"))
             input_stream.seek(0)
             process = subprocess.Popen(
                 [sys.executable, "-m", "app.prediction.worker"],
