@@ -126,7 +126,9 @@ def rank_hypotheses(case: Case, hypotheses: list[Hypothesis]) -> list[dict]:
         status = (
             "rejected"
             if falsified
-            else "weakened" if reliable_conflicts else "tentative"
+            else "weakened"
+            if reliable_conflicts
+            else "tentative"
         )
         band = (
             "moderate"
@@ -181,6 +183,7 @@ async def investigate(
     previous = None
     excluded_evidence = []
     claim_checks = []
+    quality_rejections = []
     if case.parent_case_id:
         previous = store.result("cases", case.parent_case_id)
         if previous["case"]["conversation_id"] != case.conversation_id:
@@ -231,6 +234,20 @@ async def investigate(
             )
             for item in previous_candidates
         ]
+        retained = []
+        for candidate in candidates:
+            candidate_issues = narrative_issues(candidate.mechanism)
+            if candidate_issues:
+                quality_rejections.append(
+                    {
+                        "candidate": candidate.model_dump(),
+                        "reasons": candidate_issues,
+                        "source": "prior_case",
+                    }
+                )
+            else:
+                retained.append(candidate)
+        candidates = retained
     case_key = case_identity(case, previous)
     ledger = Ledger(store)
     if case.as_of:
@@ -371,6 +388,7 @@ async def investigate(
         if cancelled.is_set():
             raise asyncio.CancelledError()
         accepted_candidates = []
+        round_quality_rejections = []
         for candidate in proposal.hypotheses:
             from app.evidence.verification import screen_numeric_prose
 
@@ -384,6 +402,19 @@ async def investigate(
                 Ledger(store),
             )
             rank_hypotheses(case, [candidate])
+            candidate_issues = narrative_issues(candidate.mechanism)
+            if candidate_issues:
+                rejection = {
+                    "candidate": candidate.model_dump(),
+                    "reasons": candidate_issues,
+                    "source": "proposal",
+                }
+                round_quality_rejections.append(rejection)
+                quality_rejections.append(rejection)
+                proposal.unresolved.append(
+                    f"Candidate {candidate.id} was withheld because its mechanism text was incomplete or contained language drift."
+                )
+                continue
             corrected, checks = check_absence(
                 [candidate.mechanism, *candidate.assumptions], available, case.asset_id
             )
@@ -436,6 +467,11 @@ async def investigate(
                 ],
                 "merges": merge_records,
                 "proposals": [item.model_dump() for item in proposal.hypotheses],
+                "quality_rejections": (
+                    list(quality_rejections)
+                    if round_id == 0
+                    else round_quality_rejections
+                ),
                 "model_context_selection": model_context["selection"],
                 "model_reference_map": references,
                 "state_sha256": state,

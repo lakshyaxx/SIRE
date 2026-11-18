@@ -121,6 +121,43 @@ def test_actual_engine_abstains_without_forcing_candidate_count(store, monkeypat
     assert result.hypothesis_revisions[0]["candidates"] == []
 
 
+def test_language_script_drift_is_marked_incomplete():
+    from app.investigation import engine
+
+    case = Case(question="Test-only", conversation_id="test-only", evidence=[])
+    row = engine.rank_hypotheses(
+        case,
+        [candidate("a", "Progressive degradation of潤", [])],
+    )[0]
+    assert row["quality_status"] == "incomplete_text"
+    assert any("script drift" in issue for issue in row["narrative_issues"])
+
+
+def test_incomplete_proposal_is_withheld_with_original_trace(store, monkeypatch):
+    from app.investigation import engine
+
+    cid = store.create_conversation()["id"]
+    proposal = Proposal(
+        hypotheses=[candidate("unfinished", "Progressive degradation due to", [])],
+        follow_up_queries=[],
+        unresolved=[],
+    )
+    monkeypatch.setattr(engine.ollama, "generate", lambda *args: proposal)
+    result = asyncio.run(
+        investigate(
+            store,
+            Case(question="Test-only", conversation_id=cid, evidence=[]),
+            asyncio.Event(),
+        )
+    )
+    assert result.hypotheses == []
+    assert result.stop_reason == "insufficient_evidence"
+    assert "was withheld" in result.unresolved[0]
+    rejection = result.hypothesis_revisions[0]["quality_rejections"][0]
+    assert rejection["candidate"]["mechanism"] == "Progressive degradation due to"
+    assert rejection["reasons"]
+
+
 def test_revision_rechecks_prior_candidate_against_new_measured_contradiction(
     store, monkeypatch
 ):

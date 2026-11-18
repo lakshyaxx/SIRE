@@ -41,7 +41,15 @@ class Claim(BaseModel):
     window_start: datetime | None = None
     window_end: datetime | None = None
     statistic: (
-        Literal["baseline_mean", "recent_mean", "delta", "count", "rul_cycles"] | None
+        Literal[
+            "baseline_mean",
+            "recent_mean",
+            "delta",
+            "percent_delta",
+            "count",
+            "rul_cycles",
+        ]
+        | None
     ) = None
     asset_id: str | None = None
     channel: str | None = None
@@ -62,9 +70,7 @@ class Verification(BaseModel):
     status: VerificationStatus
     reason: str
     source_value: float | None = None
-    scope: str = (
-        "Source agreement only; source authenticity, physical cause and calibrated confidence remain unverified."
-    )
+    scope: str = "Source agreement only; source authenticity, physical cause and calibrated confidence remain unverified."
 
 
 def verify_claim(claim: Claim, ledger: Ledger) -> Verification:
@@ -168,7 +174,13 @@ def verify_claim(claim: Claim, ledger: Ledger) -> Verification:
             if claim.category == "derived_statistic" and claim.statistic == "count"
             else record.get("unit") or rows[0].get("unit")
         )
-        if claim.unit is None or claim.unit != unit:
+        percent_delta = (
+            claim.category == "derived_statistic" and claim.statistic == "percent_delta"
+        )
+        if claim.unit is None or (
+            claim.unit != unit
+            and not (percent_delta and claim.unit in {"%", "percent"})
+        ):
             return result(
                 "contradicted",
                 "Claim unit does not match the cited quantity; no implicit conversion",
@@ -215,9 +227,17 @@ def verify_claim(claim: Claim, ledger: Ledger) -> Verification:
                 for row in rows[-6:]
                 if row.get("quality", "good") == "good" and row.get("value") is not None
             ]
-            window = baseline if claim.statistic == "baseline_mean" else recent
             if not baseline or not recent:
                 continue
+            window = (
+                baseline
+                if claim.statistic == "baseline_mean"
+                else recent
+                if claim.statistic == "recent_mean"
+                else rows
+                if claim.statistic == "count"
+                else [baseline[0], recent[-1]]
+            )
             if claim.window_start is not None and utc(
                 claim.window_start.isoformat()
             ) != utc(window[0]["observed_at"]):
@@ -240,6 +260,10 @@ def verify_claim(claim: Claim, ledger: Ledger) -> Verification:
             statistics["delta"] = (
                 statistics["recent_mean"] - statistics["baseline_mean"]
             )
+            if statistics["baseline_mean"] != 0:
+                statistics["percent_delta"] = (
+                    statistics["delta"] / statistics["baseline_mean"] * 100
+                )
             if claim.statistic in statistics:
                 values.append(float(statistics[claim.statistic]))
     if not values:
@@ -284,23 +308,39 @@ def screen_numeric_prose(text: str, ledger: Ledger) -> list[dict]:
         for match in NUMBER_UNIT.finditer(line):
             prefix = line[max(0, match.start() - 60) : match.start()].lower()
             statistic = (
-                "baseline_mean"
-                if "baseline" in prefix
+                "percent_delta"
+                if match[2] in {"%", "percent"}
                 else (
-                    "delta"
-                    if "delta" in prefix
+                    "baseline_mean"
+                    if "baseline" in prefix
                     else (
-                        "recent_mean"
-                        if any(word in prefix for word in ["mean", "average", "recent"])
-                        else None
+                        "delta"
+                        if "delta" in prefix
+                        else (
+                            "recent_mean"
+                            if any(
+                                word in prefix for word in ["mean", "average", "recent"]
+                            )
+                            else None
+                        )
                     )
                 )
             )
+            claimed_value = float(match[1])
+            if (
+                statistic == "percent_delta"
+                and claimed_value > 0
+                and re.search(
+                    r"\b(?:decreas\w*|dropp?\w*|fell|fall\w*|reduc\w*|declin\w*)\b",
+                    prefix,
+                )
+            ):
+                claimed_value = -claimed_value
             claim = Claim(
                 category="derived_statistic" if statistic else "direct_observation",
                 source_ids=identifiers[:8],
                 text=line[:1600],
-                value=float(match[1]),
+                value=claimed_value,
                 unit=match[2],
                 statistic=statistic,
                 window_end=stamp[0] if stamp and statistic else None,
