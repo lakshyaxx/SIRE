@@ -1,0 +1,6 @@
+# Optional isolated ONNX inference core. Reuse the existing pinned NumPy/ML environment.
+# The setup script installs the reviewed wheels into .runtime/semantic_deps, never root .venv.
+onnxruntime==1.23.2
+tokenizers==0.22.1
+flatbuffers==25.9.23
+protobuf==6.33.0

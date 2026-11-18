@@ -60,6 +60,8 @@ class ToolSpec(BaseModel):
     source_provenance_policy: str = (
         "Resolvable input/output evidence IDs; interpretation is not measurement."
     )
+    provider_ids: list[str] = Field(default_factory=list)
+    cancellation: str = "request event propagated to adapter; cleanup on terminal paths"
 
 
 class Registry:
@@ -69,6 +71,7 @@ class Registry:
         self.tools: dict[
             str, tuple[ToolSpec, type[BaseModel], Callable[..., Awaitable[dict]]]
         ] = {}
+        self.output_types: dict[str, type[BaseModel]] = {}
 
     def register(
         self,
@@ -77,6 +80,7 @@ class Registry:
         adapter: Callable[..., Awaitable[dict]],
         input_types: list[str],
         timeout: float = 60,
+        output_type: type[BaseModel] | None = None,
     ) -> None:
         """Register exactly one actual adapter per stable capability ID."""
         if tool_id in self.tools:
@@ -87,10 +91,17 @@ class Registry:
                 input_schema=schema.model_json_schema(),
                 supported_input_types=input_types,
                 timeout_s=timeout,
+                output_schema=(
+                    output_type.model_json_schema()
+                    if output_type
+                    else {"type": "object"}
+                ),
             ),
             schema,
             adapter,
         )
+        if output_type:
+            self.output_types[tool_id] = output_type
 
 
 class Runner:
@@ -178,6 +189,15 @@ class Runner:
             raise SireError("unknown_tool", "Requested tool is not registered.")
         spec, schema, adapter = self.registry.tools[invocation.tool_id]
         args = schema.model_validate(invocation.arguments)
+        if getattr(args, "attachment_id", None) and getattr(
+            args, "conversation_id", None
+        ):
+            from app.evidence.integrity import read_verified
+
+            item = self.ledger.store.attachment(
+                args.attachment_id, args.conversation_id
+            )
+            await asyncio.to_thread(read_verified, item)
         key = digest(
             [
                 spec.tool_id,
@@ -191,6 +211,10 @@ class Runner:
             return {**self.cache[key], "cache_hit": True}
         async with self.span(spec.tool_id, self.plan.evidence_ids) as step:
             result = await run_cancellable(adapter(args), cancelled, spec.timeout_s)
+            if output_type := self.registry.output_types.get(spec.tool_id):
+                result = output_type.model_validate(result).model_dump(
+                    exclude_unset=True
+                )
             if cancelled.is_set():
                 raise asyncio.CancelledError()
             step["arguments_sha256"] = digest(args.model_dump())
@@ -199,13 +223,34 @@ class Runner:
                 result.get("analysis")
                 or result.get("prediction")
                 or result.get("transcript")
+                or result.get("audio")
+                or result.get("retrieval")
             )
+            cached = result.get(
+                "execution"
+            ) == "saved actual extraction; not rerun" or bool(
+                result.get("audio", {}).get("cache", {}).get("hit")
+            )
+            if cached:
+                step["status"] = "cached"
+            if provenance and provenance.get("provider") == "deterministic":
+                step["tool_provenance"] = provenance
+                provenance = None
             if provenance:
                 step["model_provenance"] = {
                     "provider": provenance.get("provider", "native_cpu"),
                     "model": provenance.get("model", provenance.get("model_id")),
                     "digest": provenance.get("model_digest")
+                    or provenance.get("fingerprint")
+                    or (
+                        digest(provenance["model_hashes"])
+                        if provenance.get("model_hashes")
+                        else None
+                    )
                     or provenance.get("provenance", {}).get("version"),
+                    "execution": (
+                        "reused actual saved result" if cached else "actual execution"
+                    ),
                 }
 
             self.cache[key] = result

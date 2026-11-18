@@ -8,6 +8,7 @@ import wave
 import time
 from app.media.runtime import DEPENDENCIES, MODELS, POLICY, model_files
 from app.core.errors import SireError
+from app.core.process_metrics import usage
 
 
 def pcm(content: bytes) -> tuple[int, object, float]:
@@ -34,11 +35,14 @@ def pcm(content: bytes) -> tuple[int, object, float]:
         return audio.getframerate(), samples, metadata["duration_seconds"]
 
 
-def transcribe(path: Path) -> dict:
+def transcribe(path: Path, profile: str = "asr") -> dict:
     """Return actual English Whisper output; no guessed token/word alignment timestamps."""
     import sherpa_onnx
 
-    paths = model_files("asr")
+    if profile not in {"asr", "asr_base"}:
+        raise SireError("asr_profile", "Unsupported local ASR profile.", 422)
+    paths = model_files(profile)
+    prefix = "base.en" if profile == "asr_base" else "tiny.en"
     format_metadata = {"container": "PCM WAV"}
     if path.suffix.lower() == ".wav":
         rate, samples, duration = pcm(path.read_bytes())
@@ -83,9 +87,9 @@ def transcribe(path: Path) -> dict:
             422,
         )
     recognizer = sherpa_onnx.OfflineRecognizer.from_whisper(
-        encoder=str(paths["tiny.en-encoder.int8.onnx"]),
-        decoder=str(paths["tiny.en-decoder.int8.onnx"]),
-        tokens=str(paths["tiny.en-tokens.txt"]),
+        encoder=str(paths[prefix + "-encoder.int8.onnx"]),
+        decoder=str(paths[prefix + "-decoder.int8.onnx"]),
+        tokens=str(paths[prefix + "-tokens.txt"]),
         num_threads=POLICY["threads"],
         provider="cpu",
         language="en",
@@ -107,7 +111,7 @@ def transcribe(path: Path) -> dict:
         "sample_rate": rate,
         "format": format_metadata,
         "language": "en",
-        "model": "whisper-tiny.en-int8",
+        "model": "whisper-" + prefix + "-int8",
         "provider": "sherpa-onnx-2.0.1",
         "source_type": "model_generated",
         "alignment": "whole_recording_window_only; word/segment alignment unavailable",
@@ -116,17 +120,30 @@ def transcribe(path: Path) -> dict:
             "Automatic transcription is unverified; review and edit before sending.",
             "English-only model; noise and technical terms can be misrecognized.",
         ],
-        "model_hashes": POLICY["models"]["asr"]["files"],
+        "model_hashes": POLICY["models"][profile]["files"],
+        "confidence": None,
+        "review_required": True,
+        "resources": usage(),
     }
 
 
-def synthesize(text: str, workspace: Path) -> dict:
+def synthesize(text: str, workspace: Path, voice_id: int = 0, speed: float = 1) -> dict:
     """Generate actual local WAV with a lexicon-only front end; no GPL phonemizer."""
     import numpy as np
     import sherpa_onnx
     from app.voice.text import spoken_text
 
     began = time.monotonic()
+    if (
+        not isinstance(voice_id, int)
+        or not 0 <= voice_id <= 255
+        or not 0.5 <= speed <= 2
+    ):
+        raise SireError(
+            "tts_voice_configuration",
+            "Choose a supported voice and bounded speed.",
+            422,
+        )
     paths = model_files("tts")
     normalized, warnings = spoken_text(text, paths["lexicon-en-us.txt"])
     config = sherpa_onnx.OfflineTtsConfig(
@@ -148,8 +165,14 @@ def synthesize(text: str, workspace: Path) -> dict:
         )
     initializing = time.monotonic()
     engine = sherpa_onnx.OfflineTts(config)
+    if voice_id >= engine.num_speakers:
+        raise SireError(
+            "tts_voice_unavailable",
+            "Requested voice is not present in this model.",
+            422,
+        )
     generating = time.monotonic()
-    speech = engine.generate(normalized, sid=0, speed=1.0)
+    speech = engine.generate(normalized, sid=voice_id, speed=speed)
     generated = time.monotonic()
     if not len(speech.samples) or not np.max(np.abs(speech.samples)):
         raise SireError("tts_empty", "Local TTS generated empty or silent audio.", 503)
@@ -171,6 +194,8 @@ def synthesize(text: str, workspace: Path) -> dict:
         "frames": len(speech.samples),
         "duration_seconds": len(speech.samples) / speech.sample_rate,
         "model": "kokoro-en-v0.19-int8",
+        "voice_id": voice_id,
+        "speed": speed,
         "provider": "sherpa-onnx-2.0.1",
         "spoken_text": normalized,
         "warnings": warnings,
@@ -182,6 +207,7 @@ def synthesize(text: str, workspace: Path) -> dict:
             "generation_seconds": generated - generating,
             "wav_write_seconds": time.monotonic() - generated,
         },
+        "resources": usage(),
     }
 
 
@@ -193,9 +219,17 @@ def main() -> None:
     workspace = Path(request["workspace"])
     try:
         if operation == "asr":
-            result = transcribe(Path(payload["path"]))
+            result = transcribe(
+                Path(payload["path"]),
+                payload.get("profile", POLICY.get("asr_default_profile", "asr")),
+            )
         elif operation == "tts":
-            result = synthesize(payload["text"], workspace)
+            result = synthesize(
+                payload["text"],
+                workspace,
+                payload.get("voice_id", 0),
+                payload.get("speed", 1),
+            )
         elif operation == "video":
             from app.media.video import sample_frames
 
@@ -212,12 +246,15 @@ def main() -> None:
                 if proof_path.is_file()
                 else {}
             )
-            proof[operation] = {
+            proof_key = (
+                payload.get("profile", POLICY.get("asr_default_profile", "asr"))
+                if operation == "asr"
+                else operation
+            )
+            proof[proof_key] = {
                 "timestamp_utc": now(),
                 "model_fingerprint": hashlib.sha256(
-                    json.dumps(
-                        POLICY["models"][operation]["files"], sort_keys=True
-                    ).encode()
+                    json.dumps(result["model_hashes"], sort_keys=True).encode()
                 ).hexdigest(),
                 "model": result["model"],
             }

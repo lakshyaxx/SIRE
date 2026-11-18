@@ -2,7 +2,7 @@ version: '4.5.1'
 history_turns: 6
 history_characters: 2400
 plain_output_tokens: 160
-social_pattern: '^(?:(?:hi|hey|hello|hiya|howdy)(?:\s+(?:sire|there|bro|buddy))?|good\s+(?:morning|afternoon|evening)|how are you(?: doing)?|(?:i want|i would like|i''d like) to (?:talk|chat)(?: to| with)?(?: you)?(?:[, ]+(?:give me (?:some )?answers|bro|buddy))*|are you there)[.!?\s]*$'
+social_pattern: '^(?:sire[,!\s]+)?(?:(?:hi|hey|hello|hiya|howdy)(?:[,!\s]+(?:sire|there|bro|buddy))?|good\s+(?:morning|afternoon|evening)|how are you(?: doing)?|(?:i want|i would like|i''d like) to (?:talk|chat)(?: to| with)?(?: you)?(?:[, ]+(?:give me (?:some )?answers|bro|buddy))*|are you there)[,.!?\s]*$'
 social_reply: "Hello! I'm here. What would you like to talk about?"
 engineering_pattern: '\b(?:measurements?|pressures?|temperatures?|vibrations?|failures?|damage|clearances?|sensors?|rul|bearings?|telemetry|measured|readings|calibration)\b'
 source_followup_pattern: '\b(?:document|manual|handbook|record|attached|uploaded|cite|citation|evidence|those|these|previous|earlier|above|that result|that reading|this reading)\b'

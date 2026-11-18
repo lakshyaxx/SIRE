@@ -91,3 +91,54 @@ def test_many_measurement_channels_cannot_crowd_out_an_independent_document():
     context, mapping = compact(rows, "Test-only question", budget=3500)
     assert "test-document" in mapping.values()
     assert context["selection"]["omitted_sources"] > 0
+
+
+def test_bounded_excerpts_preserve_both_short_conflicting_document_accounts():
+    """A long manual and many channels must leave room for the second account."""
+    rows = [
+        EvidenceItem(
+            id=f"test-channel-{n}",
+            source_id="test-csv",
+            kind="measurement",
+            modality="uploaded_measurements",
+            observation="Test-only long measurement context " * 80,
+        )
+        for n in range(12)
+    ]
+    rows.extend(
+        [
+            EvidenceItem(
+                id="test-manual",
+                source_id="test-manual",
+                kind="document_guidance",
+                modality="document",
+                observation="Test-only long manual context " * 80,
+            ),
+            *[
+                EvidenceItem(
+                    id=f"test-account-{n}",
+                    source_id="test-handover",
+                    kind="document_guidance",
+                    modality="document",
+                    observation=text,
+                )
+                for n, text in enumerate(
+                    [
+                        "Test-only account: maintenance was completed.",
+                        "Test-only account: maintenance was deferred.",
+                    ]
+                )
+            ],
+        ]
+    )
+    context, mapping = compact(
+        rows,
+        "Compare the conflicting maintenance accounts.",
+        budget=3500,
+        observation_characters=500,
+    )
+    assert {"test-account-0", "test-account-1"} <= set(mapping.values())
+    assert context["selection"]["excerpted_sources"]
+    assert all(
+        len(item["observation"]) <= 500 for item in context["untrusted_evidence"]
+    )

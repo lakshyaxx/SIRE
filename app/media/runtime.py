@@ -30,12 +30,14 @@ SPEECH_CACHE = SpeechCache(
 )
 
 
-def _speech_key(text: str) -> str:
+def _speech_key(text: str, voice_id: int = 0, speed: float = 1) -> str:
     """Bind cached actual WAV to exact input, pinned weights and synthesis/normalizer code."""
     data = {
         "text": text,
         "models": POLICY["models"]["tts"],
         "threads": POLICY["tts_threads"],
+        "voice_id": voice_id,
+        "speed": float(speed),
     }
     for name in ["app/media/worker.py", "app/voice/text.py"]:
         data[name] = hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
@@ -85,13 +87,16 @@ def readiness() -> dict:
     for kind in ["asr", "tts"]:
         present = (DEPENDENCIES / "sherpa_onnx").is_dir()
         try:
-            model_files(kind, verify=False)
+            profile = (
+                POLICY.get("asr_default_profile", "asr") if kind == "asr" else kind
+            )
+            model_files(profile, verify=False)
             result[kind + "_configured"] = present
             expected = hashlib.sha256(
-                json.dumps(POLICY["models"][kind]["files"], sort_keys=True).encode()
+                json.dumps(POLICY["models"][profile]["files"], sort_keys=True).encode()
             ).hexdigest()
             result[kind + "_ready"] = (
-                present and proof.get(kind, {}).get("model_fingerprint") == expected
+                present and proof.get(profile, {}).get("model_fingerprint") == expected
             )
         except SireError:
             continue
@@ -146,7 +151,14 @@ def run(
             503,
         )
     if operation != "video":
-        model_files(operation)
+        profile = (
+            payload.get("profile", POLICY.get("asr_default_profile", "asr"))
+            if operation == "asr"
+            else operation
+        )
+        if operation == "asr" and profile not in {"asr", "asr_base"}:
+            raise SireError("asr_profile", "Unsupported local ASR profile.", 422)
+        model_files(profile)
     event = cancel_event if cancel_event is not None else threading.Event()
     if event.is_set():
         raise SireError(
@@ -165,7 +177,13 @@ def run(
     temporary_directory = None
     cache_key = None
     try:
-        cache_key = _speech_key(payload["text"]) if operation == "tts" else None
+        cache_key = (
+            _speech_key(
+                payload["text"], payload.get("voice_id", 0), payload.get("speed", 1)
+            )
+            if operation == "tts"
+            else None
+        )
         if cache_key:
             cached = SPEECH_CACHE.get(cache_key)
             if cached is not None:
@@ -176,6 +194,11 @@ def run(
                 cached["elapsed_seconds"] = time.monotonic() - started
                 cached["phase_timings"] = {
                     "cache_request_seconds": cached["elapsed_seconds"]
+                }
+                cached["original_synthesis_resources"] = cached.pop("resources", {})
+                cached["resources"] = {
+                    "worker_started": False,
+                    "scope": "Cached request; original synthesis worker counters are retained separately.",
                 }
                 return cached
         grant = scheduler_stack.enter_context(

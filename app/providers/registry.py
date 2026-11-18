@@ -34,6 +34,15 @@ class ProviderDescriptor(BaseModel):
     measured_resources: dict | None = None
     benchmarks: list[dict] = Field(default_factory=list)
     fallback_provider: str | None = None
+    runtime_backend: str | None = None
+    hardware_compatibility: list[str] = Field(default_factory=list)
+    quantization: str | None = None
+    model_digest: str | None = None
+    cancellation_support: bool = True
+    warm_residency_seconds: int = 0
+    resource_scope: str = (
+        "Unmeasured fields remain null; installed weights do not establish peak working memory."
+    )
 
 
 def _contract(name: str) -> dict:
@@ -52,6 +61,8 @@ def providers() -> list[ProviderDescriptor]:
     except (SireError, httpx.HTTPError, ValueError):
         installed, version = [], None
     actual = {row["name"]: row for row in installed}
+    residency = resources()["ollama_residency"].get("models") or []
+    observed = {row["name"]: row for row in residency}
     declared = {}
     with httpx.Client(timeout=3, trust_env=False, verify=HTTP_TLS_CONTEXT) as client:
         for name in actual:
@@ -108,13 +119,35 @@ def providers() -> list[ProviderDescriptor]:
                     else SETTINGS["context_length"]
                 ),
                 weights_bytes=row["size"] if row else None,
+                runtime_backend="ollama",
+                hardware_compatibility=["cpu", "supported GPU backend when installed"],
+                quantization=(
+                    row.get("details", {}).get("quantization_level") if row else None
+                ),
+                model_digest=row.get("digest") if row else None,
+                warm_residency_seconds=SETTINGS["ollama_keep_alive_seconds"],
+                measured_resources=(
+                    {
+                        "model_vram_bytes": observed[name]["size_vram"],
+                        "resident_model_bytes": observed[name]["size"],
+                        "context_length": observed[name].get("context_length"),
+                        "scope": "Actual current Ollama /api/ps observation",
+                    }
+                    if name in observed
+                    else None
+                ),
             )
         )
     ready = runtime.readiness()
+    asr_profile = runtime.POLICY.get("asr_default_profile", "asr")
     for kind, model, license_name, contract, adapter in [
         (
             "asr",
-            "whisper-tiny.en-int8",
+            (
+                "whisper-base.en-int8"
+                if asr_profile == "asr_base"
+                else "whisper-tiny.en-int8"
+            ),
             "MIT",
             "Body_transcribe_api_v1_voice_transcribe_post",
             "app.voice.service.transcribe_bytes",
@@ -128,7 +161,9 @@ def providers() -> list[ProviderDescriptor]:
         ),
     ]:
         try:
-            paths = runtime.model_files(kind, verify=False)
+            paths = runtime.model_files(
+                asr_profile if kind == "asr" else kind, verify=False
+            )
         except SireError:
             paths = {}
         descriptors.append(
@@ -138,7 +173,12 @@ def providers() -> list[ProviderDescriptor]:
                 model=model,
                 capabilities=[kind],
                 location=(
-                    (runtime.MODELS / runtime.POLICY["models"][kind]["directory"])
+                    (
+                        runtime.MODELS
+                        / runtime.POLICY["models"][
+                            asr_profile if kind == "asr" else kind
+                        ]["directory"]
+                    )
                     .relative_to(ROOT)
                     .as_posix()
                     if runtime.MODELS.is_relative_to(ROOT)
@@ -167,14 +207,104 @@ def providers() -> list[ProviderDescriptor]:
                 weights_bytes=(
                     sum(p.stat().st_size for p in paths.values()) if paths else None
                 ),
+                runtime_backend="sherpa-onnx",
+                hardware_compatibility=["cpu"],
+                quantization="int8 (configured weights)",
+                streaming=(
+                    ["final VAD utterances via /voice/session"]
+                    if kind == "asr"
+                    else [
+                        "completed sentence WAV segments via /specialists/speech/stream"
+                    ]
+                ),
+            )
+        )
+    if asr_profile == "asr_base":
+        base = next(d for d in descriptors if d.id == "sherpa:asr")
+        try:
+            fallback = runtime.model_files("asr", False)
+        except SireError:
+            fallback = {}
+        descriptors.append(
+            base.model_copy(
+                update={
+                    "id": "sherpa:asr-tiny",
+                    "model": "whisper-tiny.en-int8",
+                    "location": ".runtime/media_models/whisper-tiny-en",
+                    "weights_bytes": (
+                        sum(p.stat().st_size for p in fallback.values())
+                        if fallback
+                        else None
+                    ),
+                    "health": "Preserved original model; request profile=asr explicitly. No silent substitution.",
+                    "availability": "configured" if fallback else "unavailable",
+                }
+            )
+        )
+        base.fallback_provider = "sherpa:asr-tiny"
+    from app.knowledge import embeddings
+
+    semantic = embeddings.readiness()
+    if semantic["configured"]:
+        descriptors.append(
+            ProviderDescriptor(
+                id="local:embeddings",
+                provider="onnxruntime",
+                model=semantic["model"],
+                version=semantic["revision"],
+                capabilities=["semantic_embedding"],
+                location=embeddings.POLICY["model_root"],
+                license=semantic["license"],
+                dependencies=["isolated onnxruntime/tokenizers", "existing NumPy"],
+                adapter="app.knowledge.embeddings.embed",
+                input_schema={"type": "array", "items": {"type": "string"}},
+                output_schema={
+                    "type": "object",
+                    "description": "384-dimensional normalized vectors with actual worker metrics",
+                },
+                availability="configured",
+                health=semantic["health"],
+                weights_bytes=sum(
+                    p.stat().st_size for p in embeddings.model_files(False).values()
+                ),
+                runtime_backend="ONNX Runtime CPU",
+                hardware_compatibility=["cpu"],
+                quantization="uint8",
+                model_digest=embeddings.fingerprint(),
             )
         )
     descriptors.extend(
         [
             ProviderDescriptor(
+                id="local:documents",
+                provider="deterministic",
+                model="bounded source parsers and numeric columns",
+                capabilities=["document_extraction", "table_statistics"],
+                location="local://attachments",
+                license="Repository code, Python standard library and BSD pypdf",
+                dependencies=["pypdf", "stdlib OOXML/CSV/JSON parsers"],
+                adapter="app.providers.specialists.register_specialists",
+                input_schema={
+                    "type": "object",
+                    "required": ["conversation_id", "attachment_id"],
+                },
+                output_schema={
+                    "type": "object",
+                    "description": "Exact source chunks and deterministic numeric statistics; see specialist contracts",
+                },
+                availability="configured",
+                health="Deterministic source parsing; image-only PDF OCR not configured",
+                runtime_backend="python",
+                hardware_compatibility=["cpu"],
+            ),
+            ProviderDescriptor(
                 id="local:retrieval",
                 provider="deterministic",
-                model="lexical source-filtered retrieval",
+                model=(
+                    "source-filtered lexical + local MiniLM"
+                    if semantic["configured"]
+                    else "lexical source-filtered retrieval"
+                ),
                 capabilities=["retrieval"],
                 location="local://sqlite/chunks",
                 license="Repository code and existing dependencies",
@@ -189,7 +319,13 @@ def providers() -> list[ProviderDescriptor]:
                     "description": "Exact excerpts with page/section locators",
                 },
                 availability="configured",
-                health="Semantic embeddings are optional and not configured by default",
+                health=(
+                    semantic["health"]
+                    if semantic["configured"]
+                    else "Lexical only; semantic model not configured"
+                ),
+                runtime_backend="sqlite lexical",
+                hardware_compatibility=["cpu"],
             ),
             ProviderDescriptor(
                 id="local:video",
@@ -209,6 +345,8 @@ def providers() -> list[ProviderDescriptor]:
                     "description": "Real frame bytes, decoder timestamps and hashes; no continuous-motion claim",
                 },
                 availability="configured" if ready["video_ready"] else "unavailable",
+                runtime_backend="OpenCV/FFmpeg",
+                hardware_compatibility=["cpu"],
                 health=(
                     "Configured decoder probe present"
                     if ready["video_ready"]
@@ -242,6 +380,8 @@ def providers() -> list[ProviderDescriptor]:
                     else "unavailable"
                 ),
                 health="Historical route verification: " + str(item["status"]),
+                runtime_backend="preserved native worker",
+                hardware_compatibility=["cpu"],
             )
         )
     for identifier, capability, model, license_name in [

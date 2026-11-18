@@ -66,7 +66,11 @@ class OllamaAdapter:
                 else (
                     SETTINGS["max_output_tokens"]
                     if profile == "detailed"
-                    else SETTINGS.get("conversation_output_tokens", 384)
+                    else (
+                        SETTINGS.get("evidence_output_tokens", 650)
+                        if profile == "evidence"
+                        else SETTINGS.get("conversation_output_tokens", 384)
+                    )
                 )
             )
         )

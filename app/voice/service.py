@@ -38,6 +38,7 @@ def transcribe_bytes(
     identifier: str | None = None,
     suffix: str = ".wav",
     cancel_event: Event | None = None,
+    profile: str | None = None,
 ) -> dict:
     """Transcribe real validated bytes without any hosted speech fallback."""
     validate_audio(content, suffix)
@@ -51,7 +52,17 @@ def transcribe_bytes(
             raise ValueError("Audio input leaves its private directory")
         source.write(content)
     try:
-        result = run("asr", {"path": str(path)}, identifier, cancel_event=cancel_event)
+        from app.media.runtime import POLICY
+
+        result = run(
+            "asr",
+            {
+                "path": str(path),
+                "profile": profile or POLICY.get("asr_default_profile", "asr"),
+            },
+            identifier,
+            cancel_event=cancel_event,
+        )
         return {**result, "original_sha256": hashlib.sha256(content).hexdigest()}
     finally:
         path.unlink(missing_ok=True)

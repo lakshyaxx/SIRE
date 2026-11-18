@@ -5,7 +5,7 @@ import base64
 import wave
 import pytest
 from starlette.websockets import WebSocketDisconnect
-from app.media.runtime import MODELS, DEPENDENCIES
+from app.media.runtime import MODELS, DEPENDENCIES, POLICY
 from app.voice.vad_process import VadProcess
 
 AVAILABLE = (MODELS / "silero-vad/silero_vad.onnx").is_file() and (
@@ -97,10 +97,42 @@ def test_real_voice_file_session_stores_scoped_audio_and_final_transcript(v2clie
         assert (
             transcript
             and transcript["text"].strip()
-            and transcript["model"] == "whisper-tiny.en-int8"
+            and transcript["model"]
+            == (
+                "whisper-base.en-int8"
+                if POLICY.get("asr_default_profile") == "asr_base"
+                else "whisper-tiny.en-int8"
+            )
         )
         item = store.attachment(transcript["attachment_id"], cid)
         assert item["metadata"]["transcript"]["text"] == transcript["text"]
+        import json
+
+        response = v2client.post(
+            "/api/v1/chat/message",
+            json={
+                "conversation_id": cid,
+                "content": "Transcribe this recording.",
+                "attachment_ids": [item["id"]],
+            },
+        )
+        events = [
+            json.loads(line[6:])
+            for line in response.text.splitlines()
+            if line.startswith("data: ")
+        ]
+        assert (
+            events[-1]["status"] == "complete"
+            and events[-1]["metadata"]["response_route"] == "direct_transcription"
+        )
+        assert all(
+            row["status"] == "cached" and row["tool_id"] == "audio.transcript"
+            for row in events[-1]["metadata"]["model_activity"]
+        )
+        assert (
+            events[-1]["metadata"]["provider"] == "deterministic_tools"
+            and "model" not in events[-1]["metadata"]
+        )
         with wave.open(item["path"], "rb") as recording:
             assert 0 < recording.getnframes() / recording.getframerate() <= 6.625
         socket.send_json({"op": "close"})
@@ -110,6 +142,6 @@ def test_real_voice_file_session_stores_scoped_audio_and_final_transcript(v2clie
         "SELECT * FROM v45_voice_sessions WHERE conversation_id=?", (cid,)
     )[0]
     assert session["status"] == "stopped"
-    assert not store.messages(
-        cid
-    )  # ASR is real evidence, not a fabricated assistant answer.
+    assert (
+        len(store.messages(cid)) == 2
+    )  # Only the explicit transcript request/reply, no automatic generated conversation.

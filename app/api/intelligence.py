@@ -512,9 +512,10 @@ def voice_capabilities() -> dict:
 
 
 @router.post("/voice/transcribe")
-async def transcribe(file: UploadFile = File(...)) -> dict:
+async def transcribe(
+    file: UploadFile = File(...), profile: Literal["asr", "asr_base"] | None = None
+) -> dict:
     """Transcribe actual bounded PCM with the configured local worker."""
-    from app.voice.capabilities import capabilities
     from app.voice.service import transcribe_bytes, validate_audio
     from pathlib import Path
 
@@ -523,13 +524,19 @@ async def transcribe(file: UploadFile = File(...)) -> dict:
         raise SireError("audio_too_large", "Audio exceeds the upload limit.", 413)
     suffix = Path(file.filename or "recording.wav").suffix.lower()
     validate_audio(content, suffix)
-    if not capabilities()["asr_configured"]:
+    from app.media.runtime import model_files, POLICY, DEPENDENCIES
+
+    selected_profile = profile or POLICY.get("asr_default_profile", "asr")
+    model_files(selected_profile, verify=False)
+    if not (DEPENDENCIES / "sherpa_onnx").is_dir():
         raise SireError(
             "asr_unavailable",
             "No configured local ASR runtime/model; type the question or run scripts/setup_media.py.",
             503,
         )
-    return await asyncio.to_thread(transcribe_bytes, content, None, suffix)
+    return await asyncio.to_thread(
+        transcribe_bytes, content, None, suffix, None, profile
+    )
 
 
 class SpeechRequest(BaseModel):

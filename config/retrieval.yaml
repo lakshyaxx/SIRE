@@ -1,0 +1,19 @@
+version: '1'
+mode: hybrid_if_configured
+model_root: .runtime/semantic_models/minilm-l6-v2
+dependencies: .runtime/semantic_deps
+model_id: sentence-transformers/all-MiniLM-L6-v2
+revision: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+license: Apache-2.0
+files:
+  onnx/model_quint8_avx2.onnx: b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21
+  tokenizer.json: be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037
+dimensions: 384
+threads: 2
+max_tokens: 256
+batch_size: 16
+max_index_chunks: 600
+timeout_seconds: 90
+minimum_similarity: 0.3
+max_results: 4
+source_name_weight: 2

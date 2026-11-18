@@ -1,0 +1,640 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-11-18T12:23:47+05:30",
+  "application_version": "4.6.0",
+  "status": "phase2_functional_integration_delivered_with_documented_quality_and_device_limits",
+  "blanket_diagnostic_acceptance": false,
+  "phase3_or_phase4_started": false,
+  "source_identity": "c79f4b97f155c90edc4f32a31840926c269d0ebcc9a33e0c6aade003ab30bde3",
+  "backend_tests": {
+    "passed": 313,
+    "warnings": 1,
+    "seconds": 165.01
+  },
+  "frontend_tests": {
+    "passed": 13,
+    "failed": 0,
+    "duration_ms": 940.6423
+  },
+  "frontend_build": {
+    "typescript": "pass",
+    "vite_modules": 646,
+    "seconds": 13.87,
+    "javascript_bytes": 801509,
+    "advisory": "Large chunk warning remains"
+  },
+  "static": {
+    "ruff": "pass",
+    "black_files_unchanged": 95,
+    "pip_check": "No broken requirements found."
+  },
+  "protection": {
+    "native_files": 813,
+    "frozen_files": 7956,
+    "frozen_mismatches": 0,
+    "original_bundles": 3,
+    "original_optional_files": 8,
+    "ollama_blobs": 20,
+    "production_tables_exact": 15,
+    "ollama_tags_unchanged": true
+  },
+  "benchmarks": {
+    "cold_text_seconds": 5.500063400000045,
+    "warm_text_seconds": 0.9985331000000315,
+    "cold_checked_first_text_seconds": 5.497977100000071,
+    "warm_checked_first_text_seconds": 0.9975842999999713,
+    "photo_pdf_csv_json_seconds": 29.863309000007575,
+    "video_sensor_seconds": 38.18641470000148,
+    "first_sentence_wav_seconds": 11.765376099996502,
+    "two_sentence_total_seconds": 21.75205619999906,
+    "cached_first_sentence_seconds": 0.23185670000384562,
+    "cached_two_sentence_seconds": 0.4199332999996841,
+    "semantic_first_repeat_seconds": [
+      1.3691732000006596,
+      1.3483010000054492
+    ],
+    "active_gpu_cancellation_seconds": 0.044662200001766905,
+    "greeting_during_heavy_seconds": [
+      0.09024550000322051,
+      0.07372240000404418
+    ]
+  },
+  "asr_small_public_reference_evaluation": {
+    "asr": {
+      "files": 4,
+      "reference_words": 59,
+      "word_edits": 30,
+      "wer": 0.5084745762711864,
+      "mean_seconds": 4.175855500001489
+    },
+    "asr_base": {
+      "files": 4,
+      "reference_words": 59,
+      "word_edits": 11,
+      "wer": 0.1864406779661017,
+      "mean_seconds": 4.85706570000184
+    }
+  },
+  "contradictory_handover_acceptance": {
+    "status": "complete",
+    "seconds": 17.5679075999999,
+    "post_response_quote_checks": {
+      "status": "pass",
+      "scope": "Two exact quoted operator statements match their actual cited document source; neither account is physically authenticated. No causal accuracy rate inferred.",
+      "verifications": {
+        "verifications": [
+          {
+            "claim": {
+              "category": "direct_observation",
+              "source_ids": [
+                "11a2eb3382e9acfc3618d6f9"
+              ],
+              "text": "filter replacement was deferred and outstanding at shift turnover.",
+              "value": null,
+              "unit": null,
+              "observed_at": null,
+              "as_of": null,
+              "window_start": null,
+              "window_end": null,
+              "statistic": null,
+              "asset_id": null,
+              "channel": null
+            },
+            "status": "supported_contextually",
+            "reason": "Exact document statement only; not proof that it applies to this asset",
+            "source_value": null,
+            "scope": "Source agreement only; source authenticity, physical cause and calibrated confidence remain unverified."
+          },
+          {
+            "claim": {
+              "category": "direct_observation",
+              "source_ids": [
+                "c3cd5fc837ba0f4b60126e92"
+              ],
+              "text": "lubrication pump was checked and filter was replaced after the morning alarm.",
+              "value": null,
+              "unit": null,
+              "observed_at": null,
+              "as_of": null,
+              "window_start": null,
+              "window_end": null,
+              "statistic": null,
+              "asset_id": null,
+              "channel": null
+            },
+            "status": "supported_contextually",
+            "reason": "Exact document statement only; not proof that it applies to this asset",
+            "source_value": null,
+            "scope": "Source agreement only; source authenticity, physical cause and calibrated confidence remain unverified."
+          }
+        ],
+        "scope": "Exact source agreement and conservative classification; no physical-truth or calibrated confidence claim."
+      },
+      "both_sources_in_model_context": true,
+      "actual_case_seconds": 17.5679075999999
+    }
+  },
+  "installation": {
+    "files": 11,
+    "asset_bytes": 200750848,
+    "root_environment_modified": false,
+    "new_models": [
+      "MiniLM-L6-v2 uint8 ONNX",
+      "Whisper base.en int8"
+    ],
+    "note": "Pinned asset bytes exclude metadata/license lookups. Original models retained."
+  },
+  "browser": {
+    "qa_functional_controls": [
+      "greeting",
+      "file_picker",
+      "ready_attachment",
+      "cited_pdf_response",
+      "source_inspector"
+    ],
+    "qa_status": "pass",
+    "production_final_ui": "Unverified: Computer Use security control could not determine browser URL; automation stopped. Main API/source/frontend-byte checks passed.",
+    "physical_microphone_speaker": "Unverified; Phase 4"
+  },
+  "specialists": [
+    {
+      "specialist": "Vision",
+      "status": "IMPLEMENTED / VERIFIED; quality PARTIAL",
+      "implemented": "Existing qwen3-vl:2b-instruct, real image + clean schematic + three-frame video calls",
+      "limitations": "Visible observations only; generated photos remain unverified; no hidden-fault proof or gauge accuracy benchmark."
+    },
+    {
+      "specialist": "ASR / VAD",
+      "status": "IMPLEMENTED / VERIFIED; quality PARTIAL",
+      "implemented": "Whisper base.en int8 default; original tiny.en explicit fallback; existing Silero final-utterance WebSocket",
+      "limitations": "Four public transcription references / 59 words; technical/noisy errors remain. Bounded 60s recordings; not unlimited long-form ASR."
+    },
+    {
+      "specialist": "TTS",
+      "status": "IMPLEMENTED / VERIFIED; quality PARTIAL",
+      "implemented": "Existing local Kokoro int8, real configurable voice/speed and completed-sentence WAV SSE",
+      "limitations": "Fresh synthesis slow. Subjective listening and first audible output unverified; no partial-waveform streaming claim."
+    },
+    {
+      "specialist": "Documents / tables",
+      "status": "IMPLEMENTED / VERIFIED; OCR PARTIAL",
+      "implemented": "PDF text, DOCX, XLSX, CSV, TXT, JSON extraction; code-computed statistics and source locators",
+      "limitations": "Scanned/image-only PDF returns explicit 422: no suitable OCR engine installed. Formulas excluded, no inferred units."
+    },
+    {
+      "specialist": "Video",
+      "status": "IMPLEMENTED / VERIFIED; continuous analysis DEFERRED",
+      "implemented": "Existing OpenCV decoder + same vision specialist, max three timestamped frames",
+      "limitations": "Sparse sampled frames cannot establish continuous events; optional audio-track ASR not added."
+    },
+    {
+      "specialist": "Retrieval",
+      "status": "IMPLEMENTED / VERIFIED; relevance quality PARTIAL",
+      "implemented": "Persistent case-isolated MiniLM uint8 CPU vectors + exact lexical/hybrid search",
+      "limitations": "Heuristic similarity threshold; bounded index/chunks; relevance is not semantic entailment or physical truth."
+    },
+    {
+      "specialist": "NASA prediction",
+      "status": "IMPLEMENTED / VERIFIED",
+      "implemented": "All 12 selected FD001–FD004 LightGBM / validated ensemble / BiLSTM paths, genuine saved histories",
+      "limitations": "Compatibility validation enforced; original research and all other catalog routes preserved, not all rebenchmarked."
+    }
+  ],
+  "acceptance": [
+    {
+      "id": 1,
+      "test": "Ordinary greeting",
+      "status": "VERIFIED",
+      "proof": "stage_c_retest.json",
+      "scope": "Addressed greetings 0 model calls; initial failure retained and fixed."
+    },
+    {
+      "id": 2,
+      "test": "Documented SIRE capabilities",
+      "status": "VERIFIED",
+      "proof": "stage_c/results.json",
+      "scope": "Actual capability manifest; no invented self-description."
+    },
+    {
+      "id": 3,
+      "test": "Image-only inspection",
+      "status": "VERIFIED / quality PARTIAL",
+      "proof": "stage_c_retest.json; final_controls.json",
+      "scope": "Photo / schematic distinction, original source IDs; visual interpretation unverified."
+    },
+    {
+      "id": 4,
+      "test": "PDF maintenance analysis",
+      "status": "VERIFIED / scanned OCR unavailable",
+      "proof": "stage_c/results.json; browser_acceptance.json",
+      "scope": "Text extraction and real cited browser response; no scanned-text substitute."
+    },
+    {
+      "id": 5,
+      "test": "CSV statistics",
+      "status": "VERIFIED",
+      "proof": "stage_c/results.json; claim_controls.json",
+      "scope": "Code-computed values and source-row identities."
+    },
+    {
+      "id": 6,
+      "test": "XLSX interpretation",
+      "status": "VERIFIED",
+      "proof": "stage_c/results.json",
+      "scope": "Numeric column statistics with sheet/cell locators; formulas excluded."
+    },
+    {
+      "id": 7,
+      "test": "Short speech transcription",
+      "status": "VERIFIED",
+      "proof": "stage_d_results.json",
+      "scope": "Actual original WAV and model identity; input provenance."
+    },
+    {
+      "id": 8,
+      "test": "Industrial speech",
+      "status": "VERIFIED execution / quality PARTIAL",
+      "proof": "asr_comparison.json; asr_evaluation.json",
+      "scope": "Actual tiny/base comparison; small post-response public transcription-reference evaluation."
+    },
+    {
+      "id": 9,
+      "test": "New speech synthesis",
+      "status": "VERIFIED / listening unverified",
+      "proof": "stage_d_results.json",
+      "scope": "Actual WAV hashes/frames, first completed segment and total latency; no fake audio."
+    },
+    {
+      "id": 10,
+      "test": "Industrial video",
+      "status": "VERIFIED / continuous analysis DEFERRED",
+      "proof": "stage_c/results.json",
+      "scope": "Real decoder frames with timestamps; three bounded child vision calls."
+    },
+    {
+      "id": 11,
+      "test": "Multiple-document retrieval",
+      "status": "VERIFIED",
+      "proof": "multidoc.json",
+      "scope": "Three actual documents, hybrid concepts and exact PUMP-001 retrieval; historical cutoff yields zero future passages."
+    },
+    {
+      "id": 12,
+      "test": "Duplicate measurements",
+      "status": "VERIFIED",
+      "proof": "stage_e/results.json; claim_controls.json",
+      "scope": "Equivalent CSV/JSON source rows retain one measurement origin, not independent corroboration."
+    },
+    {
+      "id": 13,
+      "test": "Contradictory sensor/document evidence",
+      "status": "VERIFIED numeric controls and two quoted accounts / broad quality PARTIAL",
+      "proof": "claim_controls.json; multidoc.json; contradiction_acceptance.json; conflict_quote_verification.json",
+      "scope": "Wrong value/unit contradicted; wrong asset and future source withheld. Real final answer cites both opposing accounts; both exact quotes independently match original document excerpts. Neither account is physically authenticated."
+    },
+    {
+      "id": 14,
+      "test": "Photo + PDF + CSV investigation",
+      "status": "VERIFIED execution / cause quality PARTIAL",
+      "proof": "stage_e/results.json",
+      "scope": "Complete actual job including equivalent JSON duplicate; source identity retained."
+    },
+    {
+      "id": 15,
+      "test": "Video + sensor investigation",
+      "status": "VERIFIED execution / cause quality PARTIAL",
+      "proof": "stage_e/results.json",
+      "scope": "Complete actual job with original frame and sensor identities."
+    },
+    {
+      "id": 16,
+      "test": "Saved RUL predictions",
+      "status": "VERIFIED",
+      "proof": "stage_c/results.json",
+      "scope": "Twelve selected primary pathways; no synthetic oil-rig rows sent to NASA models."
+    },
+    {
+      "id": 17,
+      "test": "Malformed/unsupported files",
+      "status": "VERIFIED",
+      "proof": "final_controls.json",
+      "scope": "Invalid and image-only PDF explicitly 422; no fabricated extraction."
+    },
+    {
+      "id": 18,
+      "test": "Model outage",
+      "status": "VERIFIED",
+      "proof": "final_controls.json; offline/results.json",
+      "scope": "Actual nonexistent tag and refused local endpoint; no substituted model response."
+    },
+    {
+      "id": 19,
+      "test": "Offline operation",
+      "status": "VERIFIED within process guard",
+      "proof": "offline/results.json",
+      "scope": "External Python sockets/DNS denied; real local Qwen, embeddings and native prediction work. Not an OS-wide air-gap claim."
+    },
+    {
+      "id": 20,
+      "test": "Active model cancellation",
+      "status": "VERIFIED",
+      "proof": "final_controls.json",
+      "scope": "Observed active GPU-resident vision request cancelled; lease released."
+    },
+    {
+      "id": 21,
+      "test": "Cold/warm repetition",
+      "status": "VERIFIED",
+      "proof": "final_performance.json",
+      "scope": "Actual unloaded residency then resident repeat; OS caches not flushed."
+    },
+    {
+      "id": 22,
+      "test": "Fast conversation during deep work",
+      "status": "VERIFIED",
+      "proof": "stage_e/results.json",
+      "scope": "Same-case greetings while scheduler was actually busy; no LLM."
+    }
+  ],
+  "worker_resource_observations": [
+    {
+      "proof_path": "stage_d_results.json/semantic/0/result/output/passages/0/retrieval/provider_metrics/resources",
+      "process_id": 51476,
+      "cpu_seconds": 0.90625,
+      "peak_rss_bytes": 104243200,
+      "scope": "Observed worker process lifetime CPU time and peak resident memory, including imports/model initialization."
+    },
+    {
+      "proof_path": "stage_d_results.json/semantic/0/result/output/retrieval/provider_metrics/resources",
+      "process_id": 51476,
+      "cpu_seconds": 0.90625,
+      "peak_rss_bytes": 104243200,
+      "scope": "Observed worker process lifetime CPU time and peak resident memory, including imports/model initialization."
+    },
+    {
+      "proof_path": "stage_d_results.json/semantic/1/result/output/passages/0/retrieval/provider_metrics/resources",
+      "process_id": 52468,
+      "cpu_seconds": 0.828125,
+      "peak_rss_bytes": 104259584,
+      "scope": "Observed worker process lifetime CPU time and peak resident memory, including imports/model initialization."
+    },
+    {
+      "proof_path": "stage_d_results.json/semantic/1/result/output/retrieval/provider_metrics/resources",
+      "process_id": 52468,
+      "cpu_seconds": 0.828125,
+      "peak_rss_bytes": 104259584,
+      "scope": "Observed worker process lifetime CPU time and peak resident memory, including imports/model initialization."
+    },
+    {
+      "proof_path": "stage_d_results.json/asr/0/result/resources",
+      "process_id": 39368,
+      "cpu_seconds": 5.203125,
+      "peak_rss_bytes": 483106816,
+      "scope": "Observed worker process lifetime CPU time and peak resident memory, including imports/model initialization."
+    },
+    {
+      "proof_path": "stage_d_results.json/asr/1/result/resources",
+      "process_id": 39696,
+      "cpu_seconds": 3.984375,
+      "peak_rss_bytes": 345710592,
+      "scope": "Observed worker process lifetime CPU time and peak resident memory, including imports/model initialization."
+    },
+    {
+      "proof_path": "stage_d_results.json/speech_stream/0/events/1/audio/resources",
+      "process_id": 49396,
+      "cpu_seconds": 21.78125,
+      "peak_rss_bytes": 453492736,
+      "scope": "Observed worker process lifetime CPU time and peak resident memory, including imports/model initialization."
+    },
+    {
+      "proof_path": "stage_d_results.json/speech_stream/0/events/2/audio/resources",
+      "process_id": 53328,
+      "cpu_seconds": 17.75,
+      "peak_rss_bytes": 434110464,
+      "scope": "Observed worker process lifetime CPU time and peak resident memory, including imports/model initialization."
+    },
+    {
+      "proof_path": "stage_d_results.json/speech_stream/1/events/1/audio/resources",
+      "process_id": 49396,
+      "cpu_seconds": 21.78125,
+      "peak_rss_bytes": 453492736,
+      "scope": "Observed worker process lifetime CPU time and peak resident memory, including imports/model initialization."
+    },
+    {
+      "proof_path": "stage_d_results.json/speech_stream/1/events/2/audio/resources",
+      "process_id": 53328,
+      "cpu_seconds": 17.75,
+      "peak_rss_bytes": 434110464,
+      "scope": "Observed worker process lifetime CPU time and peak resident memory, including imports/model initialization."
+    },
+    {
+      "proof_path": "stage_d_results.json/resources/scheduler/recent/1/provider_metrics/resources",
+      "process_id": 51476,
+      "cpu_seconds": 0.90625,
+      "peak_rss_bytes": 104243200,
+      "scope": "Observed worker process lifetime CPU time and peak resident memory, including imports/model initialization."
+    },
+    {
+      "proof_path": "stage_d_results.json/resources/scheduler/recent/2/provider_metrics/resources",
+      "process_id": 52468,
+      "cpu_seconds": 0.828125,
+      "peak_rss_bytes": 104259584,
+      "scope": "Observed worker process lifetime CPU time and peak resident memory, including imports/model initialization."
+    }
+  ],
+  "proof_receipts": [
+    {
+      "path": ".runtime/phase2_20261118/baseline.json",
+      "bytes": 360385,
+      "sha256": "7f00017c9a599283f41414786622f146a7279edd11eab204f9cd83bc4412bf1e"
+    },
+    {
+      "path": ".runtime/phase2_20261118/preservation.json",
+      "bytes": 11044,
+      "sha256": "abcda4e3e479b63083ec79df369b8534de369d4488dfd8fee9bd5ba6b457f97d"
+    },
+    {
+      "path": ".runtime/phase2_20261118/main_cutover.json",
+      "bytes": 500935,
+      "sha256": "1fe7a39d9d88a01d505d7e33555114033f0d50a823f854c420f896d1bdc4bd29"
+    },
+    {
+      "path": ".runtime/phase2_20261118/resume_runtime.json",
+      "bytes": 2766,
+      "sha256": "c23d0e92f664623997d376596fa27239d5123349885712e08afdbfa6b45685f8"
+    },
+    {
+      "path": ".runtime/phase2_20261118/pytest_final.log",
+      "bytes": 2074,
+      "sha256": "a7256176e4183be678f5be405bee7446206fa53c8a617dd5ec4c405a142eda7e"
+    },
+    {
+      "path": ".runtime/phase2_20261118/stage_c/results.json",
+      "bytes": 2054304,
+      "sha256": "51551bec2a4e9ab7067c333ce5d837b86a53fc22161467ecd53c7b0728ca0269"
+    },
+    {
+      "path": ".runtime/phase2_20261118/stage_c_retest.json",
+      "bytes": 9384,
+      "sha256": "6a1626cf78834eb12013bdec66f6ccfa81deb1c542750d2c1135c864bd1e4fba"
+    },
+    {
+      "path": ".runtime/phase2_20261118/stage_d_results.json",
+      "bytes": 554645,
+      "sha256": "ad3e647e36ee4b1bf9bb535e2f16317955ca316bf71cd4e6b12feaddc4dc1edf"
+    },
+    {
+      "path": ".runtime/phase2_20261118/stage_e/results.json",
+      "bytes": 5623491,
+      "sha256": "470791e68ce4941601d544bcc071b310bc1ac02b8cb4d3e7b141a99514fffd32"
+    },
+    {
+      "path": ".runtime/phase2_20261118/asr_comparison.json",
+      "bytes": 17768,
+      "sha256": "d64ccef32a87f11a80c1c12df69865ae0145ad6d9d8b4b853d5d810a96db6231"
+    },
+    {
+      "path": ".runtime/phase2_20261118/asr_evaluation.json",
+      "bytes": 3039,
+      "sha256": "82b03e90a7454242d435ecc0bd4e68558ffcceb56277f52ec707b1a380d677b3"
+    },
+    {
+      "path": ".runtime/phase2_20261118/claim_controls.json",
+      "bytes": 6426,
+      "sha256": "46f553de718548b809c4b8d72e1e979cb744ac647d261ee097047fbfe85d4b33"
+    },
+    {
+      "path": ".runtime/phase2_20261118/final_controls.json",
+      "bytes": 16260,
+      "sha256": "b42f1b24fa647ae5392b614039c4054597e2d2cadb490e5e82d86773f2db7afa"
+    },
+    {
+      "path": ".runtime/phase2_20261118/final_controls_first_attempt.json",
+      "bytes": 946,
+      "sha256": "ec57ddc1cbfa8197bdcabcf3d893e8e0b08747b50273910ac237655653fb6125"
+    },
+    {
+      "path": ".runtime/phase2_20261118/control_failure_history.json",
+      "bytes": 13128,
+      "sha256": "bb67bf17f965a2d7e13cf58376f11573f8ddf68a9ef29eba9aaba43770e522c7"
+    },
+    {
+      "path": ".runtime/phase2_20261118/final_performance.json",
+      "bytes": 11779,
+      "sha256": "495cae929ac5d0f4f0a13eee752b2db81bfcd3eb1dbfa8965292f84d80170750"
+    },
+    {
+      "path": ".runtime/phase2_20261118/multidoc.json",
+      "bytes": 15003,
+      "sha256": "e21b6abeb50174f36cc649ca65f4ef036e0ffb89f4fac9e4c97634887de591bc"
+    },
+    {
+      "path": ".runtime/phase2_20261118/offline/results.json",
+      "bytes": 14863,
+      "sha256": "b39b2dfbada97a74e638ba22f2eef9ca1b2adabed1cfdb0aa4bf664b1be5651c"
+    },
+    {
+      "path": ".runtime/phase2_20261118/browser_acceptance.json",
+      "bytes": 15852,
+      "sha256": "1339ae9ef6763e05db96af25a4a6ea60140e215dce45dd4871498074d5f0861d"
+    },
+    {
+      "path": ".runtime/phase2_20261118/candidate_provision.json",
+      "bytes": 5780,
+      "sha256": "9339eabb180111226d03811fedf1c72f6a351c60e4eac7380b3df874a21dea7f"
+    },
+    {
+      "path": ".runtime/phase2_20261118/candidate_download_progress.json",
+      "bytes": 5155,
+      "sha256": "d07cfecf4b54add81947dfebd8dbc88171fa7ebaf0c3365cccd018e2252d9ec2"
+    },
+    {
+      "path": ".runtime/phase2_20261118/contradiction_acceptance.json",
+      "bytes": 1546431,
+      "sha256": "da392aeab71515fe922dc801de3fc0cc81bb5657cbbcbf0701989505d226f938"
+    },
+    {
+      "path": ".runtime/phase2_20261118/contradiction_acceptance_first_attempt.json",
+      "bytes": 1540495,
+      "sha256": "8bdaecd798b50d116d81e2d57d529ac41055110bf5cd6e5d34efc8785b7d0dba"
+    },
+    {
+      "path": ".runtime/phase2_20261118/contradiction_acceptance_context_only.json",
+      "bytes": 1545666,
+      "sha256": "05a04f10ad0f93d3c9ddbaa7734d5ec855d7b444b386898cf17f1fb94815c7f7"
+    },
+    {
+      "path": ".runtime/phase2_20261118/conflict_quote_verification.json",
+      "bytes": 2111,
+      "sha256": "6fe99c668298d0b6b1d3e744cbaa28e90b6c9aa23b968716522365cc577accc5"
+    },
+    {
+      "path": ".runtime/phase2_20261118/pytest_release.log",
+      "bytes": 2074,
+      "sha256": "eebfe9d6d204f60b9d181c05cd7c717574402fbd4a6ba71b8cefea02e1b2c5ad"
+    }
+  ],
+  "final_release_audit": {
+    "status": "pass",
+    "required_docs": 10,
+    "proof_receipts_verified": 26,
+    "acceptance_categories": 22,
+    "api_example_validated": true,
+    "production_comparisons": {
+      "production_before.sqlite3": {
+        "schema_version": true,
+        "conversations": true,
+        "messages": true,
+        "attachments": true,
+        "chunks": true,
+        "cases": true,
+        "predictions": true,
+        "v3_sources": true,
+        "v3_evidence": true,
+        "v3_runs": true,
+        "v3_cases": true,
+        "v3_reports": true,
+        "v3_annotations": true,
+        "v45_jobs": true,
+        "v45_voice_sessions": true
+      },
+      "production_pre_final.sqlite3": {
+        "schema_version": true,
+        "conversations": true,
+        "messages": true,
+        "attachments": true,
+        "chunks": true,
+        "cases": true,
+        "predictions": true,
+        "v3_sources": true,
+        "v3_evidence": true,
+        "v3_runs": true,
+        "v3_cases": true,
+        "v3_reports": true,
+        "v3_annotations": true,
+        "v45_jobs": true,
+        "v45_voice_sessions": true
+      }
+    },
+    "source_identity": "c79f4b97f155c90edc4f32a31840926c269d0ebcc9a33e0c6aade003ab30bde3",
+    "health": {
+      "status": "ok",
+      "contract_version": "2.0",
+      "application_version": "4.6.0",
+      "loaded_source_sha256": "c79f4b97f155c90edc4f32a31840926c269d0ebcc9a33e0c6aade003ab30bde3",
+      "ml_ready": true,
+      "ollama_ready": true,
+      "text_ready": true,
+      "vision_ready": true,
+      "models": [
+        "qwen3:4b-instruct",
+        "qwen3-vl:2b-instruct",
+        "qwen3-vl:2b",
+        "qwen3:4b"
+      ],
+      "mode": "local",
+      "hosted_providers": "disabled"
+    },
+    "scope": "Read-only final API/source/docs/proof-hash and exact production-row comparison; original full model/frozen hash audit retained separately."
+  }
+}

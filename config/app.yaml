@@ -16,6 +16,7 @@ vision_model: qwen3-vl:2b-instruct
 llm_timeout_seconds: 150
 max_output_tokens: 1200
 conversation_output_tokens: 384
+evidence_output_tokens: 650
 voice_output_tokens: 180
 context_length: 4096
 vision_context_length: 4096
@@ -41,6 +42,7 @@ max_import_bytes: 250000000
 max_visual_calls_per_turn: 3
 
 model_context_characters: 5000
+model_source_excerpt_characters: 500
 measurement_channel_aliases:
   flow: [flow rate]
   ambient_temp: [ambient temperature, ambient temperature delta]

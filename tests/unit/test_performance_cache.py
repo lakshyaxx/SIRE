@@ -39,6 +39,8 @@ def test_oversized_audio_not_cached_and_invalid_bounds_rejected():
 def test_cache_key_changes_with_input_or_synthesis_policy(monkeypatch):
     key = runtime._speech_key("test-only text")
     assert key != runtime._speech_key("different text")
+    assert key != runtime._speech_key("test-only text", voice_id=1)
+    assert key != runtime._speech_key("test-only text", speed=1.2)
     monkeypatch.setitem(
         runtime.POLICY, "tts_threads", runtime.POLICY["tts_threads"] + 1
     )
@@ -71,6 +73,25 @@ def test_reused_trust_context_keeps_certificate_and_hostname_verification():
     assert HTTP_TLS_CONTEXT.verify_mode == ssl.CERT_REQUIRED
     assert HTTP_TLS_CONTEXT.check_hostname
     assert HTTP_TLS_CONTEXT.get_ca_certs()
+
+
+def test_evidence_output_budget_is_scoped_without_expanding_plain_conversation():
+    """External-source comparison has room to finish without slowing harmless chat."""
+    from app.core.config import SETTINGS
+
+    provider = OllamaAdapter()
+    assert (
+        provider.for_profile("evidence").text_budget
+        == SETTINGS["evidence_output_tokens"]
+    )
+    assert (
+        provider.for_profile("conversation").text_budget
+        == SETTINGS["conversation_output_tokens"]
+    )
+    assert (
+        provider.for_profile("plain").text_budget
+        < provider.for_profile("evidence").text_budget
+    )
 
 
 def test_model_discovery_does_not_block_the_async_request_loop(monkeypatch):

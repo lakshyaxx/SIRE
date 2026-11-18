@@ -115,6 +115,16 @@ class ChatService:
             and not facility_case_id
             else None
         )
+        from app.orchestration.planner import transcription_plan
+
+        transcript_plan = (
+            transcription_plan(content, selected, conversation_id)
+            if mode == "chat"
+            and not context
+            and not prediction_id
+            and not facility_case_id
+            else None
+        )
         workspace_plan = plan_workspace(content, context, mode == "investigate")
         export_plan = (
             saved_report_plan(content, self.store, conversation_id)
@@ -182,6 +192,7 @@ class ChatService:
             or recall_plan
             or workspace_plan
             or export_plan
+            or transcript_plan
             or (
                 Plan(
                     intent="fast_conversation",
@@ -288,6 +299,48 @@ class ChatService:
                         "type": "delta",
                         "text": output,
                         "source": metadata["validation_profile"],
+                    }
+                elif transcript_plan:
+                    orchestration.registry = build_registry(
+                        self.store, self.provider, cancelled
+                    )
+                    pieces = []
+                    provenance = []
+                    for invocation in transcript_plan.tools:
+                        value = await orchestration.execute(invocation, cancelled)
+                        transcript = value["transcript"]
+                        pieces.append(
+                            "Automatic transcript (unverified):\n\n"
+                            + transcript["text"]
+                        )
+                        provenance.append(
+                            {
+                                "attachment_id": invocation.arguments["attachment_id"],
+                                "model": transcript["model"],
+                                "provider": transcript["provider"],
+                                "review_required": True,
+                            }
+                        )
+                        metadata["tools"].append(
+                            {
+                                "tool": "audio.transcript",
+                                "status": "complete",
+                                "execution": "saved actual extraction; not rerun",
+                            }
+                        )
+                    metadata["input_provenance"] = {
+                        "kind": "transcription_request",
+                        "transcripts": provenance,
+                        "scope": "User input, not independent evidence supporting assistant claims",
+                    }
+                    metadata["response_route"] = "direct_transcription"
+                    metadata["validation_profile"] = "automatic_input_transcript"
+                    output = "\n\n".join(pieces)
+                    yield {"type": "evidence", "evidence": []}
+                    yield {
+                        "type": "delta",
+                        "text": output,
+                        "source": "saved_automatic_transcript",
                     }
                 elif status_plan:
                     orchestration.registry = build_registry(
@@ -731,7 +784,8 @@ class ChatService:
                                 "knowledge.retrieve",
                                 [a["id"] for a in documents],
                             ) as step:
-                                passages = search(
+                                passages = await asyncio.to_thread(
+                                    search,
                                     self.store,
                                     conversation_id,
                                     content,
@@ -859,6 +913,12 @@ class ChatService:
                             output += "## Investigation\n\n" + "\n\n".join(
                                 f"**{h['mechanism']}**\n\nStatus: {h['status']}; evidence support: {h['evidence_support']}.\n\nNext checks: "
                                 + "; ".join(h["missing_tests"])
+                                + (
+                                    "\n\nNarrative review: "
+                                    + "; ".join(h["narrative_issues"])
+                                    if h.get("narrative_issues")
+                                    else ""
+                                )
                                 for h in report.hypotheses
                             )
                             if not report.hypotheses:
@@ -965,6 +1025,9 @@ class ChatService:
                                 evidence,
                                 content or "Describe the attached evidence.",
                                 SETTINGS.get("model_context_characters", 10000),
+                                observation_characters=SETTINGS.get(
+                                    "model_source_excerpt_characters", 500
+                                ),
                             )
                             model_context.update(
                                 historical_boundary=(
@@ -1025,9 +1088,13 @@ class ChatService:
                                             re.I,
                                         )
                                         else (
-                                            "conversation"
-                                            if validate_sources
-                                            else "plain"
+                                            "evidence"
+                                            if evidence or historical_ids
+                                            else (
+                                                "conversation"
+                                                if validate_sources
+                                                else "plain"
+                                            )
                                         )
                                     )
                                 )
@@ -1035,6 +1102,10 @@ class ChatService:
                                 messages[0][
                                     "content"
                                 ] += " This is an interactive voice turn. Give at most two short sentences. Keep citations and necessary qualifications in text; do not recite opaque source identifiers. Do not invent a finding to sound fast."
+                            if profiles:
+                                messages[0][
+                                    "content"
+                                ] += " Exact measurement statistics have already been displayed by code. Do not repeat their table or enumerate its figures. Answer the current question concisely using the supplied sources; measurements alone do not establish whether maintenance work was completed."
                             native_result = (
                                 self.store.result("predictions", prediction_id)
                                 if prediction_id
@@ -1204,7 +1275,7 @@ class ChatService:
                 for step in orchestration.trace["steps"]
                 if step.get("model_provenance")
             ]
-            if not metadata["model_activity"]:
+            if not any(row["status"] != "cached" for row in metadata["model_activity"]):
                 metadata.pop("model", None)
                 metadata["provider"] = "deterministic_tools"
             if status == "complete" and (

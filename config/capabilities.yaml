@@ -1,4 +1,4 @@
-version: '4.5.1'
+version: '4.6.0'
 name: SIRE
 overview: >-
   SIRE is a local industrial engineering assistant for investigating why machine
@@ -7,6 +7,10 @@ overview: >-
   image interpretation with competing hypotheses. Its separate prediction tools
   run preserved models on compatible NASA C-MAPSS engine histories. It also has
   local English speech input and output. Availability depends on installed local providers.
+  Its unified specialist interfaces expose deterministic document and spreadsheet
+  extraction, numeric summaries, case-isolated local semantic retrieval when installed,
+  and inspection of bounded timestamped video frames. Speech input uses final
+  VAD utterances; speech output can deliver completed sentence WAV segments.
 hypotheses: >-
   SIRE proposes alternative mechanisms from the supplied evidence, merges explicit
   duplicate identities, and retains candidates in a case registry. It compares

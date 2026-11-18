@@ -3,10 +3,13 @@ optional_dependencies: .runtime/optional_deps
 model_root: .runtime/media_models
 timeout_seconds: 120
 threads: 2
+asr_default_profile: asr_base
 tts_threads: 4
 tts_cache_entries: 8
 tts_cache_bytes: 8000000
 tts_cache_ttl_seconds: 300
+tts_chunk_characters: 160
+max_tts_chunks: 10
 max_audio_seconds: 60
 max_video_seconds: 60
 max_video_frames: 3
@@ -14,6 +17,12 @@ max_decoded_frames: 3600
 max_frame_pixels: 4000000
 max_tts_characters: 1200
 models:
+  asr_base:
+    directory: whisper-base.en
+    files:
+      base.en-encoder.int8.onnx: ef6b936f4c9b1d90a3b68634b60c4ed8576b26172b33c2535ec0e933c9edb823
+      base.en-decoder.int8.onnx: f7162ad6db2dbef16cfaeaa7f945b9d7dd9c1b8d472f6aca82f2273d185e4d41
+      base.en-tokens.txt: 306cd27f03c1a714eca7108e03d66b7dc042abe8c258b44c199a7ed9838dd930
   vad:
     directory: silero-vad
     license: MIT

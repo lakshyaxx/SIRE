@@ -76,6 +76,12 @@ def create(ledger: Ledger, case_id: str) -> dict:
             + (", ".join(item.get("excluded_as_unlinked", [])) or "None recorded"),
             "Missing checks: "
             + "; ".join(plain(value) for value in item["missing_tests"]),
+            "Narrative review: "
+            + (
+                "; ".join(item["narrative_issues"])
+                if item.get("narrative_issues")
+                else "No obvious text fragment flagged; causal validity remains unverified."
+            ),
             "",
         ]
     if not saved["hypotheses"]:

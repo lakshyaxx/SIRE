@@ -3,6 +3,7 @@
 import asyncio
 from threading import Event
 from pydantic import BaseModel, ConfigDict, Field
+from typing import Literal
 from app.evidence.ledger import Ledger
 from app.knowledge.search import search
 from app.orchestration.runtime import Registry
@@ -30,6 +31,9 @@ class SearchInput(TextInput):
     """Search only a selected existing conversation."""
 
     conversation_id: str
+    attachment_ids: list[str] | None = Field(default=None, max_length=30)
+    mode: Literal["auto", "lexical", "semantic", "hybrid"] = "auto"
+    as_of: str | None = None
 
 
 class PredictionInput(BaseModel):
@@ -146,8 +150,34 @@ def build_registry(
 
     async def retrieve(args: SearchInput) -> dict:
         store.conversation(args.conversation_id)
-        passages = search(store, args.conversation_id, args.text)
-        return {"passages": passages, "evidence_ids": [row["id"] for row in passages]}
+        stop = Event()
+        try:
+            passages = await asyncio.to_thread(
+                search,
+                store,
+                args.conversation_id,
+                args.text,
+                args.attachment_ids,
+                args.mode,
+                args.as_of,
+                stop,
+            )
+        finally:
+            stop.set()
+        metadata = (
+            passages[0].get("retrieval", {}) if passages else {"mode": "no_matches"}
+        )
+        return {
+            "passages": passages,
+            "evidence_ids": [row["id"] for row in passages],
+            "retrieval": {
+                **metadata,
+                "provider": metadata.get("provider_metrics", {}).get(
+                    "provider", "deterministic"
+                ),
+                "model": metadata.get("model", "lexical source-filtered retrieval"),
+            },
+        }
 
     async def prediction(args: PredictionInput) -> dict:
         stop = Event()
@@ -192,7 +222,7 @@ def build_registry(
     registry.register("text.profile", TextInput, profile, ["text"])
     registry.register("evidence.resolve", ResolveInput, resolve, ["evidence_id"])
     registry.register(
-        "knowledge.retrieve", SearchInput, retrieve, ["text", "conversation_id"]
+        "knowledge.retrieve", SearchInput, retrieve, ["text", "conversation_id"], 120
     )
     registry.register(
         "prediction.run", PredictionInput, prediction, ["nasa_cmapss"], 120
@@ -330,13 +360,15 @@ def build_registry(
         )
 
     async def image(args: ImageInput) -> dict:
-        from pathlib import Path
+        from app.evidence.integrity import read_verified
         from app.core.errors import SireError
 
         item = store.attachment(args.attachment_id, args.conversation_id)
         if item["kind"] != "image":
             raise SireError("image_required", "Choose a validated image attachment.")
-        analysis = await local.vision(Path(item["path"]).read_bytes(), args.text)
+        analysis = await local.vision(
+            await asyncio.to_thread(read_verified, item), args.text
+        )
         descriptor = next(
             (
                 row
@@ -371,6 +403,7 @@ def build_registry(
         return {
             "prediction": result,
             "evidence_ids": [ledger.resolve(identifier)["evidence"]["id"]],
+            "execution": "saved actual extraction; not rerun",
         }
 
     async def hypotheses(args: SearchInput) -> dict:
@@ -498,4 +531,24 @@ def build_registry(
         }
 
     registry.register("evidence_case.report", CaseInput, evidence_report, ["case_id"])
+    from app.providers.contracts import (
+        VisionOutput,
+        TranscriptOutput,
+        RetrievalOutput,
+        PredictionOutput,
+        MeasurementOutput,
+    )
+
+    for name, result_type in {
+        "vision.inspect": VisionOutput,
+        "audio.transcript": TranscriptOutput,
+        "knowledge.retrieve": RetrievalOutput,
+        "prediction.run": PredictionOutput,
+        "measurements.profile": MeasurementOutput,
+    }.items():
+        registry.output_types[name] = result_type
+        registry.tools[name][0].output_schema = result_type.model_json_schema()
+    from app.providers.specialists import register_specialists
+
+    register_specialists(registry, store, cancellation)
     return registry

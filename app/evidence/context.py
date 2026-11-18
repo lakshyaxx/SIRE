@@ -8,7 +8,11 @@ from app.investigation.schemas import EvidenceItem
 
 
 def compact(
-    evidence: list[EvidenceItem], question: str, budget: int = 10000
+    evidence: list[EvidenceItem],
+    question: str,
+    budget: int = 10000,
+    *,
+    observation_characters: int = 1000,
 ) -> tuple[dict, dict[str, str]]:
     """Keep actual excerpts/source grouping while replacing long opaque IDs only inside model input."""
     sources, mapping, groups, limits = [], {}, {}, []
@@ -17,12 +21,21 @@ def compact(
     for item in evidence:
         buckets.setdefault(item.origin_id or item.source_id, []).append(item)
     # One source's many channels must not crowd out a selected image or document.
+    # Keep a short second document account beside the first before filling
+    # remaining space with more channels from one measurement origin.
+    heads = {
+        key: 2 if bucket[0].modality == "document" else 1
+        for key, bucket in buckets.items()
+    }
     balanced = [
-        bucket[index]
-        for index in range(max((len(b) for b in buckets.values()), default=0))
-        for bucket in buckets.values()
-        if index < len(bucket)
+        item for key, bucket in buckets.items() for item in bucket[: heads[key]]
     ]
+    balanced.extend(
+        bucket[heads[key] + index]
+        for index in range(max((len(b) for b in buckets.values()), default=0))
+        for key, bucket in buckets.items()
+        if heads[key] + index < len(bucket)
+    )
     for item in balanced:
         alias = "E" + str(len(sources) + 1)
         origin = (
@@ -36,7 +49,7 @@ def compact(
             "origin_group": group,
             "kind": item.kind,
             "modality": item.modality,
-            "observation": item.observation[:1000],
+            "observation": item.observation[:observation_characters],
             "reliability": item.reliability,
         }
         for key in ["asset_identity", "predicate", "value", "locator"]:
@@ -51,7 +64,7 @@ def compact(
             continue
         sources.append(source)
         mapping[alias] = item.id
-        if len(item.observation) > 1000:
+        if len(item.observation) > observation_characters:
             excerpted.append(alias)
         limits.extend(item.limitations)
     return {

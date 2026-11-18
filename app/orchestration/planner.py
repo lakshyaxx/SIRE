@@ -88,3 +88,70 @@ def saved_report_plan(
             )
         ],
     )
+
+
+def transcription_plan(
+    content: str, attachments: list[dict], conversation_id: str
+) -> "Plan | None":
+    """Route a pure transcription request without turning its input into engineering evidence."""
+    if not attachments or any(a["kind"] != "audio" for a in attachments):
+        return None
+    words = set(re.findall(r"\w+", content.lower()))
+    allowed = {
+        "please",
+        "transcribe",
+        "transcript",
+        "transcription",
+        "show",
+        "give",
+        "me",
+        "the",
+        "this",
+        "these",
+        "my",
+        "attached",
+        "uploaded",
+        "file",
+        "files",
+        "recording",
+        "recordings",
+        "audio",
+        "speech",
+        "voice",
+        "clip",
+        "clips",
+        "verbatim",
+        "only",
+        "exactly",
+        "write",
+        "down",
+        "what",
+        "does",
+        "it",
+        "say",
+        "word",
+        "for",
+    }
+    if (
+        not words.intersection({"transcribe", "transcript", "transcription"})
+        or not words <= allowed
+    ):
+        return None
+    from app.orchestration.runtime import Plan, Invocation
+
+    return Plan(
+        intent="direct_transcription",
+        goals=[
+            "Return actual saved automatic transcripts as unverified input provenance"
+        ],
+        tools=[
+            Invocation(
+                tool_id="audio.transcript",
+                arguments={
+                    "conversation_id": conversation_id,
+                    "attachment_id": a["id"],
+                },
+            )
+            for a in attachments
+        ],
+    )

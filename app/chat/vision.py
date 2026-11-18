@@ -8,6 +8,7 @@ from app.evidence.ledger import digest
 from app.investigation.schemas import EvidenceItem
 from app.orchestration.runtime import Invocation, Runner
 from app.providers.adapter import OllamaAdapter
+from app.providers.ollama import vision_policy_fingerprint
 from app.storage.database import Store
 
 
@@ -22,6 +23,9 @@ async def inspect(
 ) -> dict:
     """Inspect genuine bytes or reuse an exact saved inference; never reuse another question's result."""
     started = time.monotonic()
+    from app.evidence.integrity import read_verified
+
+    await asyncio.to_thread(read_verified, item)
     descriptor = next(
         (
             row
@@ -31,7 +35,15 @@ async def inspect(
         {},
     )
     fingerprint = descriptor.get("digest")
-    key = digest([item["sha256"], question, SETTINGS["vision_model"], fingerprint])
+    key = digest(
+        [
+            item["sha256"],
+            question,
+            SETTINGS["vision_model"],
+            fingerprint,
+            vision_policy_fingerprint(),
+        ]
+    )
     cache = item["metadata"].get("vision_cache", {})
     cached = bool(fingerprint and key in cache)
     if cached:

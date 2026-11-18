@@ -24,6 +24,7 @@ from app.orchestration.planner import investigation_requested
 from app.orchestration.case_context import recall_requested, status_requested
 from app.evidence.ledger import Ledger
 from app.api.intelligence import router as intelligence_router
+from app.api.specialists import router as specialist_router
 from app.voice.sessions import router as voice_session_router
 from app.core import config
 from app.core.errors import SireError
@@ -149,6 +150,7 @@ def create_app(
             application.state.store, provider
         )
         application.state.voice_sessions = set()
+        application.state.specialist_calls = {}
         application.state.ml_ready = False
         if probe_model:
             try:
@@ -169,13 +171,16 @@ def create_app(
         yield
         for event in application.state.chat.jobs.values():
             event.set()
+        for event in application.state.specialist_calls.values():
+            event.set()
         await application.state.investigation_jobs.close()
 
     application = FastAPI(
-        title="SIRE chat and prediction API", version="4.5.2", lifespan=lifespan
+        title="SIRE chat and prediction API", version="4.6.0", lifespan=lifespan
     )
     application.state.runtime_identity = source_identity(config.ROOT, config.WEB_DIST)
     application.include_router(intelligence_router)
+    application.include_router(specialist_router)
     application.include_router(voice_session_router)
     application.add_middleware(
         CORSMiddleware,

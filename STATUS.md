@@ -1,3 +1,9 @@
+## Phase 2 specialist integration checkpoint — 2026-11-18
+
+SIRE4.6.0 runs at http://127.0.0.1:8000. Unified specialist contracts, deterministic document/table handling, verified source integrity, actual bounded video, local MiniLM retrieval, improved ASR and sentence-WAV output delivered. Backend313passed/1warning/165.01s; frontend13passed; TypeScript/build/Ruff/Black/pip checks pass. Actual general question5.500scold/0.999swarm. All813native files,7956frozen results,original bundles/models and15production tables preserved. Ten Phase2 documents and machine-readable evidence complete. Functional integration delivered with explicit quality/device limits: slow new speech, imperfect technical ASR, no scanned OCR, partial qualitative cause/conflict validation, no physical mic/speaker acceptance. See [release readiness](docs/PHASE2_RELEASE_READINESS.md), [test report](docs/PHASE2_TEST_REPORT.md) and [progress](docs/PHASE2_PROGRESS.md). Earlier checkpoints below are historical.
+
+---
+
 ## V4.5.2 focused performance repair — 2026-11-18
 
 Running at http://127.0.0.1:8000. CPU-only Ollama repaired with verified same-version CUDA runtime; RTX4050 actual text100%GPU, vision/CLIP GPU verified. No new models. Final network general question6.187s cold/0.938s warm; staged fresh investigation30.532s versusCPU138.031s. New speech remains32.047s; exact cached WAV replay0.171–0.172s. Backend293passed/1warning/145.21s, frontend13passed; build/static checks pass. All813native hashes,7956frozen files,20Ollama blobs and3original bundles verified. All15production tables match immediate pre-cutover backup; earlier operational voice-state change documented. Browser/mic/audible acceptance remains open. See [performance findings](docs/PERFORMANCE_DIAGNOSIS.md) and [actual results](docs/PERFORMANCE_RESULTS.json). Older checkpoints below are historical.

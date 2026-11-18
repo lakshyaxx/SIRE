@@ -127,7 +127,9 @@ def parse(content: bytes, suffix: str) -> list[dict] | None:
 def profile(store: Store, conversation_id: str, attachment_id: str) -> dict:
     """Compute real descriptive groups with exact source row snapshots, without NASA inference."""
     item = store.attachment(attachment_id, conversation_id)
-    rows = parse(Path(item["path"]).read_bytes(), Path(item["name"]).suffix.lower())
+    from app.evidence.integrity import read_verified
+
+    rows = parse(read_verified(item), Path(item["name"]).suffix.lower())
     if rows is None:
         raise SireError(
             "measurement_schema_required",

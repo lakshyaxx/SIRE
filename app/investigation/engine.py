@@ -3,6 +3,7 @@
 import asyncio
 import json
 import time
+from threading import Event
 from app.core.config import SETTINGS
 from app.core.errors import SireError
 from app.investigation.schemas import (
@@ -23,6 +24,7 @@ from app.evidence.inventory import inventory, check_absence
 from app.investigation.registry import registry_rows, case_identity
 from app.investigation.identity import POLICY as HYPOTHESIS_POLICY
 from app.simulation.repository import utc
+from app.investigation.narrative import issues as narrative_issues
 
 
 def rank_hypotheses(case: Case, hypotheses: list[Hypothesis]) -> list[dict]:
@@ -143,6 +145,7 @@ def rank_hypotheses(case: Case, hypotheses: list[Hypothesis]) -> list[dict]:
                 "falsified_by": sorted(set(falsified)),
                 "excluded_as_unlinked": sorted(unlinked & (support | conflict)),
                 "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement.",
+                "narrative_issues": narrative_issues(hypothesis.mechanism),
             }
         )
     return sorted(
@@ -452,9 +455,20 @@ async def investigate(
                     if item.kind == "document_guidance"
                 }
             )
-            matches = search(
-                store, case.conversation_id, query[:500], document_ids or None
-            )
+            stop = Event()
+            try:
+                matches = await asyncio.to_thread(
+                    search,
+                    store,
+                    case.conversation_id,
+                    query[:500],
+                    document_ids or None,
+                    "auto",
+                    case.as_of,
+                    stop,
+                )
+            finally:
+                stop.set()
             if case.as_of:
                 visible_matches = []
                 for row in matches:

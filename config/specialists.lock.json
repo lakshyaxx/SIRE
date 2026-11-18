@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "max_download_bytes": 250000000,
+  "licenses": {
+    "semantic": "Apache-2.0",
+    "asr_base": "MIT OpenAI Whisper; Apache-2.0 sherpa runtime",
+    "semantic_runtime": "ONNX Runtime MIT; Tokenizers/Flatbuffers Apache-2.0; Protobuf BSD-3-Clause"
+  },
+  "license_sources": [
+    "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+    "https://github.com/openai/whisper/blob/main/LICENSE",
+    "https://raw.githubusercontent.com/huggingface/tokenizers/v0.22.1/LICENSE"
+  ],
+  "files": [
+    {
+      "group": "semantic",
+      "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json",
+      "path": ".runtime/semantic_models/minilm-l6-v2/config.json",
+      "bytes": 612,
+      "sha256": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41"
+    },
+    {
+      "group": "semantic",
+      "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx/model_quint8_avx2.onnx",
+      "path": ".runtime/semantic_models/minilm-l6-v2/onnx/model_quint8_avx2.onnx",
+      "bytes": 23046789,
+      "sha256": "b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21"
+    },
+    {
+      "group": "semantic",
+      "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer.json",
+      "path": ".runtime/semantic_models/minilm-l6-v2/tokenizer.json",
+      "bytes": 466247,
+      "sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037"
+    },
+    {
+      "group": "semantic",
+      "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json",
+      "path": ".runtime/semantic_models/minilm-l6-v2/tokenizer_config.json",
+      "bytes": 350,
+      "sha256": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b"
+    },
+    {
+      "group": "asr_base",
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base.en/resolve/59eea950fc76df2453efb57e6c0fd334548e8ffe/base.en-decoder.int8.onnx",
+      "path": ".runtime/media_models/whisper-base.en/base.en-decoder.int8.onnx",
+      "bytes": 130669978,
+      "sha256": "f7162ad6db2dbef16cfaeaa7f945b9d7dd9c1b8d472f6aca82f2273d185e4d41"
+    },
+    {
+      "group": "asr_base",
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base.en/resolve/59eea950fc76df2453efb57e6c0fd334548e8ffe/base.en-encoder.int8.onnx",
+      "path": ".runtime/media_models/whisper-base.en/base.en-encoder.int8.onnx",
+      "bytes": 29120534,
+      "sha256": "ef6b936f4c9b1d90a3b68634b60c4ed8576b26172b33c2535ec0e933c9edb823"
+    },
+    {
+      "group": "asr_base",
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base.en/resolve/59eea950fc76df2453efb57e6c0fd334548e8ffe/base.en-tokens.txt",
+      "path": ".runtime/media_models/whisper-base.en/base.en-tokens.txt",
+      "bytes": 835554,
+      "sha256": "306cd27f03c1a714eca7108e03d66b7dc042abe8c258b44c199a7ed9838dd930"
+    },
+    {
+      "group": "semantic_runtime",
+      "url": "https://files.pythonhosted.org/packages/3a/db/1b4a62e23183a0c3fe441782462c0ede9a2a65c6bbffb9582fab7c7a0d38/onnxruntime-1.23.2-cp311-cp311-win_amd64.whl",
+      "path": ".runtime/phase2_setup/wheels/onnxruntime-1.23.2-cp311-cp311-win_amd64.whl",
+      "bytes": 13468349,
+      "sha256": "902c756d8b633ce0dedd889b7c08459433fbcf35e9c38d1c03ddc020f0648c6e"
+    },
+    {
+      "group": "semantic_runtime",
+      "url": "https://files.pythonhosted.org/packages/b3/46/e33a8c93907b631a99377ef4c5f817ab453d0b34f93529421f42ff559671/tokenizers-0.22.1-cp39-abi3-win_amd64.whl",
+      "path": ".runtime/phase2_setup/wheels/tokenizers-0.22.1-cp39-abi3-win_amd64.whl",
+      "bytes": 2674684,
+      "sha256": "65fd6e3fb11ca1e78a6a93602490f134d1fdeb13bcef99389d5102ea318ed138"
+    },
+    {
+      "group": "semantic_runtime",
+      "url": "https://files.pythonhosted.org/packages/ee/1b/00a78aa2e8fbd63f9af08c9c19e6deb3d5d66b4dda677a0f61654680ee89/flatbuffers-25.9.23-py2.py3-none-any.whl",
+      "path": ".runtime/phase2_setup/wheels/flatbuffers-25.9.23-py2.py3-none-any.whl",
+      "bytes": 30869,
+      "sha256": "255538574d6cb6d0a79a17ec8bc0d30985913b87513a01cce8bcdb6b4c44d0e2"
+    },
+    {
+      "group": "semantic_runtime",
+      "url": "https://files.pythonhosted.org/packages/7b/c6/7a465f1825872c55e0341ff4a80198743f73b69ce5d43ab18043699d1d81/protobuf-6.33.0-cp310-abi3-win_amd64.whl",
+      "path": ".runtime/phase2_setup/wheels/protobuf-6.33.0-cp310-abi3-win_amd64.whl",
+      "bytes": 436882,
+      "sha256": "9a031d10f703f03768f2743a1c403af050b6ae1f3480e9c140f39c45f81b13ee"
+    }
+  ]
+}
