@@ -16,6 +16,7 @@ import pandas as pd
 from app.core.config import MANIFEST, ROOT, SETTINGS
 from app.core.errors import SireError
 from app.providers.resources import SCHEDULER
+from app.core.worker_pool import terminate_owned
 from app.prediction.telemetry import validate_history
 
 LOGGER = logging.getLogger(__name__)
@@ -190,7 +191,7 @@ def predict(
         finally:
             try:
                 if process is not None and process.poll() is None:
-                    process.kill()
+                    terminate_owned(process)
                     process.communicate(timeout=5)
             finally:
                 try:

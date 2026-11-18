@@ -1,4 +1,7 @@
 version: '1'
+resident_workers: true
+resident_idle_seconds: 90
+resident_fallback: true
 mode: hybrid_if_configured
 model_root: .runtime/semantic_models/minilm-l6-v2
 dependencies: .runtime/semantic_deps

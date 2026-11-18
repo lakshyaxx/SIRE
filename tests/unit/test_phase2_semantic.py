@@ -92,6 +92,7 @@ def test_actual_semantic_search_is_case_scoped_persistent_and_rebuildable(
     assert results[0]["retrieval"]["new_vectors"] == 1
     repeated = search(store, cid, "variable frequency drive", mode="semantic")
     assert repeated[0]["retrieval"]["new_vectors"] == 0
+    assert repeated[0]["retrieval"]["provider_metrics"]["model_reused"]
     assert (
         search(
             store,

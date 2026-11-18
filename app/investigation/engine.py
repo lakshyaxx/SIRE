@@ -146,11 +146,22 @@ def rank_hypotheses(case: Case, hypotheses: list[Hypothesis]) -> list[dict]:
                 "excluded_as_unlinked": sorted(unlinked & (support | conflict)),
                 "conflict_qualification": "LLM-proposed conflicts are tentative unless backed by reliable direct measurement.",
                 "narrative_issues": narrative_issues(hypothesis.mechanism),
+                "quality_status": (
+                    "incomplete_text"
+                    if narrative_issues(hypothesis.mechanism)
+                    else "complete_text_unverified"
+                ),
+                "diagnostic_checks_provided": bool(hypothesis.missing_tests),
+                "source_support_supplied": bool(support),
             }
         )
     return sorted(
         ranked,
-        key=lambda row: (row["status"] == "rejected", -row["ranking_score"], row["id"]),
+        key=lambda row: (
+            row["status"] == "rejected",
+            -row["ranking_score"],
+            bool(row["narrative_issues"]),
+        ),
     )
 
 
@@ -359,6 +370,7 @@ async def investigate(
         proposal.unresolved = corrected
         if cancelled.is_set():
             raise asyncio.CancelledError()
+        accepted_candidates = []
         for candidate in proposal.hypotheses:
             from app.evidence.verification import screen_numeric_prose
 
@@ -372,6 +384,22 @@ async def investigate(
                 Ledger(store),
             )
             rank_hypotheses(case, [candidate])
+            corrected, checks = check_absence(
+                [candidate.mechanism, *candidate.assumptions], available, case.asset_id
+            )
+            contradicted = [
+                check for check in checks if check["status"] == "contradicted"
+            ]
+            if contradicted:
+                claim_checks.extend(contradicted)
+                proposal.unresolved.extend(
+                    text
+                    for text, check in zip(corrected, checks)
+                    if check["status"] == "contradicted"
+                )
+            else:
+                accepted_candidates.append(candidate)
+        proposal.hypotheses = accepted_candidates
         candidates, merge_records = merge(candidates + proposal.hypotheses)
         ranked = rank_hypotheses(case, candidates)
         state = digest(
@@ -538,6 +566,7 @@ async def investigate(
         excluded_evidence=excluded_evidence,
         unresolved=proposal.unresolved,
         limitations=[
+            f"Candidate coverage is bounded, not exhaustive: at most {SETTINGS.get('investigation_max_candidates',2)} new candidates per proposal; at most {HYPOTHESIS_POLICY['max_candidates']} shown from the retained registry.",
             "Generated mechanisms and proposed evidence relationships remain unverified.",
             "Rank scores are transparent heuristics, not probabilities; high support is not claimed.",
             "Photographs cannot prove internal damage or estimate RUL; use qualified inspection.",

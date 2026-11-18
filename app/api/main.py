@@ -169,14 +169,17 @@ def create_app(
             except Exception:
                 LOGGER.exception("Consolidated model startup probe failed")
         yield
+        from app.core.worker_pool import close_workers
+
         for event in application.state.chat.jobs.values():
             event.set()
         for event in application.state.specialist_calls.values():
             event.set()
         await application.state.investigation_jobs.close()
+        await asyncio.to_thread(close_workers)
 
     application = FastAPI(
-        title="SIRE chat and prediction API", version="4.6.0", lifespan=lifespan
+        title="SIRE chat and prediction API", version="4.7.0", lifespan=lifespan
     )
     application.state.runtime_identity = source_identity(config.ROOT, config.WEB_DIST)
     application.include_router(intelligence_router)

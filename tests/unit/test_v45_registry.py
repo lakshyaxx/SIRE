@@ -43,3 +43,20 @@ def test_resource_status_does_not_turn_unreachable_residency_into_empty_models(
     assert result["ollama_residency"]["models"] is None
     assert result["ollama_residency"]["status"] == "unavailable"
     assert result["scheduler"]["heavy_slots"] == 1
+
+
+def test_primary_native_models_resolve_under_preserved_cmapss_root(monkeypatch):
+    """Discovery must describe the same relocated artifacts that actual inference uses."""
+    from app.prediction.policy import selections
+    from app.core.config import ROOT, TRACK
+
+    monkeypatch.setattr(registry.OllamaAdapter, "list_models", lambda self: [])
+    selected = {
+        "native:" + model for roles in selections().values() for model in roles.values()
+    }
+    rows = [row for row in registry.providers() if row.id in selected]
+    assert {row.id for row in rows} == selected
+    assert all(row.availability == "configured" for row in rows)
+    assert all(
+        (ROOT / row.location).resolve().is_relative_to(TRACK.resolve()) for row in rows
+    )

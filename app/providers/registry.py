@@ -3,7 +3,7 @@
 from typing import Literal
 import httpx
 from pydantic import BaseModel, Field
-from app.core.config import ROOT, SETTINGS
+from app.core.config import ROOT, SETTINGS, TRACK
 from app.core.errors import SireError
 from app.media import runtime
 from app.prediction.hub import catalog
@@ -363,7 +363,7 @@ def providers() -> list[ProviderDescriptor]:
                 model=item["model_id"],
                 version=item.get("version"),
                 capabilities=["native_" + item["task"]],
-                location=item["artifact_dir"],
+                location=str((TRACK / item["artifact_dir"]).relative_to(ROOT)),
                 license="Preserved research artifacts; dependency provenance retained",
                 dependencies=[
                     "preserved dataset-specific preprocessor and native worker"
@@ -376,7 +376,7 @@ def providers() -> list[ProviderDescriptor]:
                 },
                 availability=(
                     "configured"
-                    if (ROOT / item["artifact_dir"]).is_dir()
+                    if (TRACK / item["artifact_dir"]).is_dir()
                     else "unavailable"
                 ),
                 health="Historical route verification: " + str(item["status"]),
@@ -451,8 +451,11 @@ def resources() -> dict:
         loaded = response.json()
     except (httpx.HTTPError, ValueError, SireError):
         loaded = {"status": "unavailable", "models": None}
+    from app.core.worker_pool import snapshots
+
     return {
         "scheduler": SCHEDULER.snapshot(),
+        "owned_cpu_workers": snapshots(),
         "ollama_residency": loaded,
         "residency_policy": f"keep_alive={SETTINGS['ollama_keep_alive_seconds']}s; one heavy operation across cooperating local workers; launcher limits Ollama to one loaded model",
     }

@@ -44,6 +44,10 @@ def engineering_question(question: str) -> bool:
 
 def source_followup(question: str) -> bool:
     """Only consult previous source context when the current request refers to it."""
+    if re.search(POLICY["without_sources_pattern"], question, re.I) and not re.search(
+        POLICY["explicit_source_reference_pattern"], question, re.I
+    ):
+        return False
     return bool(re.search(POLICY["source_followup_pattern"], question, re.I))
 
 

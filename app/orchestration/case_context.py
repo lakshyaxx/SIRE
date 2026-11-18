@@ -8,14 +8,17 @@ from app.storage.database import Store
 def recall_requested(question: str) -> bool:
     """Recognize follow-ups about existing decisions, preserving explicit revision requests."""
     if re.search(
-        r"\b(?:revise|revisit|update|reconsider|new evidence)\b", question, re.I
+        r"\b(?:revise|revisit|update|reconsider|new evidence|rerun|re-run|fresh analysis|reanaly[sz]e|(?:investigate|analy[sz]e).{0,12}again)\b",
+        question,
+        re.I,
     ):
         return False
     return bool(
         re.search(
-            r"\b(?:why.{0,30}(?:rule out|ruled out|reject|rank|hypothes)|"
-            r"(?:show|explain|compare|list).{0,30}(?:existing|saved|previous|those|these).{0,20}(?:hypothes|finding|candidate)|"
-            r"what.{0,20}(?:already|so far).{0,20}(?:find|found|discover)|"
+            r"\b(?:why.{0,30}(?:rule out|ruled out|reject(?:ed|ions?)?|rank(?:ed|ing|ings)?|hypothes(?:is|es))|"
+            r"(?:show|explain|compare|list).{0,30}(?:existing|saved|previous|those|these).{0,20}(?:hypothes(?:is|es)|findings?|candidates?)|"
+            r"what.{0,20}(?:already|so far).{0,20}(?:find|found|discover(?:ed)?|learn(?:ed)?)|"
+            r"what.{0,40}(?:found|discovered|learned|know).{0,15}(?:so far|already)|"
             r"check.{0,20}(?:readings|measurements|evidence).{0,10}again)\b",
             question,
             re.I,
@@ -48,11 +51,30 @@ def render(value: dict | None) -> str:
         "## Saved investigation — model proposals remain unverified",
         f"Case: `{value['case_id']}`. These are recorded results; no model or measurement was rerun.",
     ]
+    from app.investigation.narrative import issues
+
     for candidate in value["case"]["hypotheses"]:
+        review = list(
+            dict.fromkeys(
+                [
+                    *candidate.get("narrative_issues", []),
+                    *issues(candidate["mechanism"]),
+                ]
+            )
+        )
         lines += [
             f"### {candidate['mechanism']}",
             f"Recorded status: **{candidate['status']}**; evidence support: {candidate['evidence_support']}.",
+            "Explanation quality: "
+            + (
+                "incomplete_text"
+                if review
+                else candidate.get("quality_status", "legacy_text_not_reassessed")
+            )
+            + ". Causal interpretation remains unverified.",
         ]
+        if review:
+            lines.append("Narrative review: " + "; ".join(review))
         for label, key in [
             ("Proposed supporting sources", "supporting_evidence_ids"),
             ("Proposed conflicting sources", "contradicting_evidence_ids"),

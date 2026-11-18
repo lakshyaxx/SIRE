@@ -1,14 +1,33 @@
 """Fixed local CPU operations; third-party speech/codec imports stay outside the API process."""
 
 import io
+import importlib
 import json
 from pathlib import Path
 import sys
 import wave
 import time
+from typing import Any
+from collections.abc import Callable
 from app.media.runtime import DEPENDENCIES, MODELS, POLICY, model_files
 from app.core.errors import SireError
 from app.core.process_metrics import usage
+
+_ENGINE: tuple[str, object] | None = None
+
+
+def retained_engine(key: str, create: Callable[[], Any]) -> tuple[Any, bool]:
+    """Retain only one actual media model; switching kind/profile frees the earlier one."""
+    global _ENGINE
+    if _ENGINE is not None and _ENGINE[0] == key:
+        return _ENGINE[1], True
+    _ENGINE = None
+    import gc
+
+    gc.collect()
+    engine = create()
+    _ENGINE = (key, engine)
+    return engine, False
 
 
 def pcm(content: bytes) -> tuple[int, object, float]:
@@ -86,15 +105,20 @@ def transcribe(path: Path, profile: str = "asr") -> dict:
             "Recording is silent or below the configured usable signal level. Type or record again.",
             422,
         )
-    recognizer = sherpa_onnx.OfflineRecognizer.from_whisper(
-        encoder=str(paths[prefix + "-encoder.int8.onnx"]),
-        decoder=str(paths[prefix + "-decoder.int8.onnx"]),
-        tokens=str(paths[prefix + "-tokens.txt"]),
-        num_threads=POLICY["threads"],
-        provider="cpu",
-        language="en",
-        task="transcribe",
+    loading = time.monotonic()
+    recognizer, reused = retained_engine(
+        "asr:" + profile,
+        lambda: sherpa_onnx.OfflineRecognizer.from_whisper(
+            encoder=str(paths[prefix + "-encoder.int8.onnx"]),
+            decoder=str(paths[prefix + "-decoder.int8.onnx"]),
+            tokens=str(paths[prefix + "-tokens.txt"]),
+            num_threads=POLICY["threads"],
+            provider="cpu",
+            language="en",
+            task="transcribe",
+        ),
     )
+    loaded = time.monotonic()
     stream = recognizer.create_stream()
     stream.accept_waveform(rate, samples)
     recognizer.decode_stream(stream)
@@ -123,6 +147,11 @@ def transcribe(path: Path, profile: str = "asr") -> dict:
         "model_hashes": POLICY["models"][profile]["files"],
         "confidence": None,
         "review_required": True,
+        "model_reused": reused,
+        "phase_timings": {
+            "model_initialization_seconds": loaded - loading,
+            "decode_seconds": time.monotonic() - loaded,
+        },
         "resources": usage(),
     }
 
@@ -164,7 +193,7 @@ def synthesize(text: str, workspace: Path, voice_id: int = 0, speed: float = 1) 
             "tts_configuration", "The local TTS configuration failed validation.", 503
         )
     initializing = time.monotonic()
-    engine = sherpa_onnx.OfflineTts(config)
+    engine, reused = retained_engine("tts", lambda: sherpa_onnx.OfflineTts(config))
     if voice_id >= engine.num_speakers:
         raise SireError(
             "tts_voice_unavailable",
@@ -196,6 +225,7 @@ def synthesize(text: str, workspace: Path, voice_id: int = 0, speed: float = 1) 
         "model": "kokoro-en-v0.19-int8",
         "voice_id": voice_id,
         "speed": speed,
+        "model_reused": reused,
         "provider": "sherpa-onnx-2.0.1",
         "spoken_text": normalized,
         "warnings": warnings,
@@ -211,10 +241,9 @@ def synthesize(text: str, workspace: Path, voice_id: int = 0, speed: float = 1) 
     }
 
 
-def main() -> None:
-    """Execute only one explicit operation, writing typed JSON and private output files."""
-    sys.path.insert(0, str(DEPENDENCIES))
-    request = json.load(sys.stdin)
+def execute(request: dict) -> dict:
+    """Execute a real operation and preserve its integrity/probe semantics."""
+    cpu_before = usage()["cpu_seconds"]
     operation, payload = request["operation"], request["payload"]
     workspace = Path(request["workspace"])
     try:
@@ -278,19 +307,35 @@ def main() -> None:
             temporary = proof_path.with_suffix(".tmp")
             temporary.write_text(json.dumps(proof, indent=2), encoding="utf-8")
             temporary.replace(proof_path)
-        print(json.dumps(result, allow_nan=False))
-    except SireError as exc:
-        print(
-            json.dumps(
-                {
-                    "error": {
-                        "code": exc.code,
-                        "message": exc.message,
-                        "status": exc.status,
-                    }
-                }
-            )
+        result.setdefault("resources", usage())["request_cpu_seconds"] = (
+            usage()["cpu_seconds"] - cpu_before
         )
+        result["resources"][
+            "scope"
+        ] = "Observed process lifetime peak RSS/CPU and this request CPU delta; retained-worker peak is not a per-request peak."
+        return result
+    except SireError as exc:
+        return {
+            "error": {
+                "code": exc.code,
+                "message": exc.message,
+                "status": exc.status,
+            }
+        }
+
+
+def main() -> None:
+    """Serve bounded owned requests or the preserved original one-shot protocol."""
+    sys.path.insert(0, str(DEPENDENCIES))
+    if "--resident" in sys.argv:
+        # Initialize native DLLs before starting a blocking stdin-reader thread.
+        importlib.import_module("sherpa_onnx")
+
+        from app.core.worker_pool import serve
+
+        serve(execute)
+    else:
+        print(json.dumps(execute(json.load(sys.stdin)), allow_nan=False))
 
 
 if __name__ == "__main__":

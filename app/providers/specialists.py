@@ -174,6 +174,9 @@ def register_specialists(
                 "original_synthesis_resources", {}
             ),
             "model_hashes": output.get("model_hashes", {}),
+            "worker_lifecycle": output.get("worker_lifecycle", {}),
+            "worker_fallback": output.get("worker_fallback", {}),
+            "model_reused": output.get("model_reused", False),
         }
         return {"audio": audio, "evidence_ids": []}
 

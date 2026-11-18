@@ -6,6 +6,12 @@ import re
 def issues(text: str) -> list[str]:
     """Flag obvious textual fragments without treating fluent prose as a verified mechanism."""
     result = []
+    if not text.strip():
+        result.append("Mechanism text is empty; no complete explanation was produced.")
+    if re.search(r"[,;:—-]\s*$", text):
+        result.append(
+            "Mechanism ends with continuation punctuation; explanation may be incomplete."
+        )
     if re.search(
         r"\b(?:because|due to|caused by|resulting in|leading to|and|or|with|of|from|the|a|an|to)\s*[.,;:!?]*$",
         text,

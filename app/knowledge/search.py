@@ -57,7 +57,7 @@ def search(
         "its",
     }
     chunks = store.rows(
-        "SELECT c.*,a.name,a.created_at FROM chunks c JOIN attachments a ON a.id=c.attachment_id WHERE c.conversation_id=?",
+        "SELECT c.*,a.name,a.created_at FROM chunks c JOIN attachments a ON a.id=c.attachment_id WHERE c.conversation_id=? AND a.kind IN ('document','csv')",
         (conversation_id,),
     )
     chunks = [

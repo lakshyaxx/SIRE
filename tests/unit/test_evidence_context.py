@@ -37,7 +37,7 @@ def test_short_source_aliases_roundtrip_to_exact_canonical_records():
             "hypotheses": [
                 {
                     "id": "test-only-h",
-                    "mechanism": "Test-only possible cause",
+                    "mechanism": "Test-only possible cause [E1]",
                     "assumptions": [],
                     "expected_signs": [],
                     "supporting_evidence_ids": ["E1"],
@@ -52,6 +52,10 @@ def test_short_source_aliases_roundtrip_to_exact_canonical_records():
     assert expand(proposal, mapping).hypotheses[0].supporting_evidence_ids == [
         identifier
     ]
+    assert identifier in expand(proposal, mapping).hypotheses[0].mechanism
+    proposal.hypotheses[0].mechanism = "Test-only unsupported citation [E99]"
+    with pytest.raises(SireError, match="unknown"):
+        expand(proposal, mapping)
 
 
 def test_context_budget_records_omission_and_unknown_canonical_ref_is_withheld():

@@ -13,8 +13,14 @@ import yaml
 from app.core.config import ROOT
 from app.core.errors import SireError
 from app.providers.resources import SCHEDULER
+from app.core.worker_pool import WorkerProcess, terminate_owned
 
 POLICY = yaml.safe_load((ROOT / "config/retrieval.yaml").read_text(encoding="utf-8"))
+EMBEDDING_WORKER = WorkerProcess(
+    "app.knowledge.embedding_worker",
+    POLICY.get("resident_idle_seconds", 90),
+    POLICY["threads"],
+)
 
 
 def model_files(verify: bool = True) -> dict[str, Path]:
@@ -82,7 +88,7 @@ def readiness() -> dict:
     }
 
 
-def embed(texts: list[str], cancelled: Event | None = None) -> dict:
+def _one_shot_embed(texts: list[str], cancelled: Event | None = None) -> dict:
     """Run actual embeddings under the existing heavy-operation lease and bounded IPC."""
     if (
         not texts
@@ -162,5 +168,68 @@ def embed(texts: list[str], cancelled: Event | None = None) -> dict:
             return result
         finally:
             if process and process.poll() is None:
-                process.kill()
+                terminate_owned(process)
                 process.communicate(timeout=5)
+
+
+def embed(texts: list[str], cancelled: Event | None = None) -> dict:
+    """Reuse one owned CPU session for fresh queries under the existing scheduler."""
+    if not POLICY.get("resident_workers", False):
+        return _one_shot_embed(texts, cancelled)
+    if (
+        not texts
+        or len(texts) > POLICY["max_index_chunks"] + 1
+        or any(len(t) > 8000 for t in texts)
+    ):
+        raise SireError(
+            "embedding_limits", "Embedding input exceeds configured limits.", 413
+        )
+    model_files()
+    if not readiness()["configured"]:
+        raise SireError(
+            "embedding_unavailable", "Local semantic runtime unavailable.", 503
+        )
+    stop = cancelled or Event()
+    began = time.perf_counter()
+    try:
+        with SCHEDULER.lease(
+            "embedding", cancelled=stop, model=POLICY["model_id"]
+        ) as lease:
+            result = EMBEDDING_WORKER.execute(
+                {"texts": texts}, stop, POLICY["timeout_seconds"], fingerprint()
+            )
+            if len(result["vectors"]) != len(texts) or any(
+                len(v) != POLICY["dimensions"] for v in result["vectors"]
+            ):
+                raise SireError(
+                    "embedding_output", "Invalid local vector dimensions.", 503
+                )
+            result["elapsed_seconds"] = time.perf_counter() - began
+            lease["provider_metrics"] = {
+                k: v for k, v in result.items() if k != "vectors"
+            }
+            return result
+    except SireError as exc:
+        if (
+            exc.code == "resident_failed"
+            and POLICY.get("resident_fallback", True)
+            and not stop.is_set()
+        ):
+            result = _one_shot_embed(texts, stop)
+            result["worker_fallback"] = {
+                "from": "resident",
+                "to": "original_one_shot",
+                "reason": exc.code,
+            }
+            return result
+        if exc.code in {"resident_cancelled", "resident_timeout"}:
+            raise SireError(
+                (
+                    "embedding_cancelled"
+                    if exc.code == "resident_cancelled"
+                    else "embedding_timeout"
+                ),
+                exc.message,
+                exc.status,
+            ) from exc
+        raise

@@ -1,11 +1,22 @@
 """Transparent English text normalization for a local lexicon-only speech front end."""
 
 from pathlib import Path
+from functools import lru_cache
 import re
 from app.core.errors import SireError
 
 ONES = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split()
 TENS = "zero ten twenty thirty forty fifty sixty seventy eighty ninety".split()
+
+
+@lru_cache(maxsize=1)
+def _lexicon_words(content: bytes) -> frozenset[str]:
+    """Reuse one exact parsed lexicon snapshot; never cache user text or file metadata."""
+    return frozenset(
+        line.split()[0].casefold()
+        for line in content.decode("utf-8").splitlines()
+        if line.split()
+    )
 
 
 def number_words(value: str) -> str:
@@ -67,11 +78,7 @@ def spoken_text(text: str, lexicon: Path) -> tuple[str, list[str]]:
             "The configured voice supports English; non-English words would be dropped, so synthesis was refused.",
             422,
         )
-    known = {
-        line.split()[0].casefold()
-        for line in lexicon.read_text(encoding="utf-8").splitlines()
-        if line.split()
-    }
+    known = _lexicon_words(lexicon.read_bytes())
     text = re.sub(r"\[(?:EV:|SRC:|HYP:)[^\]]+\]", "", text)
     text = re.sub(
         r"\[(?:[a-fA-F0-9]{24}|[a-fA-F0-9]{32}(?::(?:transcript|schema|visual:\d+))?|(?:prediction|user):[a-fA-F0-9]{32}|E\d+)\]",
@@ -80,6 +87,7 @@ def spoken_text(text: str, lexicon: Path) -> tuple[str, list[str]]:
     )
     text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
     text = re.sub(r"\b(?:EV|SRC|HYP):[a-f0-9]{16,}\b", "", text)
+    text = text.replace("°C", " degrees Celsius ").replace("°F", " degrees Fahrenheit ")
     text = text.replace("%", " percent ").replace("°", " degrees ")
     text = re.sub(r"-?\d+(?:\.\d+)?", lambda match: number_words(match.group()), text)
     warnings = []

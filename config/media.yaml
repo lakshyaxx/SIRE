@@ -3,6 +3,9 @@ optional_dependencies: .runtime/optional_deps
 model_root: .runtime/media_models
 timeout_seconds: 120
 threads: 2
+resident_workers: true
+resident_idle_seconds: 90
+resident_fallback: true
 asr_default_profile: asr_base
 tts_threads: 4
 tts_cache_entries: 8

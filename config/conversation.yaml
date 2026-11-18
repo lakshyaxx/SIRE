@@ -1,5 +1,7 @@
 version: '4.5.1'
 history_turns: 6
+without_sources_pattern: '\b(?:without|no)\s+(?:(?:machine[- ]specific|external|supplied|case[- ]specific)\s+)?(?:evidence|measurements|sources)\b'
+explicit_source_reference_pattern: '\b(?:attached|uploaded|previous|earlier|saved|those|these|document|manual|handbook|records?|based on|according to)\b'
 history_characters: 2400
 plain_output_tokens: 160
 social_pattern: '^(?:sire[,!\s]+)?(?:(?:hi|hey|hello|hiya|howdy)(?:[,!\s]+(?:sire|there|bro|buddy))?|good\s+(?:morning|afternoon|evening)|how are you(?: doing)?|(?:i want|i would like|i''d like) to (?:talk|chat)(?: to| with)?(?: you)?(?:[, ]+(?:give me (?:some )?answers|bro|buddy))*|are you there)[,.!?\s]*$'

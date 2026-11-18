@@ -46,6 +46,8 @@ def test_speech_segmentation_preserves_words_and_enforces_limits() -> None:
 def test_narrative_review_and_actual_process_counters() -> None:
     assert issues("Lubrication starvation due to")
     assert issues("Wear (tentative")
+    assert issues("Wear produces a change in the recorded baseline, ")
+    assert issues("")
     assert not issues("Lubrication starvation can produce surface wear.")
     metrics = usage()
     assert metrics["cpu_seconds"] >= 0 and metrics["peak_rss_bytes"] > 0

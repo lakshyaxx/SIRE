@@ -82,6 +82,9 @@ class GeneratedAudio(BaseModel):
     phase_timings: dict[str, float]
     resources: dict[str, Any] = Field(default_factory=dict)
     original_synthesis_resources: dict[str, Any] = Field(default_factory=dict)
+    worker_lifecycle: dict[str, Any] = Field(default_factory=dict)
+    worker_fallback: dict[str, Any] = Field(default_factory=dict)
+    model_reused: bool = False
     model_hashes: dict[str, str] = Field(default_factory=dict)
 
 

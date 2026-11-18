@@ -1,0 +1,821 @@
+{
+  "timestamp": "2026-11-18T14:29:17.997960+05:30",
+  "application_version": "4.7.0",
+  "source_sha256": "da2589035d0c4b4261a1e2d13b6eb15d9a01e39a62efc80f708c9d91a3f55252",
+  "implementation_status": "Verified local engineering release with explicit acceptance limitations",
+  "full_acceptance": false,
+  "scope": "No new models/dependencies, training, public deployment, protected moves/deletions, or evaluator_only access. Single-agent local execution. Small descriptive benchmark, shared Ollama/live production traffic.",
+  "checkpoint": "a635f1055c571e0d5a5bec12afc6439f3be2905c",
+  "tests": {
+    "backend": {
+      "passed": 334,
+      "warnings": 1,
+      "seconds": 147.73
+    },
+    "frontend": {
+      "passed": 13,
+      "failed": 0,
+      "milliseconds": 845.3593
+    },
+    "build_seconds": 9.65,
+    "ruff": "passed",
+    "black_files_unchanged": 202,
+    "pip_check": "No broken requirements found.",
+    "paired_before_passed": 24,
+    "paired_after_passed": 24,
+    "reliability_passed": 6,
+    "offline_passed": 7,
+    "openapi_missing_refs": []
+  },
+  "paired_benchmarks": [
+    {
+      "name": "text_cold",
+      "before_seconds": 5.803055200000017,
+      "after_seconds": 5.305371800000103,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "unloaded residency; OS caches unchanged"
+      }
+    },
+    {
+      "name": "text_warm",
+      "before_seconds": 0.9391421000000264,
+      "after_seconds": 0.9144921999995859,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "resident; paired history follow-up"
+      }
+    },
+    {
+      "name": "greeting",
+      "before_seconds": 0.0763637000000017,
+      "after_seconds": 0.0792725999999675,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "expected": "no model"
+      }
+    },
+    {
+      "name": "capabilities",
+      "before_seconds": 0.10155970000005254,
+      "after_seconds": 0.10830020000048535,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "expected": "documented manifest"
+      }
+    },
+    {
+      "name": "pdf",
+      "before_seconds": 0.2626743999999235,
+      "after_seconds": 0.22612449999996898,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "fresh source extraction"
+      }
+    },
+    {
+      "name": "csv",
+      "before_seconds": 0.573069999999916,
+      "after_seconds": 0.4780525000005582,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "fresh source extraction"
+      }
+    },
+    {
+      "name": "xlsx",
+      "before_seconds": 2.8787695000000895,
+      "after_seconds": 2.5028971000001548,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "fresh source extraction"
+      }
+    },
+    {
+      "name": "docx",
+      "before_seconds": 0.5896762000002127,
+      "after_seconds": 0.5874186999999438,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "fresh source extraction"
+      }
+    },
+    {
+      "name": "retrieval_first",
+      "before_seconds": 2.3220178999999916,
+      "after_seconds": 2.157199899999796,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "persistent chunk vectors; fresh query inference"
+      }
+    },
+    {
+      "name": "retrieval_repeat",
+      "before_seconds": 1.6966881000003013,
+      "after_seconds": 0.3248131000000285,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "persistent chunk vectors; fresh query inference"
+      }
+    },
+    {
+      "name": "asr_short",
+      "before_seconds": 0.1700089000000844,
+      "after_seconds": 0.11328199999934441,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "profile": null,
+        "original_sha256": "497bb8bc6d22a3b229c019c65548e916719beb900b8c97a9cdf274452b09eb61"
+      }
+    },
+    {
+      "name": "asr_technical_base",
+      "before_seconds": 0.1227523000002293,
+      "after_seconds": 0.12206049999986135,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "profile": null,
+        "original_sha256": "9021bc40a47a57592deb103a5b2ac520fc53ef13af58588c3ff4ad13ceb99fa6"
+      }
+    },
+    {
+      "name": "asr_technical_tiny",
+      "before_seconds": 0.13023420000035912,
+      "after_seconds": 0.10306120000041119,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "profile": "asr",
+        "original_sha256": "9021bc40a47a57592deb103a5b2ac520fc53ef13af58588c3ff4ad13ceb99fa6"
+      }
+    },
+    {
+      "name": "tts_0",
+      "before_seconds": 12.418000199999824,
+      "after_seconds": 9.274102500000481,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "input": "Hello. How can I help?",
+        "characters": 22,
+        "cache": "must be fresh exact text in a new server process"
+      }
+    },
+    {
+      "name": "tts_1",
+      "before_seconds": 12.18044940000027,
+      "after_seconds": 5.667171000000053,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "input": "Hello. What can I explain?",
+        "characters": 26,
+        "cache": "must be fresh exact text in a new server process"
+      }
+    },
+    {
+      "name": "tts_2",
+      "before_seconds": 17.63526090000005,
+      "after_seconds": 10.95736719999968,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "input": "Independent inspection is required. Record the measured pressure.",
+        "characters": 65,
+        "cache": "must be fresh exact text in a new server process"
+      }
+    },
+    {
+      "name": "tts_3",
+      "before_seconds": 33.82977239999991,
+      "after_seconds": 27.357549299999846,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "input": "The available evidence does not establish a confirmed failure mechanism. Review the original measurements, check the instrument calibration, and compare the maintenance records before selecting a diagnostic inspection.",
+        "characters": 218,
+        "cache": "must be fresh exact text in a new server process"
+      }
+    },
+    {
+      "name": "image",
+      "before_seconds": 21.851846900000055,
+      "after_seconds": 9.653023899999425,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "fresh VLM call after text; no result cache"
+      }
+    },
+    {
+      "name": "vision_to_text",
+      "before_seconds": 6.8171926999998504,
+      "after_seconds": 6.4158493000004455,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "model family transition"
+      }
+    },
+    {
+      "name": "video",
+      "before_seconds": 18.028007699999762,
+      "after_seconds": 16.87269549999928,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "fresh three-frame calls"
+      }
+    },
+    {
+      "name": "rul_low_latency",
+      "before_seconds": 5.9590501000002405,
+      "after_seconds": 5.937011300000449,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "genuine existing compatible saved history; no synthetic telemetry"
+      }
+    },
+    {
+      "name": "rul_advanced",
+      "before_seconds": 13.977784300000167,
+      "after_seconds": 13.072170099999312,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "genuine existing compatible saved history; no synthetic telemetry"
+      }
+    },
+    {
+      "name": "rul_deep",
+      "before_seconds": 9.607078999999885,
+      "after_seconds": 9.488121999999748,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "genuine existing compatible saved history; no synthetic telemetry"
+      }
+    },
+    {
+      "name": "deep",
+      "before_seconds": 23.83803910000006,
+      "after_seconds": 22.8219895000002,
+      "before_status": "passed",
+      "after_status": "passed",
+      "conditions": {
+        "state": "fresh job and uncached question; native CUDA OS caches not cleared"
+      }
+    }
+  ],
+  "fresh_tts": [
+    {
+      "name": "tts_0",
+      "characters": 22,
+      "before_seconds": 12.418000199999824,
+      "after_seconds": 9.274102500000481,
+      "before_phases": {
+        "validation_normalization_seconds": 0.5619999999998981,
+        "model_initialization_seconds": 4.313000000000102,
+        "generation_seconds": 4.655999999999949,
+        "wav_write_seconds": 0.016000000000076398
+      },
+      "after_phases": {
+        "validation_normalization_seconds": 0.5309999999999491,
+        "model_initialization_seconds": 3.844000000000051,
+        "generation_seconds": 4.609000000000378,
+        "wav_write_seconds": 0.0
+      },
+      "after_audio_seconds": 1.63225,
+      "model_reused": false,
+      "before_sha256": "890f0f0d7ff47597579558eae3876b70097513f53e67d714ea9ab256053bebb1",
+      "after_sha256": "ff8c6c12b842a5c2dc0559e3eb4e6c1e6f4f909062e50606a7a21d7b8ce04cfe",
+      "after_peak_rss_bytes": 499130368
+    },
+    {
+      "name": "tts_1",
+      "characters": 26,
+      "before_seconds": 12.18044940000027,
+      "after_seconds": 5.667171000000053,
+      "before_phases": {
+        "validation_normalization_seconds": 0.5160000000000764,
+        "model_initialization_seconds": 3.6089999999999236,
+        "generation_seconds": 5.0779999999999745,
+        "wav_write_seconds": 0.016000000000076398
+      },
+      "after_phases": {
+        "validation_normalization_seconds": 0.1710000000002765,
+        "model_initialization_seconds": 0.0,
+        "generation_seconds": 5.157000000000153,
+        "wav_write_seconds": 0.014999999999417923
+      },
+      "after_audio_seconds": 1.9786666666666666,
+      "model_reused": true,
+      "before_sha256": "2672cd25042da02c3e7019768e34b6c8cc8850fd7abfc520ab0aca3f3d9b8af2",
+      "after_sha256": "233fe00dac4e954e341ff1a10f9bd2c952edca742dea9662f60c97c5cf18def4",
+      "after_peak_rss_bytes": 499130368
+    },
+    {
+      "name": "tts_2",
+      "characters": 65,
+      "before_seconds": 17.63526090000005,
+      "after_seconds": 10.95736719999968,
+      "before_phases": {
+        "validation_normalization_seconds": 0.48500000000012733,
+        "model_initialization_seconds": 3.7339999999999236,
+        "generation_seconds": 10.405999999999949,
+        "wav_write_seconds": 0.032000000000152795
+      },
+      "after_phases": {
+        "validation_normalization_seconds": 0.1710000000002765,
+        "model_initialization_seconds": 0.0,
+        "generation_seconds": 10.469000000000051,
+        "wav_write_seconds": 0.03099999999994907
+      },
+      "after_audio_seconds": 4.109416666666666,
+      "model_reused": true,
+      "before_sha256": "2f1c68a7c708d73ed36584e282a2f0d1ae02338baa973f2cad5f1e2a5b152641",
+      "after_sha256": "350959d2f1da886b4d003a3b219f03429770a6a8c5a936f8707c42eee8b94365",
+      "after_peak_rss_bytes": 499130368
+    },
+    {
+      "name": "tts_3",
+      "characters": 218,
+      "before_seconds": 33.82977239999991,
+      "after_seconds": 27.357549299999846,
+      "before_phases": {
+        "validation_normalization_seconds": 0.5,
+        "model_initialization_seconds": 3.5160000000000764,
+        "generation_seconds": 26.75,
+        "wav_write_seconds": 0.1089999999999236
+      },
+      "after_phases": {
+        "validation_normalization_seconds": 0.1720000000004802,
+        "model_initialization_seconds": 0.0,
+        "generation_seconds": 26.811999999999898,
+        "wav_write_seconds": 0.09400000000005093
+      },
+      "after_audio_seconds": 12.687541666666666,
+      "model_reused": true,
+      "before_sha256": "371fa05ac20887f243a28b622bcae8dd22d4a0146e288b90f75c68094087d8b5",
+      "after_sha256": "4c907461321bf32d3ba6a231b43b2aaefb3c3a81db9b70f93605d43bd49beaa5",
+      "after_peak_rss_bytes": 568328192
+    }
+  ],
+  "final_text": [
+    {
+      "name": "first_general",
+      "seconds": 5.668025400000261,
+      "first_text_seconds": 5.666199499999493,
+      "route": "evidence_conversation",
+      "validation_profile": "engineering_source_checks",
+      "provider_metrics": {
+        "prompt_characters": 1458,
+        "output_token_limit": 384,
+        "queue_seconds": 0.01600000000144064,
+        "first_token_seconds": 4.891000000001441,
+        "load_duration": 4546518600,
+        "prompt_eval_count": 294,
+        "prompt_eval_duration": 263432000,
+        "prompt_eval_cached_count": 0,
+        "eval_count": 39,
+        "eval_duration": 671018000,
+        "total_duration": 5494885800,
+        "done_reason": "stop",
+        "elapsed_seconds": 5.563000000000102
+      },
+      "tokens_per_second": 58.120646540033206
+    },
+    {
+      "name": "repeat_general",
+      "seconds": 0.919313800000964,
+      "first_text_seconds": 0.918156400000953,
+      "route": "evidence_conversation",
+      "validation_profile": "engineering_source_checks",
+      "provider_metrics": {
+        "prompt_characters": 1849,
+        "output_token_limit": 384,
+        "queue_seconds": 0.0,
+        "first_token_seconds": 0.15600000000085856,
+        "load_duration": 8215900,
+        "prompt_eval_count": 368,
+        "prompt_eval_duration": 67268000,
+        "prompt_eval_cached_count": 167,
+        "eval_count": 39,
+        "eval_duration": 646424000,
+        "total_duration": 740016900,
+        "done_reason": "stop",
+        "elapsed_seconds": 0.7970000000004802
+      },
+      "tokens_per_second": 60.33191836936747
+    },
+    {
+      "name": "greeting",
+      "seconds": 0.0684411000002001,
+      "first_text_seconds": 0.06734419999884267,
+      "route": "fast_conversation",
+      "validation_profile": "social_no_external_claims",
+      "provider_metrics": {},
+      "tokens_per_second": null
+    }
+  ],
+  "fresh_final_deep_seconds": 29.565078300000096,
+  "hypothesis_review": [
+    {
+      "id": "HYP:73a9259a138b46ea",
+      "quality_status": "complete_text_unverified",
+      "issues": [],
+      "checks": 2
+    },
+    {
+      "id": "HYP:57028064ba333da7",
+      "quality_status": "incomplete_text",
+      "issues": [
+        "Mechanism ends with continuation punctuation; explanation may be incomplete."
+      ],
+      "checks": 2
+    }
+  ],
+  "hypothesis_semantic_accuracy": null,
+  "asr_offline_evaluation": {
+    "scope": "Public transcription references evaluated only after model outputs in this separate evaluator. No causal labels or evaluator_only data. Tiny descriptive sample; WER is not general ASR accuracy or human speech-quality score.",
+    "reference_manifest_sha256": "3b6916ecee2bb08ceff5e5999c3ce8e040b66a829ae64df9c458c0400f5a0af4",
+    "cases": [
+      {
+        "name": "before_base_pump",
+        "reference_words": 16,
+        "word_edits": 4,
+        "wer": 0.25,
+        "reference_sha256": "6b4f6654730173a3a430ad661493a4b7d7ca46563bcd2ea07d18c9f3331da620",
+        "upload_seconds": 7.182733499999813,
+        "model": "whisper-base.en-int8"
+      },
+      {
+        "name": "before_tiny_pump",
+        "reference_words": 16,
+        "word_edits": 6,
+        "wer": 0.375,
+        "reference_sha256": "6b4f6654730173a3a430ad661493a4b7d7ca46563bcd2ea07d18c9f3331da620",
+        "server_elapsed_seconds": 5.0,
+        "model": "whisper-tiny.en-int8"
+      },
+      {
+        "name": "after_final_base_pump",
+        "reference_words": 16,
+        "word_edits": 4,
+        "wer": 0.25,
+        "reference_sha256": "6b4f6654730173a3a430ad661493a4b7d7ca46563bcd2ea07d18c9f3331da620",
+        "upload_seconds": 1.6389577999998437,
+        "model": "whisper-base.en-int8"
+      },
+      {
+        "name": "after_final_tiny_pump",
+        "reference_words": 16,
+        "word_edits": 6,
+        "wer": 0.375,
+        "reference_sha256": "6b4f6654730173a3a430ad661493a4b7d7ca46563bcd2ea07d18c9f3331da620",
+        "server_elapsed_seconds": 2.1719999999995707,
+        "model": "whisper-tiny.en-int8"
+      },
+      {
+        "name": "derived_long_recording",
+        "reference_words": 53,
+        "word_edits": 4,
+        "wer": 0.07547169811320754,
+        "reference_sha256": "3ecf5024818bd863b0f1a3347cc3871bc6865e75142adc72f615c1caa36812c1",
+        "seconds": 7.884177800000543,
+        "audio_seconds": 27.670521541950112
+      },
+      {
+        "name": "generated_speech_asr_proxy",
+        "reference_words": 5,
+        "word_edits": 0,
+        "wer": 0.0,
+        "reference_sha256": "06ae7b7e56875f46a6b870e074df784655877de35831fdd2515e74dbd6840b68",
+        "note": "ASR round-trip proxy only, not perceived naturalness or listening review."
+      }
+    ]
+  },
+  "native_prediction_comparison": [
+    {
+      "route": "rul_low_latency",
+      "model_id": "fd001-01_lightgbm-s42",
+      "before_rul_cycles": 115.3478990753549,
+      "after_rul_cycles": 115.3478990753549,
+      "exact_equal": true,
+      "source": "Genuine existing compatible FD001 saved 31-cycle history; never oil-rig telemetry"
+    },
+    {
+      "route": "rul_advanced",
+      "model_id": "fd001-08_ensemble-s42",
+      "before_rul_cycles": 114.0469882715471,
+      "after_rul_cycles": 114.0469882715471,
+      "exact_equal": true,
+      "source": "Genuine existing compatible FD001 saved 31-cycle history; never oil-rig telemetry"
+    },
+    {
+      "route": "rul_deep",
+      "model_id": "fd001-03_bilstm_attention-s42",
+      "before_rul_cycles": 121.52069061994553,
+      "after_rul_cycles": 121.52069061994553,
+      "exact_equal": true,
+      "source": "Genuine existing compatible FD001 saved 31-cycle history; never oil-rig telemetry"
+    }
+  ],
+  "reliability": [
+    {
+      "name": "active_gpu_cancel",
+      "status": "passed",
+      "seconds": 5.168478300000061,
+      "metrics": {
+        "cancel_to_terminal_seconds": 0.3081350000002203
+      }
+    },
+    {
+      "name": "fresh_sentence_stream",
+      "status": "passed",
+      "seconds": 17.724383200000375,
+      "metrics": {
+        "first_completed_wav_seconds": 12.880964799999674,
+        "total_seconds": 17.724169399999482
+      }
+    },
+    {
+      "name": "cancel_active_speech",
+      "status": "passed",
+      "seconds": 4.068338200000653,
+      "metrics": {
+        "first_completed_wav_seconds": 3.499166800000239,
+        "total_seconds": 4.068127800000184,
+        "cancel_to_terminal_seconds": 0.019954000000325323,
+        "actual_child_exited": true
+      }
+    },
+    {
+      "name": "cached_sentence_stream",
+      "status": "passed",
+      "seconds": 0.4220196999995096,
+      "metrics": {
+        "first_completed_wav_seconds": 0.24371869999959017,
+        "total_seconds": 0.42181909999999334
+      }
+    },
+    {
+      "name": "concurrent_status_upload_recall_dedup",
+      "status": "passed",
+      "seconds": 13.999432699999488,
+      "metrics": {}
+    },
+    {
+      "name": "actual_unavailable_tag",
+      "status": "passed",
+      "seconds": 0.16829329999927722
+    }
+  ],
+  "concurrent_operation_seconds": {
+    "status": 0.009520399999928486,
+    "greeting": 0.07466479999948206,
+    "saved_followup_1": 0.10996499999964726,
+    "saved_followup_2": 0.11009030000059283,
+    "upload": 0.08072720000018307,
+    "duplicate_job": 0.026263900000230933
+  },
+  "restart": {
+    "status": "pass",
+    "job_status": "interrupted",
+    "error": {
+      "code": "process_restarted",
+      "message": "The previous process ended. Completed evidence and messages are retained; submit a new request to continue."
+    }
+  },
+  "gpu": {
+    "text_cli": "NAME                 ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL                   \nqwen3:4b-instruct    0edcdef34593    3.2 GB    100% GPU     4096       llamacpp    About a minute from now    \n",
+    "vision_cli": "NAME                    ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL                   \nqwen3-vl:2b-instruct    afc393e3572c    2.0 GB    100% GPU     4096       llamacpp    About a minute from now    \n",
+    "nvidia_smi": "NVIDIA GeForce RTX 4050 Laptop GPU, 621.01, 3794 MiB, 6141 MiB, 5 %\n",
+    "torch": {
+      "version": "2.8.0+cu128",
+      "compiled_cuda": "12.8",
+      "cuda_available": true
+    },
+    "runtime_files_verified": 51,
+    "scope": "Current actual GPU allocation/CLI plus exact original/additive runtime hashes. Point-in-time GPU utilization and eight-token smoke are not the general-question benchmark."
+  },
+  "preservation": {
+    "native_files": 813,
+    "frozen_files": 7956,
+    "original_bundles": 3,
+    "media_embedding_files": 13,
+    "ollama_blobs": 20,
+    "runtime_files": 51,
+    "original_production_rows_changed": 0,
+    "original_production_rows_deleted": 0,
+    "earlier_production_additions": [
+      {
+        "table": "attachments",
+        "added": 8
+      },
+      {
+        "table": "cases",
+        "added": 1
+      },
+      {
+        "table": "conversations",
+        "added": 1
+      },
+      {
+        "table": "messages",
+        "added": 12
+      },
+      {
+        "table": "v3_cases",
+        "added": 1
+      },
+      {
+        "table": "v3_evidence",
+        "added": 47
+      },
+      {
+        "table": "v3_runs",
+        "added": 7
+      },
+      {
+        "table": "v3_sources",
+        "added": 46
+      },
+      {
+        "table": "v45_jobs",
+        "added": 1
+      }
+    ],
+    "immediate_cutover_tables_exact": 15,
+    "status": "pass_original_records_and_artifacts_preserved_with_live_additions"
+  },
+  "artifact_inventory": {
+    "large_file_count": 92,
+    "logical_large_file_bytes": 12661539845,
+    "threshold_bytes": 10000000,
+    "note": "No moves/deletion. Logical file sizes are not deduplicated physical disk usage. Originals remain in place; no claim that a nonprimary model is unused."
+  },
+  "limitations": [
+    "Fresh CPU Kokoro generation remains slow; first completed WAV is not first audible audio.",
+    "Physical microphone/speaker, echo, noise and natural barge-in acceptance unverified.",
+    "No independent qualitative/causal diagnostic accuracy or semantic entailment score; generated fragments are flagged, not repaired with invented prose.",
+    "ASR technical terminology remains imperfect; tiny public synthetic cohort is not general accuracy.",
+    "No OS-wide air-gap, deliberate GPU OOM test, portable clean-environment qualification, or subjective blind listening review.",
+    "Cold-start latency returns after 90s CPU idle eviction or 120s Ollama residency expiry; one heavy slot may queue model-dependent work.",
+    "Current system/VRAM peak and separate KV allocation unmeasured; observed retained-worker RSS is a lifetime peak."
+  ],
+  "receipts": [
+    {
+      "path": ".runtime/phase3_20261118/baseline.json",
+      "bytes": 346016,
+      "sha256": "d1185515f3a56b44e8038d5469cef527bc661f9bd7df36a933fda713f4fbe371"
+    },
+    {
+      "path": ".runtime/phase3_20261118/before/results.json",
+      "bytes": 3712018,
+      "sha256": "1016e6919eba7ef6c1050f30b27cb74432db3e0731294d9b20f08994b6d5a4bc"
+    },
+    {
+      "path": ".runtime/phase3_20261118/after/results.json",
+      "bytes": 1581873,
+      "sha256": "7bfd9b1f72fa32e85df3a560dee62e1e98d14deea805e8254b08fa7adbf38024"
+    },
+    {
+      "path": ".runtime/phase3_20261118/after_final/results.json",
+      "bytes": 3727553,
+      "sha256": "90b63057b0db824b68071989ddd5b2b07159ca039c5afb52d4d702856e445cd1"
+    },
+    {
+      "path": ".runtime/phase3_20261118/reliability/results.json",
+      "bytes": 40409,
+      "sha256": "633869244cbdfced057eedc7ab9dca5c312c156be32cf4cdb1642eee38af8063"
+    },
+    {
+      "path": ".runtime/phase3_20261118/reliability_final/results.json",
+      "bytes": 2356172,
+      "sha256": "e84c73f849ed173a445a238e1cf8c974104c26be7b24456386026582586ddf7a"
+    },
+    {
+      "path": ".runtime/phase3_20261118/reliability_final/restart_seed.json",
+      "bytes": 5930,
+      "sha256": "27d6ac98e69dd81b7e1c3d0c2562f1c0d7a892814f3fb3f42486f793d42789a3"
+    },
+    {
+      "path": ".runtime/phase3_20261118/reliability_final/restart_recovery.json",
+      "bytes": 49475,
+      "sha256": "c92e29359b8e47bddbdad6ed0001bb2052a127b86c115deed009d7e3e50bd6fe"
+    },
+    {
+      "path": ".runtime/phase3_20261118/offline_final/results.json",
+      "bytes": 9219,
+      "sha256": "9665d14b8ec470838ed0ea1425ca3eebf81d051db301303c0f0263a19cc518c3"
+    },
+    {
+      "path": ".runtime/phase3_20261118/fallback.json",
+      "bytes": 2021,
+      "sha256": "89d00f25aedd3838328706bba3b5125852a442caad5af0288e2d7fb03d030dad"
+    },
+    {
+      "path": ".runtime/phase3_20261118/quality_model_outputs.json",
+      "bytes": 6711,
+      "sha256": "22ea0bcb31ab344c91b2ec555df04c6c9df840bb2a7e412f3641727d454949ea"
+    },
+    {
+      "path": ".runtime/phase3_20261118/asr_evaluation.json",
+      "bytes": 2223,
+      "sha256": "3fd5c5a1b74a3d464995aa2e06b763bf3fe4c97ef41bd90a0da21bed78d5521b"
+    },
+    {
+      "path": ".runtime/phase3_20261118/preservation.json",
+      "bytes": 10977,
+      "sha256": "7633ff86c57c4089350552355309fa5d542998e498af38c7111f419338576212"
+    },
+    {
+      "path": ".runtime/phase3_20261118/production_activity_audit.json",
+      "bytes": 3263,
+      "sha256": "043e043579339315557cc52fd453bfc2779f746366ed0e338efdd22567b18b93"
+    },
+    {
+      "path": ".runtime/phase3_20261118/preservation_resolved.json",
+      "bytes": 3450,
+      "sha256": "4a6422c3879560512d53006e6324849ae275525874339e752219e8aad00fde21"
+    },
+    {
+      "path": ".runtime/phase3_20261118/artifact_inventory.json",
+      "bytes": 265370,
+      "sha256": "92b8647d0b1175dfe00c00ae0876f99cf31322011491c40a369f6946ca74c35a"
+    },
+    {
+      "path": ".runtime/phase3_20261118/hardware.json",
+      "bytes": 12358,
+      "sha256": "015f848e046864c261fec1045cf92f2b81acc48a73b21220fd39044da69b3149"
+    },
+    {
+      "path": ".runtime/phase3_20261118/final_network.json",
+      "bytes": 1840252,
+      "sha256": "f477485841ce5bb77bdc4aafdc88369cbe486de7d18ba002172f6b9ff424003c"
+    },
+    {
+      "path": ".runtime/phase3_20261118/main_cutover.json",
+      "bytes": 346988,
+      "sha256": "0567e331b26f5e06794d61635f389ca407d8ccfaba3e424e5b466ee3930fb0da"
+    },
+    {
+      "path": ".runtime/phase3_20261118/pytest_final_verified.log",
+      "bytes": 2074,
+      "sha256": "39974316542970696f6b4050a4c265e1aa1b602a96db73e4257121a5c50b5a9c"
+    },
+    {
+      "path": ".runtime/phase3_20261118/frontend_final.log",
+      "bytes": 6530,
+      "sha256": "ed3f65b627921c0fcea00b3fab813bcd42d34dafc7b1c98c4813d4c894a42f46"
+    },
+    {
+      "path": ".runtime/phase3_20261118/frontend_build_final.log",
+      "bytes": 2168,
+      "sha256": "b297c4fb2b1e215e896f2c7d775a2f589a7a33b39579d0cb9fb0b7da7856cc60"
+    },
+    {
+      "path": ".runtime/phase3_20261118/release_audit.json",
+      "bytes": 1369,
+      "sha256": "7861bdec677665ec03de6c4f8213845bae62f60af199d0a3177acd36c8432c35"
+    }
+  ],
+  "final_read_only_audit": {
+    "status": "pass",
+    "source_sha256": "da2589035d0c4b4261a1e2d13b6eb15d9a01e39a62efc80f708c9d91a3f55252",
+    "configured_native_primary_models": [
+      "fd001-01_lightgbm-s42",
+      "fd001-03_bilstm_attention-s42",
+      "fd001-08_ensemble-s42",
+      "fd002-03_bilstm_attention-s42",
+      "fd002-08_ensemble-s44",
+      "fd003-03_bilstm_attention-s42",
+      "fd003-08_ensemble-s42",
+      "fd004-03_bilstm_attention-s42",
+      "fd004-08_ensemble-s42",
+      "fd002-01_lightgbm-original-s42",
+      "fd003-01_lightgbm-original-s42",
+      "fd004-01_lightgbm-original-s42"
+    ],
+    "phase2_documents_unchanged": 13,
+    "receipt_hashes_verified": 22,
+    "required_phase3_documents": 11,
+    "frontend_after_rebuild": "Exact served index/JS/CSS matches build",
+    "qa_port": "closed",
+    "voice_schema": "Actual16kHzPCM contract verified; physical devices untested"
+  }
+}

@@ -66,6 +66,9 @@ def test_native_cancel_terminates_only_owned_test_worker(tmp_path, monkeypatch):
     stop = threading.Event()
 
     def delayed_worker(*args, **kwargs):
+        command = args[0] if args else kwargs.get("args", [])
+        if len(command) < 3 or command[1:3] != ["-m", "app.prediction.worker"]:
+            return original(*args, **kwargs)
         child = original(
             [sys.executable, "-c", "import time; time.sleep(10)"], **kwargs
         )

@@ -1,6 +1,7 @@
 """Offline ONNX mean-pooling worker; no remote model code or hub loading."""
 
 import json
+import importlib
 import sys
 import time
 from app.core.config import ROOT
@@ -8,18 +9,15 @@ from app.knowledge.embeddings import POLICY, model_files
 from app.core.process_metrics import usage
 
 
-def main() -> None:
-    """Embed bounded actual text using pinned tokenizer/ONNX bytes and CPU only."""
+def create_engine() -> tuple:
+    """Create the pinned CPU tokenizer/session once; never retain query histories."""
     sys.path.insert(0, str(ROOT / POLICY["dependencies"]))
-    import numpy as np
     import onnxruntime as ort
     from tokenizers import Tokenizer
 
     ort.disable_telemetry_events()
 
-    texts = json.load(sys.stdin)["texts"]
     paths = model_files()
-    start = time.perf_counter()
     tokenizer = Tokenizer.from_file(str(paths["tokenizer.json"]))
     tokenizer.enable_truncation(max_length=POLICY["max_tokens"])
     tokenizer.enable_padding()
@@ -31,7 +29,15 @@ def main() -> None:
         sess_options=options,
         providers=["CPUExecutionProvider"],
     )
-    loaded = time.perf_counter()
+    return tokenizer, session, ort.__version__
+
+
+def embed(texts: list[str], engine: tuple) -> dict:
+    """Generate fresh actual vectors with unchanged truncation, pooling and normalization."""
+    import numpy as np
+
+    tokenizer, session, version = engine
+    began = time.perf_counter()
     vectors = []
     truncated = 0
     for offset in range(0, len(texts), POLICY["batch_size"]):
@@ -57,23 +63,57 @@ def main() -> None:
         if not np.isfinite(pooled).all():
             raise ValueError("Non-finite embeddings")
         vectors.extend(pooled.astype(np.float32).tolist())
-    print(
-        json.dumps(
-            {
-                "vectors": vectors,
-                "model": POLICY["model_id"],
-                "revision": POLICY["revision"],
-                "provider": "onnxruntime-" + ort.__version__,
-                "execution_providers": session.get_providers(),
-                "model_load_seconds": loaded - start,
-                "inference_seconds": time.perf_counter() - loaded,
-                "truncated_inputs": truncated,
-                "pooling": "attention-masked mean then L2 normalization",
-                "resources": usage(),
-            },
-            allow_nan=False,
-        )
-    )
+    return {
+        "vectors": vectors,
+        "model": POLICY["model_id"],
+        "revision": POLICY["revision"],
+        "provider": "onnxruntime-" + version,
+        "execution_providers": session.get_providers(),
+        "inference_seconds": time.perf_counter() - began,
+        "truncated_inputs": truncated,
+        "pooling": "attention-masked mean then L2 normalization",
+        "resources": usage(),
+    }
+
+
+def main() -> None:
+    """Serve original one-shot execution or bounded owned JSON-file descriptors."""
+    engine = None
+    native_import_seconds = 0.0
+    if "--resident" in sys.argv:
+        # Windows native DLL initialization can wait on CRT stdin locks. Complete
+        # imports before the pipe-watcher thread starts blocking on stdin.
+        importing = time.perf_counter()
+        sys.path.insert(0, str(ROOT / POLICY["dependencies"]))
+        for dependency in ["numpy", "onnxruntime", "tokenizers"]:
+            importlib.import_module(dependency)
+
+        native_import_seconds = time.perf_counter() - importing
+
+    def execute(payload: dict) -> dict:
+        nonlocal engine
+        began = time.perf_counter()
+        cpu = usage()["cpu_seconds"]
+        reused = engine is not None
+        if engine is None:
+            engine = create_engine()
+        loaded = time.perf_counter()
+        result = embed(payload["texts"], engine)
+        result["model_load_seconds"] = loaded - began
+        result["model_reused"] = reused
+        result["native_import_seconds"] = 0.0 if reused else native_import_seconds
+        result["resources"]["request_cpu_seconds"] = usage()["cpu_seconds"] - cpu
+        result["resources"][
+            "scope"
+        ] = "Observed process lifetime peak RSS/CPU plus request CPU delta; retained peak is not per-query peak."
+        return result
+
+    if "--resident" in sys.argv:
+        from app.core.worker_pool import serve
+
+        serve(execute)
+    else:
+        print(json.dumps(execute(json.load(sys.stdin)), allow_nan=False))
 
 
 if __name__ == "__main__":

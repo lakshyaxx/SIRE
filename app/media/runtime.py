@@ -1,6 +1,7 @@
 """Isolated local speech/video jobs with fixed resources, integrity checks and cancellation."""
 
 import hashlib
+import logging
 from contextlib import ExitStack
 import json
 import os
@@ -17,6 +18,7 @@ from app.prediction.hub import INFERENCE_LOCK
 from app.providers.ollama import PROVIDER_LOCK
 from app.providers.resources import SCHEDULER
 from app.media.cache import SpeechCache
+from app.core.worker_pool import WorkerProcess, terminate_owned
 
 POLICY = yaml.safe_load((ROOT / "config/media.yaml").read_text(encoding="utf-8"))
 DEPENDENCIES = ROOT / POLICY["optional_dependencies"]
@@ -27,6 +29,10 @@ SPEECH_CACHE = SpeechCache(
     POLICY["tts_cache_entries"],
     POLICY["tts_cache_bytes"],
     POLICY["tts_cache_ttl_seconds"],
+)
+LOGGER = logging.getLogger(__name__)
+MEDIA_WORKER = WorkerProcess(
+    "app.media.worker", POLICY.get("resident_idle_seconds", 90), POLICY["tts_threads"]
 )
 
 
@@ -133,6 +139,60 @@ def cancel(identifier: str) -> bool:
     return False
 
 
+def _one_shot(request: dict, event: threading.Event, started: float) -> dict:
+    """Keep the original isolated worker as a real cancellable fallback."""
+    operation = request["operation"]
+    threads = POLICY["tts_threads"] if operation == "tts" else POLICY["threads"]
+    process = subprocess.Popen(
+        [sys.executable, "-m", "app.media.worker"],
+        cwd=ROOT,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+        encoding="utf-8",
+        env=dict(
+            os.environ,
+            PYTHONDONTWRITEBYTECODE="1",
+            OMP_NUM_THREADS=str(threads),
+            OPENBLAS_NUM_THREADS=str(threads),
+            CUDA_VISIBLE_DEVICES="",
+        ),
+        creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
+    )
+    first = True
+    try:
+        while True:
+            if event.is_set():
+                raise SireError(
+                    "media_cancelled",
+                    "Media operation cancelled; no substituted output.",
+                    409,
+                )
+            if time.monotonic() - started > POLICY["timeout_seconds"]:
+                raise SireError(
+                    "media_timeout", "Local media worker reached its time limit.", 503
+                )
+            try:
+                stdout, _ = process.communicate(
+                    json.dumps(request) if first else None, timeout=0.1
+                )
+                break
+            except subprocess.TimeoutExpired:
+                first = False
+        if process.returncode:
+            raise SireError(
+                "media_processing_failed",
+                "The local media worker could not process this input; no result substituted.",
+                422,
+            )
+        return json.loads(stdout)
+    finally:
+        if process.poll() is None:
+            terminate_owned(process)
+            process.communicate(timeout=5)
+
+
 def run(
     operation: str,
     payload: dict,
@@ -196,6 +256,11 @@ def run(
                     "cache_request_seconds": cached["elapsed_seconds"]
                 }
                 cached["original_synthesis_resources"] = cached.pop("resources", {})
+                cached["worker_lifecycle"] = {
+                    "worker_started": False,
+                    "execution": "Exact prior WAV reused; no worker ran for this request",
+                }
+                cached["model_reused"] = False
                 cached["resources"] = {
                     "worker_started": False,
                     "scope": "Cached request; original synthesis worker counters are retained separately.",
@@ -228,52 +293,49 @@ def run(
             "payload": payload,
             "workspace": str(workspace),
         }
-        process = subprocess.Popen(
-            [sys.executable, "-m", "app.media.worker"],
-            cwd=ROOT,
-            stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-            encoding="utf-8",
-            env=dict(
-                os.environ,
-                PYTHONDONTWRITEBYTECODE="1",
-                OMP_NUM_THREADS=str(
-                    POLICY["tts_threads"] if operation == "tts" else POLICY["threads"]
-                ),
-                OPENBLAS_NUM_THREADS=str(
-                    POLICY["tts_threads"] if operation == "tts" else POLICY["threads"]
-                ),
-                CUDA_VISIBLE_DEVICES="",
-            ),
-        )
-        first = True
-        while True:
-            if event.is_set():
-                raise SireError(
-                    "media_cancelled",
-                    "Media operation cancelled; no transcript or audio substituted.",
-                    409,
-                )
-            if time.monotonic() - started > POLICY["timeout_seconds"]:
-                raise SireError(
-                    "media_timeout", "Local media worker reached its time limit.", 503
-                )
+        if operation in {"asr", "tts"} and POLICY.get("resident_workers", False):
+            fingerprint = hashlib.sha256(
+                json.dumps(
+                    [
+                        POLICY,
+                        *[
+                            hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+                            for name in [
+                                "app/media/worker.py",
+                                "app/voice/text.py",
+                                "app/core/worker_pool.py",
+                            ]
+                        ],
+                    ],
+                    sort_keys=True,
+                ).encode()
+            ).hexdigest()
             try:
-                stdout, stderr = process.communicate(
-                    json.dumps(request) if first else None, timeout=0.25
+                output = MEDIA_WORKER.execute(
+                    request, event, POLICY["timeout_seconds"], fingerprint
                 )
-                break
-            except subprocess.TimeoutExpired:
-                first = False
-        if process.returncode:
-            raise SireError(
-                "media_processing_failed",
-                "The local media worker rejected or could not process this input. No result was substituted.",
-                422,
-            )
-        output = json.loads(stdout)
+            except SireError as exc:
+                if exc.code == "resident_cancelled":
+                    raise SireError("media_cancelled", exc.message, 409) from exc
+                if exc.code == "resident_timeout":
+                    raise SireError("media_timeout", exc.message, 503) from exc
+                if (
+                    exc.code != "resident_failed"
+                    or not POLICY.get("resident_fallback", False)
+                    or event.is_set()
+                ):
+                    raise
+                LOGGER.warning(
+                    "Resident media worker failed; executing preserved one-shot provider"
+                )
+                output = _one_shot(request, event, started)
+                output["worker_fallback"] = {
+                    "from": "resident",
+                    "to": "original_one_shot",
+                    "reason": exc.code,
+                }
+        else:
+            output = _one_shot(request, event, started)
         if output.get("error"):
             raise SireError(
                 output["error"]["code"],
