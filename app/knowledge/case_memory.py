@@ -8,6 +8,77 @@ from app.evidence.ledger import Ledger
 from app.simulation.repository import utc
 
 
+def _asset_readings(case: dict) -> dict[str, dict]:
+    """Return bounded saved channel summaries for the case's exact target asset."""
+    for summary in case.get("summaries", []):
+        if summary.get("asset_id") == case.get("asset_id"):
+            return {
+                channel: {
+                    key: row.get(key)
+                    for key in ["recent_mean", "delta", "unit", "evidence_id"]
+                }
+                for channel, row in summary.get("channels", {}).items()
+                if row.get("available") and row.get("recent_mean") is not None
+            }
+    return {}
+
+
+def _comparison_details(selected: dict, other: dict) -> dict:
+    """Describe measured trend overlap and reading differences without causal inference."""
+    selected_readings = _asset_readings(selected)
+    other_readings = _asset_readings(other)
+    common = sorted(set(selected_readings) & set(other_readings))
+
+    def direction(value: object) -> int:
+        if not isinstance(value, (int, float)) or value == 0:
+            return 0
+        return 1 if value > 0 else -1
+
+    overlapping = [
+        {
+            "channel": channel,
+            "direction": "increasing"
+            if direction(selected_readings[channel]["delta"]) > 0
+            else "decreasing"
+            if direction(selected_readings[channel]["delta"]) < 0
+            else "stable",
+        }
+        for channel in common
+        if isinstance(selected_readings[channel]["delta"], (int, float))
+        and isinstance(other_readings[channel]["delta"], (int, float))
+        if direction(selected_readings[channel]["delta"])
+        == direction(other_readings[channel]["delta"])
+    ]
+    differences = [
+        {
+            "channel": channel,
+            "selected_value": selected_readings[channel]["recent_mean"],
+            "prior_value": other_readings[channel]["recent_mean"],
+            "unit": selected_readings[channel]["unit"],
+        }
+        for channel in common
+        if selected_readings[channel]["unit"] == other_readings[channel]["unit"]
+        and selected_readings[channel]["recent_mean"]
+        != other_readings[channel]["recent_mean"]
+    ]
+    return {
+        "overlapping_symptoms": overlapping,
+        "differing_readings": differences,
+        "asset_context": {
+            "selected": {
+                "scenario_id": selected.get("scenario_id"),
+                "asset_id": selected.get("asset_id"),
+                "as_of": selected.get("as_of"),
+            },
+            "prior": {
+                "scenario_id": other.get("scenario_id"),
+                "asset_id": other.get("asset_id"),
+                "as_of": other.get("as_of"),
+            },
+        },
+    }
+
+
 def similar_cases(ledger: Ledger, case_id: str, as_of: str | None = None) -> list[dict]:
     """Compare canonical supported-mechanism sets; precedent never becomes source measurement."""
     selected = ledger.get("cases", case_id)
@@ -24,6 +95,7 @@ def similar_cases(ledger: Ledger, case_id: str, as_of: str | None = None) -> lis
         other = set(case["possible_contributors"])
         union = keys | other
         score = len(keys & other) / len(union) if union else 0
+        details = _comparison_details(selected, case)
         result.append(
             {
                 "case_id": case["id"],
@@ -34,6 +106,12 @@ def similar_cases(ledger: Ledger, case_id: str, as_of: str | None = None) -> lis
                 "different_mechanisms": sorted(keys ^ other),
                 "source_type": case["source_type"],
                 "evidence_ids": case["evidence_ids"],
+                "evidence_strength": "provisional_only",
+                "provisional": True,
+                "retrieval_reason": (
+                    f"Shared {len(keys & other)} of {len(union)} distinct provisional mechanisms; ranked by set overlap then case ID."
+                ),
+                **details,
                 "caveat": "Set overlap among provisional rule hypotheses, not calibrated causal similarity.",
             }
         )

@@ -1,6 +1,7 @@
 """Conservative review flags for visibly unfinished mechanism descriptions."""
 
 import re
+import unicodedata
 
 
 def issues(text: str) -> list[str]:
@@ -26,5 +27,17 @@ def issues(text: str) -> list[str]:
     ):
         result.append(
             "Mechanism contains unmatched delimiters; human review is required."
+        )
+    unexpected_scripts = sorted(
+        {
+            unicodedata.name(character, "UNKNOWN").split()[0]
+            for character in text
+            if character.isalpha() and "LATIN" not in unicodedata.name(character, "")
+        }
+    )
+    if unexpected_scripts:
+        result.append(
+            "Mechanism contains unexpected language-script drift "
+            f"({', '.join(unexpected_scripts)}); output was withheld."
         )
     return result

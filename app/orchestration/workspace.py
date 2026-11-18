@@ -23,6 +23,57 @@ class InvestigationContext(BaseModel):
     case_id: str | None = Field(default=None, max_length=100)
 
 
+def _render_similar_cases(cases: list[dict]) -> list[str]:
+    """Render retrieved case identities and contrasts instead of an opaque count."""
+    if not cases:
+        return [
+            "No earlier time-eligible case comparison was found for this saved case."
+        ]
+    lines = ["### Prior provisional case comparisons"]
+    for comparison in cases:
+        shared = ", ".join(comparison["shared_mechanisms"]) or "none"
+        different = ", ".join(comparison["different_mechanisms"]) or "none"
+        sources = " ".join(
+            f"[{identifier}]" for identifier in comparison["evidence_ids"]
+        )
+        symptoms = (
+            ", ".join(
+                f"{row['channel']} {row['direction']}"
+                for row in comparison.get("overlapping_symptoms", [])
+            )
+            or "none established"
+        )
+        readings = (
+            "; ".join(
+                f"{row['channel']}: selected {row['selected_value']} vs prior {row['prior_value']} {row['unit']}"
+                for row in comparison.get("differing_readings", [])
+            )
+            or "none with matching units"
+        )
+        context = comparison.get("asset_context", {})
+        selected_context = context.get("selected", {})
+        prior_context = context.get("prior", {})
+        context_text = (
+            f"Selected {selected_context.get('asset_id', 'unknown')} at "
+            f"{selected_context.get('as_of', 'unknown cutoff')}; prior "
+            f"{prior_context.get('asset_id', comparison['asset_id'])} at "
+            f"{prior_context.get('as_of', 'unknown cutoff')}."
+        )
+        lines.append(
+            f"- Case {comparison['case_id']} · asset {comparison['asset_id']} · "
+            f"{comparison['confirmation_status']} · {comparison.get('evidence_strength', 'provisional_only')} · overlap {comparison['overlap_score']:.3f}. "
+            f"Shared mechanisms: {shared}. Different mechanisms: {different}. "
+            f"Overlapping observed trends: {symptoms}. Differing readings: {readings}. "
+            f"Asset/time context: {context_text} "
+            f"Why retrieved: {comparison.get('retrieval_reason', 'provisional mechanism overlap')}. "
+            f"Sources: {sources or 'none recorded'}."
+        )
+    lines.append(
+        "These are provisional set-overlap retrievals, not calibrated causal similarity or confirmed precedent."
+    )
+    return lines
+
+
 def plan_workspace(
     content: str, context: dict | None, investigate: bool = False
 ) -> Plan | None:
@@ -297,9 +348,7 @@ def render_workspace(result: dict) -> str:
                 f"Report created from the frozen evidence snapshot: [PDF](/api/v1/reports/{identifier}/download?format=pdf) · [Markdown](/api/v1/reports/{identifier}/download?format=markdown)."
             )
         elif tool == "case.similar":
-            lines.append(
-                f"Found {len(value['cases'])} prior provisional comparisons. Open Case memory to inspect shared mechanisms and differences; this is not calibrated causal similarity."
-            )
+            lines.extend(_render_similar_cases(value["cases"]))
         elif tool == "simulation.compare":
             lines.append("### SIMULATED what-if")
             for row in value["comparison"]:
