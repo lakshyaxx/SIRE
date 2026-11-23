@@ -1,0 +1,25 @@
+numpy
+pandas
+scipy
+scikit-learn
+h5py
+pyarrow
+pyyaml
+lightgbm
+torch
+shap
+optuna
+matplotlib
+statsmodels
+seaborn
+tqdm
+pytest
+fastapi
+uvicorn
+pydantic
+python-multipart
+python-docx
+# later phases (uncomment when needed)
+# sentence-transformers
+# faiss-cpu
+# openai-whisper

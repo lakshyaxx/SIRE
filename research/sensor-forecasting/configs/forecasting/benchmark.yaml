@@ -1,0 +1,11 @@
+subset: FD001
+unit: 1
+horizon: 39
+targets: [sensor_2, sensor_3]
+baselines:
+  ar: {}
+  ma: {order: [0, 0, 1], maxiter: 50}
+  arima: {order: [1, 1, 0], maxiter: 50}
+  sarima: {order: [1, 1, 0], seasonal_order: [1, 0, 0, 10], maxiter: 50}
+  ses: {}
+  holt: {}

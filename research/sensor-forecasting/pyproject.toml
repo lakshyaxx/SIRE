@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdm"
+version = "0.1.0"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+tft = ["pytorch-forecasting>=1.8,<1.9", "lightning>=2.6,<2.7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

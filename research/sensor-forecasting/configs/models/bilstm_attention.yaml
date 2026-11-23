@@ -1,0 +1,6 @@
+model: bilstm_attention
+params:
+  hidden_size: 128
+  num_layers: 2
+  dropout: 0.2
+  attention: true

@@ -1,0 +1,3 @@
+integration: 1
+max_lags: 6
+ic: aic

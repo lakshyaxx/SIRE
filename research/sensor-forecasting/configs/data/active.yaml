@@ -1,0 +1,3 @@
+# Which dataset config the pipeline uses
+active: cmapss      # cmapss | ncmapss
+subset: FD001       # FD001..FD004 for cmapss

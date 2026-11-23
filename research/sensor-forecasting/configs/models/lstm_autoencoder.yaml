@@ -1,0 +1,6 @@
+model: lstm_autoencoder
+params:
+  hidden_size: 64
+  latent_size: 16
+  train_on: healthy_only
+  healthy_fraction_of_life: 0.3

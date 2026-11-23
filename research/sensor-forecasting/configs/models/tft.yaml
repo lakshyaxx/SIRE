@@ -1,0 +1,16 @@
+encoder_length: 30
+hidden_size: 32
+attention_head_size: 4
+dropout: 0.1
+batch_size: 64
+learning_rate: 0.003
+max_epochs: 30
+patience: 5
+accelerator: auto
+threads: 4
+seeds: [42, 43, 44]
+split_seed: 42
+val_fraction: 0.2
+observed: [sensor_3, sensor_4]
+static: [initial_setting_1]
+known: [cycle]

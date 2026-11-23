@@ -1,0 +1,5 @@
+# Fixed FD001 experiment settings, independent of the RUL pipeline's active subset.
+subset: FD001
+unit: 1
+sensor: 2
+runs_dir: results/runs

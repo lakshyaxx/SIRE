@@ -1,0 +1,4 @@
+llm_provider: TBD
+model: TBD
+temperature: 0.2
+max_tool_calls: 8

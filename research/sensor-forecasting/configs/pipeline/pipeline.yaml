@@ -1,0 +1,2 @@
+stages: [ingest, predict, retrieve, hypothesize, backtest, report]
+enabled_now: [ingest, predict]

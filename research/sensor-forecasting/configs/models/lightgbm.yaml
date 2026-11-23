@@ -1,0 +1,18 @@
+model: lightgbm
+dataset: FD001
+seed: 42
+seeds: [42, 43, 44]
+rul_clip: 125
+window_size: 30
+window_stride: 1
+validation_strategy: engine_holdout
+output_dir: models_store/lightgbm
+metrics_dir: results/metrics
+params:
+  n_estimators: 1000
+  learning_rate: 0.03
+  num_leaves: 63
+  max_depth: -1
+  subsample: 0.8
+  colsample_bytree: 0.8
+  reg_lambda: 1.0

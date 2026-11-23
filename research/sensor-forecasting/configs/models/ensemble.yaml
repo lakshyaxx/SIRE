@@ -1,0 +1,3 @@
+model: ensemble
+members: [lightgbm, bilstm_attention, cnn_transformer]
+method: average   # or stacking

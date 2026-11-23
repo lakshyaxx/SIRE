@@ -1,0 +1,11 @@
+dataset: cmapss          # ACTIVE dataset
+raw_dir: data/raw/cmapss
+subset: FD001
+rul_clip: 125
+window_size: 30
+window_stride: 1
+val_fraction_units: 0.2
+seed: 42
+scaler: minmax
+per_condition_normalization: false   # true for FD002/FD004
+operating_conditions: 6

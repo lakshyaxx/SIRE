@@ -1,0 +1,10 @@
+# OPTIONAL, later extension (not active)
+dataset: ncmapss
+raw_dir: data/raw/ncmapss
+subset: DS01-005          # verify the exact .h5 filename you downloaded
+downsample_factor: 10     # keep every Nth second; tune for memory
+rul_clip: 125             # tune for N-CMAPSS
+window_size: 50
+window_stride: 1
+val_fraction_units: 0.2
+scaler: standard
