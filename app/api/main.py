@@ -179,7 +179,7 @@ def create_app(
         await asyncio.to_thread(close_workers)
 
     application = FastAPI(
-        title="SIRE chat and prediction API", version="4.8.1", lifespan=lifespan
+        title="SIRE chat and prediction API", version="4.8.3", lifespan=lifespan
     )
     application.state.runtime_identity = source_identity(config.ROOT, config.WEB_DIST)
     application.include_router(intelligence_router)

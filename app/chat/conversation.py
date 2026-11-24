@@ -14,13 +14,56 @@ POLICY = yaml.safe_load((ROOT / "config/conversation.yaml").read_text(encoding="
 MANIFEST = ROOT / "config/capabilities.yaml"
 
 
-def fast_route(question: str) -> str | None:
+def fast_route(question: str, history: list[dict] | None = None) -> str | None:
     """Recognize complete social requests or application self-description, not attached evidence."""
     text = question.strip()
     if not engineering_question(text) and re.fullmatch(
         POLICY["social_pattern"], text, re.I
     ):
         return "social"
+    manifest = yaml.safe_load(MANIFEST.read_text(encoding="utf-8"))
+    previous = next(
+        (
+            row
+            for row in reversed(history or [])
+            if row["role"] == "assistant" and row["status"] == "complete"
+        ),
+        None,
+    )
+    previous_topic = (previous or {}).get("metadata", {}).get("response_topic")
+    if previous_topic not in {*manifest.get("topic_aliases", {}), "overview", "limits"}:
+        previous_topic = None
+    case_scope = re.search(
+        r"\b[A-Za-z][A-Za-z0-9_]*-\d[\w-]*\b|\b(?:investigate|diagnose)\b", text, re.I
+    )
+    definition = re.search(
+        r"\b(?:what|how|explain|describe|mean|example|simply|simpler)\b", text, re.I
+    )
+    scoped = previous_topic or re.search(
+        r"\b(?:sire|this project|the project|your|you|its)\b", text, re.I
+    )
+    if not case_scope and definition:
+        for topic, aliases in manifest.get("topic_aliases", {}).items():
+            if any(
+                re.search(r"\b" + re.escape(alias) + r"\b", text, re.I)
+                for alias in aliases
+            ):
+                if scoped or topic in {"hypotheses", "orchestrator"}:
+                    return topic
+        if scoped and re.search(
+            r"\b(?:limitations?|cannot|can.t|uncertain)\b", text, re.I
+        ):
+            return "limits"
+    if (
+        previous_topic
+        and not case_scope
+        and re.fullmatch(
+            r"(?:in (?:this|the) project|(?:please )?(?:explain|describe)(?: it| that| this)?(?: simply| in simple terms)?|(?:how|why) does (?:it|that) work|what does (?:it|that) mean|(?:give|show) me an example)[.!?\s]*",
+            text,
+            re.I,
+        )
+    ):
+        return previous_topic
     if re.search(r"\b(?:your|sire(?:'s)?)\s+hypothes(?:is|es)\s+engine\b", text, re.I):
         if re.search(r"\b(?:how|what|explain|describe)\b", text, re.I):
             return "hypotheses"
@@ -99,7 +142,10 @@ def history_turns(history: list[dict], external: bool = False) -> list[dict]:
             user = row
         elif row["role"] == "assistant" and user is not None:
             evidence = row["metadata"].get("evidence", [])
-            substantive = any(item.get("modality") != "audio" for item in evidence)
+            substantive = any(
+                item.get("modality") not in {"audio", "application_documentation"}
+                for item in evidence
+            )
             if (
                 row["status"] == "complete"
                 and not row["metadata"].get("error")
@@ -123,11 +169,22 @@ def history_turns(history: list[dict], external: bool = False) -> list[dict]:
     return turns
 
 
-def describe(store: Store, topic: str) -> tuple[str, EvidenceItem]:
+def describe(store: Store, topic: str, question: str = "") -> tuple[str, EvidenceItem]:
     """Return exact authored capability-manifest text with a real resolvable source snapshot."""
     raw = MANIFEST.read_bytes()
     data = yaml.safe_load(raw)
-    text = data[topic] + "\n\n" + data["limits"]
+    variant = (
+        "examples"
+        if re.search(r"\bexample\b", question, re.I)
+        else (
+            "plain"
+            if re.search(r"\b(?:simple|simply|simpler|brief|short)\b", question, re.I)
+            else ""
+        )
+    )
+    text = data.get(variant, {}).get(topic, data[topic])
+    if topic != "limits" and data.get("topic_limits", {}).get(topic):
+        text += "\n\n" + data["topic_limits"][topic]
     record = Ledger(store).add(
         "manually_entered",
         "SIRE application capability manifest",

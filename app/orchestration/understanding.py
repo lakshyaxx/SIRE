@@ -6,6 +6,21 @@ from app.investigation.schemas import EvidenceItem
 
 def target_asset(question: str, evidence: list[EvidenceItem]) -> str | None:
     """Choose an explicit identifier, otherwise a single source-declared asset; never link assets."""
+    identifier = r"([A-Za-z0-9][A-Za-z0-9_./:-]{0,99})"
+    declared = re.findall(
+        r"\b(?:asset|equipment|vehicle|machine|unit)(?:\s+(?:id|identifier|name))?\s*[:=]\s*"
+        + identifier,
+        question,
+        re.I,
+    )
+    declared += re.findall(r"\b(?:named|called)\s+" + identifier, question, re.I)
+    if declared:
+        unique = {
+            item.rstrip(".,:;").casefold(): item.rstrip(".,:;")
+            for item in declared
+            if item.casefold() not in {"none", "unknown", "unspecified", "not"}
+        }
+        return next(iter(unique.values())) if len(unique) == 1 else None
     named = set(
         re.findall(r"(?<![\w-])([A-Za-z][A-Za-z0-9_]*-\d[\w-]*)(?![\w-])", question)
     )

@@ -35,15 +35,20 @@ def for_case(
             __base__=ExpectedSign,
             predicate=(str, Field(max_length=120, pattern=r'^[^"\\\[\]\r\n]{0,120}$')),
         )
+        field_limit = SETTINGS["investigation_short_field_characters"]
         short = Annotated[
-            str, StringConstraints(max_length=120, pattern=r'^[^"\\\[\]\r\n]{0,120}$')
+            str,
+            StringConstraints(
+                max_length=field_limit,
+                pattern=r'^[^"\\\[\]\r\n]{0,' + str(field_limit) + r"}$",
+            ),
         ]
         concise_fields = {
             "mechanism": (
                 str,
-                Field(max_length=240, pattern=r'^[^"\\\[\]\r\n]{0,240}$'),
+                Field(max_length=360, pattern=r'^[^"\\\[\]\r\n]{0,360}$'),
             ),
-            "assumptions": (list[short], Field(max_length=2)),
+            "assumptions": (list[short], Field(max_length=1)),
             "expected_signs": (list[concise_sign], Field(max_length=1)),
             "missing_tests": (list[short], Field(max_length=2)),
         }
@@ -58,7 +63,17 @@ def for_case(
     proposal_fields = (
         {
             "follow_up_queries": (list[short], Field(max_length=1)),
-            "unresolved": (list[short], Field(max_length=2)),
+            "unresolved": (
+                list[
+                    Annotated[
+                        str,
+                        StringConstraints(
+                            max_length=240, pattern=r'^[^"\\\[\]\r\n]{0,239}[.!?]$'
+                        ),
+                    ]
+                ],
+                Field(max_length=2),
+            ),
         }
         if concise
         else {}

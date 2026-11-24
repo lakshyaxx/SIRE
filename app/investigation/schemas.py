@@ -83,6 +83,7 @@ class ToolCall(BaseModel):
     model: str | None = None
     elapsed_seconds: float
     source_ids: list[str] = Field(default_factory=list)
+    generation_attempts: int | None = None
 
 
 class Investigation(BaseModel):
@@ -101,3 +102,4 @@ class Investigation(BaseModel):
     hypothesis_registry: list[dict] = Field(default_factory=list)
     claim_verification: list[dict] = Field(default_factory=list)
     excluded_evidence: list[dict] = Field(default_factory=list)
+    quality_issues: list[dict] = Field(default_factory=list)

@@ -26,27 +26,55 @@ def recall_requested(question: str) -> bool:
     )
 
 
-def recall(store: Store, conversation_id: str) -> dict | None:
+def recall(
+    store: Store, conversation_id: str, asset_id: str | None = None
+) -> dict | None:
     """Return only this conversation's latest actual saved evidence case and typed limits."""
     store.conversation(conversation_id)
     rows = store.rows(
-        "SELECT id FROM cases WHERE conversation_id=? ORDER BY created_at DESC,rowid DESC LIMIT 1",
+        "SELECT id FROM cases WHERE conversation_id=? ORDER BY created_at DESC,rowid DESC",
         (conversation_id,),
     )
-    if not rows:
-        return None
-    saved = store.result("cases", rows[0]["id"])
-    return {
-        "case_id": rows[0]["id"],
-        "case": saved,
-        "evidence_ids": [item["id"] for item in saved["case"]["evidence"]],
-    }
+    from app.orchestration.understanding import target_asset
+    from app.investigation.schemas import EvidenceItem
+
+    for row in rows:
+        saved = store.result("cases", row["id"])
+        case = saved["case"]
+        # Repair presentation context in memory only; never rewrite an old case.
+        if not case.get("asset_id"):
+            case["asset_id"] = target_asset(
+                case.get("question", ""),
+                [
+                    EvidenceItem.model_validate(item)
+                    for item in case.get("evidence", [])
+                ],
+            )
+            if case["asset_id"]:
+                case["asset_identity_source"] = "user_question"
+        if asset_id and (case.get("asset_id") or "").casefold() != asset_id.casefold():
+            continue
+        return {
+            "case_id": row["id"],
+            "case": saved,
+            "evidence_ids": [item["id"] for item in case["evidence"]],
+        }
+    return None
 
 
 def render(value: dict | None) -> str:
     """Explain recorded decisions without implying a tentative candidate was ruled out."""
     if value is None:
         return "No completed investigation is saved in this conversation. No hypothesis has been recorded as ruled out. Add evidence or check the status of the current background investigation."
+    if value.get("attempt"):
+        attempt = value["attempt"]
+        return (
+            f"An investigation for {attempt['asset_id'] or 'the supplied equipment'} was submitted and ended with status **{attempt['status']}**. Its original user report is retained, but no accepted case findings were saved. "
+            + (
+                (attempt.get("error") or {}).get("message")
+                or "Review the actual execution trace before resubmitting."
+            )
+        )
     lines = [
         "## Saved investigation — model proposals remain unverified",
         f"Case: `{value['case_id']}`. These are recorded results; no model or measurement was rerun.",
@@ -98,6 +126,87 @@ def render(value: dict | None) -> str:
         "A tentative or weakened candidate was not physically ruled out. Source identity and heuristic ranking are not causal confirmation. Explicitly request revision to run new analysis."
     )
     return "\n\n".join(lines)
+
+
+def last_attempt(
+    store: Store, conversation_id: str, asset_id: str | None = None
+) -> dict | None:
+    """Recover actual failed-request provenance without pretending a completed case was saved."""
+    from app.orchestration.understanding import target_asset
+
+    messages = store.messages(conversation_id)
+    by_id = {row["id"]: row for row in messages}
+    has_jobs = store.rows(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name='v45_jobs'"
+    )
+    jobs = (
+        [
+            json.loads(row["payload"])
+            for row in store.rows(
+                "SELECT payload FROM v45_jobs WHERE conversation_id=? ORDER BY rowid DESC LIMIT 20",
+                (conversation_id,),
+            )
+        ]
+        if has_jobs
+        else []
+    )
+    for assistant in reversed(messages):
+        metadata = assistant.get("metadata", {})
+        if (
+            assistant["role"] != "assistant"
+            or metadata.get("orchestration", {}).get("intent")
+            != "incident_investigation"
+        ):
+            continue
+        user = next(
+            (
+                row
+                for row in messages
+                if row["role"] == "user"
+                and row.get("metadata", {}).get("request_id")
+                and row["metadata"]["request_id"] == metadata.get("request_id")
+            ),
+            None,
+        )
+        job = next(
+            (
+                row
+                for row in jobs
+                if row.get("run_id") == metadata.get("orchestration", {}).get("run_id")
+            ),
+            None,
+        )
+        if user is None and job:
+            identifier = next(
+                (
+                    event.get("user_message_id")
+                    for event in job["events"]
+                    if event.get("type") == "started"
+                ),
+                None,
+            )
+            user = by_id.get(identifier)
+        if user is None:
+            continue
+        identity = target_asset(user["content"], [])
+        if asset_id and (identity or "").casefold() != asset_id.casefold():
+            continue
+        return {
+            "id": job["id"] if job else metadata["orchestration"]["run_id"],
+            "asset_id": identity,
+            "status": assistant["status"],
+            "question": user["content"],
+            "error": metadata.get("error"),
+            "source": {
+                "id": "user:" + user["id"],
+                "source_id": user["id"],
+                "kind": "user_claim",
+                "modality": "text",
+                "observation": user["content"],
+                "reliability": "low",
+            },
+        }
+    return None
 
 
 def status_requested(question: str) -> bool:

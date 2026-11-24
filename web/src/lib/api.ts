@@ -7,6 +7,7 @@ export type Conversation = {
 };
 export type InvestigationJob = {
   id: string;
+  updated_at?: string;
   conversation_id: string;
   request_id: string;
   status:

@@ -95,7 +95,7 @@ export function observationText(text: string, kind?: string): string {
     ) {
       const display = (number: number) =>
         Number(number.toPrecision(6)).toString();
-      return `${value.asset_id ?? "Asset not supplied"} · ${value.channel.replaceAll("_", " ")}: baseline ${display(value.baseline_mean)} ${value.unit ?? ""}; recent ${display(value.recent_mean)} ${value.unit ?? ""}${typeof value.delta === "number" ? `; change ${display(value.delta)} ${value.unit ?? ""}` : ""}. ${value.count ?? "Unspecified"} source readings. Display rounded to six significant digits; exact windows and values are in the source record.`;
+      return `${value.asset_id ?? "Asset not supplied"} · ${value.channel.replaceAll("_", " ")}: baseline ${display(value.baseline_mean)} ${value.unit ?? ""}; recent ${display(value.recent_mean)} ${value.unit ?? ""}${typeof value.delta === "number" ? `; change ${display(value.delta)} ${value.unit ?? ""}` : ""}. ${value.count ?? "Unspecified"} source readings.${value.missing_count ? ` Missing ${value.missing_count} source sample(s), not imputed: ${(value.missing_timestamps ?? []).join(", ")}.` : ""} Display rounded to six significant digits; exact windows and values are in the source record.`;
     }
     if (value && typeof value.rows === "number" && Array.isArray(value.columns))
       return `Parsed ${value.rows} source rows and ${value.columns.length} columns. Inspect the source preview for exact cells.${value.prediction_eligible === false ? " This file is not eligible for NASA model inference." : ""}`;
@@ -212,6 +212,14 @@ export function presentInvestigation(row: Saved): InvestigationDetail {
     observations: evidence.map((e) => ({
       id: e.id,
       text: observationText(e.observation, e.kind),
+      classification:
+        e.kind === "user_claim"
+          ? "User-reported · unverified"
+          : e.kind === "measurement"
+            ? "Computed source statistics · physical association unverified"
+            : e.modality === "image"
+              ? "Model image observation · unverified"
+              : "Source observation · independently unverified",
       sources: [source(e.id)],
     })),
     hypotheses: hypotheses.map((h, index) => ({
@@ -226,7 +234,12 @@ export function presentInvestigation(row: Saved): InvestigationDetail {
       mechanism: h.mechanism,
       supportingEvidence: h.supporting_evidence_ids.map(source),
       contradictoryEvidence: h.contradicting_evidence_ids.map(source),
-      missingInformation: h.assumptions,
+      missingInformation: [],
+      assumptions: h.assumptions,
+      expectedSigns: (h.expected_signs ?? []).map(
+        (sign) =>
+          `${sign.predicate}: expected ${String(sign.expected_value)}; not an observed result`,
+      ),
       recommendedChecks: h.missing_tests,
       rankingRationale: `${h.evidence_support} evidence support; ${h.status}. Heuristic ordering, not a probability.`,
     })),
@@ -244,7 +257,7 @@ export function presentInvestigation(row: Saved): InvestigationDetail {
       })),
     ),
     uncertainty: claims.join("\n"),
-    followUps: report?.unresolved ?? [],
+    followUps: [...new Set(report?.unresolved ?? [])],
     activity: events
       .filter((e) =>
         ["started", "plan", "tool", "error", "done", "report"].includes(

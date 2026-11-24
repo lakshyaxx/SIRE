@@ -32,7 +32,7 @@ def merge(candidates: list[Hypothesis]) -> tuple[list[Hypothesis], list[dict]]:
     for candidate in candidates:
         groups[mechanism_key(candidate.mechanism)].append(candidate)
     result, records = [], []
-    for key, items in sorted(groups.items()):
+    for key, items in groups.items():
         support = {value for item in items for value in item.supporting_evidence_ids}
         conflict = {
             value for item in items for value in item.contradicting_evidence_ids
@@ -43,7 +43,9 @@ def merge(candidates: list[Hypothesis]) -> tuple[list[Hypothesis], list[dict]]:
             for sign in item.expected_signs:
                 signs[sign.predicate].add(sign.expected_value)
         disputed = [predicate for predicate, values in signs.items() if len(values) > 1]
-        missing = sorted({value for item in items for value in item.missing_tests})
+        missing = list(
+            dict.fromkeys(value for item in items for value in item.missing_tests)
+        )
         if ambiguous:
             missing.append(
                 "Verify ambiguous support/conflict relationship for source(s): "
@@ -59,8 +61,8 @@ def merge(candidates: list[Hypothesis]) -> tuple[list[Hypothesis], list[dict]]:
             Hypothesis(
                 id=identifier,
                 mechanism=items[-1].mechanism,
-                assumptions=sorted(
-                    {value for item in items for value in item.assumptions}
+                assumptions=list(
+                    dict.fromkeys(value for item in items for value in item.assumptions)
                 )[:8],
                 expected_signs=[
                     ExpectedSign(predicate=predicate, expected_value=next(iter(values)))

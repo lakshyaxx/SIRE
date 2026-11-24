@@ -814,14 +814,22 @@ export function Chat({
                 }
               }}
             />
-            {error && (
-              <div role="alert" className="error">
-                {error}
-                <button onClick={() => setError("")} aria-label="Dismiss error">
-                  ×
-                </button>
-              </div>
-            )}
+            {error &&
+              !messages.some(
+                (message) =>
+                  message.role === "assistant" &&
+                  message.metadata.error?.message === error,
+              ) && (
+                <div role="alert" className="error">
+                  {error}
+                  <button
+                    onClick={() => setError("")}
+                    aria-label="Dismiss error"
+                  >
+                    ×
+                  </button>
+                </div>
+              )}
             {stage && busy && (
               <div role="status" className="stage">
                 <span className="pulse" />

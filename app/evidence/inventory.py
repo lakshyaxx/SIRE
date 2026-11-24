@@ -152,3 +152,56 @@ def check_absence(
             )
             corrected.append(text)
     return corrected, checks
+
+
+def review_recommendations(
+    texts: list[str], available: list[dict], asset_id: str | None
+) -> tuple[list[str], list[dict]]:
+    """Label existing data interpretation separately from collecting genuinely missing inputs."""
+    result, checks = [], []
+    for text in texts:
+        named_assets = set(re.findall(r"\b[A-Za-z][A-Za-z0-9_]*-\d[\w-]*\b", text))
+        if named_assets and asset_id and asset_id not in named_assets:
+            result.append(text)
+            continue
+        matched = []
+        for row in available:
+            names = [
+                row["channel"].replace("_", " "),
+                *SETTINGS.get("measurement_channel_aliases", {}).get(
+                    row["channel"], []
+                ),
+            ]
+            if row["asset_id"] == asset_id and any(
+                re.search(r"\b" + re.escape(name) + r"\b", text, re.I) for name in names
+            ):
+                matched.append(row)
+        if matched:
+            independent = bool(
+                re.search(
+                    r"\b(?:independent|confirm|calibrat\w*|spectr\w*|runout|viscosity|higher|faster|resolution)\b",
+                    text,
+                    re.I,
+                )
+            )
+            label = (
+                "Independent confirmation; supplied readings remain available"
+                if independent
+                else "Interpret supplied readings first; collect new data only if timing, quality or resolution is insufficient"
+            )
+            result.append(label + ": " + text)
+            checks.append(
+                {
+                    "kind": "recommendation_scope",
+                    "claim": {
+                        "category": "interpretation",
+                        "text": text,
+                        "source_ids": [row["evidence_id"] for row in matched],
+                    },
+                    "status": "qualified",
+                    "reason": label,
+                }
+            )
+        else:
+            result.append(text)
+    return result, checks

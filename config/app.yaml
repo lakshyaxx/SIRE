@@ -27,8 +27,9 @@ seed: 42
 ollama_keep_alive_seconds: 120
 
 investigation_max_rounds: 2
-investigation_max_candidates: 2
-investigation_output_tokens: 1200
+investigation_max_candidates: 3
+investigation_output_tokens: 1600
+investigation_short_field_characters: 200
 investigation_budget_seconds: 220
 chat_budget_seconds: 300
 background_investigation_limit: 1
@@ -46,6 +47,8 @@ investigation_context_characters: 7000
 model_source_excerpt_characters: 500
 measurement_channel_aliases:
   flow: [flow rate]
+  airflow: [air flow, air flow rate]
+  inlet_filter_dp: [inlet differential pressure, inlet filter differential pressure, inlet pressure drop, inlet filter pressure drop, filter pressure drop, inlet filter dp]
   ambient_temp: [ambient temperature, ambient temperature delta]
   upstream_pressure: [suction pressure, upstream pressure]
   downstream_pressure: [discharge pressure, downstream pressure]
@@ -55,6 +58,29 @@ measurement_channel_aliases:
   speed: [shaft speed]
   position: [valve position]
 
+# Notation aliases only: these do not convert scales or authenticate measurements.
+numeric_unit_aliases:
+  degC: [degC, '°C', 'degrees Celsius']
+  degF: [degF, '°F', 'degrees Fahrenheit']
+  'mm/s RMS': ['mm/s RMS']
+  mm/s: [mm/s]
+  m3/h: [m3/h, 'm³/h']
+  A: [A, amperes, amps]
+  V: [V, volts]
+  bar: [bar]
+  kPa: [kPa]
+  Pa: [Pa]
+  MPa: [MPa]
+  rpm: [rpm]
+  Hz: [Hz]
+  kW: [kW]
+  W: [W]
+  L/min: [L/min]
+  L: [L, litres, liters]
+  dB: [dB]
+  '%': ['%', percent]
+  cycles: [cycles]
+
 # Explicit header-unit contract; these uploaded channels never become NASA inputs.
 measurement_wide_fields:
   vibration_mm_s: {channel: vibration, unit: mm/s RMS}
@@ -63,6 +89,9 @@ measurement_wide_fields:
   motor_current_a: {channel: current, unit: A}
   oil_pressure_bar: {channel: oil_pressure, unit: bar}
   flow_m3_h: {channel: flow, unit: m3/h}
+  airflow_m3_h: {channel: airflow, unit: m3/h}
+  fan_speed_rpm: {channel: speed, unit: rpm}
+  inlet_filter_dp_kpa: {channel: inlet_filter_dp, unit: kPa}
   upstream_pressure_bar: {channel: upstream_pressure, unit: bar}
   downstream_pressure_bar: {channel: downstream_pressure, unit: bar}
   suction_pressure_bar: {channel: upstream_pressure, unit: bar}

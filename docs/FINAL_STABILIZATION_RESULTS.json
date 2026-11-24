@@ -1,0 +1,3166 @@
+{
+  "release": "CONDITIONAL",
+  "checkpoint": "codex/stabilization-checkpoint-20261119_041142",
+  "baseline_head": "174cea7978698606e475c893ee52ef468c7c4dab",
+  "private_evidence_directory": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142",
+  "backend_tests": "383 passed, 1 warning in 271.59s (0:04:31)",
+  "frontend_tests": "# duration_ms 7950.3288",
+  "protection": {
+    "native_files": 813,
+    "frozen_mismatches": [],
+    "frozen_files": 7956
+  },
+  "production_preservation": {
+    "before": {
+      "schema_version": {
+        "count": 2,
+        "sha256": "d150dc542e12dd98431bb5af494acdd8eceece32f126bc628c58a7edd39aa572"
+      },
+      "conversations": {
+        "count": 28,
+        "sha256": "3d8404ddb161df9a902f7819ce8fbeb006116fe2707bbb6e1b2ece248ce38379"
+      },
+      "messages": {
+        "count": 146,
+        "sha256": "bc986dd4a3289513fc40bd12229cffb080665a4bd72e523a4c63f08d79d749a7"
+      },
+      "attachments": {
+        "count": 37,
+        "sha256": "d2e7d3b312fb3b5668e59a08137ba2a1c96939c69070fe5d04314bb0a785bc92"
+      },
+      "chunks": {
+        "count": 23,
+        "sha256": "2033791a0aaa7ab2a3f59aa3df39dc1dc62fa332c9a8935b3687b0050676bcae"
+      },
+      "cases": {
+        "count": 8,
+        "sha256": "dbc1dcbb2d69a8bb6509b238e57583e0a1cbd2ba3fe4e5975e7e87d56b41a52f"
+      },
+      "predictions": {
+        "count": 5,
+        "sha256": "48480e6e0e11b851cc929413cee0b2e458c92dbfe8d17db365b1bf87faa1e3a1"
+      },
+      "v3_sources": {
+        "count": 151,
+        "sha256": "142976f5b541575f9d47da938d80fa125ad0d9d5534f9ca79dce6bf15b442fa9"
+      },
+      "v3_evidence": {
+        "count": 190,
+        "sha256": "0272e051d6caee6f3646aff80e004287f28e89babbd031f391cc64cc0cad72d3"
+      },
+      "v3_runs": {
+        "count": 58,
+        "sha256": "9180a824bae7aa9127fd588fca90d959e833a46f0ea0d4099086e4603405f31d"
+      },
+      "v3_cases": {
+        "count": 3,
+        "sha256": "db8855e16a45f4b10bf472366e790dd7e2e84dd0f757babbd3d8dd3354aa9e0d"
+      },
+      "v3_reports": {
+        "count": 1,
+        "sha256": "f3820816826dd56328c680e51395a7f3bcc80bdc8e979da0092280b551e26f13"
+      },
+      "v3_annotations": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "v45_jobs": {
+        "count": 4,
+        "sha256": "f80596a5d0da888233d10bb0c047ebd4556b6fb1a319d2f86e356b2ffffb67bc"
+      },
+      "v45_voice_sessions": {
+        "count": 4,
+        "sha256": "8401a6c95df717c6db3aa55c0cc5bd18e417fc53a0beb5ba64d907bf39632b1c"
+      }
+    },
+    "after": {
+      "schema_version": {
+        "count": 2,
+        "sha256": "d150dc542e12dd98431bb5af494acdd8eceece32f126bc628c58a7edd39aa572"
+      },
+      "conversations": {
+        "count": 28,
+        "sha256": "3d8404ddb161df9a902f7819ce8fbeb006116fe2707bbb6e1b2ece248ce38379"
+      },
+      "messages": {
+        "count": 146,
+        "sha256": "bc986dd4a3289513fc40bd12229cffb080665a4bd72e523a4c63f08d79d749a7"
+      },
+      "attachments": {
+        "count": 37,
+        "sha256": "d2e7d3b312fb3b5668e59a08137ba2a1c96939c69070fe5d04314bb0a785bc92"
+      },
+      "chunks": {
+        "count": 23,
+        "sha256": "2033791a0aaa7ab2a3f59aa3df39dc1dc62fa332c9a8935b3687b0050676bcae"
+      },
+      "cases": {
+        "count": 8,
+        "sha256": "dbc1dcbb2d69a8bb6509b238e57583e0a1cbd2ba3fe4e5975e7e87d56b41a52f"
+      },
+      "predictions": {
+        "count": 5,
+        "sha256": "48480e6e0e11b851cc929413cee0b2e458c92dbfe8d17db365b1bf87faa1e3a1"
+      },
+      "v3_sources": {
+        "count": 151,
+        "sha256": "142976f5b541575f9d47da938d80fa125ad0d9d5534f9ca79dce6bf15b442fa9"
+      },
+      "v3_evidence": {
+        "count": 190,
+        "sha256": "0272e051d6caee6f3646aff80e004287f28e89babbd031f391cc64cc0cad72d3"
+      },
+      "v3_runs": {
+        "count": 58,
+        "sha256": "9180a824bae7aa9127fd588fca90d959e833a46f0ea0d4099086e4603405f31d"
+      },
+      "v3_cases": {
+        "count": 3,
+        "sha256": "db8855e16a45f4b10bf472366e790dd7e2e84dd0f757babbd3d8dd3354aa9e0d"
+      },
+      "v3_reports": {
+        "count": 1,
+        "sha256": "f3820816826dd56328c680e51395a7f3bcc80bdc8e979da0092280b551e26f13"
+      },
+      "v3_annotations": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "v45_jobs": {
+        "count": 4,
+        "sha256": "f80596a5d0da888233d10bb0c047ebd4556b6fb1a319d2f86e356b2ffffb67bc"
+      },
+      "v45_voice_sessions": {
+        "count": 4,
+        "sha256": "8401a6c95df717c6db3aa55c0cc5bd18e417fc53a0beb5ba64d907bf39632b1c"
+      }
+    },
+    "identical": true,
+    "mismatched_tables": []
+  },
+  "fixtures": {
+    "csv_rows": 24,
+    "groups": [
+      {
+        "channel": "vibration",
+        "expected": {
+          "count": 23,
+          "baseline_mean": 2.5760869565217392,
+          "recent_mean": 4.126666666666667
+        },
+        "missing_count": 1,
+        "missing_timestamps": [
+          "2026-11-18T14:00:00+00:00"
+        ],
+        "verified": true
+      },
+      {
+        "channel": "bearing_temp",
+        "expected": {
+          "count": 24,
+          "baseline_mean": 56.5375,
+          "recent_mean": 68.56666666666666
+        },
+        "missing_count": 0,
+        "missing_timestamps": [],
+        "verified": true
+      },
+      {
+        "channel": "airflow",
+        "expected": {
+          "count": 24,
+          "baseline_mean": 11300.833333333334,
+          "recent_mean": 10140.0
+        },
+        "missing_count": 0,
+        "missing_timestamps": [],
+        "verified": true
+      },
+      {
+        "channel": "current",
+        "expected": {
+          "count": 24,
+          "baseline_mean": 16.3375,
+          "recent_mean": 17.6
+        },
+        "missing_count": 0,
+        "missing_timestamps": [],
+        "verified": true
+      },
+      {
+        "channel": "speed",
+        "expected": {
+          "count": 24,
+          "baseline_mean": 1464.625,
+          "recent_mean": 1464.1666666666667
+        },
+        "missing_count": 0,
+        "missing_timestamps": [],
+        "verified": true
+      },
+      {
+        "channel": "inlet_filter_dp",
+        "expected": {
+          "count": 24,
+          "baseline_mean": 0.9658333333333333,
+          "recent_mean": 1.3366666666666667
+        },
+        "missing_count": 0,
+        "missing_timestamps": [],
+        "verified": true
+      }
+    ],
+    "resolvable_citations": [
+      {
+        "asset": "FAN-042",
+        "id": "EV:4a04b8a03f6a14d81091fd183b2970878b7fd5410cca792c491f2b38276032d8",
+        "status": 200
+      },
+      {
+        "asset": "FAN-042",
+        "id": "EV:90ce0d29d80207525e3fc1ebc2e04a62376bde333ae4b981019158369c1bc21f",
+        "status": 200
+      },
+      {
+        "asset": "FAN-042",
+        "id": "EV:c4cbe24ad340de157849f4685043dcc81cdcd78932e71f5ca44cad94511a717b",
+        "status": 200
+      },
+      {
+        "asset": "FAN-042",
+        "id": "d65934a2f5474f759f689c886a3783dc:schema",
+        "status": 200
+      },
+      {
+        "asset": "PUMP-101",
+        "id": "user:4ab9805fbdf2465d817a0436cfac1b1a",
+        "status": 200
+      }
+    ],
+    "fixture_sha256": {
+      "FAN-042_inspection.png": "db962c433cdc211c8046770d56b4fad52acdd86f173f28e755b9835c903fde44",
+      "FAN-042_maintenance_notes.pdf": "25b6a417e7d6681fee6149e776deb828b0d1135ab33b77b1704afc1c86380651",
+      "FAN-042_sensor_history.csv": "43d83b25edca2e04a48293ded804c7ade240e6f1f691ffab8a5c9091e94f5bed"
+    },
+    "total_numeric_records": 143
+  },
+  "fast_route": [
+    {
+      "question": "hi",
+      "seconds": 0.08597049999661976,
+      "ttft": 0.08541040000272915,
+      "status": "complete",
+      "route": "fast_conversation",
+      "model": null,
+      "tools": [
+        {
+          "tool": "conversation.respond",
+          "status": "complete",
+          "source_ids": []
+        }
+      ],
+      "error": null,
+      "active_case_context": null,
+      "metrics": null
+    },
+    {
+      "question": "What is SIRE?",
+      "seconds": 0.1220616999999038,
+      "ttft": 0.12118949999421602,
+      "status": "complete",
+      "route": "fast_conversation",
+      "model": null,
+      "tools": [
+        {
+          "tool": "system.describe",
+          "status": "complete",
+          "source_ids": [
+            "EV:c27d5bbf4aa7ec71b0d675ac802acbaa140563a2b7573120c17d1d9b9206e74f"
+          ]
+        }
+      ],
+      "error": null,
+      "active_case_context": null,
+      "metrics": null
+    },
+    {
+      "question": "What is hypothesis engine?",
+      "seconds": 0.12728329999663401,
+      "ttft": 0.12654530000145314,
+      "status": "complete",
+      "route": "fast_conversation",
+      "model": null,
+      "tools": [
+        {
+          "tool": "system.describe",
+          "status": "complete",
+          "source_ids": [
+            "EV:9c6755482f9c66f1ba482da642b7910ab7de0f439309b10768f4692cd7338d2a"
+          ]
+        }
+      ],
+      "error": null,
+      "active_case_context": null,
+      "metrics": null
+    },
+    {
+      "question": "In this project",
+      "seconds": 0.12355660000321222,
+      "ttft": 0.12274179999803891,
+      "status": "complete",
+      "route": "fast_conversation",
+      "model": null,
+      "tools": [
+        {
+          "tool": "system.describe",
+          "status": "complete",
+          "source_ids": [
+            "EV:9c6755482f9c66f1ba482da642b7910ab7de0f439309b10768f4692cd7338d2a"
+          ]
+        }
+      ],
+      "error": null,
+      "active_case_context": null,
+      "metrics": null
+    },
+    {
+      "question": "Explain it simply",
+      "seconds": 0.12570709999999963,
+      "ttft": 0.12504449999687495,
+      "status": "complete",
+      "route": "fast_conversation",
+      "model": null,
+      "tools": [
+        {
+          "tool": "system.describe",
+          "status": "complete",
+          "source_ids": [
+            "EV:b96371c398c482ed047996fe6572c6ce8ca351dda46d02ac7c789ce7c31b389d"
+          ]
+        }
+      ],
+      "error": null,
+      "active_case_context": null,
+      "metrics": null
+    },
+    {
+      "question": "How does it work?",
+      "seconds": 0.1240382000032696,
+      "ttft": 0.12332759999844711,
+      "status": "complete",
+      "route": "fast_conversation",
+      "model": null,
+      "tools": [
+        {
+          "tool": "system.describe",
+          "status": "complete",
+          "source_ids": [
+            "EV:9c6755482f9c66f1ba482da642b7910ab7de0f439309b10768f4692cd7338d2a"
+          ]
+        }
+      ],
+      "error": null,
+      "active_case_context": null,
+      "metrics": null
+    },
+    {
+      "question": "Give me an example",
+      "seconds": 0.12425760000041919,
+      "ttft": 0.1235244000054081,
+      "status": "complete",
+      "route": "fast_conversation",
+      "model": null,
+      "tools": [
+        {
+          "tool": "system.describe",
+          "status": "complete",
+          "source_ids": [
+            "EV:3d77499052c455bfa837f508f0dad64713a48fb06cbdf17c6193026cd3348214"
+          ]
+        }
+      ],
+      "error": null,
+      "active_case_context": null,
+      "metrics": null
+    },
+    {
+      "question": "What is your cognitive orchestrator?",
+      "seconds": 0.12517440000374336,
+      "ttft": 0.12435779999941587,
+      "status": "complete",
+      "route": "fast_conversation",
+      "model": null,
+      "tools": [
+        {
+          "tool": "system.describe",
+          "status": "complete",
+          "source_ids": [
+            "EV:b24aeba3204c8eb55cb8cfd71ab0b1b783c0873b59d1386ba3505cde975ff3fa"
+          ]
+        }
+      ],
+      "error": null,
+      "active_case_context": null,
+      "metrics": null
+    },
+    {
+      "question": "How does SIRE verify evidence?",
+      "seconds": 0.12454260000231443,
+      "ttft": 0.12363480000203708,
+      "status": "complete",
+      "route": "fast_conversation",
+      "model": null,
+      "tools": [
+        {
+          "tool": "system.describe",
+          "status": "complete",
+          "source_ids": [
+            "EV:83d2d45b538d5cc3fc344b545ac17b81c3d8c83bc0b88f3f31d889f704c8e5b0"
+          ]
+        }
+      ],
+      "error": null,
+      "active_case_context": null,
+      "metrics": null
+    },
+    {
+      "question": "How does case memory work in SIRE?",
+      "seconds": 0.12279649999982212,
+      "ttft": 0.12204039999778615,
+      "status": "complete",
+      "route": "fast_conversation",
+      "model": null,
+      "tools": [
+        {
+          "tool": "system.describe",
+          "status": "complete",
+          "source_ids": [
+            "EV:6572b32fb8165cbe1e79ed1b6a9556018814f94cd4bd2e90373057fe1be8502b"
+          ]
+        }
+      ],
+      "error": null,
+      "active_case_context": null,
+      "metrics": null
+    },
+    {
+      "question": "How do SIRE RUL predictions differ from investigation?",
+      "seconds": 0.1258352000004379,
+      "ttft": 0.125174100001459,
+      "status": "complete",
+      "route": "fast_conversation",
+      "model": null,
+      "tools": [
+        {
+          "tool": "system.describe",
+          "status": "complete",
+          "source_ids": [
+            "EV:eb7a562b43395b15d491f5f9d39841bc2a966e31ad01dd2bda04a26216bb8955"
+          ]
+        }
+      ],
+      "error": null,
+      "active_case_context": null,
+      "metrics": null
+    },
+    {
+      "question": "hi",
+      "seconds": 0.09232009999686852,
+      "ttft": 0.09137919999920996,
+      "status": "complete",
+      "route": "fast_conversation",
+      "model": null,
+      "tools": [
+        {
+          "tool": "conversation.respond",
+          "status": "complete",
+          "source_ids": []
+        }
+      ],
+      "error": null,
+      "active_case_context": null,
+      "metrics": null
+    }
+  ],
+  "general_llm": [
+    {
+      "question": "Why might a centrifugal pump vibrate more even if its operating speed stays constant?",
+      "seconds": 3.811958799997228,
+      "ttft": 3.8106028999973205,
+      "status": "complete",
+      "route": "plain_conversation",
+      "model": "qwen3:4b-instruct",
+      "tools": [],
+      "error": null,
+      "active_case_context": null,
+      "metrics": {
+        "prompt_characters": 686,
+        "output_token_limit": 384,
+        "queue_seconds": 2.2660000000032596,
+        "first_token_seconds": 2.5469999999986612,
+        "load_duration": 7555300,
+        "prompt_eval_count": 143,
+        "prompt_eval_duration": 23996000,
+        "prompt_eval_cached_count": 142,
+        "eval_count": 65,
+        "eval_duration": 1138078000,
+        "total_duration": 1356077700,
+        "done_reason": "stop",
+        "elapsed_seconds": 3.6719999999986612
+      }
+    },
+    {
+      "question": "If temperature rises but vibration stays stable, what would you check first and why?",
+      "seconds": 7.418830100003106,
+      "ttft": 7.417869099997915,
+      "status": "complete",
+      "route": "evidence_conversation",
+      "model": "qwen3:4b-instruct",
+      "tools": [],
+      "error": null,
+      "active_case_context": null,
+      "metrics": {
+        "prompt_characters": 1870,
+        "output_token_limit": 384,
+        "queue_seconds": 4.625,
+        "first_token_seconds": 4.860000000000582,
+        "load_duration": 9928100,
+        "prompt_eval_count": 390,
+        "prompt_eval_duration": 124817000,
+        "prompt_eval_cached_count": 14,
+        "eval_count": 126,
+        "eval_duration": 2413799000,
+        "total_duration": 2583868200,
+        "done_reason": "stop",
+        "elapsed_seconds": 7.281999999999243
+      }
+    },
+    {
+      "question": "What if the airflow decreases immediately after maintenance?",
+      "seconds": 1.9327358000009554,
+      "ttft": 1.931679699999222,
+      "status": "complete",
+      "route": "plain_conversation",
+      "model": "qwen3:4b-instruct",
+      "tools": [],
+      "error": null,
+      "active_case_context": null,
+      "metrics": {
+        "prompt_characters": 1906,
+        "output_token_limit": 384,
+        "queue_seconds": 0.0,
+        "first_token_seconds": 0.17199999999866122,
+        "load_duration": 7872500,
+        "prompt_eval_count": 384,
+        "prompt_eval_duration": 64754999,
+        "prompt_eval_cached_count": 207,
+        "eval_count": 89,
+        "eval_duration": 1612998000,
+        "total_duration": 1738386800,
+        "done_reason": "stop",
+        "elapsed_seconds": 1.7810000000026776
+      }
+    },
+    {
+      "question": "Explain the difference between evidence supporting a hypothesis and proving it.",
+      "seconds": 1.6700793000054546,
+      "ttft": 1.669120999998995,
+      "status": "complete",
+      "route": "plain_conversation",
+      "model": "qwen3:4b-instruct",
+      "tools": [],
+      "error": null,
+      "active_case_context": null,
+      "metrics": {
+        "prompt_characters": 2472,
+        "output_token_limit": 384,
+        "queue_seconds": 0.0,
+        "first_token_seconds": 0.13999999999941792,
+        "load_duration": 9739300,
+        "prompt_eval_count": 495,
+        "prompt_eval_duration": 28940000,
+        "prompt_eval_cached_count": 472,
+        "eval_count": 74,
+        "eval_duration": 1378069000,
+        "total_duration": 1440955800,
+        "done_reason": "stop",
+        "elapsed_seconds": 1.514999999999418
+      }
+    },
+    {
+      "question": "I don't understand the second possibility. Explain it using an everyday analogy.",
+      "seconds": 4.315233599998464,
+      "ttft": 4.31417629999487,
+      "status": "complete",
+      "route": "evidence_conversation",
+      "model": "qwen3:4b-instruct",
+      "tools": [],
+      "error": null,
+      "active_case_context": {
+        "case_id": "e9ffd4bdb9044c72b64bc52b48d74439",
+        "asset_id": "PUMP-101",
+        "scope": "Saved proposals and user/source reports, not confirmed physical findings"
+      },
+      "metrics": {
+        "prompt_characters": 3648,
+        "output_token_limit": 650,
+        "queue_seconds": 0.0,
+        "first_token_seconds": 0.43699999999807915,
+        "load_duration": 8423000,
+        "prompt_eval_count": 845,
+        "prompt_eval_duration": 264447999,
+        "prompt_eval_cached_count": 162,
+        "eval_count": 197,
+        "eval_duration": 3719405000,
+        "total_duration": 4084964700,
+        "done_reason": "stop",
+        "elapsed_seconds": 4.1560000000026776
+      }
+    },
+    {
+      "question": "What information from our last investigation would change your conclusion?",
+      "seconds": 4.054542099998798,
+      "ttft": 4.053326199995354,
+      "status": "complete",
+      "route": "evidence_conversation",
+      "model": "qwen3:4b-instruct",
+      "tools": [],
+      "error": null,
+      "active_case_context": {
+        "case_id": "e9ffd4bdb9044c72b64bc52b48d74439",
+        "asset_id": "PUMP-101",
+        "scope": "Saved proposals and user/source reports, not confirmed physical findings"
+      },
+      "metrics": {
+        "prompt_characters": 4633,
+        "output_token_limit": 650,
+        "queue_seconds": 0.0,
+        "first_token_seconds": 0.4219999999986612,
+        "load_duration": 8509500,
+        "prompt_eval_count": 1096,
+        "prompt_eval_duration": 264690999,
+        "prompt_eval_cached_count": 281,
+        "eval_count": 186,
+        "eval_duration": 3491472000,
+        "total_duration": 3850540900,
+        "done_reason": "stop",
+        "elapsed_seconds": 3.9060000000026776
+      }
+    },
+    {
+      "question": "Can two separate faults explain the observations better than one?",
+      "seconds": 4.055794799998694,
+      "ttft": 4.054305300000124,
+      "status": "complete",
+      "route": "evidence_conversation",
+      "model": "qwen3:4b-instruct",
+      "tools": [],
+      "error": null,
+      "active_case_context": {
+        "case_id": "e9ffd4bdb9044c72b64bc52b48d74439",
+        "asset_id": "PUMP-101",
+        "scope": "Saved proposals and user/source reports, not confirmed physical findings"
+      },
+      "metrics": {
+        "prompt_characters": 5536,
+        "output_token_limit": 650,
+        "queue_seconds": 0.0,
+        "first_token_seconds": 0.4680000000007567,
+        "load_duration": 8497600,
+        "prompt_eval_count": 1336,
+        "prompt_eval_duration": 260433000,
+        "prompt_eval_cached_count": 536,
+        "eval_count": 179,
+        "eval_duration": 3433360000,
+        "total_duration": 3813914900,
+        "done_reason": "stop",
+        "elapsed_seconds": 3.9060000000026776
+      }
+    },
+    {
+      "question": "What would make you reject your leading hypothesis?",
+      "seconds": 20.583941900003992,
+      "ttft": null,
+      "status": "error",
+      "route": "evidence_conversation",
+      "model": "qwen3:4b-instruct",
+      "tools": [],
+      "error": {
+        "code": "unsupported_numeric_claim",
+        "message": "Model commentary introduced a quantity that cannot be verified with its cited unit, timestamp and aggregation. Commentary withheld; inspect the actual tool facts and sources.",
+        "stage": "llm.chat"
+      },
+      "active_case_context": {
+        "case_id": "e9ffd4bdb9044c72b64bc52b48d74439",
+        "asset_id": "PUMP-101",
+        "scope": "Saved proposals and user/source reports, not confirmed physical findings"
+      },
+      "metrics": {
+        "prompt_characters": 5429,
+        "output_token_limit": 650,
+        "queue_seconds": 0.0,
+        "first_token_seconds": 17.43699999999808,
+        "load_duration": 8270700,
+        "prompt_eval_count": 1312,
+        "prompt_eval_duration": 17194485000,
+        "prompt_eval_cached_count": 281,
+        "eval_count": 156,
+        "eval_duration": 2986933000,
+        "total_duration": 20352400200,
+        "done_reason": "stop",
+        "elapsed_seconds": 20.42199999999866
+      }
+    }
+  ],
+  "investigations": [
+    {
+      "asset": "FAN-042",
+      "job_id": "7f969a2c0f3a4a59bd226881f699e4c0",
+      "case_id": "3298992e9f1d472f8ce3e632db8fd8bf",
+      "conversation_id": "92e4441ad5a145338d3cb634c3ee842a",
+      "status": "complete",
+      "seconds": 33.23731690000568,
+      "baseline_seconds": 17.630146300005435,
+      "first_descriptive_text_seconds": null,
+      "hypotheses_retained": 2,
+      "quality_issues": [],
+      "generation_attempts": [
+        2
+      ],
+      "status_poll_median_seconds": 0.00943484999879729,
+      "status_poll_max_seconds": 0.24518669999815756,
+      "error": null
+    },
+    {
+      "asset": "PUMP-101",
+      "job_id": "52e75baef80f4720b25457f81f8bd95e",
+      "case_id": "e9ffd4bdb9044c72b64bc52b48d74439",
+      "conversation_id": "f2d2716f05554b679fc1d814dc21f2cb",
+      "status": "partial",
+      "seconds": 40.92594289999397,
+      "baseline_seconds": 11.349969100003364,
+      "first_descriptive_text_seconds": null,
+      "hypotheses_retained": 2,
+      "quality_issues": [
+        {
+          "candidate": {
+            "id": "H1",
+            "mechanism": "Degraded lubricant leads to increased bearing friction, causing higher temperature and vibration, with reduced flow and pressure as a secondary effect due to mechanical instability.",
+            "assumptions": [
+              "Lubrication degradation is the primary cause of bearing wear and increased vibration"
+            ],
+            "expected_signs": [
+              {
+                "predicate": "vibration increased from 1.8 to 5.6 mm/s RMS in the same 24 hours",
+                "expected_value": true
+              }
+            ],
+            "supporting_evidence_ids": [
+              "user:4ab9805fbdf2465d817a0436cfac1b1a"
+            ],
+            "contradicting_evidence_ids": [],
+            "missing_tests": [
+              "Lubricant analysis report from the 10-day maintenance check",
+              "Correlation between lubricant condition and vibration/temperature trends over time"
+            ]
+          },
+          "reasons": [
+            "An unqualified mechanical-to-hydraulic causal chain is not established by correlated observations; scope the mechanism or state the missing linkage.",
+            "A report was attributed to a past maintenance event despite its existence being unestablished; request a new analysis or confirmation instead."
+          ],
+          "source": "proposal"
+        }
+      ],
+      "generation_attempts": [
+        2
+      ],
+      "status_poll_median_seconds": 0.008798599996225676,
+      "status_poll_max_seconds": 0.014263000004575588,
+      "error": {
+        "code": "hypothesis_quality_review",
+        "stage": "hypotheses.quality",
+        "message": "Some generated explanation text was withheld after bounded quality review. Valid source observations and candidates are retained."
+      }
+    }
+  ],
+  "offline": {
+    "scope": "External Python sockets/DNS denied in this process and inherited Python workers; local Ollama allowed. No OS-wide air-gap or already-running Ollama egress guarantee.",
+    "checks": [
+      {
+        "name": "external_dns_denied",
+        "status": "passed",
+        "result": {
+          "external_dns": "denied"
+        },
+        "seconds": 2.9800001357216388e-05
+      },
+      {
+        "name": "actual_local_qwen",
+        "status": "passed",
+        "result": {
+          "model": "qwen3:4b-instruct",
+          "created_at": "2026-11-18T23:24:30.6815895Z",
+          "response": "Hello! \ud83d\ude0a How can I help you today?",
+          "done": true,
+          "done_reason": "stop",
+          "context": [
+            151644,
+            872,
+            198,
+            45764,
+            23811,
+            26753,
+            13,
+            151645,
+            198,
+            151644,
+            77091,
+            198,
+            9707,
+            0,
+            26525,
+            232,
+            2585,
+            646,
+            358,
+            1492,
+            498,
+            3351,
+            30
+          ],
+          "total_duration": 397761700,
+          "load_duration": 11152600,
+          "prompt_eval_count": 12,
+          "prompt_eval_cached_count": 1,
+          "prompt_eval_duration": 30014000,
+          "eval_count": 12,
+          "eval_duration": 203488000
+        },
+        "seconds": 0.9235248999975738
+      },
+      {
+        "name": "actual_local_embeddings",
+        "status": "passed",
+        "result": {
+          "model": "sentence-transformers/all-MiniLM-L6-v2",
+          "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+          "provider": "onnxruntime-1.23.2",
+          "execution_providers": [
+            "CPUExecutionProvider"
+          ],
+          "inference_seconds": 0.010872200000449084,
+          "truncated_inputs": 0,
+          "pooling": "attention-masked mean then L2 normalization",
+          "resources": {
+            "process_id": 4408,
+            "cpu_seconds": 0.828125,
+            "peak_rss_bytes": 104673280,
+            "scope": "Observed process lifetime peak RSS/CPU plus request CPU delta; retained peak is not per-query peak.",
+            "request_cpu_seconds": 0.296875
+          },
+          "model_load_seconds": 0.3307758000009926,
+          "model_reused": false,
+          "native_import_seconds": 0.45546979999926407,
+          "worker_lifecycle": {
+            "process_id": 4408,
+            "launcher_process_id": 40264,
+            "request_number": 1,
+            "process_reused": false,
+            "idle_limit_seconds": 90,
+            "execution": "fresh request in bounded owned CPU worker"
+          },
+          "elapsed_seconds": 1.7325972999969963
+        },
+        "seconds": 1.7631252000064705
+      },
+      {
+        "name": "actual_local_speech",
+        "status": "passed",
+        "result": {
+          "sample_rate": 24000,
+          "frames": 18012,
+          "duration_seconds": 0.7505,
+          "model": "kokoro-en-v0.19-int8",
+          "voice_id": 0,
+          "speed": 1,
+          "model_reused": false,
+          "provider": "sherpa-onnx-2.0.1",
+          "spoken_text": "Hello .",
+          "warnings": [],
+          "source_type": "model_generated",
+          "model_hashes": {
+            "model.int8.onnx": "e0530c5031c03c5dc957edfc6d72582c2246e9b4566643ff67eeb03610c11641",
+            "voices.bin": "a372c67b056ef0b695c375d39b99630d23fb07ad4c8d87aa32a19a62fca523ad",
+            "tokens.txt": "4f31c71282d14af4e926cd12462078fe9d20d00c589e63fe2750a8f56d6d7f7b",
+            "lexicon-en-us.txt": "8b67ae549a465eee78f92ecb74644ad90c3c58ce65f19c68baf85878a10ef73a"
+          },
+          "phase_timings": {
+            "validation_normalization_seconds": 0.4530000000013388,
+            "model_initialization_seconds": 3.7969999999986612,
+            "generation_seconds": 3.062000000005355,
+            "wav_write_seconds": 0.01599999999598367
+          },
+          "resources": {
+            "process_id": 39692,
+            "cpu_seconds": 16.875,
+            "peak_rss_bytes": 433147904,
+            "scope": "Observed process lifetime peak RSS/CPU and this request CPU delta; retained-worker peak is not a per-request peak.",
+            "request_cpu_seconds": 15.40625
+          },
+          "worker_lifecycle": {
+            "process_id": 39692,
+            "launcher_process_id": 34260,
+            "request_number": 1,
+            "process_reused": false,
+            "idle_limit_seconds": 90,
+            "execution": "fresh request in bounded owned CPU worker"
+          },
+          "cache": {
+            "hit": false,
+            "scope": "Actual new local synthesis"
+          },
+          "resource_scheduling": {
+            "id": "8d9e642cec9941c486a7f2d38b7dbd46",
+            "capability": "tts",
+            "model": null,
+            "priority": 0,
+            "queued_at_monotonic": 61456.765,
+            "started_at_monotonic": 61456.781,
+            "queue_seconds": 0.01600000000325963
+          },
+          "elapsed_seconds": 9.859000000004016,
+          "sha256": "288f35e6ce59e1a08c18f57b26b740eacb241e8427efa7b19ccee89fb8c753b0"
+        },
+        "seconds": 9.863356800000474
+      },
+      {
+        "name": "actual_local_asr",
+        "status": "passed",
+        "result": {
+          "text": "Hello",
+          "duration_seconds": 0.7505,
+          "sample_rate": 24000,
+          "format": {
+            "container": "PCM WAV"
+          },
+          "language": "en",
+          "model": "whisper-base.en-int8",
+          "provider": "sherpa-onnx-2.0.1",
+          "source_type": "model_generated",
+          "alignment": "whole_recording_window_only; word/segment alignment unavailable",
+          "recording_window": {
+            "start_seconds": 0,
+            "end_seconds": 0.7505
+          },
+          "limitations": [
+            "Automatic transcription is unverified; review and edit before sending.",
+            "English-only model; noise and technical terms can be misrecognized."
+          ],
+          "model_hashes": {
+            "base.en-encoder.int8.onnx": "ef6b936f4c9b1d90a3b68634b60c4ed8576b26172b33c2535ec0e933c9edb823",
+            "base.en-decoder.int8.onnx": "f7162ad6db2dbef16cfaeaa7f945b9d7dd9c1b8d472f6aca82f2273d185e4d41",
+            "base.en-tokens.txt": "306cd27f03c1a714eca7108e03d66b7dc042abe8c258b44c199a7ed9838dd930"
+          },
+          "confidence": null,
+          "review_required": true,
+          "model_reused": false,
+          "phase_timings": {
+            "model_initialization_seconds": 1.4219999999986612,
+            "decode_seconds": 0.23399999999674037
+          },
+          "resources": {
+            "process_id": 39692,
+            "cpu_seconds": 19.3125,
+            "peak_rss_bytes": 438538240,
+            "scope": "Observed process lifetime peak RSS/CPU and this request CPU delta; retained-worker peak is not a per-request peak.",
+            "request_cpu_seconds": 2.234375
+          },
+          "worker_lifecycle": {
+            "process_id": 39692,
+            "launcher_process_id": 34260,
+            "request_number": 2,
+            "process_reused": true,
+            "idle_limit_seconds": 90,
+            "execution": "fresh request in bounded owned CPU worker"
+          },
+          "resource_scheduling": {
+            "id": "69fa1522f5284cea884066369ce36889",
+            "capability": "asr",
+            "model": null,
+            "priority": 0,
+            "queued_at_monotonic": 61466.718,
+            "started_at_monotonic": 61466.718,
+            "queue_seconds": 0.0
+          },
+          "elapsed_seconds": 2.077999999994063,
+          "original_sha256": "288f35e6ce59e1a08c18f57b26b740eacb241e8427efa7b19ccee89fb8c753b0"
+        },
+        "seconds": 2.135946899994451
+      },
+      {
+        "name": "actual_saved_native",
+        "status": "passed",
+        "result": {
+          "rul": 115.3478990753549,
+          "rul_unit": "cycles",
+          "n_steps_used": 31,
+          "model": "01_lightgbm",
+          "dataset": "FD001",
+          "seed": 42,
+          "version": "709db1f819ba0df538580470cffc97c2dfb95d9cdc26fa2c12fbe681a9c18133",
+          "warnings": [
+            "History has 31 cycles; left-padded by repeating the first observation."
+          ],
+          "top_contributors": [
+            {
+              "channel": "s4",
+              "mean_abs_contribution": 8.01133567102933,
+              "mean_contribution": 8.01133567102933
+            },
+            {
+              "channel": "s12",
+              "mean_abs_contribution": 4.923191480448874,
+              "mean_contribution": 4.923191480448874
+            },
+            {
+              "channel": "s9",
+              "mean_abs_contribution": 3.2231015305331367,
+              "mean_contribution": 3.2231015305331367
+            },
+            {
+              "channel": "s7",
+              "mean_abs_contribution": 2.9662628541531535,
+              "mean_contribution": 2.9662628541531535
+            },
+            {
+              "channel": "s2",
+              "mean_abs_contribution": 2.956613995577235,
+              "mean_contribution": 2.956613995577235
+            }
+          ]
+        },
+        "seconds": 5.946127200004412
+      },
+      {
+        "name": "actual_refused_loopback",
+        "status": "passed",
+        "result": {
+          "actual_loopback_connection": "refused"
+        },
+        "seconds": 2.533125399997516
+      }
+    ]
+  },
+  "native": {
+    "status": "pass",
+    "scope": "Actual HTTP inference on existing compatible saved NASA histories, not synthetic industrial uploads. No training.",
+    "routes": [
+      {
+        "dataset": "FD001",
+        "role": "low_latency",
+        "model_id": "fd001-01_lightgbm-s42",
+        "asset_id": "FD001-ENGINE-001",
+        "seconds": 7.386535799996636,
+        "status": "passed"
+      },
+      {
+        "dataset": "FD001",
+        "role": "advanced",
+        "model_id": "fd001-08_ensemble-s42",
+        "asset_id": "FD001-ENGINE-001",
+        "seconds": 18.09271869999793,
+        "status": "passed"
+      },
+      {
+        "dataset": "FD001",
+        "role": "deep",
+        "model_id": "fd001-03_bilstm_attention-s42",
+        "asset_id": "FD001-ENGINE-001",
+        "seconds": 12.0391896000001,
+        "status": "passed"
+      },
+      {
+        "dataset": "FD002",
+        "role": "low_latency",
+        "model_id": "fd002-01_lightgbm-original-s42",
+        "asset_id": "FD002-ENGINE-001",
+        "seconds": 6.0793493000019225,
+        "status": "passed"
+      },
+      {
+        "dataset": "FD002",
+        "role": "advanced",
+        "model_id": "fd002-08_ensemble-s44",
+        "asset_id": "FD002-ENGINE-001",
+        "seconds": 30.784559799998533,
+        "status": "passed"
+      },
+      {
+        "dataset": "FD002",
+        "role": "deep",
+        "model_id": "fd002-03_bilstm_attention-s42",
+        "asset_id": "FD002-ENGINE-001",
+        "seconds": 12.292872300000454,
+        "status": "passed"
+      },
+      {
+        "dataset": "FD003",
+        "role": "low_latency",
+        "model_id": "fd003-01_lightgbm-original-s42",
+        "asset_id": "FD003-ENGINE-001",
+        "seconds": 5.01480000000447,
+        "status": "passed"
+      },
+      {
+        "dataset": "FD003",
+        "role": "advanced",
+        "model_id": "fd003-08_ensemble-s42",
+        "asset_id": "FD003-ENGINE-001",
+        "seconds": 10.356406099999731,
+        "status": "passed"
+      },
+      {
+        "dataset": "FD003",
+        "role": "deep",
+        "model_id": "fd003-03_bilstm_attention-s42",
+        "asset_id": "FD003-ENGINE-001",
+        "seconds": 14.634222300002875,
+        "status": "passed"
+      },
+      {
+        "dataset": "FD004",
+        "role": "low_latency",
+        "model_id": "fd004-01_lightgbm-original-s42",
+        "asset_id": "FD004-ENGINE-001",
+        "seconds": 4.989473200002976,
+        "status": "passed"
+      },
+      {
+        "dataset": "FD004",
+        "role": "advanced",
+        "model_id": "fd004-08_ensemble-s42",
+        "asset_id": "FD004-ENGINE-001",
+        "seconds": 11.406840899995586,
+        "status": "passed"
+      },
+      {
+        "dataset": "FD004",
+        "role": "deep",
+        "model_id": "fd004-03_bilstm_attention-s42",
+        "asset_id": "FD004-ENGINE-001",
+        "seconds": 8.959884899995814,
+        "status": "passed"
+      }
+    ],
+    "full_actual_responses": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\native_routes.json"
+  },
+  "quality_rubric": [
+    {
+      "dimension": "Numerical source accuracy",
+      "criterion": "Independent CSV first24/recent6 arithmetic agrees for all mapped channels; missing source values are not imputed.",
+      "status": "verified for fixture statistics only"
+    },
+    {
+      "dimension": "Evidence correctness",
+      "criterion": "Cited records resolve and actually support the stated observation/relationship.",
+      "status": "partial: reference resolution checked; model support relationships can still misuse schema or indirect evidence"
+    },
+    {
+      "dimension": "Asset/time consistency",
+      "criterion": "Explicit requested asset retained; unrelated measurement assets excluded; historical sources respect cutoff.",
+      "status": "asset checks verified; broad historical network matrix not rerun"
+    },
+    {
+      "dimension": "Hypothesis relevance",
+      "criterion": "Retained mechanisms relate to supplied observations without forced padding.",
+      "status": "tentative, requires engineering review"
+    },
+    {
+      "dimension": "Mechanism completeness",
+      "criterion": "No observed terminal fragments, language drift or mismatched delimiters in accepted fields.",
+      "status": "bounded textual review verified; not a full semantic proof"
+    },
+    {
+      "dimension": "Causal restraint",
+      "criterion": "No unsupported physical connection stated as established.",
+      "status": "partial: rejected candidates withheld, but broad causal validity remains unverified"
+    },
+    {
+      "dimension": "Contradiction handling",
+      "criterion": "Conflicting original maintenance accounts retained without picking a true account.",
+      "status": "Conflicting maintenance accounts remain unresolved in final FAN follow-ups; general hypothesis-conflict semantics remain unverified."
+    },
+    {
+      "dimension": "Missing evidence",
+      "criterion": "Missing CSV sample retained; existing channels distinguished from absent tests.",
+      "status": "verified source inventory; model adequacy claims need review"
+    },
+    {
+      "dimension": "Diagnostic usefulness",
+      "criterion": "Checks refer to relevant missing discriminators or qualify re-use of supplied readings.",
+      "status": "qualified recommendations; real-world usefulness unvalidated"
+    },
+    {
+      "dimension": "Clarity",
+      "criterion": "Concise, readable, complete answers with explicit uncertainty.",
+      "status": "mixed; fast documentation clear, general reasoning needs human review"
+    }
+  ],
+  "completed_at": "2026-11-18T23:38:37.457508+00:00",
+  "release_verification": {
+    "health": {
+      "status": "ok",
+      "contract_version": "2.0",
+      "application_version": "4.8.2",
+      "loaded_source_sha256": "641aeb0bd647eb45d905f984f61d6f9d8498e88aa8438f23783fc54e86015d7d",
+      "ml_ready": true,
+      "ollama_ready": true,
+      "text_ready": true,
+      "vision_ready": true,
+      "models": [
+        "qwen3:4b-instruct",
+        "qwen3-vl:2b-instruct",
+        "qwen3-vl:2b",
+        "qwen3:4b"
+      ],
+      "mode": "local",
+      "hosted_providers": "disabled"
+    },
+    "index_sha256": "6ffd1a7d55251aeaabcc4db5937dbc53d47c0a0a7f2c4c0955e114bd8dcb48e4",
+    "production_contracts": {
+      "contract_version": "1.0",
+      "state_namespace": "f5c8265ab0d7bef5b488d73753bc194e7986f96605acb47c1d02cbde9dc99b49",
+      "tools": [
+        {
+          "tool_id": "case.recall",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Explicit conversation scope; never an arbitrary filesystem/database selector.",
+            "properties": {
+              "conversation_id": {
+                "title": "Conversation Id",
+                "type": "string"
+              },
+              "include_facts": {
+                "default": true,
+                "title": "Include Facts",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "conversation_id"
+            ],
+            "title": "ConversationInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "conversation_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "investigation.status",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Explicit conversation scope; never an arbitrary filesystem/database selector.",
+            "properties": {
+              "conversation_id": {
+                "title": "Conversation Id",
+                "type": "string"
+              },
+              "include_facts": {
+                "default": true,
+                "title": "Include Facts",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "conversation_id"
+            ],
+            "title": "ConversationInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "conversation_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "text.profile",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Bounded untrusted user text, never executable tool instructions.",
+            "properties": {
+              "text": {
+                "maxLength": 8000,
+                "minLength": 1,
+                "title": "Text",
+                "type": "string"
+              }
+            },
+            "required": [
+              "text"
+            ],
+            "title": "TextInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "text"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "evidence.resolve",
+          "version": "1",
+          "input_schema": {
+            "description": "Opaque evidence ID; no arbitrary file or SQL input.",
+            "properties": {
+              "evidence_id": {
+                "maxLength": 100,
+                "title": "Evidence Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence_id"
+            ],
+            "title": "ResolveInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "evidence_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "knowledge.retrieve",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Search only a selected existing conversation.",
+            "properties": {
+              "text": {
+                "maxLength": 8000,
+                "minLength": 1,
+                "title": "Text",
+                "type": "string"
+              },
+              "conversation_id": {
+                "title": "Conversation Id",
+                "type": "string"
+              },
+              "attachment_ids": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 30,
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Attachment Ids"
+              },
+              "mode": {
+                "default": "auto",
+                "enum": [
+                  "auto",
+                  "lexical",
+                  "semantic",
+                  "hybrid"
+                ],
+                "title": "Mode",
+                "type": "string"
+              },
+              "as_of": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "As Of"
+              }
+            },
+            "required": [
+              "text",
+              "conversation_id"
+            ],
+            "title": "SearchInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "additionalProperties": true,
+            "description": "Real source excerpts; relevance scores never imply evidential support.",
+            "properties": {
+              "evidence_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence Ids",
+                "type": "array"
+              },
+              "passages": {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "title": "Passages",
+                "type": "array"
+              }
+            },
+            "required": [
+              "passages"
+            ],
+            "title": "RetrievalOutput",
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "text",
+            "conversation_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 120.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [
+            "local:retrieval"
+          ],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "prediction.run",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Explicit NASA source; synthetic facility IDs cannot satisfy this schema/domain.",
+            "properties": {
+              "dataset": {
+                "pattern": "^FD00[1-4]$",
+                "title": "Dataset",
+                "type": "string"
+              },
+              "model_id": {
+                "title": "Model Id",
+                "type": "string"
+              },
+              "asset_id": {
+                "title": "Asset Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "dataset",
+              "model_id",
+              "asset_id"
+            ],
+            "title": "PredictionInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "additionalProperties": true,
+            "description": "Unchanged native predictor result and its resolvable source identities.",
+            "properties": {
+              "evidence_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence Ids",
+                "type": "array"
+              },
+              "prediction": {
+                "additionalProperties": true,
+                "title": "Prediction",
+                "type": "object"
+              }
+            },
+            "required": [
+              "prediction"
+            ],
+            "title": "PredictionOutput",
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "nasa_cmapss"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 120.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [
+            "preserved_native:dataset-specific"
+          ],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "llm.chat",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Bounded untrusted user text, never executable tool instructions.",
+            "properties": {
+              "text": {
+                "maxLength": 8000,
+                "minLength": 1,
+                "title": "Text",
+                "type": "string"
+              }
+            },
+            "required": [
+              "text"
+            ],
+            "title": "TextInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "text"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 150.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "temporal.summary",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+            "properties": {
+              "scenario_id": {
+                "title": "Scenario Id",
+                "type": "string"
+              },
+              "asset_id": {
+                "title": "Asset Id",
+                "type": "string"
+              },
+              "as_of": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "As Of"
+              }
+            },
+            "required": [
+              "scenario_id",
+              "asset_id"
+            ],
+            "title": "FacilityInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "sire_synthetic_scenario"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "assets.relations",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+            "properties": {
+              "scenario_id": {
+                "title": "Scenario Id",
+                "type": "string"
+              },
+              "asset_id": {
+                "title": "Asset Id",
+                "type": "string"
+              },
+              "as_of": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "As Of"
+              }
+            },
+            "required": [
+              "scenario_id",
+              "asset_id"
+            ],
+            "title": "FacilityInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "sire_synthetic_scenario"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "facility.investigate",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "A same-scope immutable facility-case revision, never a merger of future observations.",
+            "properties": {
+              "scenario_id": {
+                "title": "Scenario Id",
+                "type": "string"
+              },
+              "asset_id": {
+                "title": "Asset Id",
+                "type": "string"
+              },
+              "as_of": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "As Of"
+              },
+              "parent_case_id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Parent Case Id"
+              }
+            },
+            "required": [
+              "scenario_id",
+              "asset_id"
+            ],
+            "title": "ReinvestigationInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "sire_synthetic_scenario"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "events.timeline",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Explicit synthetic observation scope, independent of NASA inputs.",
+            "properties": {
+              "scenario_id": {
+                "title": "Scenario Id",
+                "type": "string"
+              },
+              "asset_id": {
+                "title": "Asset Id",
+                "type": "string"
+              },
+              "as_of": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "As Of"
+              }
+            },
+            "required": [
+              "scenario_id",
+              "asset_id"
+            ],
+            "title": "FacilityInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "sire_synthetic_scenario"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "case.report",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "An existing persisted facility case identity.",
+            "properties": {
+              "case_id": {
+                "title": "Case Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "case_id"
+            ],
+            "title": "CaseInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "case_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "case.similar",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "An existing persisted facility case identity.",
+            "properties": {
+              "case_id": {
+                "title": "Case Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "case_id"
+            ],
+            "title": "CaseInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "case_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "fleet.overview",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Optional explicit same-type comparison reference without changing asset identities.",
+            "properties": {
+              "scenario_id": {
+                "title": "Scenario Id",
+                "type": "string"
+              },
+              "asset_id": {
+                "title": "Asset Id",
+                "type": "string"
+              },
+              "as_of": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "As Of"
+              },
+              "peer_asset_id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Peer Asset Id"
+              }
+            },
+            "required": [
+              "scenario_id",
+              "asset_id"
+            ],
+            "title": "FleetInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "sire_synthetic_scenario"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "simulation.compare",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Explicit bounded toy intervention assumptions.",
+            "properties": {
+              "scenario_id": {
+                "title": "Scenario Id",
+                "type": "string"
+              },
+              "asset_id": {
+                "title": "Asset Id",
+                "type": "string"
+              },
+              "as_of": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "As Of"
+              },
+              "service_hour": {
+                "anyOf": [
+                  {
+                    "maximum": 96,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Service Hour"
+              },
+              "load_factor": {
+                "anyOf": [
+                  {
+                    "maximum": 1.2,
+                    "minimum": 0.5,
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Load Factor"
+              }
+            },
+            "required": [
+              "scenario_id",
+              "asset_id"
+            ],
+            "title": "InterventionInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "sire_synthetic_scenario"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "vision.inspect",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "One validated attachment from the selected conversation.",
+            "properties": {
+              "text": {
+                "maxLength": 8000,
+                "minLength": 1,
+                "title": "Text",
+                "type": "string"
+              },
+              "conversation_id": {
+                "title": "Conversation Id",
+                "type": "string"
+              },
+              "attachment_ids": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 30,
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Attachment Ids"
+              },
+              "mode": {
+                "default": "auto",
+                "enum": [
+                  "auto",
+                  "lexical",
+                  "semantic",
+                  "hybrid"
+                ],
+                "title": "Mode",
+                "type": "string"
+              },
+              "as_of": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "As Of"
+              },
+              "attachment_id": {
+                "title": "Attachment Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "text",
+              "conversation_id",
+              "attachment_id"
+            ],
+            "title": "ImageInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "additionalProperties": true,
+            "description": "Actual model observations, explicitly distinct from physical measurements.",
+            "properties": {
+              "evidence_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence Ids",
+                "type": "array"
+              },
+              "analysis": {
+                "additionalProperties": true,
+                "title": "Analysis",
+                "type": "object"
+              }
+            },
+            "required": [
+              "analysis"
+            ],
+            "title": "VisionOutput",
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "image",
+            "conversation_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 150.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [
+            "ollama:qwen3-vl:2b-instruct"
+          ],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "prediction.saved_result",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "A saved inference identity, never client-invented results.",
+            "properties": {
+              "prediction_id": {
+                "title": "Prediction Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "prediction_id"
+            ],
+            "title": "SavedPredictionInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "prediction_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "hypotheses.investigate",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Search only a selected existing conversation.",
+            "properties": {
+              "text": {
+                "maxLength": 8000,
+                "minLength": 1,
+                "title": "Text",
+                "type": "string"
+              },
+              "conversation_id": {
+                "title": "Conversation Id",
+                "type": "string"
+              },
+              "attachment_ids": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 30,
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Attachment Ids"
+              },
+              "mode": {
+                "default": "auto",
+                "enum": [
+                  "auto",
+                  "lexical",
+                  "semantic",
+                  "hybrid"
+                ],
+                "title": "Mode",
+                "type": "string"
+              },
+              "as_of": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "As Of"
+              }
+            },
+            "required": [
+              "text",
+              "conversation_id"
+            ],
+            "title": "SearchInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "text",
+            "conversation_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 220.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "measurements.profile",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Existing source attachment constrained to one conversation.",
+            "properties": {
+              "conversation_id": {
+                "title": "Conversation Id",
+                "type": "string"
+              },
+              "attachment_id": {
+                "title": "Attachment Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "conversation_id",
+              "attachment_id"
+            ],
+            "title": "AttachmentInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "additionalProperties": true,
+            "description": "Actual deterministic statistics with original measurement metadata.",
+            "properties": {
+              "evidence_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence Ids",
+                "type": "array"
+              }
+            },
+            "title": "MeasurementOutput",
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "csv",
+            "json",
+            "conversation_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [
+            "local:documents"
+          ],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "audio.transcript",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Existing source attachment constrained to one conversation.",
+            "properties": {
+              "conversation_id": {
+                "title": "Conversation Id",
+                "type": "string"
+              },
+              "attachment_id": {
+                "title": "Attachment Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "conversation_id",
+              "attachment_id"
+            ],
+            "title": "AttachmentInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "additionalProperties": true,
+            "description": "Unverified automatic transcript; user speech is input provenance.",
+            "properties": {
+              "evidence_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence Ids",
+                "type": "array"
+              },
+              "transcript": {
+                "additionalProperties": true,
+                "title": "Transcript",
+                "type": "object"
+              }
+            },
+            "required": [
+              "transcript"
+            ],
+            "title": "TranscriptOutput",
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "audio",
+            "conversation_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [
+            "sherpa:asr"
+          ],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "video.frames",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Existing source attachment constrained to one conversation.",
+            "properties": {
+              "conversation_id": {
+                "title": "Conversation Id",
+                "type": "string"
+              },
+              "attachment_id": {
+                "title": "Attachment Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "conversation_id",
+              "attachment_id"
+            ],
+            "title": "AttachmentInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "video",
+            "conversation_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [
+            "local:video"
+          ],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "evidence_case.report",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "An existing persisted facility case identity.",
+            "properties": {
+              "case_id": {
+                "title": "Case Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "case_id"
+            ],
+            "title": "CaseInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "case_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "document.extract",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Extract bounded original source chunks from one owned attachment.",
+            "properties": {
+              "conversation_id": {
+                "title": "Conversation Id",
+                "type": "string"
+              },
+              "attachment_id": {
+                "title": "Attachment Id",
+                "type": "string"
+              },
+              "max_characters": {
+                "default": 4000,
+                "maximum": 20000,
+                "minimum": 100,
+                "title": "Max Characters",
+                "type": "integer"
+              },
+              "include_statistics": {
+                "default": true,
+                "title": "Include Statistics",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "conversation_id",
+              "attachment_id"
+            ],
+            "title": "DocumentInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "$defs": {
+              "DocumentSection": {
+                "additionalProperties": false,
+                "description": "An exact bounded excerpt of a stored source chunk.",
+                "properties": {
+                  "evidence_id": {
+                    "title": "Evidence Id",
+                    "type": "string"
+                  },
+                  "attachment_id": {
+                    "title": "Attachment Id",
+                    "type": "string"
+                  },
+                  "locator": {
+                    "title": "Locator",
+                    "type": "string"
+                  },
+                  "text": {
+                    "title": "Text",
+                    "type": "string"
+                  },
+                  "excerpted": {
+                    "title": "Excerpted",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "evidence_id",
+                  "attachment_id",
+                  "locator",
+                  "text",
+                  "excerpted"
+                ],
+                "title": "DocumentSection",
+                "type": "object"
+              }
+            },
+            "additionalProperties": true,
+            "description": "Extraction only; no generated rows, interpretation or invented pages.",
+            "properties": {
+              "evidence_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence Ids",
+                "type": "array"
+              },
+              "sections": {
+                "items": {
+                  "$ref": "#/$defs/DocumentSection"
+                },
+                "title": "Sections",
+                "type": "array"
+              },
+              "attachment_id": {
+                "title": "Attachment Id",
+                "type": "string"
+              },
+              "total_chunks": {
+                "title": "Total Chunks",
+                "type": "integer"
+              },
+              "selected_characters": {
+                "title": "Selected Characters",
+                "type": "integer"
+              },
+              "extraction": {
+                "enum": [
+                  "stored_deterministic_extraction",
+                  "on_demand_deterministic_csv"
+                ],
+                "title": "Extraction",
+                "type": "string"
+              }
+            },
+            "required": [
+              "sections",
+              "attachment_id",
+              "total_chunks",
+              "selected_characters",
+              "extraction"
+            ],
+            "title": "DocumentOutput",
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "document",
+            "conversation_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 60.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [
+            "local:documents"
+          ],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "speech.synthesize",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Bounded synthesis using an actual voice in the installed model.",
+            "properties": {
+              "text": {
+                "maxLength": 1200,
+                "minLength": 1,
+                "title": "Text",
+                "type": "string"
+              },
+              "voice_id": {
+                "default": 0,
+                "maximum": 255,
+                "minimum": 0,
+                "title": "Voice Id",
+                "type": "integer"
+              },
+              "speed": {
+                "default": 1,
+                "maximum": 2,
+                "minimum": 0.5,
+                "title": "Speed",
+                "type": "number"
+              }
+            },
+            "required": [
+              "text"
+            ],
+            "title": "SpeechInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "$defs": {
+              "GeneratedAudio": {
+                "additionalProperties": false,
+                "description": "Actual bounded local WAV and model provenance; not engineering evidence.",
+                "properties": {
+                  "mime": {
+                    "const": "audio/wav",
+                    "default": "audio/wav",
+                    "title": "Mime",
+                    "type": "string"
+                  },
+                  "audio_base64": {
+                    "title": "Audio Base64",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "title": "Sha256",
+                    "type": "string"
+                  },
+                  "sample_rate": {
+                    "exclusiveMinimum": 0,
+                    "title": "Sample Rate",
+                    "type": "integer"
+                  },
+                  "frames": {
+                    "exclusiveMinimum": 0,
+                    "title": "Frames",
+                    "type": "integer"
+                  },
+                  "duration_seconds": {
+                    "exclusiveMinimum": 0,
+                    "title": "Duration Seconds",
+                    "type": "number"
+                  },
+                  "provider": {
+                    "title": "Provider",
+                    "type": "string"
+                  },
+                  "model": {
+                    "title": "Model",
+                    "type": "string"
+                  },
+                  "voice_id": {
+                    "minimum": 0,
+                    "title": "Voice Id",
+                    "type": "integer"
+                  },
+                  "speed": {
+                    "exclusiveMinimum": 0,
+                    "title": "Speed",
+                    "type": "number"
+                  },
+                  "spoken_text": {
+                    "title": "Spoken Text",
+                    "type": "string"
+                  },
+                  "warnings": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "title": "Warnings",
+                    "type": "array"
+                  },
+                  "cache": {
+                    "additionalProperties": true,
+                    "title": "Cache",
+                    "type": "object"
+                  },
+                  "phase_timings": {
+                    "additionalProperties": {
+                      "type": "number"
+                    },
+                    "title": "Phase Timings",
+                    "type": "object"
+                  },
+                  "resources": {
+                    "additionalProperties": true,
+                    "title": "Resources",
+                    "type": "object"
+                  },
+                  "original_synthesis_resources": {
+                    "additionalProperties": true,
+                    "title": "Original Synthesis Resources",
+                    "type": "object"
+                  },
+                  "worker_lifecycle": {
+                    "additionalProperties": true,
+                    "title": "Worker Lifecycle",
+                    "type": "object"
+                  },
+                  "worker_fallback": {
+                    "additionalProperties": true,
+                    "title": "Worker Fallback",
+                    "type": "object"
+                  },
+                  "model_reused": {
+                    "default": false,
+                    "title": "Model Reused",
+                    "type": "boolean"
+                  },
+                  "model_hashes": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "title": "Model Hashes",
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "audio_base64",
+                  "sha256",
+                  "sample_rate",
+                  "frames",
+                  "duration_seconds",
+                  "provider",
+                  "model",
+                  "voice_id",
+                  "speed",
+                  "spoken_text",
+                  "warnings",
+                  "cache",
+                  "phase_timings"
+                ],
+                "title": "GeneratedAudio",
+                "type": "object"
+              }
+            },
+            "additionalProperties": true,
+            "description": "Audio output without fabricated evidence IDs or public file paths.",
+            "properties": {
+              "evidence_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence Ids",
+                "type": "array"
+              },
+              "audio": {
+                "$ref": "#/$defs/GeneratedAudio"
+              }
+            },
+            "required": [
+              "audio"
+            ],
+            "title": "SpeechOutput",
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "text"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 120.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [
+            "sherpa:tts"
+          ],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        },
+        {
+          "tool_id": "video.inspect",
+          "version": "1",
+          "input_schema": {
+            "additionalProperties": false,
+            "description": "Inspect stored sampled frames, preserving each original decoder position.",
+            "properties": {
+              "conversation_id": {
+                "title": "Conversation Id",
+                "type": "string"
+              },
+              "attachment_id": {
+                "title": "Attachment Id",
+                "type": "string"
+              },
+              "text": {
+                "default": "Describe visible features and limitations.",
+                "maxLength": 8000,
+                "title": "Text",
+                "type": "string"
+              }
+            },
+            "required": [
+              "conversation_id",
+              "attachment_id"
+            ],
+            "title": "VideoInput",
+            "type": "object"
+          },
+          "output_schema": {
+            "additionalProperties": true,
+            "description": "Sparse frame observations; missing intervals remain unobserved.",
+            "properties": {
+              "evidence_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Evidence Ids",
+                "type": "array"
+              },
+              "video": {
+                "additionalProperties": true,
+                "title": "Video",
+                "type": "object"
+              },
+              "frames": {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "title": "Frames",
+                "type": "array"
+              },
+              "limitations": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Limitations",
+                "type": "array"
+              }
+            },
+            "required": [
+              "video",
+              "frames",
+              "limitations"
+            ],
+            "title": "VideoOutput",
+            "type": "object"
+          },
+          "data_permissions": [
+            "local_only"
+          ],
+          "supported_input_types": [
+            "video",
+            "conversation_id"
+          ],
+          "requires_gpu": false,
+          "estimated_cost": 0,
+          "timeout_s": 300.0,
+          "availability": "available",
+          "expected_latency": "unprofiled; measured per call",
+          "error_types": [
+            "unsupported",
+            "timeout",
+            "invalid_input"
+          ],
+          "source_provenance_policy": "Resolvable input/output evidence IDs; interpretation is not measurement.",
+          "provider_ids": [
+            "local:video",
+            "ollama:qwen3-vl:2b-instruct"
+          ],
+          "cancellation": "request event propagated to adapter; cleanup on terminal paths"
+        }
+      ],
+      "scheduler": "app.providers.resources.SCHEDULER",
+      "source_policy": "Model interpretations are unverified; speech transcripts are input provenance."
+    },
+    "missing_attachment": {
+      "http": 404,
+      "body": {
+        "error": {
+          "code": "attachment_missing",
+          "message": "Attachment not found in this conversation.",
+          "details": {},
+          "request_id": "e689c9b84a604e31a6760fb44f0755e9"
+        }
+      }
+    },
+    "actual_job_cancellation": {
+      "id": "91e28a4a62724fc5ab5afd5f4d041a0e",
+      "conversation_id": "92e4441ad5a145338d3cb634c3ee842a",
+      "request_id": "a3f76794388040eeaaad9b4e70a8406b",
+      "status": "cancelled",
+      "created_at": "2026-11-18T23:32:17.360267+00:00",
+      "updated_at": "2026-11-18T23:32:17.546340+00:00",
+      "events": [
+        {
+          "type": "started",
+          "request_id": "a3f76794388040eeaaad9b4e70a8406b",
+          "user_message_id": "8d4989625c05426c9298d3c471b13abc"
+        },
+        {
+          "type": "plan",
+          "run_id": "beff0766-161b-4500-8a65-85f9227b16f5",
+          "plan": {
+            "id": "2c6ec3c8-3119-4945-90d5-5944fed40002",
+            "intent": "incident_investigation",
+            "goals": [
+              "Answer using supplied evidence and actual local tools"
+            ],
+            "tools": [
+              {
+                "tool_id": "vision.inspect",
+                "arguments": {
+                  "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                },
+                "depends_on": []
+              },
+              {
+                "tool_id": "knowledge.retrieve",
+                "arguments": {
+                  "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                },
+                "depends_on": []
+              },
+              {
+                "tool_id": "hypotheses.investigate",
+                "arguments": {
+                  "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                },
+                "depends_on": []
+              }
+            ],
+            "evidence_ids": [],
+            "allowed_external_providers": [],
+            "deadline_seconds": 300.0,
+            "max_tool_calls": 12,
+            "fallback": "Return explicit partial/error status; never fabricate tool findings."
+          }
+        }
+      ],
+      "events_total": 2,
+      "events_trimmed": 0,
+      "run_id": "beff0766-161b-4500-8a65-85f9227b16f5",
+      "assistant_message_id": null,
+      "error": null,
+      "request": {
+        "conversation_id": "92e4441ad5a145338d3cb634c3ee842a",
+        "request_id": "a3f76794388040eeaaad9b4e70a8406b",
+        "content": "Investigate the industrial ventilation fan FAN-042 using the attached sensor data, maintenance report, and inspection image.\n\nIdentify abnormal vibration, temperature and airflow trends. Evaluate possible causes of reduced airflow and increasing mechanical stress. Compare conflicting maintenance records, identify missing measurements, rank competing hypotheses, and recommend further diagnostic checks.\n\nDistinguish measured observations from possible failure mechanisms. Do not assume a confirmed root cause or invent remaining useful life estimates.\n\nUser-supplied context: This is a synthetic industrial ventilation-system investigation involving FAN-042, a motor-driven centrifugal blower.\n\nThe CSV contains hourly sensor measurements, the PDF contains maintenance and technician records, and the generated inspection image illustrates the equipment's exterior condition.\n\nOperating conditions are assumed approximately stable but are not independently verified. Investigate only the supplied evidence, including missing measurements and contradictory records. All observations are simulated and must not be presented as verified physical faults.",
+        "attachment_ids": [
+          "fc8ccaba4c474d50a4306e5da23e01a1",
+          "a5e41997587b42f686501ca72a382e35",
+          "d65934a2f5474f759f689c886a3783dc"
+        ],
+        "model": null,
+        "mode": "investigate",
+        "prediction_id": null,
+        "linked_asset": false,
+        "facility_case_id": null,
+        "context": null,
+        "voice_response": false,
+        "input_audio_id": null
+      }
+    }
+  },
+  "evidence_paths": {
+    "baseline.json": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\baseline.json",
+    "baseline_calls.json": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\baseline_calls.json",
+    "after_calls.json": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\after_calls.json",
+    "generalization.json": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\generalization.json",
+    "generalization_attempt1.json": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\generalization_attempt1.json",
+    "generalization_attempt2.json": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\generalization_attempt2.json",
+    "fixture_checks.json": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\fixture_checks.json",
+    "native_routes.json": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\native_routes.json",
+    "offline/results.json": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\offline\\results.json",
+    "release_verification.json": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\release_verification.json",
+    "release_final_backend.log": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\release_final_backend.log",
+    "final_frontend_verified.log": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\final_frontend_verified.log",
+    "browser-final-fan-dom.txt": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\browser-final-fan-dom.txt",
+    "browser-final-pump-dom.txt": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\browser-final-pump-dom.txt",
+    "browser-production-dom.txt": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\stabilization_20261119_041142\\browser-production-dom.txt"
+  },
+  "remaining_generalization_failures": [
+    "Final falsification follow-up withheld for unsupported_numeric_claim; raw withheld streamed prose was not persisted by the standard service.",
+    "Some delivered contextual answers repeat an earlier analogy and overgeneralize motor-current behavior; source-ID validity does not validate that reasoning."
+  ],
+  "last_verification": {
+    "checked_at": "2026-11-18T23:38:37.457508+00:00",
+    "health": {
+      "status": "ok",
+      "contract_version": "2.0",
+      "application_version": "4.8.2",
+      "loaded_source_sha256": "ce3f9feee66c046934df9e080ad31a5553d708326c5e6288b24ed1770af41814",
+      "ml_ready": true,
+      "ollama_ready": true,
+      "text_ready": true,
+      "vision_ready": true,
+      "models": [
+        "qwen3:4b-instruct",
+        "qwen3-vl:2b-instruct",
+        "qwen3-vl:2b",
+        "qwen3:4b"
+      ],
+      "mode": "local",
+      "hosted_providers": "disabled"
+    },
+    "production_index_sha256": "6ffd1a7d55251aeaabcc4db5937dbc53d47c0a0a7f2c4c0955e114bd8dcb48e4",
+    "final_context_regressions": "35 passed in 3.19s"
+  },
+  "full_backend_suite_scope": "383 passed before final evidence-event/metadata synchronization; 35 relevant regressions passed after it."
+}

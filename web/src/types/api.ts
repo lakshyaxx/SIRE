@@ -51,6 +51,8 @@ export interface Hypothesis {
   supportingEvidence: SourceLink[];
   contradictoryEvidence: SourceLink[];
   missingInformation: string[];
+  assumptions?: string[];
+  expectedSigns?: string[];
   recommendedChecks: string[];
   rankingRationale?: string;
 }
@@ -163,7 +165,12 @@ export interface InvestigationDetail extends InvestigationSummary {
   elapsedMs?: number;
   hypotheses?: Hypothesis[];
   summary?: string;
-  observations: Array<{ id: string; text: string; sources: SourceLink[] }>;
+  observations: Array<{
+    id: string;
+    text: string;
+    sources: SourceLink[];
+    classification?: string;
+  }>;
   interpretation?: string;
   possibleCauses: Array<{
     id: string;

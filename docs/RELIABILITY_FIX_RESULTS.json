@@ -1,0 +1,771 @@
+{
+  "generated_at": "2026-11-19T02:54:08.187971+00:00",
+  "release": "4.8.3",
+  "scope": "Focused general reliability fixes; no diagnostic accuracy certification.",
+  "checkpoint": {
+    "head": "174cea7978698606e475c893ee52ef468c7c4dab",
+    "ref": "codex/reliability-checkpoint-20261119_055333",
+    "branch": "integration",
+    "zip_sha256": "f4104ebbc0d1d0fb3c52f7115f25a02e686230bd7fe959d9fa92470f944ff510"
+  },
+  "working_tree_was_dirty": true,
+  "modified_since_checkpoint": [
+    "app/api/frontend.py",
+    "app/api/main.py",
+    "app/chat/service.py",
+    "app/evidence/context.py",
+    "app/evidence/verification.py",
+    "app/investigation/engine.py",
+    "app/investigation/narrative.py",
+    "app/investigation/proposal_schema.py",
+    "app/orchestration/case_context.py",
+    "app/orchestration/tools.py",
+    "app/orchestration/understanding.py",
+    "config/app.yaml",
+    "config/capabilities.yaml",
+    "tests/unit/test_v4_verification.py",
+    "web/src/pages/InvestigationWorkspace.tsx",
+    "web/src/services/api.ts",
+    "web/src/types/api.ts"
+  ],
+  "new_regression_files": [
+    "tests/unit/test_reliability_general.py",
+    "web/tests/reliability.test.mjs"
+  ],
+  "backend": {
+    "status": "PASS",
+    "passed": 418,
+    "warnings": 1,
+    "seconds": 164.16,
+    "log": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\release_idle_backend.log"
+  },
+  "frontend": {
+    "status": "PASS",
+    "passed": 29,
+    "failed": 0,
+    "build_seconds": 12.64,
+    "test_log": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\frozen_frontend.log",
+    "build_log": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\frozen_build.log"
+  },
+  "post_resume_test_formatting": {
+    "status": "PASS",
+    "passed": 35,
+    "warnings": 1,
+    "seconds": 4.26,
+    "scope": "Import placement/Black formatting of the new test file only; no application logic change."
+  },
+  "static_checks": {
+    "black_files": 13,
+    "black": "PASS",
+    "ruff": "PASS",
+    "pip_check": "No broken requirements found."
+  },
+  "real_investigations": [
+    {
+      "name": "unfamiliar_fan",
+      "asset": "BLOWER-26",
+      "status": "complete",
+      "total_seconds": 19.69059240000206,
+      "first_report_or_text_observed_seconds": 19.507119000001694,
+      "hypotheses_retained": 3,
+      "conversation_id": "05a08d8cd9f141b7afe9aef36b18a6fb",
+      "job_id": "6c9c7f9627ad4e489ef8e41e21a2d593",
+      "saved_case_id": "6c9c7f9627ad4e489ef8e41e21a2d593",
+      "run_id": "fa7737c4-ab64-4853-9eeb-33cdccd450a8",
+      "trace_http": 200,
+      "trace_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\unfamiliar_fan-trace.json",
+      "tools": [
+        {
+          "tool": "propose_hypotheses",
+          "status": "complete",
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "elapsed_seconds": 19.187999999994645,
+          "source_ids": [
+            "user:867fd5f4dda04c16ade750df8785223e"
+          ],
+          "generation_attempts": 1
+        },
+        {
+          "tool": "search_documents",
+          "status": "complete",
+          "provider": null,
+          "model": null,
+          "elapsed_seconds": 0.014999999999417923,
+          "source_ids": [],
+          "generation_attempts": null
+        }
+      ],
+      "failure": null,
+      "evidence_ids": [
+        "user:867fd5f4dda04c16ade750df8785223e"
+      ]
+    },
+    {
+      "name": "quantified_water_pump",
+      "asset": "WATER-63",
+      "status": "partial",
+      "total_seconds": 40.57200700000976,
+      "first_report_or_text_observed_seconds": 40.394507800010615,
+      "hypotheses_retained": 1,
+      "conversation_id": "6c597f5d942443caa8d7260d8951c90c",
+      "job_id": "49b83974430f44a1825448aa80304151",
+      "saved_case_id": "49b83974430f44a1825448aa80304151",
+      "run_id": "8ba359bc-dd7b-426f-8a94-265da7c4547f",
+      "trace_http": 200,
+      "trace_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\quantified_water_pump-trace.json",
+      "tools": [
+        {
+          "tool": "propose_hypotheses",
+          "status": "complete",
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "elapsed_seconds": 40.09299999999348,
+          "source_ids": [
+            "user:c492aae611f04fe286b17edde3db82d5"
+          ],
+          "generation_attempts": 2
+        },
+        {
+          "tool": "search_documents",
+          "status": "complete",
+          "provider": null,
+          "model": null,
+          "elapsed_seconds": 0.01600000000325963,
+          "source_ids": [],
+          "generation_attempts": null
+        }
+      ],
+      "failure": {
+        "code": "hypothesis_quality_review",
+        "stage": "hypotheses.quality",
+        "message": "Some generated explanation text was withheld after bounded quality review. Valid source observations and candidates are retained."
+      },
+      "evidence_ids": [
+        "user:c492aae611f04fe286b17edde3db82d5"
+      ]
+    },
+    {
+      "name": "car_after_service",
+      "asset": "ROAD-219",
+      "status": "partial",
+      "total_seconds": 40.469986099997186,
+      "first_report_or_text_observed_seconds": 40.27298589999555,
+      "hypotheses_retained": 5,
+      "conversation_id": "a48a3b4f73cf423786b959dbcd4ed90e",
+      "job_id": "1549eada5ccc4a6aaa2181e7316d5449",
+      "saved_case_id": "1549eada5ccc4a6aaa2181e7316d5449",
+      "run_id": "37468297-96cd-47db-b48c-6f5b071b4b81",
+      "trace_http": 200,
+      "trace_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\car_after_service-trace.json",
+      "tools": [
+        {
+          "tool": "propose_hypotheses",
+          "status": "complete",
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "elapsed_seconds": 39.88999999999942,
+          "source_ids": [
+            "user:0e8c7a81e72c4f229ade790de48385b9"
+          ],
+          "generation_attempts": 2
+        },
+        {
+          "tool": "search_documents",
+          "status": "complete",
+          "provider": null,
+          "model": null,
+          "elapsed_seconds": 0.01600000000325963,
+          "source_ids": [],
+          "generation_attempts": null
+        }
+      ],
+      "failure": {
+        "code": "hypothesis_quality_review",
+        "stage": "hypotheses.quality",
+        "message": "Some generated explanation text was withheld after bounded quality review. Valid source observations and candidates are retained."
+      },
+      "evidence_ids": [
+        "user:0e8c7a81e72c4f229ade790de48385b9"
+      ]
+    },
+    {
+      "name": "hydraulic_press",
+      "asset": "PRESS-62",
+      "status": "complete",
+      "total_seconds": 14.261434000000008,
+      "first_report_or_text_observed_seconds": 14.060932799999136,
+      "hypotheses_retained": 3,
+      "conversation_id": "4cda718dad904705aff253778d2f9f37",
+      "job_id": "d0faaa6013e74e5a8224ce260e869784",
+      "saved_case_id": "d0faaa6013e74e5a8224ce260e869784",
+      "run_id": "dfc3e315-5dd1-461b-85f5-d8fa53419f3b",
+      "trace_http": 200,
+      "trace_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\hydraulic_press-trace.json",
+      "tools": [
+        {
+          "tool": "propose_hypotheses",
+          "status": "complete",
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "elapsed_seconds": 13.71799999999348,
+          "source_ids": [
+            "user:81508f0d65eb4b23923166baadf818e2"
+          ],
+          "generation_attempts": 1
+        },
+        {
+          "tool": "search_documents",
+          "status": "complete",
+          "provider": null,
+          "model": null,
+          "elapsed_seconds": 0.01600000000325963,
+          "source_ids": [],
+          "generation_attempts": null
+        }
+      ],
+      "failure": null,
+      "evidence_ids": [
+        "user:81508f0d65eb4b23923166baadf818e2"
+      ]
+    },
+    {
+      "name": "electrical_motor",
+      "asset": "DRIVE-18",
+      "status": "partial",
+      "total_seconds": 37.519478300004266,
+      "first_report_or_text_observed_seconds": 37.30464870001015,
+      "hypotheses_retained": 4,
+      "conversation_id": "0c1eaa70bb8c427b83a84047f345cffa",
+      "job_id": "c55499978cf64f18a243770083cbb384",
+      "saved_case_id": "c55499978cf64f18a243770083cbb384",
+      "run_id": "dd63218d-0acf-4786-a368-89a1ac644f90",
+      "trace_http": 200,
+      "trace_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\electrical_motor-trace.json",
+      "tools": [
+        {
+          "tool": "propose_hypotheses",
+          "status": "complete",
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "elapsed_seconds": 36.64100000000326,
+          "source_ids": [
+            "user:47bd613ff92a4dc995d4ccc5da1b6e8d"
+          ],
+          "generation_attempts": 2
+        },
+        {
+          "tool": "search_documents",
+          "status": "complete",
+          "provider": null,
+          "model": null,
+          "elapsed_seconds": 0.01600000000325963,
+          "source_ids": [],
+          "generation_attempts": null
+        }
+      ],
+      "failure": {
+        "code": "hypothesis_quality_review",
+        "stage": "hypotheses.quality",
+        "message": "Some generated explanation text was withheld after bounded quality review. Valid source observations and candidates are retained."
+      },
+      "evidence_ids": [
+        "user:47bd613ff92a4dc995d4ccc5da1b6e8d"
+      ]
+    },
+    {
+      "name": "original_multimodal_fan",
+      "asset": "FAN-042",
+      "status": "partial",
+      "total_seconds": 22.25784800000838,
+      "first_report_or_text_observed_seconds": 0.45558570000866894,
+      "hypotheses_retained": 0,
+      "conversation_id": "92e4441ad5a145338d3cb634c3ee842a",
+      "job_id": "bd5ef5c6a30642e9ad83b8bbff09f30d",
+      "saved_case_id": "bd5ef5c6a30642e9ad83b8bbff09f30d",
+      "run_id": "36fe19a9-8ac2-4fc8-8e14-841662f76fbf",
+      "trace_http": 200,
+      "trace_path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\original_multimodal_fan-trace.json",
+      "tools": [
+        {
+          "tool": "propose_hypotheses",
+          "status": "complete",
+          "provider": "ollama",
+          "model": "qwen3:4b-instruct",
+          "elapsed_seconds": 21.139999999999418,
+          "source_ids": [
+            "EV:036c464ed00e0f096cc829c4cc7e9d79a94a257e9e79e0b7e65c4e0bec20b407",
+            "EV:a6c7c54ef476dbd9439424968663f72c99cf29f22bbc44e742d7cfb24dc6a6fb",
+            "EV:010adb0478c1e080411f3c4921fefe1db7834258524b9c3b6c17ee1a3a57ab8c",
+            "EV:ce844ad12eeeace591c5f75b760e546a6b4507cd80017d6183f3e039e51bd6e9",
+            "EV:65ffbb0855b5fa502070d9676419a8541f34065a185576acd9da0995310f1078",
+            "EV:90ce0d29d80207525e3fc1ebc2e04a62376bde333ae4b981019158369c1bc21f",
+            "d65934a2f5474f759f689c886a3783dc:schema",
+            "EV:c4cbe24ad340de157849f4685043dcc81cdcd78932e71f5ca44cad94511a717b",
+            "EV:4a04b8a03f6a14d81091fd183b2970878b7fd5410cca792c491f2b38276032d8",
+            "EV:b0f072f5cf1d967bf77a95cb664fdb9c5707473d4595386c9837c84e95b1d9f0",
+            "EV:02158268bceb4c85faecdd3997b9e706ac972698ceeaa64ba7905d1bf6067309",
+            "1ed2d7b86eb82ad90aa203c4",
+            "f41aa27e1a305af32d35e382",
+            "e37c80dcd14302a7cffdea96",
+            "user:036a4ed2aa574e6da961a96ed1450561"
+          ],
+          "generation_attempts": 1
+        }
+      ],
+      "failure": {
+        "code": "hypothesis_quality_review",
+        "stage": "hypotheses.quality",
+        "message": "Some generated explanation text was withheld after bounded quality review. Valid source observations and candidates are retained."
+      },
+      "evidence_ids": [
+        "EV:036c464ed00e0f096cc829c4cc7e9d79a94a257e9e79e0b7e65c4e0bec20b407",
+        "EV:a6c7c54ef476dbd9439424968663f72c99cf29f22bbc44e742d7cfb24dc6a6fb",
+        "EV:010adb0478c1e080411f3c4921fefe1db7834258524b9c3b6c17ee1a3a57ab8c",
+        "EV:ce844ad12eeeace591c5f75b760e546a6b4507cd80017d6183f3e039e51bd6e9",
+        "EV:65ffbb0855b5fa502070d9676419a8541f34065a185576acd9da0995310f1078",
+        "EV:90ce0d29d80207525e3fc1ebc2e04a62376bde333ae4b981019158369c1bc21f",
+        "d65934a2f5474f759f689c886a3783dc:schema",
+        "EV:c4cbe24ad340de157849f4685043dcc81cdcd78932e71f5ca44cad94511a717b",
+        "EV:4a04b8a03f6a14d81091fd183b2970878b7fd5410cca792c491f2b38276032d8",
+        "EV:b0f072f5cf1d967bf77a95cb664fdb9c5707473d4595386c9837c84e95b1d9f0",
+        "EV:02158268bceb4c85faecdd3997b9e706ac972698ceeaa64ba7905d1bf6067309",
+        "1ed2d7b86eb82ad90aa203c4",
+        "f41aa27e1a305af32d35e382",
+        "e37c80dcd14302a7cffdea96",
+        "user:036a4ed2aa574e6da961a96ed1450561"
+      ]
+    }
+  ],
+  "real_status_counts": {
+    "complete": 2,
+    "partial": 4
+  },
+  "followups": [
+    {
+      "question": "Explain the ROAD-219 investigation in simple language for the owner.",
+      "status": "complete",
+      "seconds": 3.435243999992963,
+      "first_text_seconds": 3.4340361999929883,
+      "active_case_context": {
+        "case_id": "49f9bd4bf1f240c38c05a54bb242fc0d",
+        "asset_id": "ROAD-219",
+        "scope": "Saved proposals and user/source reports, not confirmed physical findings"
+      },
+      "response_route": "evidence_conversation",
+      "model": "qwen3:4b-instruct",
+      "tools": [],
+      "provider_metrics": {
+        "prompt_characters": 4514,
+        "output_token_limit": 650,
+        "queue_seconds": 0.0,
+        "first_token_seconds": 0.4850000000005821,
+        "load_duration": 7272500,
+        "prompt_eval_count": 951,
+        "prompt_eval_duration": 282935000,
+        "prompt_eval_cached_count": 3,
+        "eval_count": 155,
+        "eval_duration": 2784913000,
+        "total_duration": 3211662400,
+        "done_reason": "stop",
+        "elapsed_seconds": 3.2810000000026776
+      },
+      "claim_verification": []
+    },
+    {
+      "question": "The second possibility was confusing. Explain it with an everyday analogy, keeping assumptions separate from facts.",
+      "status": "complete",
+      "seconds": 3.0988252999959514,
+      "first_text_seconds": 3.097769199986942,
+      "active_case_context": {
+        "case_id": "49f9bd4bf1f240c38c05a54bb242fc0d",
+        "asset_id": "ROAD-219",
+        "scope": "Saved proposals and user/source reports, not confirmed physical findings"
+      },
+      "response_route": "evidence_conversation",
+      "model": "qwen3:4b-instruct",
+      "tools": [],
+      "provider_metrics": {
+        "prompt_characters": 5440,
+        "output_token_limit": 650,
+        "queue_seconds": 0.0,
+        "first_token_seconds": 0.48399999999674037,
+        "load_duration": 8805600,
+        "prompt_eval_count": 1170,
+        "prompt_eval_duration": 267571000,
+        "prompt_eval_cached_count": 305,
+        "eval_count": 135,
+        "eval_duration": 2441775000,
+        "total_duration": 2840657100,
+        "done_reason": "stop",
+        "elapsed_seconds": 2.9210000000020955
+      },
+      "claim_verification": []
+    },
+    {
+      "question": "What further evidence would distinguish the remaining possibilities?",
+      "status": "partial",
+      "seconds": 3.6574806999997236,
+      "first_text_seconds": 3.655708799997228,
+      "active_case_context": {
+        "case_id": "49f9bd4bf1f240c38c05a54bb242fc0d",
+        "asset_id": "ROAD-219",
+        "scope": "Saved proposals and user/source reports, not confirmed physical findings"
+      },
+      "response_route": "evidence_conversation",
+      "model": "qwen3:4b-instruct",
+      "tools": [],
+      "provider_metrics": {
+        "prompt_characters": 6150,
+        "output_token_limit": 650,
+        "queue_seconds": 0.0,
+        "first_token_seconds": 0.4529999999940628,
+        "load_duration": 8666800,
+        "prompt_eval_count": 1359,
+        "prompt_eval_duration": 260031999,
+        "prompt_eval_cached_count": 521,
+        "eval_count": 166,
+        "eval_duration": 3042203000,
+        "total_duration": 3430141800,
+        "done_reason": "stop",
+        "elapsed_seconds": 3.5
+      },
+      "claim_verification": [
+        {
+          "claim": {
+            "category": "direct_observation",
+            "source_ids": [],
+            "text": "3. **Faulty thermostat**: Check if the thermostat opens at the correct temperature (e.g., 80–90°C). Measure engine block and radiator outlet temperatures—large differences suggest poor flow due to a stuck thermostat.",
+            "value": 80.0,
+            "unit": "°C",
+            "observed_at": null,
+            "as_of": null,
+            "window_start": null,
+            "window_end": null,
+            "statistic": null,
+            "asset_id": null,
+            "channel": null
+          },
+          "status": "insufficient_evidence",
+          "reason": "No source was supplied",
+          "source_value": null,
+          "scope": "Source agreement only; source authenticity, physical cause and calibrated confidence remain unverified."
+        },
+        {
+          "claim": {
+            "category": "direct_observation",
+            "source_ids": [],
+            "text": "3. **Faulty thermostat**: Check if the thermostat opens at the correct temperature (e.g., 80–90°C). Measure engine block and radiator outlet temperatures—large differences suggest poor flow due to a stuck thermostat.",
+            "value": 90.0,
+            "unit": "°C",
+            "observed_at": null,
+            "as_of": null,
+            "window_start": null,
+            "window_end": null,
+            "statistic": null,
+            "asset_id": null,
+            "channel": null
+          },
+          "status": "insufficient_evidence",
+          "reason": "No source was supplied",
+          "source_value": null,
+          "scope": "Source agreement only; source authenticity, physical cause and calibrated confidence remain unverified."
+        }
+      ]
+    }
+  ],
+  "browser": {
+    "url_at_test": "http://127.0.0.1:8001/investigations/e2343d62bf044154b297b11b6619b2f3",
+    "saved_case_id": "e2343d62bf044154b297b11b6619b2f3",
+    "status": "partial",
+    "attachments": [
+      {
+        "id": "85a52f67c1a045d181cf390bdb691d04",
+        "name": "FAN-042_sensor_history.csv",
+        "kind": "csv",
+        "sha256": "43d83b25edca2e04a48293ded804c7ade240e6f1f691ffab8a5c9091e94f5bed"
+      },
+      {
+        "id": "41a80ea4a19b4ef19e68adc05f4f66b1",
+        "name": "FAN-042_maintenance_notes.pdf",
+        "kind": "document",
+        "sha256": "25b6a417e7d6681fee6149e776deb828b0d1135ab33b77b1704afc1c86380651"
+      },
+      {
+        "id": "f33df7708b3a4b9eae4859bbcffe34f8",
+        "name": "FAN-042_inspection.png",
+        "kind": "image",
+        "sha256": "c1606e85f52760546fc32f97e6727c1768b9f2b5eef66cfa962e3a10cd2464ce"
+      }
+    ],
+    "hypotheses_retained": 1,
+    "failure": {
+      "code": "hypothesis_quality_review",
+      "stage": "hypotheses.quality",
+      "message": "Some generated explanation text was withheld after bounded quality review. Valid source observations and candidates are retained."
+    },
+    "evidence_page_verified_after_reload": true,
+    "stale_prebuild_tab_dynamic_import_failed": true,
+    "production_status_version_visibly_verified": "4.8.3",
+    "qa_server_stopped_after_idle_check": true
+  },
+  "source_calculations": {
+    "csv_rows": 24,
+    "groups": [
+      {
+        "asset_id": "FAN-042",
+        "channel": "vibration",
+        "unit": "mm/s RMS",
+        "count": 23,
+        "baseline_mean": 2.5760869565217392,
+        "recent_mean": 4.126666666666667,
+        "delta": 1.5505797101449277,
+        "missing_count": 1,
+        "missing_timestamps": [
+          "2026-11-18T14:00:00+00:00"
+        ],
+        "evidence_id": "EV:90ce0d29d80207525e3fc1ebc2e04a62376bde333ae4b981019158369c1bc21f"
+      },
+      {
+        "asset_id": "FAN-042",
+        "channel": "bearing_temp",
+        "unit": "degC",
+        "count": 24,
+        "baseline_mean": 56.5375,
+        "recent_mean": 68.56666666666666,
+        "delta": 12.029166666666661,
+        "missing_count": 0,
+        "missing_timestamps": [],
+        "evidence_id": "EV:a6c7c54ef476dbd9439424968663f72c99cf29f22bbc44e742d7cfb24dc6a6fb"
+      },
+      {
+        "asset_id": "FAN-042",
+        "channel": "airflow",
+        "unit": "m3/h",
+        "count": 24,
+        "baseline_mean": 11300.833333333334,
+        "recent_mean": 10140.0,
+        "delta": -1160.833333333334,
+        "missing_count": 0,
+        "missing_timestamps": [],
+        "evidence_id": "EV:036c464ed00e0f096cc829c4cc7e9d79a94a257e9e79e0b7e65c4e0bec20b407"
+      },
+      {
+        "asset_id": "FAN-042",
+        "channel": "current",
+        "unit": "A",
+        "count": 24,
+        "baseline_mean": 16.3375,
+        "recent_mean": 17.6,
+        "delta": 1.2625000000000028,
+        "missing_count": 0,
+        "missing_timestamps": [],
+        "evidence_id": "EV:010adb0478c1e080411f3c4921fefe1db7834258524b9c3b6c17ee1a3a57ab8c"
+      },
+      {
+        "asset_id": "FAN-042",
+        "channel": "speed",
+        "unit": "rpm",
+        "count": 24,
+        "baseline_mean": 1464.625,
+        "recent_mean": 1464.1666666666667,
+        "delta": -0.45833333333325754,
+        "missing_count": 0,
+        "missing_timestamps": [],
+        "evidence_id": "EV:65ffbb0855b5fa502070d9676419a8541f34065a185576acd9da0995310f1078"
+      },
+      {
+        "asset_id": "FAN-042",
+        "channel": "inlet_filter_dp",
+        "unit": "kPa",
+        "count": 24,
+        "baseline_mean": 0.9658333333333333,
+        "recent_mean": 1.3366666666666667,
+        "delta": 0.37083333333333335,
+        "missing_count": 0,
+        "missing_timestamps": [],
+        "evidence_id": "EV:ce844ad12eeeace591c5f75b760e546a6b4507cd80017d6183f3e039e51bd6e9"
+      }
+    ],
+    "citations": [
+      {
+        "case": "unfamiliar_fan",
+        "id": "user:867fd5f4dda04c16ade750df8785223e",
+        "http": 200
+      },
+      {
+        "case": "quantified_water_pump",
+        "id": "user:c492aae611f04fe286b17edde3db82d5",
+        "http": 200
+      },
+      {
+        "case": "car_after_service",
+        "id": "user:0e8c7a81e72c4f229ade790de48385b9",
+        "http": 200
+      },
+      {
+        "case": "electrical_motor",
+        "id": "user:47bd613ff92a4dc995d4ccc5da1b6e8d",
+        "http": 200
+      }
+    ],
+    "fixture_sha256": {
+      "FAN-042_inspection.png": "db962c433cdc211c8046770d56b4fad52acdd86f173f28e755b9835c903fde44",
+      "FAN-042_maintenance_notes.pdf": "25b6a417e7d6681fee6149e776deb828b0d1135ab33b77b1704afc1c86380651",
+      "FAN-042_sensor_history.csv": "43d83b25edca2e04a48293ded804c7ade240e6f1f691ffab8a5c9091e94f5bed"
+    },
+    "numeric_records": 143
+  },
+  "citation_semantic_support_rate": null,
+  "diagnostic_top1_accuracy": null,
+  "diagnostic_top3_accuracy": null,
+  "metric_limit": "Reference resolution and bounded numeric agreement are not semantic support or fault accuracy.",
+  "protected": {
+    "native_files": 813,
+    "frozen_mismatches": [],
+    "frozen_files": 7956
+  },
+  "production": {
+    "identical": true,
+    "tables": 15
+  },
+  "offline_checks": {
+    "scope": "External Python sockets/DNS denied in this process and inherited Python workers; local Ollama allowed. No OS-wide air-gap or already-running Ollama egress guarantee.",
+    "checks": [
+      {
+        "name": "external_dns_denied",
+        "status": "passed",
+        "seconds": 4.470000567380339e-05
+      },
+      {
+        "name": "actual_local_qwen",
+        "status": "passed",
+        "seconds": 4.354344999999739
+      },
+      {
+        "name": "actual_local_embeddings",
+        "status": "passed",
+        "seconds": 1.2866228999919258
+      },
+      {
+        "name": "actual_local_speech",
+        "status": "passed",
+        "seconds": 10.66415149999375
+      },
+      {
+        "name": "actual_local_asr",
+        "status": "passed",
+        "seconds": 2.4027143999992404
+      },
+      {
+        "name": "actual_saved_native",
+        "status": "passed",
+        "seconds": 6.890070800000103
+      },
+      {
+        "name": "actual_refused_loopback",
+        "status": "passed",
+        "seconds": 2.536640999998781
+      }
+    ]
+  },
+  "release_verification": {
+    "checked_at": "2026-11-19T02:48:29.389849+00:00",
+    "health": {
+      "status": "ok",
+      "contract_version": "2.0",
+      "application_version": "4.8.3",
+      "loaded_source_sha256": "4e097c131a148400b392f8a3fe340ec614917088d0dc31d3612f17933bc50596",
+      "ml_ready": true,
+      "ollama_ready": true,
+      "text_ready": true,
+      "vision_ready": true,
+      "models": [
+        "qwen3:4b-instruct",
+        "qwen3-vl:2b-instruct",
+        "qwen3-vl:2b",
+        "qwen3:4b"
+      ],
+      "mode": "local",
+      "hosted_providers": "disabled"
+    },
+    "index_sha256": "9da378bc66996c453d5f0a9229b3ec13419ec10abce40e54343ffe31a3874e3e",
+    "static_index_exact": true,
+    "namespace_matches_production": true,
+    "readiness_wait_seconds": 1.1871271999989403
+  },
+  "known_limitations": [
+    "Qualitative engineering/source support is not completely verified; Qwen may misread evidence.",
+    "All hypotheses may be withheld even when ingestion and deterministic facts are valid.",
+    "Semantic paraphrases can remain separate hypotheses; ranking scores are not probabilities.",
+    "Actual follow-up number example without source was withheld; no universal analogy-quality guarantee.",
+    "Physical microphone/speaker/barge-in/background-noise and mobile acceptance not verified here.",
+    "External Python network denial test is not an OS-wide air gap or Ollama-egress guarantee.",
+    "A pre-rebuild browser tab requested an expired dynamic module; reload recovered; automatic recovery not added.",
+    "A discovery timing regression test failed while unrelated real inference held the shared lease; idle rerun/full suite passed."
+  ],
+  "artifacts": [
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\actual_results.json",
+      "sha256": "759d6b9abe0bb47c7c1d362c7f19771d6c67caa1d59af5183ada4280d00de857"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\fixture_verification.json",
+      "sha256": "f5efbaffd0401b6548c71eea95e0c0159b2c8212a34c8c1e236a6f469ea53c4c"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\protection.json",
+      "sha256": "4eeab3f94c71bce476163560f2bae8d3c0e2202eb3d2c198fc447d047d61247f"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\production_preservation.json",
+      "sha256": "e4c04846acb44cd43d30e749ec4e0d26abeaa927085c45fe88e5136d72ea7a5e"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\release_verification.json",
+      "sha256": "3c9aa1bdbb80b6dc438713ba695764d0ef560f38ed7667734f30732e68873c60"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\release_idle_backend.log",
+      "sha256": "428423ee4347345531a70f7d30dfff6b76cfff5cb4c1bd75f661e81de07d053d"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\frozen_frontend.log",
+      "sha256": "b4aaaf5e0309d5c3bbf2df1961b3cc00a29b26b0ab3dd35267d824ee6fa8abd1"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\frozen_build.log",
+      "sha256": "938adbae9572029b1baf8c61693956a5a83aaa9e372f1bc9698fa44bed129d2b"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\resume_test_formatting.log",
+      "sha256": "b7fbc6b2546164216981bda5ae92f401c1d4539b3451191d65d9d0dbad778329"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\offline\\results.json",
+      "sha256": "d65127360f411f3b115a3e396f85373f578c5e28cb6027006154cf1a28d873fc"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\browser-investigation-dom.txt",
+      "sha256": "71a50d3f722b4e04c374e63152c8d20cdaa1c7286124cdddfbf900a501a3170e"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\browser-investigation.jpg",
+      "sha256": "66e86d02afae81c16f9c2faf3c5db2d21cf086320a903af2d2f5a5ffb5d827e6"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\browser-evidence-dom.txt",
+      "sha256": "e0fa687c5be0cfd2fb9a3707b0f020fb726a5b756b10de200b48e37dd19742d7"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\browser-production-status-dom.txt",
+      "sha256": "6e94c8715e6f5255c44962ed783f476632c51ee457e4159b0d2e15a7a93464e1"
+    },
+    {
+      "path": "C:\\Users\\laksh\\OneDrive\\Desktop\\SIRE\\SIRE\\.runtime\\reliability_20261119_055333\\browser-production-status.jpg",
+      "sha256": "aaa2bfeee6c73a10e8d3bb2806cdf852fe6af3d87009088680530b7bb4568aae"
+    }
+  ],
+  "showcase_decision": "Supervised local demonstration with explicit partial states and engineering uncertainty; not autonomous diagnostic certification.",
+  "development_frozen": true
+}

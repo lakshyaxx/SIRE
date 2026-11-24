@@ -35,7 +35,11 @@ def compact(
     question_excerpt = question[:question_limit]
     buckets: dict[str, list[EvidenceItem]] = OrderedDict()
     for item in evidence:
-        if item.kind == "user_claim" and item.observation == question:
+        if (
+            item.kind == "user_claim"
+            and item.observation == question
+            and len(evidence) > 1
+        ):
             continue  # The untrusted question is already supplied; do not duplicate its budget.
         buckets.setdefault(item.origin_id or item.source_id, []).append(item)
     for bucket in buckets.values():
@@ -65,12 +69,37 @@ def compact(
             else item.origin_id or item.source_id
         )
         group = groups.setdefault(origin, "S" + str(len(groups) + 1))
+        observation = item.observation
+        if item.kind == "measurement":
+            try:
+                data = json.loads(observation)
+                if isinstance(data, dict) and "baseline_mean" in data:
+                    observation = json.dumps(
+                        {
+                            key: data[key]
+                            for key in (
+                                "channel",
+                                "unit",
+                                "count",
+                                "baseline_mean",
+                                "recent_mean",
+                                "delta",
+                                "missing_count",
+                                "missing_timestamps",
+                            )
+                            if key in data
+                        },
+                        separators=(",", ":"),
+                        ensure_ascii=False,
+                    )
+            except ValueError:
+                observation = item.observation
         source = {
             "id": alias,
             "origin_group": group,
             "kind": item.kind,
             "modality": item.modality,
-            "observation": item.observation[:observation_characters],
+            "observation": observation[:observation_characters],
             "reliability": item.reliability,
         }
         for key in ["asset_identity", "predicate", "value", "locator"]:
@@ -112,7 +141,7 @@ def restore_text(
     """Reject unknown source citations and expand validated short references without inventing IDs."""
     known = set(mapping.values()) | (additional_known_ids or set())
     for identifier in re.findall(
-        r"\[((?:(?:EV|SRC):[a-fA-F0-9]{16,64})|(?:[a-fA-F0-9]{24})|(?:(?:prediction|user):[a-fA-F0-9]{32})|(?:[a-fA-F0-9]{32}:schema))\]",
+        r"\[((?:(?:EV|SRC):[a-fA-F0-9]{16,64})|(?:[a-fA-F0-9]{24,32})|(?:(?:prediction|user):[a-fA-F0-9]{32})|(?:[a-fA-F0-9]{32}:schema))\]",
         text,
     ):
         if identifier not in known:
@@ -136,12 +165,23 @@ def restore_text(
         references = re.findall(r"\bE\d+\b", match.group(1), re.I)
         if not references:
             return match.group()
-        if "-" in match.group(1):
-            raise SireError(
-                "unsupported_source_reference",
-                "Model returned an unsupported citation range; commentary withheld.",
-                503,
-            )
+        if re.search(r"[-–—]", match.group(1)):
+            bounds = re.fullmatch(r"E(\d+)\s*[-–—]\s*E(\d+)", match.group(1), re.I)
+            if not bounds or not 0 <= int(bounds[2]) - int(bounds[1]) < 32:
+                raise SireError(
+                    "unsupported_source_reference",
+                    "Model returned an invalid or excessive citation range; commentary withheld.",
+                    503,
+                )
+            references = [
+                "E" + str(index) for index in range(int(bounds[1]), int(bounds[2]) + 1)
+            ]
+            if any(reference not in mapping for reference in references):
+                raise SireError(
+                    "unsupported_source_reference",
+                    "Model citation range includes a source alias not supplied to this response; commentary withheld.",
+                    503,
+                )
         return ", ".join("[" + reference.upper() + "]" for reference in references)
 
     text = re.sub(
@@ -150,5 +190,7 @@ def restore_text(
         text,
         flags=re.I,
     )
-    text = re.sub(r"\[([^\]]*\bE\d+\b[^\]]*)\]", separate, text, flags=re.I)
+    text = re.sub(
+        r"\[(E\d+(?:\s*(?:,|;|and|[-–—])\s*E\d+)*)\]", separate, text, flags=re.I
+    )
     return re.sub(r"\[(E\d+)\]", expand, text, flags=re.I)

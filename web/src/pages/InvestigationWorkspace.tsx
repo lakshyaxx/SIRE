@@ -188,7 +188,7 @@ export function InvestigationWorkspace() {
       {item.error && (
         <StatePanel
           kind="error"
-          title={`Investigation failed · ${item.error.stage ?? "stage not recorded"}`}
+          title={investigationNoticeTitle(item.status, item.error.stage)}
           message={`${item.error.message} Error code: ${item.error.code}.`}
         />
       )}
@@ -354,6 +354,13 @@ export function InvestigationWorkspace() {
   );
 }
 
+export function investigationNoticeTitle(
+  status: string,
+  stage?: string,
+): string {
+  return `${status === "partial" ? "Partial investigation" : "Investigation failed"} · ${stage ?? "stage not recorded"}`;
+}
+
 export function Findings({ detail }: { detail: InvestigationDetail }) {
   return (
     <div className="workspace-split">
@@ -375,6 +382,7 @@ export function Findings({ detail }: { detail: InvestigationDetail }) {
                 key={value.id}
                 text={value.text}
                 sources={value.sources}
+                meta={value.classification}
               />
             ))
           ) : (
@@ -448,29 +456,31 @@ export function Findings({ detail }: { detail: InvestigationDetail }) {
             <EmptySection label="No uncertainty statement is available." />
           )}
         </Card>
-        <details className="card engineering-details">
-          <summary>Engineering details</summary>
-          <div>
-            <h3>Technical explanation</h3>
-            {detail.explanations?.technical ? (
-              <p>{detail.explanations.technical}</p>
-            ) : (
-              <EmptySection label="No technical explanation has been provided." />
-            )}
-            <h3>Qwen analysis</h3>
-            {detail.interpretation ? (
-              <>
-                <p>{detail.interpretation}</p>
-                <p className="ai-notice">
-                  Qwen analysis is an interpretation and must be reviewed
-                  against supporting evidence.
-                </p>
-              </>
-            ) : (
-              <EmptySection label="No Qwen analysis has been provided." />
-            )}
-          </div>
-        </details>
+        {(detail.explanations?.technical || detail.interpretation) && (
+          <details className="card engineering-details">
+            <summary>Engineering details</summary>
+            <div>
+              <h3>Technical explanation</h3>
+              {detail.explanations?.technical ? (
+                <p>{detail.explanations.technical}</p>
+              ) : (
+                <EmptySection label="No technical explanation has been provided." />
+              )}
+              <h3>Qwen analysis</h3>
+              {detail.interpretation ? (
+                <>
+                  <p>{detail.interpretation}</p>
+                  <p className="ai-notice">
+                    Qwen analysis is an interpretation and must be reviewed
+                    against supporting evidence.
+                  </p>
+                </>
+              ) : (
+                <EmptySection label="No Qwen analysis has been provided." />
+              )}
+            </div>
+          </details>
+        )}
       </aside>
     </div>
   );
@@ -524,10 +534,24 @@ function HypothesisCard({
               title="Contradictory Evidence"
               sources={hypothesis.contradictoryEvidence}
             />
-            <EvidenceGroup
-              title="Missing information"
-              items={hypothesis.missingInformation}
-            />
+            {!!hypothesis.assumptions?.length && (
+              <EvidenceGroup
+                title="Unverified assumptions"
+                items={hypothesis.assumptions}
+              />
+            )}
+            {!!hypothesis.expectedSigns?.length && (
+              <EvidenceGroup
+                title="Expected signs · not observations"
+                items={hypothesis.expectedSigns}
+              />
+            )}
+            {!!hypothesis.missingInformation.length && (
+              <EvidenceGroup
+                title="Missing information"
+                items={hypothesis.missingInformation}
+              />
+            )}
             <EvidenceGroup
               title="Diagnostic Checks"
               items={hypothesis.recommendedChecks}
@@ -566,7 +590,11 @@ function EvidenceGroup({
       ) : sources.length ? (
         <SourceLinks sources={sources} />
       ) : (
-        <p className="empty-copy">Not provided.</p>
+        <p className="empty-copy">
+          {title === "Contradictory Evidence"
+            ? "No contradiction established from the supplied evidence."
+            : "Not provided."}
+        </p>
       )}
     </div>
   );
@@ -586,7 +614,19 @@ function Finding({
       <div>
         {meta && <span className="finding-meta">{meta}</span>}
         <div className="evidence-prose">
-          <EvidenceText text={text} />
+          {text.length > 500 ? (
+            <>
+              <EvidenceText
+                text={text.slice(0, 480).replace(/\s+\S*$/, "") + "…"}
+              />
+              <details>
+                <summary>Excerpt shown · read full source observation</summary>
+                <EvidenceText text={text} />
+              </details>
+            </>
+          ) : (
+            <EvidenceText text={text} />
+          )}
         </div>
       </div>
       {sources.length > 0 && <SourceLinks sources={sources} />}
@@ -625,10 +665,7 @@ function LinkedEvidence({ detail }: { detail: InvestigationDetail }) {
   ]);
   const unique = Array.from(
     new Map(
-      [...links, ...hypothesisLinks].map((item) => [
-        `${item.evidenceId}-${item.label}-${item.locator ?? ""}`,
-        item,
-      ]),
+      [...links, ...hypothesisLinks].map((item) => [item.evidenceId, item]),
     ).values(),
   );
   return (
@@ -643,7 +680,9 @@ function LinkedEvidence({ detail }: { detail: InvestigationDetail }) {
               <Link2 size={16} />
               <span>
                 <strong>{item.label}</strong>
-                <small>{item.locator ?? "Evidence record"}</small>
+                {item.locator && item.locator !== item.label && (
+                  <small>{item.locator}</small>
+                )}
               </span>
               <ExternalLink size={14} />
             </Link>

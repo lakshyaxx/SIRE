@@ -109,6 +109,7 @@ def _records(request: Request) -> list[dict]:
         "SELECT id,conversation_id,payload,created_at FROM cases ORDER BY created_at DESC"
     ):
         report = json.loads(row["payload"])
+        quality = report.get("quality_issues") or report.get("followup_error")
         rows.append(
             {
                 "id": row["id"],
@@ -116,10 +117,23 @@ def _records(request: Request) -> list[dict]:
                 "conversation_id": row["conversation_id"],
                 "created_at": row["created_at"],
                 "updated_at": row["created_at"],
-                "status": "complete",
+                "status": (
+                    "partial"
+                    if report.get("quality_issues") or report.get("followup_error")
+                    else "complete"
+                ),
                 "question": report["case"]["question"],
                 "evidence_count": len(report["case"]["evidence"]),
                 "report": report,
+                "failure": (
+                    {
+                        "code": "hypothesis_quality_review",
+                        "stage": "hypotheses.quality",
+                        "message": "The saved investigation contains rejected or incomplete generated fields; its retained findings remain available.",
+                    }
+                    if quality
+                    else None
+                ),
             }
         )
     for row in store.rows("SELECT payload FROM v45_jobs ORDER BY rowid DESC"):
@@ -201,7 +215,13 @@ def _records(request: Request) -> list[dict]:
                 "conversation_id": job["conversation_id"],
                 "created_at": job["created_at"],
                 "updated_at": job["updated_at"],
-                "status": job["status"],
+                "status": (
+                    "partial"
+                    if job["status"] == "complete"
+                    and report
+                    and (report.get("quality_issues") or report.get("followup_error"))
+                    else job["status"]
+                ),
                 "question": question,
                 "evidence_count": (
                     len(report["case"]["evidence"]) if report else len(partial_evidence)

@@ -9,9 +9,11 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 from app.core.errors import SireError
 from app.evidence.ledger import Ledger
 from app.simulation.repository import utc
+from app.core.config import SETTINGS
 
 ClaimKind = Literal[
     "direct_observation",
+    "reported_observation",
     "derived_statistic",
     "model_estimate",
     "interpretation",
@@ -112,6 +114,47 @@ def verify_claim(claim: Claim, ledger: Ledger) -> Verification:
             "insufficient_evidence",
             "Independent physical confirmation criteria have not been established",
         )
+    if claim.category == "reported_observation":
+        for record in records:
+            if record["source_type"] == "model_generated":
+                continue
+            observation = record["observation"]
+            quoted = next(
+                (
+                    observation[key]
+                    for key in ("claim", "text", "excerpt", "observation")
+                    if isinstance(observation.get(key), str)
+                ),
+                "",
+            )
+            for value, unit, context in reported_quantities(quoted):
+                if claim.value == value and canonical_unit(
+                    claim.unit
+                ) == canonical_unit(unit):
+                    if claim.observed_at is not None and utc(
+                        claim.observed_at.isoformat()
+                    ) not in {utc(s) for s in STAMP.findall(context)}:
+                        continue
+                    if claim.statistic is not None:
+                        words = {
+                            "baseline_mean": r"\bbaseline\b",
+                            "recent_mean": r"\b(?:mean|average|recent)\b",
+                            "delta": r"\b(?:delta|change)\b",
+                            "percent_delta": r"\b(?:increas\w*|decreas\w*|dropp?\w*|change|delta|reduc\w*)\b",
+                        }
+                        if claim.statistic not in words or not re.search(
+                            words[claim.statistic], context, re.I
+                        ):
+                            continue
+                    return result(
+                        "supported_contextually",
+                        "Exact quantity and unit in a supplied report; not an independently measured value or verified causal inference",
+                        value,
+                    )
+        return result(
+            "insufficient_evidence",
+            "The claimed quantity/unit/time is not stated in the cited report; no measurement or calculation is invented",
+        )
     if claim.value is None:
         quote = claim.text.strip().strip('"“”')
         if quote and all(
@@ -127,7 +170,10 @@ def verify_claim(claim: Claim, ledger: Ledger) -> Verification:
                     record["observation"].get(
                         "text",
                         record["observation"].get(
-                            "excerpt", record["observation"].get("observation", "")
+                            "excerpt",
+                            record["observation"].get(
+                                "observation", record["observation"].get("claim", "")
+                            ),
                         ),
                     )
                 )
@@ -142,6 +188,7 @@ def verify_claim(claim: Claim, ledger: Ledger) -> Verification:
             "No deterministic numeric or exact quoted claim can be checked",
         )
     values = []
+    unit_mismatch = False
     for record in records:
         observation = record["observation"]
         if claim.category == "model_estimate":
@@ -180,13 +227,11 @@ def verify_claim(claim: Claim, ledger: Ledger) -> Verification:
             claim.category == "derived_statistic" and claim.statistic == "percent_delta"
         )
         if claim.unit is None or (
-            claim.unit != unit
+            canonical_unit(claim.unit) != canonical_unit(unit)
             and not (percent_delta and claim.unit in {"%", "percent"})
         ):
-            return result(
-                "contradicted",
-                "Claim unit does not match the cited quantity; no implicit conversion",
-            )
+            unit_mismatch = True
+            continue
         if claim.as_of is not None:
             cutoff = utc(claim.as_of.isoformat())
             rows = [
@@ -273,6 +318,11 @@ def verify_claim(claim: Claim, ledger: Ledger) -> Verification:
             if claim.statistic in statistics:
                 values.append(float(statistics[claim.statistic]))
     if not values:
+        if unit_mismatch:
+            return result(
+                "contradicted",
+                "Claim unit does not match the cited quantity; no implicit conversion",
+            )
         return result(
             "insufficient_evidence",
             "No compatible measured sample, statistic or actual model estimate was supplied",
@@ -296,43 +346,138 @@ def verify_claim(claim: Claim, ledger: Ledger) -> Verification:
     )
 
 
+UNIT_ALIASES = {
+    alias: unit
+    for unit, aliases in SETTINGS["numeric_unit_aliases"].items()
+    for alias in aliases
+}
 NUMBER_UNIT = re.compile(
-    r"(?<![\w.])(-?\d+(?:\.\d+)?)\s*(mm/s(?:\s+RMS)?|bar|degC|°C|rpm|m3/h|percent|%|cycles)(?=$|[\s.,;:)\]])"
+    r"(?<![\w.])(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)\s*("
+    + "|".join(
+        re.escape(alias) for alias in sorted(UNIT_ALIASES, key=len, reverse=True)
+    )
+    + r")(?=$|[\s.,;:)\]])"
 )
-SOURCE = re.compile(r"\[((?:EV:[a-fA-F0-9]{64})|(?:[a-fA-F0-9]{24}))\]")
+SOURCE = re.compile(
+    r"\[((?:EV:[a-fA-F0-9]{64})|(?:[a-fA-F0-9]{24,32}(?::schema)?)|(?:user:[a-fA-F0-9]{32}))\]"
+)
 STAMP = re.compile(
     r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:\d{2})"
 )
 
 
-def screen_numeric_prose(text: str, ledger: Ledger) -> list[dict]:
-    """Block unsupported specific measured quantities before buffered model prose is displayed."""
+def canonical_unit(unit: str | None) -> str | None:
+    """Normalize only configured notation aliases; never perform an implicit scale conversion."""
+    return UNIT_ALIASES.get(unit, unit)
+
+
+def quantity_mentions(text: str) -> list[tuple[float, str, int]]:
+    """Retain both endpoints of a reported range instead of checking only its last value."""
+    result = []
+    for match in NUMBER_UNIT.finditer(text):
+        prefix = text[: match.start()]
+        first = re.search(
+            r"(-?\d+(?:\.\d+)?)\s*(?:\bto\b|\bthrough\b|[–—-])\s*$", prefix, re.I
+        )
+        if first:
+            result.append((float(first[1]), match[2], first.start(1)))
+        result.append((float(match[1]), match[2], match.start(1)))
+    return result
+
+
+def quantity_scope(text: str, offset: int) -> str:
+    """Bind a quantity to its comma/semicolon clause before assigning a timestamp."""
+    before = max(text.rfind(",", 0, offset), text.rfind(";", 0, offset)) + 1
+    after = min(
+        (
+            value
+            for value in (text.find(",", offset), text.find(";", offset))
+            if value >= 0
+        ),
+        default=len(text),
+    )
+    return text[before:after]
+
+
+def reported_quantities(text: str) -> list[tuple[float, str, str]]:
+    """Read explicitly stated report quantities, retaining range endpoints and source clauses."""
+    result = []
+    for line in text.splitlines():
+        for value, unit, offset in quantity_mentions(line):
+            prefix = line[max(0, offset - 65) : offset]
+            if re.search(r"\b(?:not|never|no reading of)\s*$", prefix, re.I):
+                continue
+            scope = quantity_scope(line, offset)
+            if not STAMP.search(scope) and len(STAMP.findall(line)) == 1:
+                scope = line
+            result.append((value, unit, scope))
+    return result
+
+
+class NumericVerificationError(SireError):
+    """Retain exact rejected claims for local traces without exposing private filesystem paths."""
+
+    def __init__(self, diagnostics: list[dict]) -> None:
+        super().__init__(
+            "unsupported_numeric_claim",
+            "Model commentary introduced a quantity that cannot be verified with its cited unit, timestamp and aggregation. Commentary withheld; inspect the actual tool facts and sources.",
+            503,
+        )
+        self.diagnostics = diagnostics
+
+
+def numeric_checks(text: str, ledger: Ledger) -> list[dict]:
+    """Classify every recognized quantity against its actual sources without failing the batch."""
     verified = []
     for line in text.splitlines():
         identifiers = SOURCE.findall(line)
-        stamp = STAMP.search(line)
-        for match in NUMBER_UNIT.finditer(line):
-            prefix = line[max(0, match.start() - 60) : match.start()].lower()
+        for claimed_value, unit, offset in quantity_mentions(line):
+            stamps = STAMP.findall(quantity_scope(line, offset))
+            if not stamps and len(STAMP.findall(line)) == 1:
+                stamps = STAMP.findall(line)
+            stamp = stamps[0] if len(stamps) == 1 else None
+            if not math.isfinite(claimed_value):
+                verified.append(
+                    Verification(
+                        claim=Claim(
+                            category="unknown",
+                            source_ids=identifiers[:8],
+                            text=line[:1600],
+                            unit=unit,
+                        ),
+                        status="contradicted",
+                        reason="Generated quantity is non-finite; no supported finite measurement was supplied",
+                    ).model_dump(mode="json")
+                )
+                continue
+            prefix = line[max(0, offset - 60) : offset].lower()
+            labels = re.findall(r"\b(baseline|recent|mean|average|delta)\b", prefix)
+            label = labels[-1] if labels else None
             statistic = (
                 "percent_delta"
-                if match[2] in {"%", "percent"}
+                if unit in {"%", "percent"}
+                and re.search(
+                    r"\b(?:increas\w*|decreas\w*|dropp?\w*|fell|fall\w*|rose|reduc\w*|declin\w*|change|delta)\b",
+                    prefix,
+                )
                 else (
                     "baseline_mean"
-                    if "baseline" in prefix
+                    if label == "baseline"
+                    or (
+                        label in {"mean", "average"}
+                        and re.search(r"\bbaseline\s+(?:mean|average)\s*$", prefix)
+                    )
                     else (
                         "delta"
-                        if "delta" in prefix
+                        if label == "delta"
                         else (
                             "recent_mean"
-                            if any(
-                                word in prefix for word in ["mean", "average", "recent"]
-                            )
+                            if label in {"mean", "average", "recent"}
                             else None
                         )
                     )
                 )
             )
-            claimed_value = float(match[1])
             if (
                 statistic == "percent_delta"
                 and claimed_value > 0
@@ -342,25 +487,66 @@ def screen_numeric_prose(text: str, ledger: Ledger) -> list[dict]:
                 )
             ):
                 claimed_value = -claimed_value
+            report_only = False
+            if identifiers:
+                try:
+                    records = [
+                        ledger.resolve(identifier)["evidence"]
+                        for identifier in identifiers[:8]
+                    ]
+                    report_only = all(
+                        not record["observation"].get("rows")
+                        and record["source_type"] != "model_generated"
+                        for record in records
+                    )
+                except SireError:
+                    report_only = False
             claim = Claim(
-                category="derived_statistic" if statistic else "direct_observation",
+                category=(
+                    "reported_observation"
+                    if report_only
+                    else "derived_statistic" if statistic else "direct_observation"
+                ),
                 source_ids=identifiers[:8],
                 text=line[:1600],
                 value=claimed_value,
-                unit=match[2],
+                unit=unit,
                 statistic=statistic,
-                window_end=stamp[0] if stamp and statistic else None,
-                observed_at=stamp[0] if stamp and not statistic else None,
+                window_end=stamp if stamp and statistic else None,
+                observed_at=stamp if stamp and not statistic else None,
             )
             checked = verify_claim(claim, ledger)
             verified.append(checked.model_dump(mode="json"))
-            if checked.status not in {"verified_exact", "supported_contextually"}:
-                raise SireError(
-                    "unsupported_numeric_claim",
-                    "Model commentary introduced a quantity that cannot be verified with its cited unit, timestamp and aggregation. Commentary withheld; inspect the actual tool facts and sources.",
-                    503,
-                )
     return verified
+
+
+def screen_numeric_prose(text: str, ledger: Ledger) -> list[dict]:
+    """Strict compatibility boundary: reject unsupported quantities and preserve diagnostic claims."""
+    checks = numeric_checks(text, ledger)
+    if any(
+        row["status"] not in {"verified_exact", "supported_contextually"}
+        for row in checks
+    ):
+        raise NumericVerificationError(checks)
+    return checks
+
+
+def review_numeric_prose(text: str, ledger: Ledger) -> dict:
+    """Withhold only unsupported paragraphs; never publish part of a rejected assertion."""
+    accepted, rejected, checks = [], [], []
+    for paragraph in re.split(r"\n\s*\n", text):
+        values = numeric_checks(paragraph, ledger)
+        checks.extend(values)
+        bad = [
+            row
+            for row in values
+            if row["status"] not in {"verified_exact", "supported_contextually"}
+        ]
+        if bad:
+            rejected.append({"text": paragraph, "verifications": bad})
+        else:
+            accepted.append(paragraph)
+    return {"text": "\n\n".join(accepted), "rejected": rejected, "checks": checks}
 
 
 def verify_profile_claims(profiles: list[dict], ledger: Ledger) -> list[dict]:

@@ -133,7 +133,9 @@ def profile(store: Store, conversation_id: str, attachment_id: str) -> dict:
     item = store.attachment(attachment_id, conversation_id)
     from app.evidence.integrity import read_verified
 
-    rows = parse(read_verified(item), Path(item["name"]).suffix.lower())
+    content = read_verified(item)
+    suffix = Path(item["name"]).suffix.lower()
+    rows = parse(content, suffix)
     if rows is None:
         raise SireError(
             "measurement_schema_required",
@@ -144,6 +146,22 @@ def profile(store: Store, conversation_id: str, attachment_id: str) -> dict:
     for row in rows:
         groups[(row["asset_id"], row["channel"], row["unit"])].append(row)
     summaries = []
+    missing = defaultdict(list)
+    if suffix == ".csv":
+        for number, raw in enumerate(
+            csv.DictReader(io.StringIO(content.decode("utf-8-sig"))), 1
+        ):
+            if not {"asset_id", "timestamp_utc"} <= raw.keys():
+                break
+            for field, spec in SETTINGS.get("measurement_wide_fields", {}).items():
+                if field in raw and raw[field] in (None, ""):
+                    missing[(raw["asset_id"], spec["channel"], spec["unit"])].append(
+                        {
+                            "source_row": number,
+                            "source_field": field,
+                            "observed_at": utc(raw["timestamp_utc"]),
+                        }
+                    )
     ledger = Ledger(store)
     for (asset, channel, unit), samples in sorted(groups.items()):
         samples.sort(key=lambda row: (row["observed_at"], row["source_row"]))
@@ -177,6 +195,7 @@ def profile(store: Store, conversation_id: str, attachment_id: str) -> dict:
             {
                 "statistics": statistics,
                 "rows": samples,
+                "missing_rows": missing.get((asset, channel, unit), []),
                 "association": "user_declared_unverified",
             },
             {
@@ -198,6 +217,10 @@ def profile(store: Store, conversation_id: str, attachment_id: str) -> dict:
                 "channel": channel,
                 "unit": unit,
                 **statistics,
+                "missing_count": len(missing.get((asset, channel, unit), [])),
+                "missing_timestamps": [
+                    r["observed_at"] for r in missing.get((asset, channel, unit), [])
+                ],
                 "evidence_id": record.id,
                 "series": samples[-300:],
                 "baseline_window": {
@@ -216,6 +239,10 @@ def profile(store: Store, conversation_id: str, attachment_id: str) -> dict:
         "evidence_ids": [row["evidence_id"] for row in summaries],
         "source_type": "real_uploaded",
         "synthetic_declared": any(row.get("synthetic") for row in rows),
+        "missing_samples": [
+            {"asset_id": key[0], "channel": key[1], "unit": key[2], "rows": value}
+            for key, value in missing.items()
+        ],
         "limitations": [
             "Asset identity, units and timestamps are supplied by the uploader and remain unverified.",
             "Descriptive changes are not a calibrated physical anomaly/fault diagnosis or a NASA RUL estimate.",
@@ -244,6 +271,12 @@ def render_profiles(profiles: list[dict]) -> str:
 
             lines.append(
                 f"| {safe(group['asset_id'])} / {safe(group['channel'])} | {group['baseline_mean']:.8g} | {group['recent_mean']:.8g} | {safe(group['unit'])} / {group['count']} | [{group['evidence_id']}] |"
+            )
+    for profile in profiles:
+        for missing in profile.get("missing_samples", []):
+            lines.append(
+                f"Missing source samples (not imputed): {missing['asset_id']} / {missing['channel']}: "
+                + ", ".join(row["observed_at"] for row in missing["rows"])
             )
     return (
         "\n\n".join(lines[:2])

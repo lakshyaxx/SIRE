@@ -1,4 +1,4 @@
-version: '4.7.0'
+version: '4.8.3'
 name: SIRE
 overview: >-
   SIRE is a local industrial engineering assistant for investigating why machine
@@ -19,6 +19,55 @@ hypotheses: >-
   matching hypothesis. Ranking scores are heuristics, not probabilities or proof
   of root cause. Bounded local document follow-up may refine a case; deferred
   candidates are retained. Saved-case questions can reuse results without rerunning models.
+orchestrator: >-
+  SIRE's orchestrator chooses the existing local tools needed for a question,
+  runs them with time and resource limits, and records their inputs, sources and
+  outcomes. A greeting uses the short conversation path; an attached inspection
+  case may need measurements, document retrieval, vision and hypothesis comparison.
+evidence: >-
+  SIRE keeps original source identities and separates user reports, computed
+  file statistics and model interpretations. It checks numerical claims against
+  source rows and validates citations. Several descriptions of one source do not
+  become independent corroboration. A valid citation establishes provenance,
+  while the physical meaning of a proposed cause still needs engineering review.
+multimodal: >-
+  SIRE can extract supported local documents and spreadsheets, compute uploaded
+  measurement summaries, inspect images and sampled video frames, and transcribe
+  supported audio. Each transformation retains its source references. Speech and
+  image interpretations remain unverified; provider availability is checked separately.
+memory: >-
+  SIRE stores conversations and investigation reports locally. Follow-ups can
+  inspect saved candidates and their evidence without generating a new diagnosis.
+  Scenario comparisons identify actual prior cases, shared features and differences
+  within the selected asset and information cutoff. Similarity is a retrieval aid,
+  not evidence that two machines share a confirmed cause.
+predictions: >-
+  SIRE's investigation tools compare possible reasons for an equipment problem.
+  Its separate RUL tools run preserved models on compatible FD001–FD004 NASA
+  C-MAPSS engine histories and return operating cycles. Those predictions do not
+  diagnose an unrelated pump or photograph. No model is trained during a chat.
+topic_aliases:
+  hypotheses: [hypothesis engine, hypotheses engine, competing hypotheses]
+  orchestrator: [cognitive orchestrator, orchestrator, tool routing]
+  evidence: [evidence verification, claim verification, evidence ledger, evidence]
+  multimodal: [multimodal tools, multimodal, image analysis, speech tools]
+  memory: [case memory, case comparison, prior-case lookup]
+  predictions: [rul prediction, rul predictions, c-mapss, cmapss, remaining useful life]
+plain:
+  overview: "SIRE helps you investigate machine problems using the information you supply. It keeps observations separate from possible causes and shows what to check next."
+  hypotheses: "The hypothesis engine compares possible reasons for a machine problem. It checks what supports each possibility, what conflicts with it, and which test could help distinguish them. A possibility stays unconfirmed until the evidence supports it."
+  orchestrator: "The orchestrator decides which existing SIRE tools a question needs, runs them, and keeps a trace of what actually happened."
+  evidence: "SIRE keeps track of where each observation came from. It checks file calculations and source references, while keeping user reports and AI interpretations clearly labeled."
+  multimodal: "SIRE can work with supported measurements, documents, images, audio and sampled video. You can inspect the original sources behind its observations."
+  memory: "SIRE saves earlier conversations and cases so you can inspect their findings later. It keeps another machine's history separate from the current case."
+  predictions: "Investigation asks what may be wrong and why. RUL prediction estimates operating cycles for compatible NASA engine data. One does not prove the other."
+examples:
+  hypotheses: "Hypothetical example: a fan has reported vibration and lower airflow. SIRE can compare an airflow restriction with a rotating-part problem, then identify inspections that would distinguish them. It has not measured or confirmed either fault."
+  evidence: "Hypothetical example: SIRE can calculate a trend from an uploaded CSV and link it to exact rows. A photograph of dust remains a visual interpretation rather than a measured airflow value."
+topic_limits:
+  overview: "Generated findings need human review."
+  hypotheses: "Ranking is tentative; it is not a calibrated probability or confirmed diagnosis."
+  predictions: "NASA simulation predictions are not maintenance limits for unrelated equipment."
 limits: >-
   Generated explanations, transcripts and visual observations need human review.
   Images do not prove hidden damage or supply RUL. Synthetic NASA results do not
@@ -28,3 +77,9 @@ limits: >-
 spoken:
   overview: "SIRE helps investigate machine issues using local models and supplied evidence. Its conclusions need human review."
   hypotheses: "I compare alternative explanations against evidence and missing tests. Ranking is tentative, not proof of a cause."
+  orchestrator: "I choose the local tools needed for your question and keep a trace of their actual work."
+  evidence: "I keep source reports, computed statistics and model interpretations separate and check their references."
+  multimodal: "I can work with supported local files and media, with source-linked observations that need review."
+  memory: "I can inspect locally saved conversations and cases without treating another machine's history as current evidence."
+  predictions: "Investigation compares possible causes. NASA RUL prediction estimates operating cycles for compatible engine histories."
+  limits: "My interpretations need human review, and I do not control equipment or prove physical causes."

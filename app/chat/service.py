@@ -21,6 +21,8 @@ from app.orchestration.case_context import (
     recall_requested,
     status_requested,
     render as render_recall,
+    recall as recall_case,
+    last_attempt,
 )
 from app.orchestration.workspace import (
     plan_workspace,
@@ -119,7 +121,7 @@ class ChatService:
             voice_response,
         )
         simple_route = (
-            fast_route(content)
+            fast_route(content, self.store.messages(conversation_id))
             if mode == "chat"
             and not selected
             and not context
@@ -160,7 +162,10 @@ class ChatService:
                 tools=[
                     Invocation(
                         tool_id="case.recall",
-                        arguments={"conversation_id": conversation_id},
+                        arguments={
+                            "conversation_id": conversation_id,
+                            "asset_id": target_asset(content, []),
+                        },
                     )
                 ],
             )
@@ -194,6 +199,7 @@ class ChatService:
             "evidence": [],
             "attachments": attachment_ids,
             "input_provenance": input_provenance,
+            "request_id": request_id,
         }
         intent_investigation = investigation_requested(
             content, mode == "investigate", bool(selected)
@@ -237,6 +243,8 @@ class ChatService:
                 "context": context,
                 "input_provenance": input_provenance,
                 "voice_response": voice_response,
+                "request_id": request_id,
+                "mode": mode,
             },
         )
         if self.store.conversation(conversation_id)["title"] == "New chat":
@@ -290,7 +298,7 @@ class ChatService:
                             output = CONVERSATION_POLICY["social_reply"]
                             metadata["validation_profile"] = "social_no_external_claims"
                         else:
-                            output, item = describe(self.store, simple_route)
+                            output, item = describe(self.store, simple_route, content)
                             metadata["evidence"] = [item.model_dump()]
                             step["output_evidence_ids"] = [item.id]
                             metadata["validation_profile"] = (
@@ -394,7 +402,9 @@ class ChatService:
                         }
                     )
                     output = render_recall(
-                        remembered if remembered.get("case") else None
+                        remembered
+                        if remembered.get("case") or remembered.get("attempt")
+                        else None
                     )
                     yield {"type": "evidence", "evidence": metadata["evidence"]}
                     yield {
@@ -913,6 +923,13 @@ class ChatService:
                                 metadata.setdefault("tool_errors", []).append(
                                     report.followup_error
                                 )
+                            if report.quality_issues:
+                                status = "partial"
+                                metadata["error"] = {
+                                    "code": "hypothesis_quality_review",
+                                    "stage": "hypotheses.quality",
+                                    "message": "Some generated explanation text was withheld after bounded quality review. Valid source observations and candidates are retained.",
+                                }
                             metadata["evidence"] = [
                                 item.model_dump() for item in report.case.evidence
                             ]
@@ -932,9 +949,10 @@ class ChatService:
                             )
                             if not report.hypotheses:
                                 output += (
-                                    "Insufficient evidence to propose a defensible mechanism. "
-                                    + "; ".join(report.unresolved)
-                                )
+                                    "Generated hypotheses did not pass quality review. Source observations are retained. "
+                                    if report.quality_issues
+                                    else "Insufficient evidence to propose a defensible mechanism. "
+                                ) + "; ".join(report.unresolved)
                             output += "\n\nThese are proposed mechanisms, not a confirmed diagnosis."
                             if report.followup_error:
                                 output += (
@@ -945,6 +963,15 @@ class ChatService:
                                 "type": "report",
                                 "report": payload,
                                 "content": output,
+                            }
+                            yield {
+                                "type": "tool",
+                                "tool": "hypothesis_engine",
+                                "status": (
+                                    "partial"
+                                    if report.quality_issues or report.followup_error
+                                    else "complete"
+                                ),
                             }
                         elif (
                             profiles
@@ -1006,6 +1033,82 @@ class ChatService:
                             }
                         else:
                             history = self.store.messages(conversation_id)[:-1]
+                            named_asset = target_asset(content, [])
+                            active_case = (
+                                recall_case(self.store, conversation_id, named_asset)
+                                if not context
+                                and not selected
+                                and not prediction_id
+                                and not re.search(
+                                    CONVERSATION_POLICY["without_sources_pattern"],
+                                    content,
+                                    re.I,
+                                )
+                                else None
+                            )
+                            if (
+                                active_case
+                                and named_asset
+                                and named_asset
+                                != active_case["case"]["case"].get("asset_id")
+                            ):
+                                active_case = None
+                            if active_case:
+                                existing_ids = {item.id for item in evidence}
+                                evidence.extend(
+                                    EvidenceItem.model_validate(item)
+                                    for item in active_case["case"]["case"]["evidence"]
+                                    if item["id"] not in existing_ids
+                                )
+                                metadata["active_case_context"] = {
+                                    "case_id": active_case["case_id"],
+                                    "asset_id": active_case["case"]["case"].get(
+                                        "asset_id"
+                                    ),
+                                    "scope": "Saved proposals and user/source reports, not confirmed physical findings",
+                                }
+                                metadata["evidence"] = [
+                                    item.model_dump() for item in evidence
+                                ]
+                                yield {
+                                    "type": "evidence",
+                                    "evidence": metadata["evidence"],
+                                }
+                            prior_attempt = (
+                                last_attempt(self.store, conversation_id, named_asset)
+                                if not active_case
+                                and not context
+                                and not selected
+                                and not prediction_id
+                                and not re.search(
+                                    CONVERSATION_POLICY["without_sources_pattern"],
+                                    content,
+                                    re.I,
+                                )
+                                else None
+                            )
+                            if prior_attempt:
+                                evidence.append(
+                                    EvidenceItem.model_validate(prior_attempt["source"])
+                                )
+                                metadata["prior_investigation_attempt"] = {
+                                    key: value
+                                    for key, value in prior_attempt.items()
+                                    if key != "source"
+                                }
+                                metadata["evidence"] = [
+                                    item.model_dump() for item in evidence
+                                ]
+                                yield {
+                                    "type": "evidence",
+                                    "evidence": metadata["evidence"],
+                                }
+                                output += f"The earlier investigation for {prior_attempt['asset_id'] or 'the supplied equipment'} ended with status {prior_attempt['status']}. Its original user report is available, but no accepted saved case is supplied for this explanation.\n\n"
+                                yield {
+                                    "type": "delta",
+                                    "text": output,
+                                    "source": "actual_prior_investigation_status",
+                                }
                             historical_ids = {
                                 identifier
                                 for message in history
@@ -1025,7 +1128,7 @@ class ChatService:
                                 )
                             }
                             validate_sources = bool(
-                                evidence or historical_ids
+                                evidence or historical_ids or active_case
                             ) or engineering_question(content)
                             turns = history_turns(
                                 history, external=bool(evidence or historical_ids)
@@ -1039,6 +1142,35 @@ class ChatService:
                                 ),
                             )
                             model_context.update(
+                                prior_investigation_attempt=(
+                                    {
+                                        key: prior_attempt[key]
+                                        for key in ("id", "asset_id", "status", "error")
+                                    }
+                                    if prior_attempt
+                                    else None
+                                ),
+                                active_investigation=(
+                                    {
+                                        "case_id": active_case["case_id"],
+                                        "asset_id": active_case["case"]["case"].get(
+                                            "asset_id"
+                                        ),
+                                        "proposals_unverified": True,
+                                        "ranked_possibilities": [
+                                            {
+                                                "mechanism": item["mechanism"],
+                                                "status": item["status"],
+                                                "missing_tests": item["missing_tests"],
+                                            }
+                                            for item in active_case["case"][
+                                                "hypotheses"
+                                            ][:3]
+                                        ],
+                                    }
+                                    if active_case
+                                    else None
+                                ),
                                 historical_boundary=(
                                     "Uploaded evidence is a separate post-hoc view; do not alter historical facility findings."
                                     if workspace_result
@@ -1053,7 +1185,7 @@ class ChatService:
                             ) + len(context) > SETTINGS.get(
                                 "model_context_characters", 10000
                             ):
-                                turns.pop(0)
+                                del turns[:2]
                             metadata["context_selection"] = {
                                 **model_context["selection"],
                                 "reference_map": references,
@@ -1111,6 +1243,10 @@ class ChatService:
                                 messages[0][
                                     "content"
                                 ] += " This is an interactive voice turn. Give at most two short sentences. Keep citations and necessary qualifications in text; do not recite opaque source identifiers. Do not invent a finding to sound fast."
+                            elif active_case:
+                                messages[0][
+                                    "content"
+                                ] += " Explain the requested saved possibility in at most 100 words. The supplied ranked_possibilities are the record of what was proposed; earlier assistant interpretations are not new evidence. An analogy illustrates only, and cannot reject another cause. Use the source roles explicitly: reports, observations, assumptions and expected signs are different. A correlated symptom alone does not prove or exclude a cause without a validated operating constraint or discriminating test. Use only caveats relevant to the current question; do not repeat unrelated model-domain disclaimers. Describe tests as proposed, never already performed. Do not invent dates, numeric thresholds or frequency bands. A source citation to user reports does not prove a causal relationship."
                             if profiles:
                                 messages[0][
                                     "content"
@@ -1188,16 +1324,77 @@ class ChatService:
                                         buffered, references, historical_ids
                                     )
                                     from app.evidence.verification import (
-                                        screen_numeric_prose,
+                                        review_numeric_prose,
+                                        NumericVerificationError,
                                     )
 
+                                    review = review_numeric_prose(
+                                        checked, Ledger(self.store)
+                                    )
+                                    if active_case:
+                                        from app.investigation.narrative import (
+                                            observation_role_issues,
+                                        )
+
+                                        kept = []
+                                        semantic_rejections = []
+                                        for paragraph in re.split(
+                                            r"\n\s*\n", review["text"]
+                                        ):
+                                            reasons = observation_role_issues(
+                                                paragraph, evidence
+                                            )
+                                            if re.search(
+                                                r"\b(?:no (?:saved |completed )?investigation|(?:do not|don't) have (?:any )?(?:information|details).{0,25}investigation)\b",
+                                                paragraph,
+                                                re.I,
+                                            ):
+                                                reasons.append(
+                                                    "The response denied a saved investigation that was supplied in this turn's actual context."
+                                                )
+                                            if reasons:
+                                                semantic_rejections.append(
+                                                    {
+                                                        "text": paragraph,
+                                                        "reasons": reasons,
+                                                    }
+                                                )
+                                            else:
+                                                kept.append(paragraph)
+                                        if semantic_rejections:
+                                            metadata["rejected_interpretations"] = (
+                                                semantic_rejections
+                                            )
+                                            status = "partial"
+                                            metadata["error"] = {
+                                                "code": "interpretation_quality_review",
+                                                "stage": "llm.chat",
+                                                "message": "Some generated interpretation was withheld because it contradicted source roles or saved context. The actual saved findings remain available.",
+                                            }
+                                            review["text"] = "\n\n".join(
+                                                kept
+                                            ) or render_recall(active_case)
                                     metadata.setdefault(
                                         "claim_verification", []
-                                    ).extend(
-                                        screen_numeric_prose(
-                                            checked, Ledger(self.store)
-                                        )
-                                    )
+                                    ).extend(review["checks"])
+                                    if review["rejected"]:
+                                        metadata["rejected_commentary"] = review[
+                                            "rejected"
+                                        ]
+                                        if (
+                                            not review["text"].strip()
+                                            and not output.strip()
+                                        ):
+                                            raise NumericVerificationError(
+                                                review["checks"]
+                                            )
+                                        status = "partial"
+                                        metadata["error"] = {
+                                            "code": "unsupported_numeric_claim",
+                                            "stage": "llm.chat",
+                                            "message": "Some generated quantitative commentary was withheld. Valid source findings and supported commentary are retained; inspect the rejected claim details.",
+                                        }
+                                    checked = review["text"]
                                     metadata["narrative_verification"] = {
                                         "status": "unverified",
                                         "scope": "Citations identify sources. Exact numeric checks do not verify qualitative or causal interpretations.",
@@ -1241,7 +1438,11 @@ class ChatService:
             status = "cancelled"
             raise
         except TimeoutError:
-            status = "error"
+            status = (
+                "partial"
+                if output.strip() and metadata.get("measurement_profiles")
+                else "error"
+            )
             metadata["error"] = {
                 "code": "chat_timeout",
                 "message": "The response reached its time budget.",
@@ -1249,16 +1450,26 @@ class ChatService:
             }
             yield {"type": "error", **metadata["error"]}
         except SireError as exc:
-            status = "error"
+            status = (
+                "partial"
+                if output.strip() and metadata.get("measurement_profiles")
+                else "error"
+            )
             metadata["error"] = {
                 "code": exc.code,
                 "message": exc.message,
                 "stage": _failed_stage(orchestration),
             }
+            if getattr(exc, "diagnostics", None):
+                metadata["rejected_claims"] = exc.diagnostics
             yield {"type": "error", **metadata["error"]}
         except Exception:
             LOGGER.exception("Chat tool execution failed")
-            status = "error"
+            status = (
+                "partial"
+                if output.strip() and metadata.get("measurement_profiles")
+                else "error"
+            )
             metadata["error"] = {
                 "code": "tool_execution_error",
                 "message": "A local tool failed unexpectedly. No result was substituted; inspect the execution trace.",

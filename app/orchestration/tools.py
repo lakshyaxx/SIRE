@@ -107,6 +107,7 @@ class ConversationInput(BaseModel):
     model_config = ConfigDict(extra="forbid")
     conversation_id: str
     include_facts: bool = True
+    asset_id: str | None = None
 
 
 def build_registry(
@@ -120,10 +121,17 @@ def build_registry(
     cancellation = cancelled or asyncio.Event()
 
     async def recall_case(args: ConversationInput) -> dict:
-        from app.orchestration.case_context import recall
+        from app.orchestration.case_context import recall, last_attempt
 
-        value = recall(store, args.conversation_id)
-        return value or {"case": None, "evidence_ids": []}
+        value = recall(store, args.conversation_id, args.asset_id)
+        if value:
+            return value
+        attempt = last_attempt(store, args.conversation_id, args.asset_id)
+        return {
+            "case": None,
+            "attempt": attempt,
+            "evidence_ids": [attempt["source"]["id"]] if attempt else [],
+        }
 
     async def status(args: ConversationInput) -> dict:
         from app.orchestration.case_context import job_status

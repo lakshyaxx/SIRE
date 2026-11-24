@@ -209,9 +209,19 @@ def test_buffered_model_false_point_is_withheld_by_real_chat_path(
         if line.startswith("data: ")
     ]
     assert (
-        events[-1]["status"] == "error"
+        events[-1]["status"] == "partial"
         and events[-1]["metadata"]["error"]["code"] == "unsupported_numeric_claim"
     )
     assert "Vibration was 4.907" not in "".join(
         event.get("text", "") for event in events
+    )
+    assert any(
+        event.get("source") == "validated_descriptive_measurement_statistics"
+        for event in events
+    )
+    assert (
+        events[-1]["metadata"]["rejected_commentary"][0]["verifications"][0][
+            "source_value"
+        ]
+        == 2.685
     )

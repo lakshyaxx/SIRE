@@ -71,18 +71,23 @@ def investigation_requested(
     if forced:
         return True
     text = content.casefold().strip()
+    if re.search(
+        r"\b(?:revise|revisit|reconsider|update)\b.*\b(?:investigation|diagnosis|case)\b",
+        text,
+    ):
+        return True
     if re.match(
         r"(?:what is|what are|how does|how do|explain how|define|describe the concept)\b",
         text,
     ) and not re.search(r"\b(?:this|my|attached|our)\b", text):
         return False
-    if re.search(
-        r"\b(?:investigate|investigation|diagnose|diagnosis)\b", text
-    ) and not re.search(
+    if re.search(r"\b(?:investigate|diagnose)\b", text) and not re.search(
         r"\b(?:no|without|do not|don't)\s+(?:fault\s+)?(?:investigat|diagnos)", text
     ):
         return True
-    if re.search(
+    if (
+        has_evidence or re.search(r"\b[A-Za-z][A-Za-z0-9_]*-\d[\w-]*\b", content)
+    ) and re.search(
         r"root cause|compare.*hypothes|why.*(?:fail|damag|break|wear|nois|vibrat|overheat)|(?:fail|damag|break).{0,50}why",
         text,
     ):
