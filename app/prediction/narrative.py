@@ -13,6 +13,12 @@ def facts(result: dict) -> str:
         f"**Saved model inference:** {result['rul_cycles']} operating cycles.",
         f"Model: `{result['model_id']}`; dataset: {result['dataset']}; source: {result.get('asset_id') or result.get('attachment_id')}.",
     ]
+    if result.get("unit_id") is not None:
+        lines.append(
+            f"Engine/unit: {result['unit_id']}; observations: {result.get('observation_count')}; reference cycle: {result['last_cycle']}."
+        )
+    if result.get("warnings"):
+        lines.extend("Warning: " + warning for warning in result["warnings"])
     if result.get("interval"):
         lines.append(
             f"Native interval endpoints: {result['interval'][0]} to {result['interval'][1]} cycles. Method: `{result['interval_method']}`. This is not an exact confidence percentage about a physical component."
@@ -23,7 +29,9 @@ def facts(result: dict) -> str:
     return "\n\n".join(lines) + "\n\n"
 
 
-def validate(text: str, result: dict) -> None:
+def validate(
+    text: str, result: dict, compared_results: list[dict] | None = None
+) -> None:
     """Reject unsupported percent/CI language and cycle values inconsistent with native output."""
     if re.search(
         r"\b\d+(?:\.\d+)?\s*(?:%|percent\b)|\bconfidence\s+interval\b", text, re.I
@@ -57,6 +65,11 @@ def validate(text: str, result: dict) -> None:
             "An anomaly score cannot supply RUL; commentary withheld.",
             503,
         )
+    for compared in compared_results or []:
+        values.append(float(compared["last_cycle"]))
+        values.extend(float(value) for value in compared.get("interval") or [])
+        if compared.get("rul_cycles") is not None:
+            values.append(float(compared["rul_cycles"]))
     for match in re.finditer(
         r"\b(\d+(?:\.\d+)?)\s*(?:operating\s+)?cycles?\b", text, re.I
     ):

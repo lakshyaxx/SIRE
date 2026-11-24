@@ -1,6 +1,7 @@
 """Immutable artifact catalog and bounded, isolated legacy inference."""
 
 import hashlib
+import importlib.util
 import json
 import logging
 import os
@@ -39,6 +40,12 @@ def catalog() -> list[dict[str, Any]]:
     data = manifest()
     checks_path = ROOT / "ml/registry/verification.json"
     checks = json.loads(checks_path.read_text()) if checks_path.is_file() else {}
+    local_path = ROOT / ".runtime/prediction-model-verification.json"
+    local_checks = (
+        json.loads(local_path.read_text(encoding="utf-8"))
+        if local_path.is_file()
+        else {}
+    )
     result = []
     for item in data["models"]:
         record = dict(item)
@@ -46,6 +53,57 @@ def catalog() -> list[dict[str, Any]]:
         record["status"] = record["verification"]["status"]
         record["runnable_status"] = record["status"]
         record["error_details"] = record["verification"].get("error")
+        from app.core.config import TRACK
+
+        required = [
+            TRACK / item["artifact_dir"],
+            TRACK / item["predict_module"],
+            TRACK / "artifacts/common" / item["dataset"] / "preprocessor.joblib",
+        ]
+        required.extend(ROOT / path for path in item.get("weight_paths", []))
+        required.extend(ROOT / path for path in item.get("calibration_paths", []))
+        missing = [
+            path.relative_to(ROOT).as_posix() for path in required if not path.exists()
+        ]
+        dependencies = ["lightgbm", "sklearn", "torch", "joblib"]
+        unavailable = [
+            name for name in dependencies if importlib.util.find_spec(name) is None
+        ]
+        record["availability"] = "available_not_locally_verified"
+        if missing or unavailable:
+            preprocessor = (
+                TRACK / "artifacts/common" / item["dataset"] / "preprocessor.joblib"
+            )
+            record["status"] = (
+                "preprocessing_missing"
+                if not preprocessor.is_file()
+                else "artifact_missing" if missing else "dependency_unavailable"
+            )
+            record["error_details"] = {
+                "missing_paths": missing,
+                "missing_dependencies": unavailable,
+            }
+            record["runnable_status"] = record["status"]
+            record["availability"] = record["status"]
+        if local_checks:
+            local = local_checks.get(item["model_id"], {})
+            record["local_verification"] = local
+            if not missing and not unavailable and local.get("status") == "ready":
+                record["availability"] = "inference_verified_locally"
+            elif local.get("status") == "unavailable":
+                parity_mismatch = str(local.get("error", "")).startswith(
+                    "Original/consolidated parity difference:"
+                )
+                if parity_mismatch and not missing and not unavailable:
+                    record["availability"] = (
+                        "inference_executed_historical_parity_mismatch"
+                    )
+                    record["local_parity"] = "failed"
+                else:
+                    record["status"] = "loading_failed"
+                    record["runnable_status"] = "loading_failed"
+                    record["availability"] = "loading_failed"
+                record["error_details"] = local.get("error")
         record["version"] = (
             record["verification"]
             .get("output", {})

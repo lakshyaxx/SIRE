@@ -275,7 +275,11 @@ def chat_plan(
     """Route obvious input modalities deterministically, without expensive greeting tools."""
     from app.orchestration.planner import nasa_command
 
-    nasa = nasa_command(content) if not prediction_id and not investigation else None
+    nasa = (
+        nasa_command(content)
+        if not prediction_id and not investigation and not attachment_kinds
+        else None
+    )
     if nasa:
         return Plan(
             intent="rul_prediction",

@@ -1,0 +1,173 @@
+SIRE PREDICTION RESTORATION DELIVERY REPORT — 25 November 2026
+
+A. OVERALL STATUS
+COMPLETE for the mandatory uploaded NASA dataset -> trained-model inference -> browser result -> Qwen explanation -> follow-up workflow.
+This does not certify historical numerical parity for every neural route, physical diagnostic accuracy, voice/media, or arbitrary industrial forecasting.
+
+B. ORIGINAL ROOT CAUSES
+1. Native files and scientific dependencies were excluded from the clone. They were restored before this repair; this task verified their actual bytes again.
+2. /predictions/upload allowed only CSV. Its shared CSV path had a 10,000-row whole-file limit and validated the whole input as one engine. Original NASA TXT and normal multi-engine files therefore could not use the prediction UI.
+3. Chat attachment forms did not send a NASA subset/compatibility declaration. The registered prediction tool accepted demo asset_id only, and free-text routing required an explicit FD subset plus demo engine. Uploaded predictions could not reach that tool.
+4. Model readiness copied an older verification JSON even when local weights/dependencies were absent. There were no current file checks in that response.
+5. Auto-executed predictions were not retained as an assistant prediction_id for automatic conversation-local follow-up lookup. UI handoff required an explicit selected saved result.
+6. Conceptual/project-model questions lacked a dedicated current registry/data context. The global system prompt was not changed by this repair.
+
+C. ARTIFACT RESTORATION AND INVENTORY
+Transferred archive: D:/Work/artifacts.zip (139257318 bytes).
+Archive inventory: 1170 entries, 839 files. Original structure restored under ml/artifacts/cmapss (artifacts/, common/, data/, models/, model_registry.json).
+All 813 protected hashes match the recorded Git catalog. There are 168 registered routes across FD001-FD004, including RUL, uncertainty variants and separate anomaly outputs.
+Missing protected artifacts: none at verification. Native code/weights/preprocessors/calibration/research are unchanged. The user's additional root artifacts/ directory was left intact and untracked; do not stage it.
+Per-model inventory: docs/PREDICTION_MODEL_INVENTORY.csv. Detailed paths, sizes, input feature ordering, actual outputs and saved metadata: .runtime/prediction-model-inventory.json.
+
+D. ENVIRONMENT
+Windows; repository C:/Users/aadit/OneDrive/Desktop/SIRE; branch main; original/current commit d7051e449e223846724b722136cbb99695c0e7d0 (no commits were made).
+Python 3.11.9 in root .venv. Node v22.14.0; npm 10.9.2.
+torch 2.8.0+cpu, lightgbm 4.6.0, scikit-learn 1.7.2, numpy 2.2.6, pandas 2.3.3, fastapi 0.121.1.
+Native RUL workers run on CPU using the saved original loaders and training-fitted preprocessing. Torch is the 2.8.0+cpu wheel, while the original captured environment recorded a CUDA wheel; strict reference differences are disclosed below, not attributed to one cause without a controlled experiment.
+Ollama: local loopback, qwen3:4b-instruct text and qwen3-vl:2b-instruct vision. No model substitution, hosted inference, training, or tuning.
+pip check: no broken requirements. Browser QA dependency Playwright 1.56.1 is isolated in ignored .runtime/browser and uses installed Chrome; tracked dependency manifests are unchanged.
+
+E. CODE CHANGES AND RISKS
+app/prediction/datasets.py
+  New prediction-only parser, explicit engine selection, full-file summaries, original-byte storage and SHA validation. Risk: strict malformed/provenance input rejection; general evidence parsers are unchanged.
+app/prediction/conversation.py
+  New bounded NASA intents, registry grounding, model choice and conversation-local saved-result lookup. Risk: conservative language patterns may request clarification.
+app/prediction/service.py
+  Use the same persisted input resolver for API/chat; preserve unit, row count, duration, original output and parity warnings. Risk: additive response metadata only.
+app/prediction/hub.py
+  Check current paths/dependencies and separately expose local inference/parity evidence. Risk: missing files are correctly unavailable; no historical registry is overwritten.
+app/prediction/narrative.py
+  Render exact engine/observation/warning facts and validate comparison commentary against the actual result set. Risk: only supplied comparison values are accepted; confidence/calendar and unsupported-number guards remain.
+app/api/main.py
+  Add optional unit_id; use prediction intake for prediction uploads and explicitly declared NASA chat files. Risk: malformed prediction files return 422; general attachments retain the original path.
+app/orchestration/tools.py
+  Extend the existing prediction.run arguments to uploaded attachment/unit IDs. Risk: backward-compatible optional fields; service still validates exactly one source.
+app/orchestration/runtime.py
+  Prevent an attachment request from silently falling back to an unrelated demo engine. Risk: formerly ambiguous photo/file requests are refused or clarified.
+app/chat/service.py
+  Small conditional prediction branch using the existing runner, provider and persistence; verified facts survive explanation failure. Risk: shared integration is guarded by prediction-only routing and regression tests; global SYSTEM is unchanged.
+web/src/features/predictions/Predictions.tsx
+  Accept TXT/CSV, explicit uploaded engine selector, readiness labels, full-file counts, source/model reset and actual comparison results. Risk: controls depend on matching new backend; shipped together.
+web/src/features/chat/Chat.tsx
+  Add optional NASA subset/provenance controls to the existing attachment form. Risk: only explicitly declared TXT/CSV gets the new intake; voice/image/document flows are unchanged.
+web/src/lib/api.ts
+  Add optional prediction attachment summaries and model availability typing. Risk: additive TypeScript types.
+tests/unit/test_prediction_restoration.py
+  Add isolated intake, source identity, provenance, missing weight, routing, real-inference consistency and explanation-outage regressions. No existing assertions were weakened.
+docs/PREDICTION_MODEL_INVENTORY.csv
+  Per-route architecture, subset, saved sequence/features, measured execution and historical parity classification.
+docs/PREDICTION_RESTORATION_REPORT.txt
+  This measured delivery report and presentation/rollback instructions.
+
+F. VERIFIED MODEL INVENTORY
+Actual audit entries: 168 of 168.
+All 168 routes executed inference. Only 44 have comparable frozen references: 12 matched and 32 failed the unchanged 1e-8 tolerance. The other 124 routes have no comparable frozen reference; they are inference successes, not historical-parity passes. The audit's 136 accepted records combine matched-reference and no-reference executions. Non-parity execution failures: 0.
+Inference availability and scientific parity are explicitly separate. A strict parity failure is not relabeled as a loading failure or hidden as a pass. Per-route errors/durations remain in .runtime/prediction-model-verification.json; the original audit code and scientific tolerances were not changed.
+The UI exposes current weight/preprocessor/dependency availability, local inference verification, and parity warnings. Successful saved results include their original warnings and measured parity caution where applicable.
+
+G. REAL INFERENCE EVIDENCE
+Source: original NASA simulation test_FD001.txt, full file 13096 rows and 100 engines. Five-row preview is explicitly limited and never used to compute file counts.
+Uploaded bytes SHA-256: 3cda7109ce17bafb5443f2ac926cfcf88154b941b8c4cf95eb55d1ddd6f52851.
+Selected engine: 1; actual observations: 31; reference cycle: 31.
+Model: fd001-01_lightgbm-s42; architecture LightGBM; native saved window 50. The original loader left-pads a short nonempty history and returns that warning; the application does not invent a new padding/scaling policy.
+Actual RUL: 115.3478990753549 operating cycles. UI: 115.35. Measured end-to-end prediction duration in this probe: 11 seconds.
+No RUL label file is read by the inference input loader. Models are not fitted, recalibrated or retrained on uploads. RUL is not a calendar failure date.
+
+H. LLM INTEGRATION EVIDENCE
+Actual prompt: Using LightGBM fd001-01_lightgbm-s42, predict the remaining useful life of engine 1 in this uploaded FD001 dataset. Execute the actual prediction model and explain its result in simple English.
+Recognized intent: prediction_run.
+Invoked capability: existing prediction.run; exact uploaded attachment/unit IDs passed to the authoritative service.
+Chat RUL: 115.3478990753549; exact equality with UI: True.
+Actual configured Qwen received the complete structured result and produced an explanation. Exact software-rendered facts precede numerically validated commentary. Prediction success and explanation success remain separate; unit regression proves a provider outage preserves the saved actual result.
+Chat completion: complete; elapsed 16.968000000000757 seconds in this retained browser run.
+Actual Qwen explanation excerpt (full text is in the evidence JSON):
+Using the LightGBM model **fd001-01_lightgbm-s42** on the uploaded **FD001 dataset**, the prediction for the remaining useful life (RUL) of engine 1 is **115.35 operating cycles**.
+
+In simple English:
+The model estimates that, based on the engine's operating data over the past 31 cycles, the engine will continue to function for about **115 more cycles** before it is likely to fail. This means the engine has approximately **115 more operating cycles** before a failure is expected — not a guarantee, but a prediction based on the data and model training.
+
+⚠️ Important note:
+This is a simulation using NASA C-MAPSS data, which is synthetic. It does not reflect real-world engine conditions. The prediction is not a definitive failure point or maintenance schedule — it's an estimate based on historical patterns. No physical inspection or damage assessment was performed. Always validate such predictions with real-world monitoring and expert judgment.
+Follow-up: Which model generated this prediction, what does the predicted remaining useful life mean, and what are its limitations?
+Follow-up completion: complete; elapsed 4.5310000000026776 seconds. The saved prediction is retrieved only from this conversation's message metadata unless the user explicitly hands off a result ID.
+Raw prompt, SSE, result, explanation and follow-up: .runtime/prediction-browser-evidence.json.
+Extra conceptual/comparison acceptance: {"conceptual_qwen_no_inference": true, "actual_model_registry_qwen_no_inference": true, "chat_comparison_same_uploaded_source": true, "invalid_general_csv_no_prediction": true, "existing_facility_investigation_regression": true}. Full actual prompts, model responses and tool results are in .runtime/prediction-extra-live.json. The earlier broad model-catalog recap reached the configured response limit and preserved its exact facts; compact prediction-only explanation context fixed that targeted case. The initial failure is retained in prediction-extra-live-initial.json; model and global token settings were not changed.
+
+I. PREDICTION UI EVIDENCE
+Real headless Chrome browser, actual React frontend, actual HTTP upload/inference, actual Ollama explanation. No final acceptance responses were mocked.
+Original whitespace TXT, headered comma/semicolon/tab CSV and documented canonical/alias mappings are supported; UTF-8 with optional BOM. Per-file byte limit remains 10 MB; full file limit is 100000 observations, while each selected engine remains bounded by the existing 10000-row history limit.
+Alias examples: engine_id/unit_id -> unit; setting_1 -> op1; sensor_2 -> s2. Aliases must map uniquely to the complete 26 fields. RUL label-only files, malformed values, gaps, duplicate/noninteger cycles and generic industrial schema are rejected.
+The uploaded engine selector, model selector, real RUL display, full-file summary, sensor chart, busy/disabled controls, comparison and stale dataset reset were exercised.
+Actual same-input comparison: fd001-01_lightgbm-s42 = 115.3478990753549 cycles, fd001-02_lstm-s42 = 119.96189504861832 cycles.
+Browser JavaScript errors: 0.
+Invalid industrial CSV returned HTTP 422; no fallback prediction. Without the NASA declaration, inference stays disabled. Multi-engine uploads require an explicit choice. Mobile viewport 390px had document width 390px.
+Screenshots: .runtime/prediction-ui.png, .runtime/prediction-chat.png, .runtime/prediction-mobile.png. Initial browser harness timing failures were retained separately; completed reruns and assertions are the evidence above.
+
+J. TEST RESULTS
+Baseline full suite: 333 passed, 5 failed, 3 skipped, one warning, 101.53s.
+Earlier repair regression: 351 passed, same 5 failed, same 3 skipped, one warning, 159.61s.
+Loaded run alongside the full model audit: 358 passed, 6 failed, 3 skipped, 451.33s. The extra failure was the unchanged timing-sensitive test_performance_cache.py::test_model_discovery_does_not_block_the_async_request_loop; it passed in an isolated rerun. That run is retained in .runtime/prediction-final-tests-loaded.log. The latest run below was performed after the audit/browser work completed.
+Latest final suite: 5 failed, 359 passed, 3 skipped, 1 warning in 137.40s (0:02:17).
+After the final dataset-context/routing guard refinements, all 26 prediction-restoration tests passed again in 18.40s; see .runtime/prediction-final-targeted.log. In particular a new CSV invalidates automatic reuse of an old prediction, and a physical transformer investigation is not treated as a neural-model request.
+Targeted restoration/routing tests include actual NASA parsing, aliases, duplicate/schema/domain rejection, source identity, no cross-conversation automatic recall, no old engine inheritance, missing weights, knowledge numerical safeguards, short-history native warning and real-model API/chat equality with test-only unavailable explanation transport.
+Frontend production build and TypeScript passed; 13 frontend tests passed. Ruff and Black checks are recorded in final verification logs. The existing large-chunk advisory remains; no application redesign or chart-library change.
+Changed files pass Black. The whole-repository Black check still flags app/knowledge/case_memory.py, app/evidence/verification.py and app/investigation/engine.py; their checkpoint copies have identical hashes and fail the same explicit check. These pre-existing unrelated formatting differences were preserved.
+Unit fixtures/test-only provider responses are distinct from the real Chrome/Ollama acceptance and the 168-route native audit.
+Pre-existing failed tests remain:
+  tests/unit/test_v3_2_ingestion.py::test_real_compressed_audio_transcription[.flac-FLAC]
+  tests/unit/test_v3_2_ingestion.py::test_real_compressed_audio_transcription[.ogg-OGG]
+  tests/unit/test_v3_2_ingestion.py::test_real_compressed_audio_transcription[.mp3-MP3]
+  tests/unit/test_v3_2_voice.py::test_real_local_synthesis_transcription_roundtrip
+  tests/unit/test_v3_formats_voice.py::test_pcm_metadata_and_truthful_asr_error
+Optional semantic runtime and two Silero-dependent tests are skipped. Physical microphone/speaker and broad semantic/industrial diagnostic validation were not performed.
+Detailed logs: .runtime/prediction-baseline-tests.log, prediction-final-tests.log, prediction-model-audit.log, prediction-frontend-build.log and prediction-routing-regression.log.
+
+K. PROTECTED FUNCTIONALITY
+All 14 production tables have identical row counts and complete logical-content hashes before/after; original conversations, cases, evidence and predictions are preserved. Test/demo uploads and conversations are in separate .runtime/prediction-qa state, not imported into production.
+All 813 native protected hashes match. Original artifacts/research and original evaluation records are unchanged. No database schema/table changes, deletes, retraining, paid services, public listeners, commits, staging or pushes.
+Original investigation/hypothesis/evidence and global evidence-verification source, global system prompt, voice services/components and unrelated pages were hash-compared and left unchanged. The prediction-only numerical comparison extension is itemized in E and retains the existing confidence/calendar/unsupported-value checks. Existing tests exercise the protected paths; general chat/image/document/CSV regressions pass apart from the listed pre-existing speech failures. Browser acceptance focuses on prediction and chat, not a new certification of every unrelated screen.
+
+L. REMAINING LIMITATIONS / PRECISE BLOCKERS
+REPRO-1: strict historical parity differs for 32 routes in this local CPU runtime. Command: python scripts/audit_models.py --output .runtime/prediction-model-verification.json. Exact per-model deltas remain in that JSON/CSV; example fd001-02_lstm-s42 difference 0.0018328428268432617 cycles. No tolerance was widened or original result overwritten. Native inference and cross-interface equality still succeed; do not claim exact original-machine reproduction for those neural routes.
+VOICE-1 (pre-existing): media probe reports incompatible ONNX Runtime API (requested 28, available 1/17) and missing configured ASR-base/Silero files. Relevant config/media.yaml and ignored .runtime/optional_deps / .runtime/media_models. These are outside prediction repair; voice code and default language model were not changed. Voice test failures are not reported as passes.
+PARSE-1: origin cannot be authenticated from 26 columns; the UI requires the user's NASA subset/domain declaration. A general industrial CSV cannot become a valid aircraft RUL input just by being numeric.
+No industrial correctness guarantee, calendar-life conversion, arbitrary forecasting or comprehensive accessibility/hardware acceptance is claimed.
+
+M. PRESENTATION INSTRUCTIONS
+From PowerShell:
+  cd C:\Users\aadit\OneDrive\Desktop\SIRE
+  $env:SIRE_STATE_DIR = "$PWD\.runtime\v2"
+  $env:SIRE_OLLAMA_EXE = "$PWD\.runtime\ollama\ollama.exe"
+  $env:OLLAMA_MODELS = "$PWD\.runtime\ollama-models"
+  .\.venv\Scripts\python.exe scripts\dev.py
+Equivalent local shortcut: .\.runtime\start-local.ps1.
+The configured local launcher uses .venv and portable Ollama, binds 127.0.0.1:8000, and preserves .runtime/v2/sire.sqlite3. If the server is already running, use it instead of launching a second copy. API docs: http://127.0.0.1:8000/docs.
+
+Prediction-tab demonstration:
+  1. Open http://127.0.0.1:8000/predictions.
+  2. Choose FD001; confirm the C-MAPSS simulation checkbox before upload.
+  3. Upload ml/artifacts/cmapss/data/test_FD001.txt.
+  4. Show 13096 full-file rows, 100 engines, and the explicitly limited five-row preview.
+  5. Select uploaded engine 1 and fd001-01_lightgbm-s42.
+  6. Run prediction: actual value 115.3478990753549 cycles, shown rounded to 115.35.
+  7. Expand provenance/limitations and the native short-history padding warning.
+  8. For comparison select two saved IDs, such as fd001-01_lightgbm-s42 and fd001-02_lstm-s42. Explain the historical parity warning rather than presenting it as a newly established accuracy measurement.
+
+Chat demonstration:
+  1. Create a new chat with no historical facility scope.
+  2. Expand NASA dataset upload options. Select FD001 and confirm NASA simulation provenance.
+  3. Attach the same test_FD001.txt through the existing attachment button.
+  4. Submit the exact prompt in section H. Tool facts arrive before the Qwen explanation.
+  5. Ask the follow-up in H without reattaching a result. The original result should be retrieved from this conversation.
+  6. Optionally request: Compare LightGBM and LSTM for engine 1 on the same uploaded FD001 dataset.
+  7. For conceptual grounding ask: What is NASA C-MAPSS and what does RUL mean? This must not execute RUL inference.
+
+The retained first text turn took 16.968000000000757 seconds and the warm follow-up 4.5310000000026776 seconds; these are individual observations, not latency guarantees. Allow time for cold local model loading.
+Reliable fallback: choose built-in FD001-ENGINE-001 and the same saved LightGBM route. This still executes the real model and gives the same engine history; it is not a hardcoded saved answer.
+Explain the project as validated input -> saved training preprocessing -> engineered features/sequence -> actual specialized model -> scalar RUL -> LLM explanation. The LLM does not calculate the numeric RUL.
+
+N. ROLLBACK
+Original source/consistent SQLite checkpoint: C:\Users\aadit\OneDrive\Desktop\SIRE\.runtime\prediction-checkpoint-20261125-002356.
+Source archive: source.zip; original branch/commit/status and SHA are in baseline.json; original table hashes are in database-digests.json.
+Stop only the verified SIRE launcher/server processes. Preserve any newer user edits first. Restore only the original files listed in E from source.zip, remove or move aside only the new prediction modules/tests/docs if no other work depends on them, rebuild web with its existing npm build command, then restart.
+There is no schema migration to undo. Do not restore the old database over newer user data, reset/clean Git, delete artifacts, remove environments or overwrite model weights. Retain the transferred archive and both user artifact copies. Do not stage the root artifacts/ directory.

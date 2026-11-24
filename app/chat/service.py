@@ -106,6 +106,15 @@ class ChatService:
             input_audio_id,
             voice_response,
         )
+        from app.prediction.conversation import resolve as prediction_route
+
+        prediction_request = (
+            prediction_route(
+                self.store, conversation_id, content, selected, prediction_id
+            )
+            if mode == "chat" and not context and not facility_case_id
+            else None
+        )
         simple_route = (
             fast_route(content)
             if mode == "chat"
@@ -113,6 +122,7 @@ class ChatService:
             and not context
             and not prediction_id
             and not facility_case_id
+            and not prediction_request
             else None
         )
         from app.orchestration.planner import transcription_plan
@@ -188,7 +198,20 @@ class ChatService:
         )
         orchestration = Runner(
             Ledger(self.store),
-            status_plan
+            (
+                Plan(
+                    intent="prediction_" + prediction_request["kind"],
+                    goals=["Use validated NASA data and actual saved-model tools only"],
+                    tools=[
+                        Invocation(tool_id="prediction.run", arguments=args)
+                        for args in prediction_request.get("arguments", [])
+                    ],
+                    deadline_seconds=300,
+                )
+                if prediction_request
+                else None
+            )
+            or status_plan
             or recall_plan
             or workspace_plan
             or export_plan
@@ -267,6 +290,167 @@ class ChatService:
                         yield event
                 if cancelled.is_set():
                     status = "cancelled"
+                elif prediction_request:
+                    from app.prediction.narrative import facts, validate
+
+                    native_results = []
+                    if prediction_request["kind"] in {"run", "compare"}:
+                        orchestration.registry = build_registry(
+                            self.store, self.provider, cancelled
+                        )
+                        for invocation in orchestration.plan.tools:
+                            yield {
+                                "type": "tool",
+                                "tool": "prediction.run",
+                                "status": "running",
+                            }
+                            try:
+                                value = await orchestration.execute(
+                                    invocation, cancelled
+                                )
+                                native_results.append(value["prediction"])
+                                metadata["tools"].append(
+                                    {
+                                        "tool": "prediction.run",
+                                        "status": "complete",
+                                        "model": invocation.arguments["model_id"],
+                                    }
+                                )
+                                yield {"type": "tool", **metadata["tools"][-1]}
+                            except SireError as exc:
+                                if prediction_request["kind"] != "compare":
+                                    raise
+                                status = "partial"
+                                metadata.setdefault("tool_errors", []).append(
+                                    {"code": exc.code, "message": exc.message}
+                                )
+                                output += f"{invocation.arguments['model_id']}: {exc.message}\n\n"
+                    elif prediction_request["kind"] == "followup":
+                        native_results = [
+                            self.store.result("predictions", identifier)
+                            for identifier in prediction_request.get(
+                                "prediction_ids", [prediction_request["prediction_id"]]
+                            )
+                        ]
+                    else:
+                        output = prediction_request["text"]
+                    if native_results:
+                        metadata["prediction_id"] = native_results[-1]["id"]
+                        metadata["prediction_ids"] = [r["id"] for r in native_results]
+                        output += "".join(facts(result) for result in native_results)
+                    yield {
+                        "type": "delta",
+                        "text": output,
+                        "source": "validated_prediction_tools",
+                    }
+                    if native_results and not cancelled.is_set():
+                        messages = [
+                            {
+                                "role": "system",
+                                "content": SYSTEM
+                                + " Explain the supplied actual saved predictions in two brief qualitative sentences. Exact numbers and model identity are already displayed by software. Do not repeat figures, invent metrics, confidence percentages or calendar lifetime. Address the user's question using only these results. Different model estimates are not accuracy rankings; no evaluation ground truth was supplied for this prediction.",
+                            },
+                            {
+                                "role": "user",
+                                "content": json.dumps(
+                                    {
+                                        "question": content,
+                                        "actual_predictions": native_results,
+                                    }
+                                ),
+                            },
+                        ]
+                        commentary = ""
+                        try:
+                            async with orchestration.span("llm.chat", []) as step:
+                                step["model_provenance"] = {
+                                    "provider": "ollama",
+                                    "model": model or SETTINGS["text_model"],
+                                }
+                                async for token in self.provider.stream(
+                                    messages, model or SETTINGS["text_model"], cancelled
+                                ):
+                                    commentary += token
+                                validate(
+                                    commentary, native_results[0], native_results[1:]
+                                )
+                            output += commentary
+                            metadata["explanation_status"] = "validated"
+                            yield {
+                                "type": "delta",
+                                "text": commentary,
+                                "source": "validated_model_commentary",
+                            }
+                        except (SireError, TimeoutError) as exc:
+                            status = "partial"
+                            metadata["explanation_status"] = (
+                                "failed_tool_result_preserved"
+                            )
+                            metadata.setdefault("tool_errors", []).append(
+                                {
+                                    "code": getattr(exc, "code", "explanation_timeout"),
+                                    "message": str(exc),
+                                }
+                            )
+                    metadata["prediction_status"] = (
+                        "complete" if native_results else prediction_request["kind"]
+                    )
+                    if (
+                        prediction_request["kind"] == "knowledge"
+                        and not cancelled.is_set()
+                    ):
+                        from app.prediction.conversation import (
+                            validate_knowledge,
+                            explanation_context,
+                        )
+
+                        grounding = explanation_context(content, output)
+                        commentary = ""
+                        try:
+                            async with orchestration.span("llm.chat", []) as step:
+                                step["model_provenance"] = {
+                                    "provider": "ollama",
+                                    "model": model or SETTINGS["text_model"],
+                                }
+                                async for token in self.provider.stream(
+                                    [
+                                        {
+                                            "role": "system",
+                                            "content": SYSTEM
+                                            + " Give a brief plain-English explanation of the supplied prediction-specific repository facts. The software has already displayed exact catalog details. Do not introduce other models, new figures or metrics. No inference was executed for this conceptual question.",
+                                        },
+                                        {
+                                            "role": "user",
+                                            "content": json.dumps(
+                                                {
+                                                    "question": content,
+                                                    "verified_repository_context": grounding,
+                                                    "task": "Write only two short sentences. Do not repeat the model table or list of IDs. Briefly explain the requested concept or the specific saved window, using only these verified facts.",
+                                                }
+                                            ),
+                                        },
+                                    ],
+                                    model or SETTINGS["text_model"],
+                                    cancelled,
+                                ):
+                                    commentary += token
+                                validate_knowledge(
+                                    commentary, output + json.dumps(grounding)
+                                )
+                            output += "\n\n" + commentary
+                            metadata["explanation_status"] = "validated"
+                            yield {"type": "delta", "text": "\n\n" + commentary}
+                        except (SireError, TimeoutError) as exc:
+                            status = "partial"
+                            metadata["explanation_status"] = (
+                                "failed_tool_facts_preserved"
+                            )
+                            metadata.setdefault("tool_errors", []).append(
+                                {
+                                    "code": getattr(exc, "code", "explanation_timeout"),
+                                    "message": str(exc),
+                                }
+                            )
                 elif simple_route:
                     tool_id = (
                         "conversation.respond"

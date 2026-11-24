@@ -56,6 +56,7 @@ class PredictionRequest(BaseModel):
     model_id: str = Field(max_length=160)
     asset_id: str | None = Field(default=None, max_length=100)
     attachment_id: str | None = Field(default=None, max_length=100)
+    unit_id: int | None = Field(default=None, ge=1)
 
     @model_validator(mode="after")
     def one_source(self) -> "PredictionRequest":
@@ -72,6 +73,7 @@ class CompareRequest(BaseModel):
     model_ids: list[str] = Field(min_length=2, max_length=4)
     asset_id: str | None = None
     attachment_id: str | None = None
+    unit_id: int | None = Field(default=None, ge=1)
 
 
 class ChatRequest(BaseModel):
@@ -334,6 +336,18 @@ def create_app(
     ) -> dict:
         """Persist validated local image/document/CSV evidence with randomized storage names."""
         content = await file.read(config.SETTINGS["max_upload_bytes"] + 1)
+        if dataset and (file.filename or "").lower().endswith((".csv", ".txt")):
+            from app.prediction.datasets import ingest as ingest_prediction
+
+            return await asyncio.to_thread(
+                ingest_prediction,
+                request.app.state.store,
+                conversation_id,
+                file.filename,
+                content,
+                dataset,
+                compatible_cmapss,
+            )
         return await asyncio.to_thread(
             ingestion.ingest,
             request.app.state.store,
@@ -581,10 +595,10 @@ def create_app(
         compatible_cmapss: bool = Form(False),
     ) -> dict:
         """Independent CSV ingestion does not require creating a chat."""
-        if not (file.filename or "").lower().endswith(".csv"):
-            raise SireError("invalid_csv", "Prediction uploads must be UTF-8 CSV.")
+        from app.prediction.datasets import ingest as ingest_prediction
+
         return await asyncio.to_thread(
-            ingestion.ingest,
+            ingest_prediction,
             request.app.state.store,
             None,
             file.filename,
@@ -595,10 +609,12 @@ def create_app(
 
     @application.get("/api/v1/predictions/uploads/{identifier}/telemetry")
     def uploaded_sensor_history(
-        identifier: str, dataset: Dataset, request: Request
+        identifier: str, dataset: Dataset, request: Request, unit_id: int | None = None
     ) -> dict:
         """Show only the uploaded validated history when it is the selected source."""
-        frame = ingestion.csv_history(request.app.state.store, identifier, dataset)
+        from app.prediction.datasets import history
+
+        frame = history(request.app.state.store, identifier, dataset, unit_id)
         return {
             "records": frame.to_dict("records"),
             "source": identifier,
@@ -625,6 +641,7 @@ def create_app(
                             identifier,
                             body.asset_id,
                             body.attachment_id,
+                            unit_id=body.unit_id,
                         ),
                     }
                 )

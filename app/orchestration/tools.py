@@ -42,7 +42,9 @@ class PredictionInput(BaseModel):
     model_config = ConfigDict(extra="forbid")
     dataset: str = Field(pattern=r"^FD00[1-4]$")
     model_id: str
-    asset_id: str
+    asset_id: str | None = None
+    attachment_id: str | None = None
+    unit_id: int | None = Field(default=None, ge=1)
 
 
 class FacilityInput(BaseModel):
